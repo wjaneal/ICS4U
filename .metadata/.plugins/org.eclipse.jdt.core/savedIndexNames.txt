@@ -1,0 +1,26 @@
+INDEX VERSION 1.129+C:\Users\William Neal\Documents\GitHub\ICS4U\.metadata\.plugins\org.eclipse.jdt.core
+1075874757.index
+1494953510.index
+71018339.index
+3260877587.index
+2137645919.index
+1534758212.index
+1079038258.index
+443719586.index
+3778645487.index
+3054599606.index
+3423988565.index
+2827973200.index
+3068640910.index
+4013218907.index
+2694812966.index
+3064462347.index
+564630085.index
+495217312.index
+293692079.index
+318857592.index
+1334412443.index
+104940386.index
+1156016802.index
+692810719.index
+3441411224.index

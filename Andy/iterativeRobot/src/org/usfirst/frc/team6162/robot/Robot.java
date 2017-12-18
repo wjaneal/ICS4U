@@ -47,7 +47,8 @@ public class Robot extends IterativeRobot {
 	private static final int IMG_WIDTH = 320;
 	private static final int IMG_HEIGHT = 240;
 	private VisionThread visionThread;
-	private double centerX = 0.0;
+	private double centerX0 = 0.0;
+	private double centerX1 = 0.0;
 	private double centerY = 0.0;
 	private double rw=30;
 	private double rh=40;
@@ -80,9 +81,11 @@ public class Robot extends IterativeRobot {
 	    
 	    visionThread = new VisionThread(camera, new GripPipeline(), pipeline -> {
 	        if (!pipeline.filterContoursOutput().isEmpty()) {
-	            Rect r = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+	            Rect r0 = Imgproc.boundingRect(pipeline.filterContoursOutput().get(0));
+	            Rect r1 = Imgproc.boundingRect(pipeline.filterContoursOutput().get(1));
 	            synchronized (imgLock) {
-	                centerX = r.x + (r.width / 2);
+	                centerX0 = r0.x + (r0.width / 2);
+	                centerX1 = r1.x + (r1.width / 2);
 	            }
 	        }
 	    });
@@ -147,10 +150,12 @@ public class Robot extends IterativeRobot {
 	public void teleopPeriodic() {
 		double centerX;
 		synchronized (imgLock) {
-			centerX = this.centerX;
+			centerX0 = this.centerX0;
+			
 		}
-		double turn = centerX - (IMG_WIDTH / 2);
-		SmartDashboard.putNumber("centerX", centerX);
+		double turn = centerX0 - (IMG_WIDTH / 2);
+		SmartDashboard.putNumber("centerX0", centerX0);
+		SmartDashboard.putNumber("centerX1", centerX1);
 		myRobot.arcadeDrive(XboxController);
 		Timer.delay(0.2);
 		if(XboxController.getRawAxis(4)!=0){
