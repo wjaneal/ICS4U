@@ -1,2 +1,8 @@
-coding conventions
+1.coding conventions
 https://www.python.org/dev/peps/pep-0008/#introduction
+Reason:It introduces fairly basic basics of coding conventions about Python than others.
+
+2.documentation standards
+http://docs.python-guide.org/en/latest/writing/documentation/#
+Reason:
+It fully introduces different types of documentation.
