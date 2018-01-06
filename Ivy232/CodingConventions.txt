@@ -1,2 +1,5 @@
 http://msdl.cs.mcgill.ca/people/shahla/misc/PythonConventions.pdf
+<<<<<<< HEAD
 # ppt is a visual form for us to learn.
+=======
+>>>>>>> Try
