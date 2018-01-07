@@ -1,0 +1,33 @@
+Update your repository
+git pull
+
+Make a new branch:
+git checkout -b branchName
+
+Switch to an existing branch:
+git checkout branchName
+
+Check the status (what branch are you on?)
+git status
+
+Do some new work:
+(1) Checkout a new branch:
+git checkout -b newBranch
+(2) Do the work - change the files
+(3) Save the work:
+(a) git add -A
+(b) git commit -m "Did some work"
+(c) git push origin newBranch
+(4) Merge to master:
+(a) git checkout master
+(b) git pull 
+(c) git merge newBranch
+(d) git add -A
+(e) git commit -m "Merged newBranch branch"
+(f) git push origin master
+
+To save a file in vim:
+<ESC>
+:wq <Enter>
+
+
