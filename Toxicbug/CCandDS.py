@@ -9,6 +9,7 @@ Created on Thu Jan  4 13:00:32 2018
 
 #Python coding conventions and documentation standards
 #Python coding conventions:(from Python Software Foundation)
+#https://www.python.org/dev/peps/pep-0008/
 '''
 A tab should be used when indenting
 Imports should usually be on separate lines
@@ -19,7 +20,8 @@ Leave one blank line between different functions
 Leave two blank lines between different classes
 '''
 #Documentation stardards:(from Python Software Foundation)
-    #(1)single-line comment: use hash tag(#)
+#https://www.python.org/dev/peps/pep-0008/    
+#(1)single-line comment: use hash tag(#)
     #comments here...
     #Specify the data type of a variable and what the variable records
     #(2)multiple-line comment: use triple quotes
