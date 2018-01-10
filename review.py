@@ -38,14 +38,9 @@ print(Names[:4])
 print(Names[1:3])#Google Python lists for more information.
 
 #Loops
-for i in range(0,5):
-    print(Names[i])
+Names = ["Vivian", "Airose", "Mark"]
+print (Names[1:])
+print (Names[:3])
 
-for i in range(0,5): #This is a nested loop
-    for j in range(0,5):
-    	print("Row: ", i, "  Column: ", j)
-	#Decision Structures
-	if i * j > 5: #> is a comparison operator
-	    print("Coordinates in range")
 
 
