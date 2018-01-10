@@ -5,6 +5,9 @@
         print(i,"has a remainder of 5 divided by 10.")
 '''
 #nested loop
-for i in range(0,3):
-    for j in range(0,2):
+for i in range(0,5):
+    for j in range(0,3):
         print("row",i,"column",j)
+        #decision structure
+        if i * j > 2:
+            print("Coordinates in range")
