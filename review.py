@@ -42,5 +42,15 @@ Names = ["Vivian", "Airose", "Mark"]
 print (Names[1:])
 print (Names[:3])
 
+<<<<<<< HEAD
+=======
+for i in range(0,5): #This is a nested loop
+    for j in range(0,5):
+    	print("Row: ", i, "  Column: ", j)
+	#Decision Structures
+    if i * j > 5:   #> is a comparison operator
+            print("Coordinates in range")
+
+>>>>>>> 8cfb903d4e82b754d5ee8f2c4cfe981d00e995a8
 
 
