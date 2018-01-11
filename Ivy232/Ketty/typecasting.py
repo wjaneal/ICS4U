@@ -5,8 +5,8 @@ typecasting
 to make simple calculation
 
 """
-a = int(input("Please print the first number:"))
-b = int(input("Please print the second number:"))
+a = int(input("Please print the first number :"))
+b = int(input("Please print the second number :"))
 s = a + b
 d = a - b
 p = a * b
