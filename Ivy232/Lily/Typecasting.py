@@ -1,3 +1,8 @@
+#Lily
+#Jan.11st 2018
+#Typecasting
+#To get sum, difference, product and quotient in the form of integer and floating number
+
 x = int(input("Please type in the first number:"))
 y = int(input("Please type in the second number:"))
 a = x + y
