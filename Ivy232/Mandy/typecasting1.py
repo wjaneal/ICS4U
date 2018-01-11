@@ -12,19 +12,20 @@ Write a program that does the following:
 (e) Convert the numbers to strings.
 (f) Output the four results as strings as follows: The sum of a and b is 5.667, etc. for subtraction, multiplication and division.
 '''
-c = int(input("Please put a number!"))
-d = int(input("Please put a number!"))
+a = int(input("Please put an integer!"))
+b = int(input("Please put an integer!"))
+print ("The sum of a and b", a+b)
+print ("The difference of a and b", a-b)
+print ("The product of a and b", a*b)
+print ("The quotient of a and b", a/b)
+
+
+c = float(input("Please put an floating point number!"))
+d = float(input("Please put a floating point number!"))
 e = c + d
 f = c - d
 g = c*d
 h = c/d
-print ("The sum of c and d", e)
-print ("The difference of c and d", f)
-print ("The product of c and d", g)
-print ("The quotient of c and d", h)
-
-c = float(input("Please put an floating point number!"))
-d = float(input("Please put a floating point number!"))
 
 print ("The sum of c and d", str(e))
 print ("The difference of c and d", str(f))
