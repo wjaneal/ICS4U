@@ -6,10 +6,6 @@ Coding convention:
 (b) Name, Date, Title, Purpose in multiline comment at the beginning
 (c) mixedCase variable names
 
-Reference for Typecasting: 
-https://www.tutorialspoint.com/python/python_variable_types.htm
-
-
 Write a program that does the following:
 (a) Let the user input two numbers.
 (b) Convert the numbers to integers
@@ -34,6 +30,5 @@ print(x/y)
 print(a/b)
 print(x/y+a/b)
 print (int(a/b)) #This converts the number back to an integer
-
 
 
