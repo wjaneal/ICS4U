@@ -4,6 +4,7 @@ Ketty
 typecasting
 to make a simple check between numbers and check whether the letter is in the word.
 
+
 """
 a = int(input("Type the first number:"))
 b = int(input("Type the second number:"))
@@ -32,8 +33,26 @@ def checkletter(letter,word):
     else:
         return("This letter isn't in the word.")
 
-letter = input("Which letter do you want to check?")
+
 word = input("Which word do you want to check?")
-print(checkletter(letter,word))
-    
-        
+print(checkletter('a',word))
+print(checkletter('b',word))
+print(checkletter('c',word))
+print(checkletter('d',word))
+print(checkletter('e',word))
+
+
+def checkLe(letter,word):
+    for i in range(65,91):
+        letter = chr(i)
+        if letter in word:
+            print(chr(i),"is in the word.")
+        else:
+            print(chr(i),"isn't in the word.")
+    for i in range(97,123):
+        letter = chr(i)
+        if letter in word:
+            print(chr(i),"is in the word.")
+        else:
+            print(chr(i),"isn't in the word.")
+checkLe(a,"hdsiojwefhi")
