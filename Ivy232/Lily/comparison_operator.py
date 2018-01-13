@@ -1,4 +1,5 @@
 '''Lily Tao, Jan.12th 2018'''
+
    
 
 
@@ -37,15 +38,22 @@ print(func('e',str(input("Please type in a string:"))))
 
 
 
-def check(letter,word):   
+word = input("Please type in a string again:")
+
+def check(letter,word):
     if letter in word:
         return (letter + ' is in the word')
     else:
-        return (letter + 'is not in the word')
+        return (letter + ' is not in the word')
 
-for i in range (65, 91) and (97,123):
-    a = str(chr(i))
-    print(check(a,str(input("Please type in a string:"))))
+for i in range (65, 91):
+    letter = chr(i)
+    print(check(letter,word))
+    
+for i in range (97,123):
+    letter=chr(i)
+    print(check(letter,word))
+
 
 
 
