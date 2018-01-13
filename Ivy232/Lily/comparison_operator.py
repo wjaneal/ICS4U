@@ -23,17 +23,18 @@ if a < b:
 
 
 
+t = str(input("Please type in a string:"))
 def func(letter,word):
     if letter in word:
         return letter + ' is in ' + word
     else:
         return letter + ' is not in ' + word
 
-print(func('a',str(input("Please type in a string:"))))
-print(func('b',str(input("Please type in a string:"))))
-print(func('c',str(input("Please type in a string:"))))
-print(func('d',str(input("Please type in a string:"))))    
-print(func('e',str(input("Please type in a string:"))))
+print(func('a',t))
+print(func('b',t))
+print(func('c',t))
+print(func('d',t))    
+print(func('e',t))
 
 
 
