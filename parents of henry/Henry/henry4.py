@@ -38,9 +38,9 @@ Area2 = 0.0
 def g(x):
     return 2 ** x
 for j in range (1,n+1):
-    xi = c + (d-c)/n * j
-    Ai = (d-c)/n * g(xi)
-    Area2 += Ai
+    xj = c + (d-c)/n * j
+    Aj = (d-c)/n * g(xj)
+    Area2 += Aj
     print (Area2)
 
 
@@ -48,7 +48,14 @@ e = int(eval(input('starting x value:')))
 f = int(eval(input('ending x value:')))
 n = 100000
 Area3 = 0.0
-def
+def h(x):
+    return 2**x + x**2
+for k in range (1,n+1):
+    xk = e + (f-e)/n * k
+    Ak = (f-e)/n * h(xk)
+    Area3 += Ak
+    print (Area3)
+    
 
 
 
