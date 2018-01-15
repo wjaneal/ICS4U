@@ -1,7 +1,7 @@
 #this is another way to question 3 in assignment 3.
 
 
-b=str(input("please enter a string"))
+b=input("please enter a string")
 a = 0
 def func(letter,word):
     for i in range (65,91):
