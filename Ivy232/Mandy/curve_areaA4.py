@@ -2,7 +2,7 @@
 #Date: January 15, 2018
 #Program Title: Area Calculator
 #Program Function: This program calcuates the area under curves (mathematical functions)
-import math
+from math import *
 #Variables:
 a = 1.0 #This is the starting x value
 b = 5.0 #This is the ending x value
