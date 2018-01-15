@@ -39,4 +39,3 @@ print('The sum of x and y is', stringsum)
 print('The difference of x and y is', stringdifference)
 print('The product of x and y is', stringproduct)
 print('The quotience of x and y ist', stringquotience)
-5
