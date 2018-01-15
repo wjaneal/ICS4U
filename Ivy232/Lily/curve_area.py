@@ -16,9 +16,9 @@ def f(x):
 
 for i in range(1,n+1):
     #Find xi, the current x value
-    xi = (b-a)/n  
+    xi = a+i*(b-a)/n 
     #Find the area of the rectangle, Ai, using the function
-    Ai = f(a+i*(b-a)/n)*((b-a)/n)
+    Ai = f(xi)*((b-a)/n)
     #Add it to the total area, "Area"
     Area += Ai
 #Print the area here
