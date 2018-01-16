@@ -12,19 +12,36 @@ Coding convention:
 (1c) Allow the user to input the answers.
 (1d) Keep track of the score and, when all of the questions have been asked, tell print the final quiz score.
 
+'''
+List1 = ["red", "orange", "green"]
+Tuple1 = ("blue", "yellow", "purple")
 
+print(List1[0])
+print(Tuple1[0])
+#List1[0] = "white" - This command is ok.
+#Tuple1[0] = "brown" - This command is not ok.
+#Tuples do not support assignment
+#Lists are mutable; tuples are not mutable
+List1[0] = "white"
+List1.append("pink")
+print(List1)
+List1.pop(1)
+print(List1)
+List1.reverse()
+print(List1)
 
+#Dictionaries
 
+D1 = {0:"Red", 1:"Green", 2:"Blue"}
+D = {"What is the capital city of France?":"Paris", "What is the capital city of Japan?":"Beijing!", "What is the capital city of Greece?":"Buzhidao","What is the capital city of Brazil":"Brazilia","How cold is absolute 0?":"-273.15 degrees celcius"}
 
-
-
-
-
-
-
-
-
-
+print("Here are the values in D1:")
+print(D1[0],D1[1],D1[2])
+Dk = D.keys()
+Dv = D.values()
+print(D.keys(), D.values())
+for i in range(0,len(D.keys())):
+    print(Dk[i], Dv[i])
 
 
 
