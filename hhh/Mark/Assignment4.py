@@ -9,7 +9,7 @@ Purpose:
 (3) Find the area under a curve of your choice on a range of your choice.
 """
 
-from math import*
+import math
 print('Question 1')
 a = 0
 b = math.pi
@@ -43,12 +43,12 @@ print(Area2)
 print()
 
 print('Question 3')
-e = 0
-f = math.pi/4
+e = int(eval(input('please tell me the beginning of the interval: ')))
+f = int(eval(input('please tell me the end of the interval: ')))
 n = 1000000
 Area3 = 0.0
 def h(x):
-    return math.tan(x)
+    return abs(math.tan(x))
 
 for k in range(1,1+n):
     xk = e + k*(f-e)/n
