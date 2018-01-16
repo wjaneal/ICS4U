@@ -32,7 +32,7 @@ for i in range (1,n+1):
 print(Area1)
 
 c = 1
-d = 10 
+d = 10
 n = 100000
 Area2 = 0.0
 def g(x):
