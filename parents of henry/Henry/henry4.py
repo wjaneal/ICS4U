@@ -18,9 +18,9 @@ Purpose:
 
 """ 
 from math import *
-
+import math
 a = 0
-b = math.pi 
+b = math.pi
 n = 100000
 Area1 = 0.0
 def f(x):
@@ -29,8 +29,8 @@ for i in range (1,n+1):
     xi = a + (b-a)/n * i
     Ai = (b-a)/n * f(xi)
     Area1 += Ai
-    print(Area1)
-    
+print(Area1)
+
 c = 1
 d = 10 
 n = 100000
@@ -41,7 +41,7 @@ for j in range (1,n+1):
     xj = c + (d-c)/n * j
     Aj = (d-c)/n * g(xj)
     Area2 += Aj
-    print (Area2)
+print (Area2)
 
 
 e = int(eval(input('starting x value:')))
@@ -54,7 +54,8 @@ for k in range (1,n+1):
     xk = e + (f-e)/n * k
     Ak = (f-e)/n * h(xk)
     Area3 += Ak
-    print (Area3)
+print (Area3)
+
     
 
 
