@@ -15,7 +15,7 @@ Variable Names: a, b
 #let the user input two numbers, and converts to integers.
 x = int(input('Could you give a number? '))
 y = int(input('Could you give me another one?'))
-#use sic comparison operators in six different if statements, and print True and False in each case.
+#use six comparison operators in six different if statements, and print True and False in each case.
 if x > y:
     print('x is greater than y. ')
 else:
