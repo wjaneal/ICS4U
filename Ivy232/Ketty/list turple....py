@@ -1,7 +1,7 @@
 #Name: Ketty
 #Date: January 16, 2018
-#Program Title: 
-#Program Function:
+#Program Title: Dictionary
+#Program Function:to make a simple quiz
 
 '''
 Assignment 5 - Lists, Tuples, Dictionaries, Compound Data Types
