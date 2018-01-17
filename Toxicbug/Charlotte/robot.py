@@ -5,9 +5,9 @@
 
 import wpilib
 
-class networktables.NetworkTablesInstance:
+#class networktables.NetworkTablesInstance:
 # As a client to connect to a robot
-    from networktables import NetworkTables
+from networktables import NetworkTables
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -18,10 +18,10 @@ class MyRobot(wpilib.IterativeRobot):
         """
         self.robot_drive = wpilib.RobotDrive(0,1)
         self.stick = wpilib.Joystick(1)
-	NetworkTables.initialize(server='10.61.62.103')
-	sd = NetworkTables.getTable('SmartDashboard')
-	sd.putNumber('someNumber', 1234)
-	otherNumber = sd.getNumber('otherNumber')
+        NetworkTables.initialize(server='10.61.62.103')
+        sd = NetworkTables.getTable('SmartDashboard')
+        sd.putNumber('someNumber', 1234)
+        #otherNumber = sd.getNumber('otherNumber')
 
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
