@@ -28,13 +28,8 @@ class MyRobot(wpilib.IterativeRobot):
         #self.Switch2 = wpilib.DigitalInput(1)
         #self.Servo1 = wpilib.Servo(6)
         #self.Servo2 = wpilib.Servo(7)
-        from networktables import NetworkTables
-        # As a client to connect to a robot
-        NetworkTables.initialize(server='10.61.62.103')
-        sd = NetworkTables.getTable('SmartDashboard')
-        sd.putNumber('someNumber', 1234)
-        otherNumber = sd.getNumber('otherNumber')
-    
+        
+
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.auto_loop_counter = 0
