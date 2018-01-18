@@ -47,10 +47,10 @@ for i in range(0,len(D.keys())):
 score=0
 i=0
 dictionary1={"Are you happy?":"yes!","How r u today?":"good!", "Want to chat?":"of course!","I am sad...":"chins up!","What's the weather?":"sunny!"}
-Dk = list(dictionary1.keys())
+Dk = list(dictionary1.keys())    #split the dictionary into lists
 Dv = list(dictionary1.values())
 for i in range (len(Dk)):
-    print(Dk[i])
+    print(Dk[i])                 #question and input can be seperate
     x = input()
     y = Dv[i]
     if x == y:
