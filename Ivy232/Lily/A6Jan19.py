@@ -2,8 +2,8 @@
 Assignment 6 - Program in a Class
 
 Coding convention: 
-(a) lower case file name
-(b) Name, Date, Title, Purpose in multiline comment at the beginning
+(a) assignment6
+(b) Lily, Jan.18th 2018, Title, Purpose in multiline comment at the beginning
 (c) mixedCase variable names
 
 
@@ -20,9 +20,24 @@ Option B - Write the Stock Ticker program in a class structure.
     yyyymmdd is the current date. January 16 would be 20180116 for example
     hhmmss is the current hour, minute and time.
 
+'''
+name = (input("what is your name?"))
+print(name)
+ 
+question={"Are you happy?":"yes!","How r u today?":"good!", "Want to chat?":"of course!","I am sad...":"chins up!","What's the weather?":"sunny!"}
+key1=list(question.keys())
+value1=list(question.values())
+for i in range (0,len(question)):
+    score = 0
+    questionprint = key1[i]
+    print (questionprint)
+    answer = input("")
+    answerprint = value1[i]
+    if answer == answerprint:
+        score = score +1
 
-
-
+with open('Assignment_6.txt', 'w') as f:
+    f.write("20180116" + str(score))
 
 
 
