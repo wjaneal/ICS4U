@@ -30,20 +30,21 @@ D = {"1+2+3+4+.......+100?":"5050",
     "987654321/123456789(remain the integer)?":"8"}
 Dk = list(D.keys())
 Dv = list(D.values())
-
+score = 0
 for x in range(0, len(D.keys())):
     respond = input(Dk[x])
     if respond == Dv[x]:
         print('right,（。＾▽＾）')
+        score += 1
     else:
-        print ('wrong!Everything on top of this side are used to confuse you!(●ˇ?ˇ●)')
-
+        print ('wrong!😝')
 print("------------------------------------------------------------------------------------")
    
 print ("The answer for the first one is'+(1+100)*100/2)=5050(you only need to write the answer)")
 print ("The answer for the second one is trigonometric function")
 print ("The answer for the third one is 11")
 print ("The answer for the forth one is 8")
+print ("your final score is "+str(score))
 
 
 
