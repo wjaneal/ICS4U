@@ -19,12 +19,63 @@ Option B - Write the Stock Ticker program in a class structure.
 (a) Store the results of each game in a file. The results should include the date and time, the names of each player and the total networth achieved at the end. The players should be listed in the order of their networth. The name of each file should be as follows: STyyyymmddhhmmss.txt where:
     yyyymmdd is the current date. January 16 would be 20180116 for example
     hhmmss is the current hour, minute and time.
-'''
 
-import datetime
-class Quiz:
-    def __init__(self, today):
-        self.today = 
-    
-    
-    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
