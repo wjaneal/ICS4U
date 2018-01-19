@@ -15,15 +15,14 @@ Variable names: a b c d e
 #Dictionaries
 
 D = {"Is tokyo belongs to Japan?":"Yes","Is pineapple belongs to fruits?":"Yes","Who is the current president of USA?":"Trump","Is the car's speed faster than plane?":"No","Is frog belongs to human being?":"No"}
-
+answer=[]
+point=0
 Dk = list(D.keys())
 Dv = list(D.values())
-for i in range(0,len(D.keys())):
-    print(Dk[i])
-
-a=input("a:")
-b=input("b:")
-c=input("c:")
-d=input("d:")
-e=input("e:")
+for i in D.keys():
+    answer.append(input(i))
+for i in range(0, len(Dk)):
+    if answer[i] == Dv[i]:
+        point+=1
+print ("You get a score of", point)
 
