@@ -12,7 +12,9 @@ import time
 
 #(1a) Create a dictionary with at least five key:value pairs to store the questions and answers.
 class quizProgram:
+    """5 quick questions."""# A documentation of the class(description).
     def question(D):#Define a function for giving questions to the user to answer.
+        print(quizProgram.__doc__)#Print the documentation of the class.
         #Make a list with questions and corresponding answers.
         D={"What is life, universe and everything?":"42", 
            "If there are 6 apples and you take away 4, how many do you have?":"4", 
