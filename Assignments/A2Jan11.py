@@ -32,4 +32,7 @@ print(x/y+a/b)
 print (int(a/b)) #This converts the number back to an integer
 
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> master

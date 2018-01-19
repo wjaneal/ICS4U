@@ -1,1 +1,6 @@
+<<<<<<< HEAD
 Git is very confused.
+=======
+Git is very confused
+Yeah that's right.
+>>>>>>> master
