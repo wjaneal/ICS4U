@@ -21,14 +21,18 @@ Option B - Write the Stock Ticker program in a class structure.
     hhmmss is the current hour, minute and time.
 
 '''
+
+import time
+filename = "quiz"+str(time.strftime("%Y%m%d%H%M%S")) + ".txt"
 name = (input("what is your name?"))
 print(name)
  
 question={"Are you happy?":"yes!","How r u today?":"good!", "Want to chat?":"of course!","I am sad...":"chins up!","What's the weather?":"sunny!"}
 key1=list(question.keys())
 value1=list(question.values())
-for i in range (0,len(question)):
-    score = 0
+score = 0
+i = 0
+for i in range (0,len(key1)):
     questionprint = key1[i]
     print (questionprint)
     answer = input("")
@@ -36,8 +40,12 @@ for i in range (0,len(question)):
     if answer == answerprint:
         score = score +1
 
-with open('Assignment_6.txt', 'w') as f:
-    f.write("20180116" + str(score))
+stringName = str(score) + " " + str(score/5 * 100) + "%"
+
+myfile = open(filename, 'w')
+myfile.write(stringName)
+myfile.close()
+
 
 
 
