@@ -37,7 +37,7 @@ class Polynomial:
 		self.SecondDerivative = self.Differentiate(self.Derivative)
 
 	def Generate_Latex_String(self, A):
-		print A
+		print(A)
 		A_Order= len(A)
 		if A[A_Order-1] == 0:	
 			String1 = ""
@@ -58,7 +58,7 @@ class Polynomial:
 			if i == 1:
 				String1+="x"
 			
-		print String1
+		print (String1)
 		return String1
 
 	def PolyAdd(self, A,B):
@@ -100,19 +100,19 @@ class Polynomial:
 			print (self.Roots)
 
 	def GenerateCoefficients(self):
-		print self.Roots, " roots"
+		print(self.Roots, " roots")
 		self.Coefficients = [-self.Roots[0],1]	
-		print self.Coefficients
+		print(self.Coefficients)
 		for i in range(1, len(self.Roots)):			
 			self.Coefficients = self.PolyMult(self.Coefficients,[-self.Roots[i],1])
-			print self.Coefficients
+			print(self.Coefficients)
 		return self.Coefficients
 	
 	def Generate_Random_Coefficients(self,order):
 		A = []
 		for i in range(0,order+1):
 			A.append(int(random()*21)-10)
-		return A
+		return (A)
 
 	#Evaluate a polynomial in the form of a list:
 	def Evaluate(self,A, x):
@@ -137,7 +137,7 @@ class Polynomial:
 		while difference > 0.000001 and Count < 100:
 			xold = xnew
 			xnew = xnew - (float(self.Evaluate(A.Coefficients, xnew)))/(float(self.Evaluate(A.Derivative,xnew))+0.000000001)
-			print xnew, self.Evaluate(A.Derivative,xnew), self.Evaluate(A.Coefficients,xnew)
+			print(xnew, self.Evaluate(A.Derivative,xnew), self.Evaluate(A.Coefficients,xnew))
 			difference = abs(xnew-xold)
 			Count +=1
 		if Count < 100:
@@ -160,5 +160,5 @@ class Polynomial:
 							New =0
 					if New == 1:
 						Roots.append(xnew)
-		print "The roots are: ", Roots
+		print ("The roots are: ", Roots)
 		return Roots
