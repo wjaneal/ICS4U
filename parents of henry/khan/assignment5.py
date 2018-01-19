@@ -12,7 +12,7 @@ variables: Score,Dic1,i,answer
 Dic1={'When was the first U.S.consititution made out?':'1787' ,'When did Bismarck pass away':'1898','When was Napolean crowned':'1804','When did Kutuzov pass away':'1813','When did USSR fall apart':'1991'}
 Score = 0
 print('Each question worth 1 mark in the quiz.')
-for i in range (0,len(dict.keys())):
+for i in range (0,5):
     print('Question number '+str(i + 1)+' :')
     print(list(Dic1.keys())[i])
     answer = input('Please write your answer here: ')
