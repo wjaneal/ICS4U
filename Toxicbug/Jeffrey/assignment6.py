@@ -65,7 +65,7 @@ class Quiz():
         self.AddScore()
         self.file.write("\nScore: " + str(self.score))
         self.file.write("\nPercentage Achieved: " + self.correct_percentage)
-        self.file.close
+        self.file.close()
 
 
 a = Quiz()
