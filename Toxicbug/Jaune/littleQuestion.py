@@ -29,18 +29,6 @@ print("\nYour final score is: ", score)
 
 
 
-"""
-youranswear = input ("type your answear here")   
-for i in range (0,len(D.keys())):
-    print (Dk[i]) 
-    if youranswear == D.values[i]:
-        print ("your answear is correct")
-        score += 1
-    else:
-        print ("your answear is wrong")
-print ("This is your final socre:",score)
-
-"""
 
 
 

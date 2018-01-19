@@ -50,9 +50,9 @@ AreaIII = 0.0
 
 for i in range(1,n+1):
     #Find xi, the current x value
-    xiIII = (b-a)/n
+    xiIII = (b-a)/n + a
     #Find the area of the rectangle, Ai, using the function
-    AiIII = g(a+i*xiIII)*((b-a)/n)
+    AiIII = h(a+i*((b-a)/n))*((b-a)/n)
     #Add it to the total area, "Area"
     AreaIII += AiIII
 #Print the area here
