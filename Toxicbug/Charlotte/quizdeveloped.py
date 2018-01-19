@@ -23,6 +23,7 @@ class Quiz:
         self.qKeys=list(self.quiz.keys())#This gets the keys.
         self.qValues=list(self.quiz.values())#This gets the values.
         print("Are you ready?Let's start the quiz!")
+        #This part operates the quiz.
         for i in range(len(self.qKeys)):
             print(self.qKeys[i])
             self.userAnswer=input("Please input your answer here.")
@@ -32,7 +33,7 @@ class Quiz:
             else:
                 print("You are wrong!")
         print("Your score is "+str(self.score)+" out of 5")
-        self.percentage=self.score/5*100
+        self.percentage=self.score/5*100 #This calculates the percentage.
         self.saveFile()
         
     def mathGenerator(self):
