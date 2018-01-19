@@ -26,7 +26,7 @@ print("---------------------------------------------------------------------")
 #Fun quiz/Dictionary
 D = {"1+2+3+4+.......+100?":"5050",
     "what type of function the f(x)=cos(x)+10 is?":"trigonometric function",
-    "1+1=2,is it correct?Yes or No?(probably not according to math\￣▽￣/)":"11",
+    "1+1=2,is it correct?Yes or No?(probably not according to math\￣▽￣/)":"no，11",
     "987654321/123456789(remain the integer)?":"8"}
 Dk = list(D.keys())
 Dv = list(D.values())
@@ -35,9 +35,9 @@ for x in range(0, len(D.keys())):
     respond = input(Dk[x])
     if respond == Dv[x]:
         print('right,（。＾▽＾）')
-        score += 1
     else:
         print ('wrong!😝')
+score += 1
 print("------------------------------------------------------------------------------------")
    
 print ("The answer for the first one is'+(1+100)*100/2)=5050(you only need to write the answer)")
@@ -45,13 +45,4 @@ print ("The answer for the second one is trigonometric function")
 print ("The answer for the third one is 11")
 print ("The answer for the forth one is 8")
 print ("your final score is "+str(score))
-
-
-
-
-
-
-
-    
-    
 
