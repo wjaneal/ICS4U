@@ -28,4 +28,4 @@ for i in D.keys():
 for i in range(0, len(Dk)):
     if answer[i] == Dv[i]:
         point+=20
-print (user1,"You get a score of", point,time.strftime("%y%m%d %H:%M:%S"))
+print (user1,"You get a score of", point,("percent: {:.2%}".format(point/100)),time.strftime("%y%m%d %H:%M:%S"))
