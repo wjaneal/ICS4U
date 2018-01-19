@@ -16,7 +16,7 @@ dict1 = {'When did the Beijing Olympics held?':'2008', 'What is the answer of 1+
 score = 0
 print('Welcome to this quiz!')
 print('Each question worth 1 mark in the quiz.')
-for i in range (0,len(dict.keys())):
+for i in range (0,len(dict1.keys())):
     print('Question number '+str(i + 1)+' :')
     print(list(dict1.keys())[i])
     answer = input('Please write your answer here: ')
