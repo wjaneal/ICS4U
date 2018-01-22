@@ -18,21 +18,22 @@ Option A - Make a more complete quiz program using a class structure
 import random 
 import datetime
 
+# Make a class to organize the quiz program:
 class Quiz():
-    
+    # Prompt the user to enter the name
     def AskName(self):
         self.first_name = input("What is your first name? ")
         self.last_name = input("What is your last name? ")
         self.full_name = self.first_name + self.last_name
         return(self.full_name)
-    
+    # Generate questions and restore the data
     def Question(self):
         self.first_number = random.randrange(0,10)
         self.second_number = random.randrange(0,20)
         self.string_prompt = "What is " + str(self.first_number) + " X " + str(self.second_number) + " ? "
         self.user_answer = input(self.string_prompt)
         self.answer = self.first_number * self.second_number
-
+    # Check the answer and add scores
     def AddScore(self):
         self.score = 0
         self.n = 5
@@ -45,7 +46,7 @@ class Quiz():
                 print("You are wrong")
             print("Your score is now: ", self.score, " out of ", i+1)
         self.correct_percentage = (str(self.score/self.n*100) + "%")
-
+    # Get the date in a format and the file names
     def Dates(self):
         self.string_time = str(datetime.datetime.now())
         self.format_time = []
@@ -56,7 +57,7 @@ class Quiz():
         self.AskName()
         self.initials = self.first_name[0] + self.last_name[0]
         self.file_name = ''.join(self.format_time) + self.initials + ".txt"
-        
+    # Read and wirte the file for date of test takers  
     def Files(self):
         self.Dates()
         self.file = open(self.file_name, "w")
@@ -67,6 +68,6 @@ class Quiz():
         self.file.write("\nPercentage Achieved: " + self.correct_percentage)
         self.file.close()
 
-
+#Run the program
 a = Quiz()
 a.Files()
