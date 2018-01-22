@@ -8,7 +8,7 @@ Purpose: To make a more complete quiz program using a class structure and to sav
 """
 import datetime
 import random
-#This is a class structure.
+#This is a Quiz class.
 class Quiz:
     def quizOp(self):
         #This is a function that operates the quiz.
