@@ -32,14 +32,14 @@ import datetime
 
 class Quiz():
     def inName(self):
-#The users name
-##########################
+    #Input the users name
+    ##########################
         self.firstName = input("Input your first name:")
         self.lastName = input("Input your last name:") 
 
     def quiz(self):
-#quiz
-##########################
+    #run the quiz and give feedback or score
+    ##########################
         self.Rem = {"Who is the best girl in the world?":"Rem", \
                "Who is the champion in the 2016 bmoe?":"Rem",\
                "Who is the most popular girl in 2016?":"Rem",\
@@ -54,12 +54,15 @@ class Quiz():
             self.ans = input("")
             if self.ans == self.Rv[i]:
                 self.score += 1
+                print("Correct!")
             else:
                 self.score = self.score
+                print("Incorrect!")
 
     def dateTime(self):
-#yyyymmddhhmmss
-##########################
+    #yyyymmddhhmmss
+    #put the datetime into a turple and show part of them
+    ##########################
         self.list1 = []
         self.list2 = []
         self.list1 = datetime.datetime.now().timetuple()
@@ -96,7 +99,7 @@ class Quiz():
     
 #windows.startfile(fileName)
 
-
+#run the program
 Q = Quiz()
 Q.inName()
 Q.quiz()
