@@ -39,6 +39,7 @@ class Quiz():
 
     def quiz(self):
     #run the quiz and give feedback or score
+    #the quiz is about
     ##########################
         self.Rem = {"Who is the best girl in the world?":"Rem", \
                "Who is the champion in the 2016 bmoe?":"Rem",\
