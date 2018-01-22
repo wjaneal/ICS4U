@@ -2,11 +2,14 @@
 # -*- coding: utf-8 -*-
 """
 Created on Fri Jan 19 16:35:32 2018
-
+Option A - Make a more complete quiz program using a class structure
+(a) Have the program ask for the user's name.
+(b) Record the results of each quiz in a file. The results should include the user's name, the score on the quiz and the percentage achieved. The name of each file should be as follows: QuizyyyymmddhhmmssAB.txt where:
+    yyyymmdd is the current date. January 16 would be 20180116 for example
+    hhmmss is the current hour, minute and time.
+    A and B are the first and last initials of the user.
 @author: haichunkan
 """
-
-
 import time
 class Quiz():
     def playerInformation(self):#Ask the user's name.
@@ -21,6 +24,7 @@ class Quiz():
         self.initials=fn[0]+ln[0]#Combine the initials of first and last name together.    
     def quizQuestions(self):#Here are the quiz problems.
         self.score=0
+        print("Start the quiz!")
         D={"What is as fast as a cheetah and as slow as a tortoise?":"shadow","What belongs to you but others use it more than yourself?":"name","How long do you need to finish reading a book":"one second","What is the largest ant in the world?":"elephant","What kind of tables do not have legs?":"vegetables"}
         Dk=list(D.keys())
         Dv=list(D.values())
@@ -32,6 +36,7 @@ class Quiz():
                 self.score+=1#Add scores.
             else:
                 print("False")
+                print("The true answer is",Dv[i])
             self.c= str((i+1)*100/len(Dk))+"%"  
             print("You have completed",self.c)#This is how many questions have been finished.
         print("Your score is:",self.score)#Show the final score.    
@@ -43,10 +48,10 @@ class Quiz():
         File = open(self.name,'w')
         File.write(self.name)
         File.write("Name: "+self.first_name+self.last_name)
-        File.write("Completeness: "+self.c)
-        File.write("Score: "+str(self.score))
+        File.write("Completeness: "+self.c)#This is the percentage of completeness.
+        File.write("Score: "+str(self.score))#This shows the correct 
         File.close()
-q=Quiz()        
+q=Quiz()  #Run the program.      
 q.playerInformation()
 q.quizQuestions()
 q.date()
