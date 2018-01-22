@@ -17,27 +17,28 @@ from datetime import datetime
 
 
 class Quiz():
-    def Name(self):    
+    def Name(self):#ask the user to input their name    
         self.first_name=input("first name:")
         self.last_name=input("last name:")
         self.full_name=self.first_name+" "+self.last_name
-        self.first_initial=list(self.first_name)[0]
-        self.last_initial=list(self.last_name)[0]
+        self.first_initial=list(self.first_name)[0]#get the first name initial
+        self.last_initial=list(self.last_name)[0]#...last...
     def Questions(self):
         self.score=0
-        self.amount=int(input("how many questions:"))
+        self.amount=int(input("how many questions:"))#ask how many questions they want
+        #get two random numbers 
         for i in range(0,self.amount):
             number1= int(random()*100)
             number2= int(random()*100)
             answer = input("what is "+str(number1)+"*"+str(number2)+"?")
             if int(answer) == number1*number2:
                 print("correct")
-                self.score+=1
+                self.score+=1#add score for each correct answer
             else:
                 print("incorrect")
-        print("your score is "+str(self.score))
+        print("your score is "+str(self.score))#print score
         
-    def Result(self):
+    def Result(self):#print correct percentage
         self.percentage = str(self.score/self.amount*100) + "%"
         print(self.percentage)
         
@@ -45,12 +46,13 @@ class Quiz():
         self.Name()
         self.Questions()
         self.Result()
-        self.time= datetime.now().strftime('%Y%m%d%H%M%S')
-        file = open("Quiz"+self.time+str(self.first_initial)+str(self.last_initial)+".txt","w")
+        self.time= datetime.now().strftime('%Y%m%d%H%M%S')#get current time
+        file = open("Quiz"+self.time+str(self.first_initial)+str(self.last_initial)+".txt","w")#set file name
+        #writte name,score, and percentage
         file.write(self.full_name)
         file.write("score:"+str(self.score))
         file.write("percentage:"+str(self.percentage))
         file.close()
     
 run=Quiz()
-run.File()
+run.File()#run program
