@@ -81,7 +81,8 @@ class Quiz:
         self.result=fr.read()
         print(self.result)
         fr.close()
-        
+  
+#This starts the quiz.      
 a=Quiz()
 a.quizOp()
 
