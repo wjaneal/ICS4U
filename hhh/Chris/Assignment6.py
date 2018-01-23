@@ -11,7 +11,7 @@ Variable names: users' names answers
     A and B are the first and last initials of the user.
 """
 import time
-class quiz:
+class quiz:#ask the user to input their name   
     def __init__(self, full_name):
         self.name = full_name
         
@@ -28,4 +28,5 @@ for i in D.keys():
 for i in range(0, len(Dk)):
     if answer[i] == Dv[i]:
         point+=20
+#show the current time, correct percentage and score of quiz        
 print (user1,"You get a score of", point,("percent: {:.2%}".format(point/100)),time.strftime("%y%m%d %H:%M:%S"))
