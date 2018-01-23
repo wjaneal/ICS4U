@@ -2,7 +2,7 @@
 '''
 Created on Mon Jan 22 23:11:16 2018
 Name:Khan
-Date: January 15, 2018
+Date: January 22, 2018
 Title:assignment6
 Purpose :Option A - Make a more complete quiz program using a class structure
 (a) Have the program ask for the user's name.
