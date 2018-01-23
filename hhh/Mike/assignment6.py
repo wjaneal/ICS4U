@@ -45,7 +45,7 @@ class Quiz:
     def saveFile(self):#This could create a txt file and record the score of the user.
         self.str1 = 'Quiz'+ time.strftime('%Y%m%d%H%M%S') + self.fn[0] + self.ln[0] #This is the file name.
         self.File = open (self.str1+'.txt','w') #This is used to creat a file
-        self.str2 = 'Result of the quiz!!!'+'\nName of the user: '+self.name+'\nScore of the quiz: '+str(self.score)+'\nPercentage of the quiz: '+str(self.score/5*100)+''#This is used to record the user's percentage, name and the score of the quiz.
+        self.str2 = 'Result of the quiz!!!'+'\nName of the user: '+self.name+'\nScore of the quiz: '+str(self.score)+'\nPercentage of the quiz: '+str(self.percentage)#This is used to record the user's percentage, name and the score of the quiz.
         self.File.write (self.str2)
         self.File.close()
         
