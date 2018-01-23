@@ -23,8 +23,8 @@ for i in range(1,n+1):
         Area += Ai
 print(Area)
 
-a = 1.0 
-b = 10.0 
+a = 1.0 #starting value
+b = 10.0 #ending value
 def g(x):
     return 2**x
 for i in range(1,n+1):
@@ -33,8 +33,8 @@ for i in range(1,n+1):
         Area += Ai
 print(Area)
 
-a = 0.0 
-b = 100.0 
+a = 0.0 #starting value
+b = 100.0 #ending value
 def h(x):
     return x**x
 for i in range(1,n+1):
@@ -50,7 +50,7 @@ def f2(x):
     return sin(x)
 def f3(x):
     return 2**x
-function=[f1,f2,f3]
+function=[f1,f2,f3]#put all functions in a list
 def AreaCalculator(a,b,j):
     Area=0.0
     n=100000

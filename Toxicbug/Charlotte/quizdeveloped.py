@@ -8,15 +8,15 @@ Purpose: To make a more complete quiz program using a class structure and to sav
 """
 import datetime
 import random
-#This is a class structure.
+#This is a Quiz class.
 class Quiz:
     def quizOp(self):
         #This is a function that operates the quiz.
         self.score=0 #This initializes the user's score as 0.
         self.firstName=input("What's your first name?")#This lets the user input his first name.
         self.lastName=input("What's your last name?")#This lets the user input his last name.
-        self.A=self.firstName[0]#This gets the first initial of the user.
-        self.B=self.lastName[0]#This gets the last initial of the user.
+        self.firstI=self.firstName[0]#This gets the first initial of the user.
+        self.lastI=self.lastName[0]#This gets the last initial of the user.
         self.mathGenerator()#This generates some random math problems.
         #This creates some quiz problems.
         self.quiz={"What is "+str(self.a)+"+"+str(self.b)+"?":str(self.answer),"What is the capital city of China?":"Beijing","Which city is LIA in?":"London","How many items are there in a dozen?":"12","What planet are we on?":"Earth"}
@@ -38,9 +38,9 @@ class Quiz:
         
     def mathGenerator(self):
         #This generates some math problems.
-        self.a=random.randint(1,100)
+        self.a=random.randint(1,100)#This generates some random numbers.
         self.b=random.randint(1,100)
-        self.answer=self.a+self.b
+        self.answer=self.a+self.b #This calculates the sum of the two random numbers.
     
     def getDate(self):
         #This gets the date and time.
@@ -61,13 +61,15 @@ class Quiz:
             self.minute="0"+self.minute
         if len(self.second)==1:
             self.second="0"+self.second
+        #This generates the format needed for the time in the file name.
         self.timeTotal=self.year+self.month+self.day+self.hour+self.minute+self.second 
     
     def saveFile(self):
         #This saves the file.
         self.getDate()
-        self.fileName="Quiz"+self.timeTotal+self.A+self.B
+        self.fileName="Quiz"+self.timeTotal+self.firstI+self.lastI #This creates the file name.
         fw = open("{0}.txt".format(self.fileName), 'w')
+        #This part writes the username, the score, and the percentage to the file.
         fw.write("Username:"+self.firstName+" "+self.lastName+"\n")
         fw.write("Score:{0}\n".format(str(self.score)))
         fw.write("Percentage:{0}%\n".format(str(self.percentage)))
@@ -75,13 +77,14 @@ class Quiz:
         self.readFile()
     
     def readFile(self):
-        #This reads the file.
-        self.fileName="Quiz"+self.timeTotal+self.A+self.B
+        #This reads the file and displays what it reads on the screen.
+        self.fileName="Quiz"+self.timeTotal+self.firstI+self.lastI
         fr = open("{0}.txt".format(self.fileName), 'r')
         self.result=fr.read()
         print(self.result)
         fr.close()
-        
+  
+#This starts the quiz.      
 a=Quiz()
 a.quizOp()
 

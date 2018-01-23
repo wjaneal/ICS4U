@@ -11,10 +11,10 @@ class fruit:
     #The job of a constructor is to make a new instance of a class
     def __init__(self,name, price, quantity): #Use self as a parameter
     	#Here are some class attributes or instance variables
-    	self.name = name #The self. indicates that the variable
+    	 self.name = name #The self. indicates that the variable
 	#belongs to the class
-	self.price = price
-	self.quantity = quantity
+    	 self.price = price
+        self.quantity = quantity
 #Define fruitstand class
 #Defines a list of instances of the fruit class
 class fruitstand:

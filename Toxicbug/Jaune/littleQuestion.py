@@ -7,6 +7,7 @@ Title: dictionary and tuple
 Purpose: studying
 This is a temporary script file.
 """
+#This line is to define the questions and anwsers.
 D = {"what is the most popular country in the world?":"China","what is the capital city of China?":"Beijing","what is life,the universe and everything?":"42","what is 2*3?":"6","what is chemistry?":"everything"}
 
 trace = 0
@@ -19,7 +20,7 @@ for i in Dk:
     YourAnswer.append(Question)
     if YourAnswer[trace] == Dv[trace]:
         print("You are right")
-        score += 1
+        score += 1 #This line is to calculate the socres.
     else:
         print("You are wrong")
     

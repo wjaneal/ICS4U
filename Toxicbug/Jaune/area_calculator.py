@@ -7,7 +7,7 @@ Program Tiltle: Area Calculator
 Propose: Calculates the area under curves
 @author: CTL
 """
-
+#This is to import math
 from math import *
 
 x = 1.0
@@ -17,6 +17,7 @@ area = 0.0
 def f(x):
     return sin(x)
 
+#This is to calculate the area under 1-n
 for i in range (1,n):
     xi = 0.0
     ai = f(x+(x1-x)*i/n) * (x1-x)/n

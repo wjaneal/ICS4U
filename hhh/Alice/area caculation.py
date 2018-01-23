@@ -2,7 +2,11 @@
 # -*- coding: utf-8 -*-
 """
 Created on Mon Jan 15 13:27:35 2018
-
+Program:Area Caculation
+purpose:
+(1) Find the area under y = sin(x) from x=0 to x = PI.
+(2) Find the area under y = 2^x from x = 1 to x = 10
+(3) Find the area under a curve of your choice on a range of your choice.
 @author: haichunkan
 """
 n = 1000000 #This is the number of rectangles
