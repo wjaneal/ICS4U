@@ -11,9 +11,9 @@ class fruit:
     #The job of a constructor is to make a new instance of a class
     def __init__(self,name, price, quantity): #Use self as a parameter
     	#Here are some class attributes or instance variables
-    	 self.name = name #The self. indicates that the variable
+    	self.name = name #The self. indicates that the variable
 	#belongs to the class
-    	 self.price = price
+        self.price = price
         self.quantity = quantity
 #Define fruitstand class
 #Defines a list of instances of the fruit class
@@ -21,9 +21,9 @@ class fruitstand:
 
     def __init__(self, fruitList, fruitPrices, fruitQuantities):
     	#Set up an empty list of fruit
-    	self.fruitAvailable = []
+        self.fruitAvailable = []
 	#Populate the list with data.
-    	for i in range(0,len(fruitList)):
+        for i in range(0,len(fruitList)):
 	    self.fruitAvailable.append(fruit(fruitList[i],fruitPrices[i],fruitQuantities[i]))
 
 #Data for the fruit stand:
