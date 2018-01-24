@@ -22,6 +22,7 @@ cv2.line(img1,(0,0),(235,183),(115,115,0),2)
 
 cv2.rectangle(img1,(10,0),(224,161),(0,255,0),3)#draw rectangle
 cv2.circle(img1,(4,63), 33, (0,0,255), -1)#draw circle
+cv2.circle(img1,(4,63), 0, (225,225,255), 3)#draw a dot
 cv2.ellipse(img1,(141,15),(161,15),0,0,180,255,-1)#draw ellipse
 
 ##write text
