@@ -25,11 +25,7 @@ class MyRobot(wpilib.IterativeRobot): #Builds on a base class
         This function is called upon program startup and
         should be used for any initialization code.
         """
-        self.robot_drive = wpilib.RobotDrive(0,1, 2, 3)
-        self.setInvertedMotor(0, True)
-        self.setInvertedMotor(1, True)
-        self.setInvertedMotor(2, True)
-        self.setInvertedMotor(3, True)
+        self.robot_drive = wpilib.RobotDrive(5,6)
         self.stick = wpilib.Joystick(0)
         self.Motor1 = wpilib.VictorSP(0)
         self.Motor2 = wpilib.VictorSP(1)
@@ -58,8 +54,8 @@ class MyRobot(wpilib.IterativeRobot): #Builds on a base class
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
-        self.robot_drive.arcadeDrive(self.stick)
-        '''if self.stick.getRawButton(1)==True:
+        #self.robot_drive.arcadeDrive(self.stick)
+        if self.stick.getRawButton(1)==True:
             self.Motor1.set(1.0)
             self.Motor2.set(-1.0)
         if self.stick.getRawButton(2)==True:
@@ -73,7 +69,7 @@ class MyRobot(wpilib.IterativeRobot): #Builds on a base class
             self.Motor2.set(-0.8)
         if self.stick.getRawButton(1)==False and self.stick.getRawButton(2) == False and self.stick.getRawButton(3)==False and self.stick.getRawButton(4) == False:
             self.Motor1.set(0)
-            self.Motor2.set(0)'''
+            self.Motor2.set(0)
 	    #This number ranges from -1 to 1-fully reverse to fully forward
             #self.Servo1.set(0.8) #This number ranges from 0 to 1-fully left to fullt right
         '''else:
