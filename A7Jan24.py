@@ -16,4 +16,3 @@ Rectangles, dots, text, ellipses and lines of different colours.
 (c) Blend the two together in 11 jpg photographs ranging from 0-100%, 10-90%, ... all the way to 100-0%
 
 '''
-
