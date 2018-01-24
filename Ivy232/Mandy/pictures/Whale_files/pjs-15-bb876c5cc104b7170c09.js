@@ -1,0 +1,1 @@
+webpackJsonp([15],{DfA6:function(e,a,n){"use strict";function s(e){var a=e.messages;return r.a.createElement(c.G,{smSize:"xs",mdSize:"sm",lgSize:"md"},r.a.createElement("span",{className:"searchNagContainer",dangerouslySetInnerHTML:{__html:a.join(" ")}}))}Object.defineProperty(a,"__esModule",{value:!0}),a.default=s;var t=n("OVW8"),r=n.n(t),c=n("gEaE")}});
