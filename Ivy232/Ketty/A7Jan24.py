@@ -10,6 +10,12 @@ Rectangles, dots, text, ellipses and lines of different colours.
 
 (c) Blend the two together in 11 jpg photographs ranging from 0-100%, 10-90%, ... all the way to 100-0%
 '''
+'''
+cv2.imshow('window_name',var) #print the var.
+cv2.waitKey(0)                #keyboard binding function.
+cv2.imwrite('file_name',var)  #save the image in PNG format in the working directory.
+cv2.destroyAllWindows()       #close all the windows we created.
+'''
 import numpy as np
 import cv2
 #from matplotlib import pyplot as plt
@@ -29,12 +35,6 @@ cv2.ellipse(img1,(101,15),(261,30),0,0,180,255,-1)#draw ellipse
 font = cv2.FONT_HERSHEY_SIMPLEX
 cv2.putText(img1,'Rem',(100,150), font, 2,(20,100,20),1,cv2.LINE_AA)
 
-'''
-cv2.imshow('window_name',var) #print the var.
-cv2.waitKey(0)                #keyboard binding function.
-cv2.imwrite('file_name',var)  #save the image in PNG format in the working directory.
-cv2.destroyAllWindows()       #close all the windows we created.
-'''
 
 #(c)
 img2 = cv2.imread('t11.jpg')  #This is another picture.
