@@ -29,9 +29,12 @@ cv2.imwrite('img2.png',img)
 img1 = cv2.imread('img1.jpg')
 img2 = cv2.imread('img2.png')
 #This loop creates 11 .jpg photographs.
+new=[]
 for i in range(0,11):
     dst = cv2.addWeighted(img1,i/10,img2,(1-i/10),0)
     cv2.imwrite('blending'+str(i+1)+'.jpg',dst)
-    #cv2.imshow('dst',dst)
+#This closes the image.
+cv2.waitKey(0)
+cv2.destroyAllWindows()
     
 
