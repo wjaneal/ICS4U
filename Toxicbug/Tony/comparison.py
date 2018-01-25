@@ -13,8 +13,10 @@ Created on Sat Jan 13 01:44:10 2018
 '''
 a = input("Enter your first number:")
 b = input("Enter your second number:")
+#let the user to input the number
 x = int(float(a))
 y = int(float(b))
+#use if statement to compater them
 if x > y:
     print ("a is larger than b")
 elif x == y:
@@ -31,7 +33,9 @@ elif x <= y:
 
 
 a = input("Enter your  word:")
+#let the user to input the word
 astring = str(a)
+#use if to check if the letter in the word
 if 'a' in astring:
     print ("a is in your word")
 else:
@@ -54,6 +58,7 @@ else:
     print("e is not in your word")
     
 b = input("Enter your  word:")
+#use for loop to check the word
 bstring = str(b)
 for i in range (97, 123):
     if chr(i) in bstring:

@@ -8,10 +8,13 @@ Purpose: Studying
 Varable names:
 @author: CTL
 """
+#This two lines tell the users to input their numbers.
 a = input ("enter your number:")
 b = input ("enter another number:")
-x = int (a)
+x = int (a) #This is to make the numbesrs become integers
 y = int (b)
+
+#This is to make comparison between these two numbers
 if x == y:
     print (x, "is eaqual to" ,y)
 elif x<y:
@@ -27,7 +30,7 @@ elif x>=y:
     
 
 a = input ("enter your word:")
-xstring = str(a)
+xstring = str(a) #This is to make the word a string.
 if "a" in xstring:
     print ("a is in your word.")
 elif "b" in xtring:
