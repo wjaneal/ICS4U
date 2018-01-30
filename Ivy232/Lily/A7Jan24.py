@@ -33,8 +33,7 @@ i = 0
 for i in range(0,11):
     dst = cv2.addWeighted(img2,i/10,img1,(1-i/10),0)
     cv2.imwrite('copy'+str(i)+'.jpg',dst)
-    
-    cv2.imshow('dst',dst) #print the images
+    cv2.imshow('image',dst) #print the images
     cv2.waitKey(0)
     cv2.destroyAllWindows()
     
