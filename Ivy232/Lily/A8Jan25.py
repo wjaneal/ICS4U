@@ -56,13 +56,13 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
         #ActivePhoto = ActivePhoto.load()
         #blank_image = np.zeros((height,width,3), np.uint8)
         ResultPhotoRaw = np.zeros((X_SIZE, Y_SIZE,3), np.uint8)
-        #ResultPhotoRaw[:,0:0.5*X_SIZE] = (255,255,255)      # (B, G, R)
-        #ResultPhotoRaw[:,0.5*X_SIZE:Y_SIZE] = (255,255,255)
+        #ResultPhotoRaw[:,0:0.5*X_SIZE] = [255,255,255]      # (B, G, R)
+        #ResultPhotoRaw[:,0.5*X_SIZE:Y_SIZE] = [255,255,255]
         #ResultPhotoRaw = Image.new("RGB", (X_SIZE, Y_SIZE), (255,255,255))
       
         cv2.imwrite("ResultPhotoRaw.jpg", ResultPhotoRaw)
 
-        ResultPhoto = cv2.imread('ResultPhotoRaw.jpg',0)
+        ResultPhoto = cv2.imread('ResultPhotoRaw.jpg')
 #ResultPhoto = ResultPhotoRaw.load()
         for x in range(0, X_SIZE):
             for y in range(0, Y_SIZE):
@@ -72,7 +72,7 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
                     ResultPhoto[x,y] = PositiveColour
                 else:
                     ResultPhoto[x,y]= NegativeColour
-                    cv2.imwrite("Testing.PNG", ResultPhoto)
+            cv2.imwrite("Testing.png", ResultPhoto)
 	#ResultPhotoRaw.save("Testing.PNG")
         return ResultPhoto
 
@@ -116,7 +116,7 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
     cv2.imwrite("TestSquareOverlay.png",ResultPhotoRaw)
     #ResultPhotoRaw.save("TestSquareOverlay.PNG")
     
-    ResultPhoto = cv2.imread ("TestSquareOverlay.png",0)
+    ResultPhoto = cv2.imread ("TestSquareOverlay.png")
     #ResultPhoto = ResultPhotoRaw.load()
     #draw = ImageDraw.Draw(ResultPhotoRaw)
     for x in range(0, X_Squares):
@@ -124,16 +124,18 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
             X = (2*Size+1)*x+Size
             Y = (2*Size+1)*y+Size
 			#print X, Y
-            Check = True
-            for xi in range(X-Size, X+Size):
-                for yi in range(Y-Size, Y+Size):
-                    if ForegroundPhoto[xi,yi] == NegativeColour:
-                        Check = False
+            #Check = True
+            while True:
+                for xi in range(X-Size, X+Size):
+                    for yi in range(Y-Size, Y+Size):
+                        if ForegroundPhoto[xi,yi] == NegativeColour[xi,yi]:
+                            return True
+                            #Check == False
 			
-                    if Check == True:
-                        cv2.rectangle(ResultPhoto,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
+                        if  False:
+                            cv2.rectangle(ResultPhoto,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
 				#draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
-                        print (X,Y)
+                    print (X,Y)
     cv2.imwrite("Testing.PNG",ResultPhotoRaw)
 	#ResultPhotoRaw.save("Testing.PNG")
     return ResultPhotoRaw
@@ -150,7 +152,7 @@ cam = pygame.camera.Camera("/dev/video0",(640,480))
 #print ("Please take a photo of the base scene")
 #input("Please hit any key to take the base photo")
 
-cap = cv2.VideoCapture(0)
+cap = cv2.VideoCapture(0) #cap represents a new instance storing information about camera
 
 #img_counter = 0
 while(True):
@@ -200,7 +202,7 @@ while(True):
     
 
     # Display the resulting frame
-    cv2.imshow('ActivePhotoRaw.png',ActivePhotoRaw)
+    cv2.imshow('frame',ActivePhotoRaw)
     k = cv2.waitKey(1)
     
     if k%256 == 32:
@@ -223,7 +225,7 @@ pygame.image.save(ActivePhotoRaw, 'ActivePhotoRaw.PNG')
 cam.stop()
 '''
 #Determine the size of the photos
-BasePhotoRaw = cv2.imread ("ActivePhotoRaw.png",0)
+BasePhotoRaw = cv2.imread ("ActivePhotoRaw.png")
 X_SIZE, Y_SIZE = BasePhotoRaw.shape[:2]
 #X_SIZE = BasePhotoRaw.get_width()
 #Y_SIZE = BasePhotoRaw.get_height()
@@ -236,8 +238,8 @@ print (Y_SIZE)#Y_SIZE
 ScanRadius = 2 #Square 'radius' to check adjacent pixels
 ToleranceBackground = 40 #Set to an arbitrary quantity for later calibration
 ToleranceForeground = 2
-PositiveColour = (0,0,0) #Black
-NegativeColour = (255,255,255) #White
+PositiveColour = [0,0,0] #Black
+NegativeColour = [255,255,255] #White
 
 BasePhoto = cv2.imread('BasePhotoRaw.png')
 cv2.imshow('BasePhotoRaw.png', BasePhoto)
@@ -249,7 +251,10 @@ cv2.imshow('ActivePhotoRaw.png', ActivePhoto)
 #ActivePhoto = ActivePhoto.load()
 
 #Prepare the ResultPhoto as a blank white photo
+#ResultPhotoRaw = cv2.Scalar(255,255,255)
+#ResultPhotoRaw.setTo(cv2.Scalar(redVal,greenVal,blueVal))
 ResultPhotoRaw = np.zeros((X_SIZE, Y_SIZE,3), np.uint8)
+ResultPhotoRaw[:] = (255, 255, 255)
 #ResultPhotoRaw[:,0:0.5*X_SIZE] = (255,255,255)      # (B, G, R)
 #ResultPhotoRaw[:,0.5*X_SIZE:X_SIZE] = (255,255,255)
 #ResultPhotoRaw = Image.new("RGB", (X_SIZE, Y_SIZE), (255,255,255))
@@ -259,7 +264,7 @@ ResultPhoto = cv2.imread ("ResultPhotoRaw.png")
 cv2.imshow('ResultPhotoRaw.png', ResultPhoto)
 #ResultPhoto = Image.open('ResultPhotoRaw.PNG')
 #ResultPhoto = ResultPhoto.load()
-cv2.imshow('ResultPhotoRaw.png', ResultPhoto)
+#cv2.imshow('ResultPhotoRaw.png', ResultPhoto)
 #ResultPhoto = ResultPhotoRaw.load()
 
 #Save a photo processed with ForegroundTolerance:
@@ -268,14 +273,14 @@ ForegroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceForeground, P
 cv2.imwrite('Foreground.png', ForegroundPhotoRaw)
 #ForegroundPhotoRaw.save('Foreground.PNG')
 cv2.imshow('Foreground.png', ForegroundPhotoRaw)
-ForegroundPhoto = cv2.imread ("Foreground.png",0)
+ForegroundPhoto = cv2.imread ("Foreground.png")
 #ForegroundPhoto = ForegroundPhotoRaw.load()
 #Save a photo processed with BackgroundTolerance:
 BackgroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceBackground, PositiveColour, NegativeColour, X_SIZE, Y_SIZE, 'B.PNG')
 cv2.imwrite('Background.png', BackgroundPhotoRaw)
 #BackgroundPhotoRaw.save('Background.PNG')
 cv2.imshow('Background.png', BackgroundPhotoRaw)
-BackgroundPhoto = cv2.imread ("Background.png",0)
+BackgroundPhoto = cv2.imread ("Background.png")
 #BackgroundPhoto = BackgroundPhotoRaw.load()
 
 #Option 1: Process Background and Foreground photos, comparing pixel colours
@@ -298,6 +303,7 @@ timenow = str(datetime.now()).strip('.')
 #print timenow
 filename = "Result"+str(ToleranceForeground)+"_"+str(ToleranceBackground)+"_"+str(timenow)+'.PNG'
 print (filename)
+cv2.imwrite(filename,ResultPhotoRaw)
 #ResultPhotoRaw.save(filename)
 
 #analyse data set
