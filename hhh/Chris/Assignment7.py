@@ -23,7 +23,7 @@ cv2.ellipse(img1,(256,256),(100,50),200,0,255,255,-1)
 # Draw a dot
 cv2.circle(img1,(120,300), 4, (100,0,255), -1)
 font = cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img1,'Husky',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
+cv2.putText(img1,'mario',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
 
 img2 =cv2.imread('path.jpg',1)#This is the second picture.
 dst = ['1','2','3','4','5','6','7','8','9','10']
