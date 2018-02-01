@@ -258,6 +258,7 @@ timenow = str(datetime.now()).strip('.')
 #print timenow
 filename = "Result"+str(ToleranceForeground)+"_"+str(ToleranceBackground)+"_"+str(timenow)+'.PNG'
 print (filename)
+cv2.imwrite(filename,ResultPhotoRaw)
 #ResultPhotoRaw.save(filename)
 
 #analyse data set
