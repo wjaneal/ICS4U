@@ -225,7 +225,7 @@ ResultPhoto = ResultPhotoRaw.load()
 #BasePhoto, ActivePhoto, Tolerance, ForegroundColour, BackgroundColour)
 ForegroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceForeground, PositiveColour, NegativeColour,X_SIZE, Y_SIZE, 'F.PNG') 
 ForegroundPhotoRaw = cv2.imwrite('Foreground.PNG',ForegroundPhotoRaw)
-ForegroundPhoto = cv2.imshow(ForegroundPhotoRaw)
+ForegroundPhoto = cv2.imshow('Foreground.PNG',ForegroundPhotoRaw)
 '''
 ForegroundPhotoRaw.save('Foreground.PNG')
 ForegroundPhoto = ForegroundPhotoRaw.load()
@@ -233,7 +233,7 @@ ForegroundPhoto = ForegroundPhotoRaw.load()
 #Save a photo processed with BackgroundTolerance:
 BackgroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceBackground, PositiveColour, NegativeColour,X_SIZE, Y_SIZE, 'B.PNG')
 BackgroundPhotoRaw = cv2.imwrite('Background.PNG',BackgroundPhotoRaw)
-BackgroundPhoto = cv2.imshow(BackgroundPhotoRaw)
+BackgroundPhoto = cv2.imshow('Background.PNG',BackgroundPhotoRaw)
 '''
 BackgroundPhotoRaw.save('Background.PNG')
 BackgroundPhoto = BackgroundPhotoRaw.load()
