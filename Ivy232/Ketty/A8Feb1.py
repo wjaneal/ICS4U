@@ -112,7 +112,6 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
                     for yi in range(Y-Size, Y+Size):
                         if ForegroundPhoto[xi,yi] == NegativeColour:
                             return True
-			
                         if False:
                             cv2.rectangle(ResultPhoto,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
 				          #draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
@@ -139,29 +138,32 @@ pygame.image.save(BasePhotoRaw, 'BasePhotoRaw.PNG')
 cam.stop()
 '''
 cap = cv2.VideoCapture(0)
-img_counter = 0
+
 while(True):
     # get a frame
     ret, BasePhotoRaw = cap.read()
     # show a frame
     cv2.imshow("capture", BasePhotoRaw)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
+    k = cv2.waitKey(1)
+    if k%256 == 32:
         cv2.imwrite("BasePhotoRaw.PNG", BasePhotoRaw)
         break
-cap.release()
-cv2.destroyAllWindows()
+    if k%256 == 27:
+        break
 
+cv2.destroyAllWindows()
+'''
 #Take an "Active Image" - with an individual or object in the scene
 print ("Please take a photo of the active scene")
 input("Please hit q key to take the active photo")
 
-'''
+
 cam.start()
 ActivePhotoRaw = cam.get_image()
 pygame.image.save(ActivePhotoRaw, 'ActivePhotoRaw.PNG')
 cam.stop()
 '''
-cap = cv2.VideoCapture(0)
+
 
 img_counter = 0
 while(True):
@@ -169,8 +171,12 @@ while(True):
     ret, ActivePhotoRaw = cap.read()
     # show a frame
     cv2.imshow("capture", ActivePhotoRaw)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        cv2.imwrite("ActivePhotoRaw.PNG", ActivePhotoRaw)
+    k = cv2.waitKey(1)
+    if k%256 == 32:
+        img_name = "ActivePhotoRaw.png".format(img_counter)
+        cv2.imwrite("ActivePhotoRaw.png", ActivePhotoRaw)
+        break
+    if k%256 == 27:
         break
 cap.release()
 cv2.destroyAllWindows()
@@ -208,7 +214,7 @@ ActivePhoto = ActivePhoto.load()
 #Prepare the ResultPhoto as a blank white photo
 
 ResultPhotoRaw = np.zeros((X_SIZE, Y_SIZE,3), np.uint8)#start a new window to set pictures
-ResultPhotoRaw[:]=(255,255,255)
+#ResultPhotoRaw[:]=(255,255,255)
 cv2.imwrite("ResultPhotoRaw.PNG",ResultPhotoRaw)
 ResultPhoto = cv2.imread('ResultPhotoRaw.PNG',0)
 cv2.imshow('ResultPhoto.PNG',ResultPhoto)
