@@ -18,6 +18,8 @@ taken by your phone.
 #Import sources required
 import numpy as np
 import cv2
+from matplotlib import pyplot as plt 
+
 #(a)
 
 # Create a black image
@@ -62,4 +64,3 @@ for i in range(0,11):#Blend them in 11 different photographs by setting a for lo
     k = cv2.waitKey(0)
     if k == 27:# wait for ESC key to exit
         cv2.destroyAllWindows()
-
