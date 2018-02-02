@@ -1,6 +1,14 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+Created on Thu Feb  1 19:50:37 2018
+
+@author: chenquancheng
+"""
+
+#!/usr/bin/env python3
+# -*- coding: utf-8 -*-
+"""
 Created on Thu Feb  1 17:36:20 2018
 
 @author: chenquancheng
@@ -19,4 +27,3 @@ for i in gears:
             t=1.03/(speed/i/j)
             if t<5:
                 print("Torque:",torqueM*i*j,"speed:",speed/i/j,"Time",t,"Gears:",i,j)
-        
