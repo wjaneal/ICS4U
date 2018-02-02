@@ -1,8 +1,15 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
+<<<<<<< HEAD
 Created on Thu Jan 25 13:04:25 2018
 @author: chenquancheng
+=======
+Name: chenquancheng
+Date: Created on Thu Jan 25 13:04:25 2018
+Title: Image Processing
+Purpose: Use the program to take two similar photos, process them and produce an image that highlights the difference between the photos.
+>>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 """
 
 #Photo Analysis Program - Isolates an object using a base picture and an active picture
@@ -12,13 +19,6 @@ Created on Thu Jan 25 13:04:25 2018
 
 #Setup:
 #Graphics modules
-'''
-import pygame
-import pygame.camera
-import pygame.image
-from PIL import Image, ImageDraw
-from pygame.locals import *
-'''
 import numpy as np
 import cv2
 #Random and Datetime
@@ -37,31 +37,22 @@ def ComparePixels(P1,P2,tolerance):
         return False
 
 def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, ForegroundColour, X_SIZE, Y_SIZE, filename):
-    #PositiveColour = ForegroundColour
-    #NegativeColour = BackgroundColour
-    #BasePhoto = Image.open(BasePhoto)
-    #BasePhoto = BasePhoto.load()
-    #ActivePhoto = Image.open(ActivePhoto)
-    #ActivePhoto = ActivePhoto.load()
-    ResultPhotoRaw = np.zeros((height,width,3), np.uint8)
-    cv2.imwrite("ResultPhoto.PNG",ResultPhotoRaw)
-    ResultPhoto=cv2.imread("ResultPhoto.PNG")
-    BasePhoto=cv2.imread("BasePhoto.PNG")
-    ActivePhoto=cv2.imread("ActivePhoto.PNG")
-    #ResultPhoto = ResultPhotoRaw.load()
+    ResultPhotoRaw = np.zeros((height,width,3), np.uint8)#This creates a new image.
+    cv2.imwrite("ResultPhoto.PNG",ResultPhotoRaw)#This saves the new image.
+    ResultPhoto=cv2.imread("ResultPhoto.PNG")#This reads the image.
+    BasePhoto=cv2.imread("BasePhoto.PNG")#This reads the base photo.
+    ActivePhoto=cv2.imread("ActivePhoto.PNG")#This reads the active photo.
+    #This loop iterates through each pixel in the base and active photos.
     for x in range(0, height):
         for y in range(0, width):
             Base = BasePhoto[x,y]
             Active = ActivePhoto[x,y]
+            #This compares the color of the pixels of these two photos.
             if ComparePixels(Base, Active, Tolerance):
                 ResultPhoto[x,y] = ForegroundColour
-                #print(height,width)
-                #print(ResultPhoto[x,y])
             else:
                 ResultPhoto[x,y]= BackgroundColour
-                #print(height,width)
-                #print(ResultPhoto[x,y])
-    cv2.imwrite("Testing.PNG",ResultPhoto)
+    cv2.imwrite("Testing.PNG",ResultPhoto)#This saves the photo.
     return ResultPhoto
 
 def NeighborhoodScan(ScanRadius, Photo, ForegroundColour, BackgroundColour, x, y):
@@ -94,7 +85,7 @@ def PixelDecision(NeighborhoodForeground, NeighborhoodBackground, PositiveColour
 def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeColour, Size, X_SIZE, Y_SIZE):
 	#Check for square regions in the Foreground Photo within 'Size' of point (x,y) that are only of the foreground colour.
 	#Paste these into the BackgroundPhoto to create the ResultPhoto
-    print(height,width)
+    #print(height,width)
     X_Squares = int(height/(2*Size+1))
     Y_Squares = int(width/(2*Size+1))
     #BackgroundPhoto = cv2.imread('Background.PNG')
@@ -104,26 +95,24 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
     #ResultPhoto = ResultPhotoRaw.load()
     ResultPhotoRaw=cv2.imread('TestSquareOverlay.PNG')
     '''
-    ResultPhotoRaw=cv2.imread('Foreground.PNG')
-    #draw = ImageDraw.Draw(ResultPhotoRaw)
+    ResultPhotoRaw=cv2.imread('Foreground.PNG')#This reads the foreground photo.
     for x in range(0, X_Squares):
         for y in range(0, Y_Squares):
             X = (2*Size+1)*x+Size
             Y = (2*Size+1)*y+Size
-		   #print X, Y
             Check = True
             for xi in range(X-Size, X+Size):
                 for yi in range(Y-Size, Y+Size):
+                    #This checks if the pixel is white.
                     if np.all(ForegroundPhoto[xi,yi] == 255):
                         Check = False
-			
             if Check == False:
+                #This creates a rectangle.
                 cv2.rectangle(ResultPhotoRaw,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
-                #draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
-                #print (X,Y)
-                cv2.imwrite("Testing.PNG",ResultPhotoRaw)
+    cv2.imwrite("Testing.PNG",ResultPhotoRaw)#This saves the photo.
     return ResultPhotoRaw
     
+<<<<<<< HEAD
 	
 '''
 #Initialize Camera
@@ -159,7 +148,10 @@ while(True):
 cap.release()
 cv2.destroyAllWindows()
 '''
+=======
+>>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 def takePhotos():
+    #This function takes photos with the computer's camera and saves them.
     cam = cv2.VideoCapture(0)
     cv2.namedWindow("Camera")
     flag=0
@@ -170,25 +162,21 @@ def takePhotos():
             break
         k = cv2.waitKey(1)
         if k%256 == 27:
-            # ESC pressed
+            #This exits the camera when pressing ESC.
             print("Escape hit, closing...")
             break
         elif k%256 == 32:
             if flag == 0:
-        # SPACE pressed
-                img_name = "BasePhotoRaw.PNG"
-                cv2.imwrite(img_name, frame)
+                img_name = "BasePhotoRaw.PNG" #This lets the camera take a photo when pressing SPACE.
+                cv2.imwrite(img_name, frame)#This saves the photo.
                 flag+=1
             if flag==1:
                 img_name = "ActivePhotoRaw.PNG"
                 cv2.imwrite(img_name, frame)
-        
-            
-
     cam.release()
-
     cv2.destroyAllWindows()
 
+<<<<<<< HEAD
 
 
 '''#Take a Base image
@@ -214,62 +202,35 @@ print (Y_SIZE)
 
 ''#Take a Base image
 
+=======
+#These give the user some instructions when taking photos.
+>>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 print("Please hit space to take the base photo")
 print("Please hit space to take the active photo")
 takePhotos()
-
-
-
-
-
-
-
-#def getPixel(X, Y)
-	#return - RGB colour of Pixel
-	#scan photo and compare
 ScanRadius = 2 #Square 'radius' to check adjacent pixels
 ToleranceBackground = 2 #Set to an arbitrary quantity for later calibration
 ToleranceForeground = 40
 PositiveColour = [0,0,0] #Black
 NegativeColour = [255,255,255] #White
-
-BasePhoto = cv2.imread('BasePhotoRaw.PNG')
-ActivePhoto = cv2.imread('ActivePhotoRaw.PNG')
-#BasePhoto = BasePhoto.load()
-#Determine the size of the photos
+BasePhoto = cv2.imread('BasePhotoRaw.PNG')#This reads the base photo.
+ActivePhoto = cv2.imread('ActivePhotoRaw.PNG')#This reads the active photo.
+#This determines the size of the photo.
 height = BasePhoto.shape[0]
 width = BasePhoto.shape[1]
-'''im_gray = cv2.imread('BasePhotoRaw.PNG', cv2.IMREAD_GRAYSCALE)
-(thresh, im_bw) = cv2.threshold(im_gray, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-thresh = 127
-BasePhoto = cv2.threshold(im_gray, thresh, 255, cv2.THRESH_BINARY)[1]
-im_gray = cv2.imread('ActivePhotoRaw.PNG', cv2.IMREAD_GRAYSCALE)
-(thresh, im_bw) = cv2.threshold(im_gray, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
-thresh = 127
-ActivePhoto = cv2.threshold(im_gray, thresh, 255, cv2.THRESH_BINARY)[1]
-'''
 cv2.imwrite('BasePhoto.PNG', BasePhoto)
 cv2.imwrite('ActivePhoto.PNG', ActivePhoto)
-#ActivePhoto = ActivePhoto.load()
-
-#Prepare the ResultPhoto as a blank white photo
+#This prepares the ResultPhoto as a blank white photo
 ResultPhotoRaw = np.zeros((height,width,3), np.uint8)
 ResultPhotoRaw[np.where((ResultPhotoRaw==[0,0,0]).all(axis=2))] = [255,255,255]
 cv2.imwrite("ResultPhotoRaw.PNG", ResultPhotoRaw)
-#ResultPhoto = ResultPhoto.load()
-#ResultPhoto = ResultPhotoRaw.load()
-
-#Save a photo processed with ForegroundTolerance:
-#BasePhoto, ActivePhoto, Tolerance, ForegroundColour, BackgroundColour)
+#This saves a photo processed with ForegroundTolerance:
 ForegroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceForeground, PositiveColour, NegativeColour, height, width, 'F.PNG') 
 cv2.imwrite('Foreground.PNG', ForegroundPhotoRaw)
 ForegroundPhoto = cv2.imread('Foreground.PNG')
-#ForegroundPhoto = ForegroundPhotoRaw.load()
-#Save a photo processed with BackgroundTolerance:
+#This saves a photo processed with BackgroundTolerance:
 BackgroundPhotoRaw = ProcessPhoto(BasePhoto, ActivePhoto, ToleranceBackground, PositiveColour, NegativeColour, height, width, 'B.PNG')
 cv2.imwrite('Background.PNG', BackgroundPhotoRaw)
-
-#BackgroundPhoto = BackgroundPhotoRaw.load()
 
 #Option 1: Process Background and Foreground photos, comparing pixel colours
 #Compare the two photos
@@ -283,7 +244,7 @@ cv2.imwrite('Background.PNG', BackgroundPhotoRaw)
 #		ResultPhoto[x,y] = PixelDecision(NeighborhoodForeground, NeighborhoodBackground, PositiveColour, NegativeColour)
 
 #Option 2: Use the SquareOverlay Algorithm to fill in the Object on the Background Photo, saving the result 
-SquareSize = 5
+SquareSize = 1
 ResultPhoto = SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeColour, SquareSize, height, width)
 
 datenow = date.today()
@@ -292,7 +253,6 @@ timenow = str(datetime.now()).strip('.')
 filename = "Result"+str(ToleranceForeground)+"_"+str(ToleranceBackground)+"_"+str(timenow)+'.PNG'
 print (filename)
 cv2.imwrite("{0}.png".format(filename),ResultPhoto)
-#ResultPhotoRaw.save(filename)
 
 #analyse data set
 #Check (Xav,Yav):
