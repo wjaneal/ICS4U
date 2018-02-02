@@ -1,19 +1,14 @@
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb  1 16:09:52 2018
 
-@author: xuwentong
-"""
+'''
+Assignment 8 - Photo Processing
 
-#!/usr/bin/env python3
-# -*- coding: utf-8 -*-
-"""
-Created on Thu Feb  1 13:58:03 2018
+Name:Mandy
+Date: January 26, 2018
 
-@author: xuwentong
-"""
-
+(1) Start with the BasicFilter.py program in the Vision Apps repository from GitHub.
+(2) Convert the program to work with Python 3 and OpenCV
+(3) Use the program to take two similar photos, process them and produce an image that highlights the difference between the photos.
+'''
 
 import numpy as np
 import cv2
