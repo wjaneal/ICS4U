@@ -117,7 +117,6 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
                 for yi in range(Y-Size, Y+Size):
                     if np.all(ForegroundPhoto[xi,yi] == 255):
                         Check = False
-			
             if Check == False:
                 cv2.rectangle(ResultPhotoRaw,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
                 #draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
@@ -293,7 +292,7 @@ cv2.imwrite('Background.PNG', BackgroundPhotoRaw)
 #		ResultPhoto[x,y] = PixelDecision(NeighborhoodForeground, NeighborhoodBackground, PositiveColour, NegativeColour)
 
 #Option 2: Use the SquareOverlay Algorithm to fill in the Object on the Background Photo, saving the result 
-SquareSize = 5
+SquareSize = 1
 ResultPhoto = SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeColour, SquareSize, height, width)
 
 datenow = date.today()
