@@ -81,8 +81,8 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
 	#Check for square regions in the Foreground Photo within 'Size' of point (x,y) that are only of the foreground colour.
 	#Paste these into the BackgroundPhoto to create the ResultPhoto
     #print(height,width)
-    X_Squares = int(width/(2*Size+1))
-    Y_Squares = int(height/(2*Size+1))
+    X_Squares = int(height/(2*Size+1))
+    Y_Squares = int(width/(2*Size+1))
     #BackgroundPhoto = cv2.imread('Background.PNG')
     '''TestSquareOverlay = np.zeros((height,width,3), np.uint8)
     cv2.imwrite('TestSquareOverlay.PNG',TestSquareOverlay)
@@ -103,7 +103,7 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
                         Check = False
             if Check == False:
                 #This creates a rectangle.
-                cv2.rectangle(ResultPhotoRaw,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
+                cv2.rectangle(ResultPhotoRaw,(Y-Size,X-Size),(Y+Size,X+Size),(255,255,255),3)
     cv2.imwrite("Testing.PNG",ResultPhotoRaw)#This saves the photo.
     return ResultPhotoRaw
     
