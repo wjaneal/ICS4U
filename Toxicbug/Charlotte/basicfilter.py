@@ -1,15 +1,10 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-<<<<<<< HEAD
-Created on Thu Jan 25 13:04:25 2018
-@author: chenquancheng
-=======
 Name: chenquancheng
 Date: Created on Thu Jan 25 13:04:25 2018
 Title: Image Processing
 Purpose: Use the program to take two similar photos, process them and produce an image that highlights the difference between the photos.
->>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 """
 
 #Photo Analysis Program - Isolates an object using a base picture and an active picture
@@ -49,9 +44,9 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
             Active = ActivePhoto[x,y]
             #This compares the color of the pixels of these two photos.
             if ComparePixels(Base, Active, Tolerance):
-                ResultPhoto[x,y] = ForegroundColour
+                ResultPhoto[x,y] = BackgroundColour
             else:
-                ResultPhoto[x,y]= BackgroundColour
+                ResultPhoto[x,y]= ForegroundColour
     cv2.imwrite("Testing.PNG",ResultPhoto)#This saves the photo.
     return ResultPhoto
 
@@ -108,48 +103,10 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
                         Check = False
             if Check == False:
                 #This creates a rectangle.
-                cv2.rectangle(ResultPhotoRaw,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
+                cv2.rectangle(ResultPhotoRaw,(Y-Size,X-Size),(Y+Size,X+Size),(255,255,255),3)
     cv2.imwrite("Testing.PNG",ResultPhotoRaw)#This saves the photo.
     return ResultPhotoRaw
     
-<<<<<<< HEAD
-	
-'''
-#Initialize Camera
-pygame.init()
-pygame.camera.init()
-cam = pygame.camera.Camera("/dev/video0",(640,480))
-'''
-'''cap = cv2.VideoCapture(0)
-while(True):
-    # Capture frame-by-frame
-    ret, frame = cap.read()
-    # Our operations on the frame come here
-    gray = cv2.cvtColor(frame, cv2.COLOR_BGR2GRAY)
-    # Display the resulting frame
-    cv2.imshow('frame',gray)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        break
-# When everything done, release the capture
-cap.release()
-cv2.destroyAllWindows()
-'''
- 
-'''cap = cv2.VideoCapture(0)
-while(True):
-    ret, frame = cap.read()
-    rgb = cv2.cvtColor(frame, cv2.COLOR_BGR2BGRA)
-    cv2.imshow('frame', rgb)
-    if cv2.waitKey(1) & 0xFF == ord('q'):
-        out = cv2.imwrite('BasePhotoRaw.PNG', frame)
-        if cv2.waitKey(1) & 0xFF == ord('q'):
-            out2 = cv2.imwrite('ActivePhotoRaw.PNG', frame)
-            break
-cap.release()
-cv2.destroyAllWindows()
-'''
-=======
->>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 def takePhotos():
     #This function takes photos with the computer's camera and saves them.
     cam = cv2.VideoCapture(0)
@@ -176,41 +133,13 @@ def takePhotos():
     cam.release()
     cv2.destroyAllWindows()
 
-<<<<<<< HEAD
-
-
-'''#Take a Base image
-print ("Please take a photo of the base scene")
-input("Please hit any key to take the base photo")
-cam.start()
-BasePhotoRaw = cam.get_image()
-pygame.image.save(BasePhotoRaw, 'BasePhotoRaw.PNG')
-cam.stop()
-#Take an "Active Image" - with an individual or object in the scene
-print ("Please take a photo of the active scene")
-input("Please hit any key to take the active photo")
-cam.start()
-ActivePhotoRaw = cam.get_image()
-pygame.image.save(ActivePhotoRaw, 'ActivePhotoRaw.PNG')
-cam.stop()
-#Determine the size of the photos
-X_SIZE = BasePhotoRaw.get_width()
-Y_SIZE = BasePhotoRaw.get_height()
-print (X_SIZE)
-print (Y_SIZE)
-'''
-
-''#Take a Base image
-
-=======
 #These give the user some instructions when taking photos.
->>>>>>> 99d15a9ceb46bb8bd6d234ef4a1fa343b4092957
 print("Please hit space to take the base photo")
 print("Please hit space to take the active photo")
 takePhotos()
 ScanRadius = 2 #Square 'radius' to check adjacent pixels
 ToleranceBackground = 2 #Set to an arbitrary quantity for later calibration
-ToleranceForeground = 40
+ToleranceForeground = 30
 PositiveColour = [0,0,0] #Black
 NegativeColour = [255,255,255] #White
 BasePhoto = cv2.imread('BasePhotoRaw.PNG')#This reads the base photo.
