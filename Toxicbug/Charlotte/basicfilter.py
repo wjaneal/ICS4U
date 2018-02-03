@@ -44,9 +44,9 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
             Active = ActivePhoto[x,y]
             #This compares the color of the pixels of these two photos.
             if ComparePixels(Base, Active, Tolerance):
-                ResultPhoto[x,y] = BackgroundColour
+                ResultPhoto[x,y] = ForegroundColour
             else:
-                ResultPhoto[x,y]= ForegroundColour
+                ResultPhoto[x,y]= BackgroundColour
     cv2.imwrite("Testing.PNG",ResultPhoto)#This saves the photo.
     return ResultPhoto
 
@@ -139,7 +139,7 @@ print("Please hit space to take the active photo")
 takePhotos()
 ScanRadius = 2 #Square 'radius' to check adjacent pixels
 ToleranceBackground = 2 #Set to an arbitrary quantity for later calibration
-ToleranceForeground = 30
+ToleranceForeground = 40
 PositiveColour = [0,0,0] #Black
 NegativeColour = [255,255,255] #White
 BasePhoto = cv2.imread('BasePhotoRaw.PNG')#This reads the base photo.
