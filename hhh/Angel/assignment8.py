@@ -2,8 +2,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Thu Jan 25 13:10:24 2018
-
 @author: hailankan
+Photo Analysis Program - Isolates an object using a base picture and an active picture
+Modification - filter out noise by combining two pictures processed to optimize background and foreground detection
+Basic Filter
 """
 
 #Photo Analysis Program - Isolates an object using a base picture and an active picture
@@ -42,18 +44,18 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
         ResultPhotoRaw.save(filename)
         ResultPhoto = ResultPhotoRaw.load()'''
         ResultPhotoRaw = np.zeros((X_SIZE, Y_SIZE,3), np.uint8)
-        ResultPhotoRaw[:] = [255, 255, 255]
-        cv2.imwrite(filename,ResultPhotoRaw)
-        ResultPhoto =  cv2.imread(filename)
+        ResultPhotoRaw[:] = [255, 255, 255]#create a white image
+        cv2.imwrite(filename,ResultPhotoRaw)#save
+        ResultPhoto =  cv2.imread(filename)#load
         for x in range(0, X_SIZE):
             for y in range(0, Y_SIZE):
                 Base = BasePhoto[x,y]
                 Active = ActivePhoto[x,y]
                 if ComparePixels(Base, Active, Tolerance):
-                    ResultPhoto[x,y] = PositiveColour
+                    ResultPhoto[x,y] = PositiveColour#black if similar
                 else:
                     #ResultPhoto[x,y]= NegativeColour
-                    ResultPhoto[x,y]= NegativeColour
+                    ResultPhoto[x,y]= NegativeColour#white if different
         #ResultPhotoRaw.save("Testing.PNG")
         cv2.imwrite(filename,ResultPhoto)
         return ResultPhoto
@@ -107,7 +109,7 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
                 for yi in range(Y-Size, Y+Size):
                     if np.any(ForegroundPhoto[xi,yi] == PositiveColour):
                         Check = False
-			
+		#make the corresponding region of resultphoto white for any white region in foreground photo	
             if Check == True:
                     #draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
                     #ResultPhotoRaw[X-Size:X+Size,Y-Size:Y+Size]=(255,255,255)
