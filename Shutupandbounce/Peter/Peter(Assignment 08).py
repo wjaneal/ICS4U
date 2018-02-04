@@ -172,7 +172,7 @@ def takephotos():
                 
                 
     cv2.destroyAllWindows()
-#####################################################################################################################
+################################################################################################################################
 #Option 1: Process Background and Foreground photos, comparing pixel colours
 #Compare the two photos
 #for x in range(0+ScanRadius, X_SIZE-ScanRadius):
@@ -193,7 +193,7 @@ ScanRadius = 2 #Square 'radius' to check adjacent pixels
 ToleranceBackground = 40 #Set to an arbitrary quantity for later calibration
 ToleranceForeground = 2
 PositiveColour = (0,0,0) #Black
-NegativeColour = (255,255,255) #White
+NegativeColour = (255,191,0) #Yellow
 SquareSize = 5
 ResultPhoto = SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeColour, SquareSize, X_SIZE,Y_SIZE)
 
