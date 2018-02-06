@@ -50,6 +50,7 @@ def prime2(n):
         for j in primes:
             if i % j == 0:
                 isPrime = False
+                break
         if isPrime == True:
             primes.append(i)
     return(primes)
