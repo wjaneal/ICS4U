@@ -26,10 +26,10 @@ Title: find primes
 """
 import matplotlib.pyplot as plt
 import time
-n=[10000,20000,30000,40000,50000,100000,200000]
+n=[10000,20000,30000,40000,50000,100000,150000]
 
 def FirAl():
-    totalTime=[]
+    totalTime1=[]
     print('First algorithm:')
     print('n	time')
     for item in n:#loop for each value in the n list
@@ -42,14 +42,21 @@ def FirAl():
             if j == prime[-1]:
                 prime.append(i)#append primes
         elapsed_time = time.time() - start_time
-        totalTime.append(elapsed_time)
+        totalTime1.append(elapsed_time)
         print(item, elapsed_time)
-    plt.plot(n,totalTime)
+    plt.plot(n,totalTime1)
+    #add title
+    plt.title('Algorithm1')
+
+    #add x and y labels
+    plt.xlabel('n')
+    plt.ylabel('time')
+
     plt.show()
     
 
 def SecAl():
-    totalTime=[]
+    totalTime2=[]
     print('Second algorithm:')
     print('n	time')
     for item in n:
@@ -62,14 +69,17 @@ def SecAl():
             if j == len(prime)-1:
                 prime.append(i)
         elapsed_time = time.time() - start_time#measure the time
-        totalTime.append(elapsed_time)
+        totalTime2.append(elapsed_time)
         print(item, elapsed_time)#print time used
-    plt.plot(n,totalTime)
+    plt.plot(n,totalTime2)
+    plt.title('Algorithm2')
+    plt.xlabel('n')
+    plt.ylabel('time')
     plt.show()
 
 
 def ThiAl():
-    totalTime=[]
+    totalTime3=[]
     print('Third algorithm:')
     print('n	time')
     for item in n:
@@ -88,13 +98,15 @@ def ThiAl():
             if number[i]!=0:
                 prime.append(i)
         elapsed_time = time.time() - start_time
-        totalTime.append(elapsed_time)
+        totalTime3.append(elapsed_time)
         print(item, elapsed_time)
-    plt.plot(n,totalTime)
+    plt.plot(n,totalTime3)
+    plt.title('Algorithm2')
+    plt.xlabel('n')
+    plt.ylabel('time')
     plt.show()
 
 
 FirAl()
 SecAl()
 ThiAl()
-
