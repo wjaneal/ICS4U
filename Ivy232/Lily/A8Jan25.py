@@ -56,6 +56,7 @@ def ProcessPhoto(BasePhoto, ActivePhoto, Tolerance, BackgroundColour, Foreground
         #ActivePhoto = ActivePhoto.load()
         #blank_image = np.zeros((height,width,3), np.uint8)
         ResultPhotoRaw = np.zeros((X_SIZE, Y_SIZE,3), np.uint8)
+        ResultPhotoRaw[:] = (255, 255, 255)
         #ResultPhotoRaw[:,0:0.5*X_SIZE] = [255,255,255]      # (B, G, R)
         #ResultPhotoRaw[:,0.5*X_SIZE:Y_SIZE] = [255,255,255]
         #ResultPhotoRaw = Image.new("RGB", (X_SIZE, Y_SIZE), (255,255,255))
@@ -128,18 +129,20 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
             while True:
                 for xi in range(X-Size, X+Size):
                     for yi in range(Y-Size, Y+Size):
-                        if ForegroundPhoto[xi,yi] == NegativeColour[xi,yi]:
-                            return True
+                        print (ForegroundPhoto[xi,yi]) 
+                        print (NegativeColour)
+                        #if ForegroundPhoto[xi,yi] == NegativeColour:
+                            #return True
                             #Check == False
 			
-                        if  False:
+                        while ForegroundPhoto.any() != NegativeColour:#False:
                             cv2.rectangle(ResultPhoto,(X-Size, Y-Size),(X+Size, Y+Size),(255,255,255),3)
 				#draw.rectangle(((X-Size, Y-Size),(X+Size, Y+Size)), "white")
-                    print (X,Y)
-    cv2.imwrite("Testing.PNG",ResultPhotoRaw)
+                            print (X,Y)
+                            cv2.imwrite("Testing.PNG",ResultPhotoRaw)
 	#ResultPhotoRaw.save("Testing.PNG")
     return ResultPhotoRaw
-	
+
 
 #Initialize Camera
 '''
@@ -177,7 +180,7 @@ while(True):
         break
 
 # When everything done, release the capture
-cap.release()
+
 cv2.destroyAllWindows()
 
 '''
@@ -190,7 +193,7 @@ cam.stop()
 print ("Please take a photo of the active scene")
 input("Please hit any key to take the active photo")
 
-cap = cv2.VideoCapture(0)
+
 
 img_counter = 0
 while(True):
@@ -236,8 +239,8 @@ print (Y_SIZE)#Y_SIZE
 	#return - RGB colour of Pixel
 	#scan photo and compare
 ScanRadius = 2 #Square 'radius' to check adjacent pixels
-ToleranceBackground = 40 #Set to an arbitrary quantity for later calibration
-ToleranceForeground = 2
+ToleranceBackground = 2 #Set to an arbitrary quantity for later calibration
+ToleranceForeground = 40
 PositiveColour = [0,0,0] #Black
 NegativeColour = [255,255,255] #White
 
@@ -296,14 +299,14 @@ BackgroundPhoto = cv2.imread ("Background.png")
 
 #Option 2: Use the SquareOverlay Algorithm to fill in the Object on the Background Photo, saving the result 
 SquareSize = 5
-ResultPhoto = SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeColour, SquareSize, X_SIZE, Y_SIZE)
+ResultPhoto = SquareOverlay(ForegroundPhoto, BackgroundPhoto, PositiveColour, NegativeColour, SquareSize, X_SIZE, Y_SIZE)
 
 datenow = datetime.now()
 timenow = str(datetime.now()).strip('.')
 #print timenow
 filename = "Result"+str(ToleranceForeground)+"_"+str(ToleranceBackground)+"_"+str(timenow)+'.PNG'
 print (filename)
-cv2.imwrite(filename,ResultPhotoRaw)
+cv2.imwrite(filename,ResultPhoto)
 #ResultPhotoRaw.save(filename)
 
 #analyse data set
