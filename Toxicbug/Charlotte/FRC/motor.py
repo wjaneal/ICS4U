@@ -23,7 +23,7 @@ torqueM=0.5495
 speed=RPM/60*2*pi*0.025
 for i in gears:
     for j in gears:
-        if torqueM*i*j>=1*torqueRequired:
+        if torqueM*i*j>=1.3*torqueRequired:
             t=1.03/(speed/i/j)
             if t<5:
                 print("Torque:",torqueM*i*j,"speed:",speed/i/j,"Time",t,"Gears:",i,j)
