@@ -37,8 +37,11 @@ import matplotlib.pyplot as plt
 #set lists and some basic variable
 t = []
 ti = []
+tim = []
 tal = []
 tal1 = []
+tal2 = []
+prime = []
 primes = [2]
 num = [10000,20000,30000,40000,50000]
 i = 2
@@ -102,6 +105,41 @@ for u in range(0,len(num)):
 plt.figure()
 
 plt.plot(num,tal1)  
+plt.xlabel('numeber')  
+plt.ylabel('time')  
+
+plt.show()
+
+def prime3(n):
+    prime3 = [1] * (n + 1)
+    for i in range (2,len(prime3)):
+        j = i
+        while j < len(prime3):
+            if j > i:
+                prime3[j] = 0
+            j += i
+    for i in range (2,len(prime3)):
+        if prime3[i] != 0:
+            prime.append(i)
+            
+#set the intial time and put it into the list ti
+tim.append(time.time()) 
+#store each time when finishing the function prime1 once
+for w in range(0,len(num)):
+    prime3(num[w])
+    tim.append(time.time())
+#making a table of prime2
+print("Third algorithm:")
+print("number","      ","time")
+for e in range(0,len(num)):
+    total2 = tim[e + 1]-tim[e]
+    tal2.append(total2)
+    print(num[e],"       ",total2)
+
+#making a plot of prime2
+plt.figure()
+
+plt.plot(num,tal2)  
 plt.xlabel('numeber')  
 plt.ylabel('time')  
 
