@@ -5,6 +5,7 @@ Created on Wed Feb  7 01:56:10 2018
 @author: 11256
 """
 import time
+import pylab as pl
 n = [10000,20000,30000,40000,50000]
 a1times = []
 a2times = []
@@ -27,6 +28,10 @@ end = time.time()
 elapsed = end - start
 a1times.append(elapsed)
 print (a1times)
+pl.plot(n,a1times)
+pl.xlable('Numbers')
+pl.ylabel('time')
+pl.show()
 
 start2 = time.time()
 def primes2(n):
@@ -52,3 +57,7 @@ end2 = time.time()
 elapsed2 = end2 - start2
 a2times.append(elapsed2)
 print (a2times)
+pl.plot(n,a2times)
+pl.xlable('Numbers')
+pl.ylabel('time')
+pl.show()
