@@ -60,16 +60,24 @@ class MyRobot(wpilib.IterativeRobot): #Builds on a base class
         #self.robot_drive.arcadeDrive(self.stick)
         if self.stick.getRawButton(1)==True:
             self.Motor1.set(1.0)
-            self.Motor2.set(-1.0)
+            self.Motor2.set(1.0)
+            self.Motor3.set(-1.0)
+            self.Motor4.set(-1.0)
         if self.stick.getRawButton(2)==True:
             self.Motor1.set(-1.0)
-            self.Motor2.set(1.0)
+            self.Motor2.set(-1.0)
+            self.Motor3.set(1.0)
+            self.Motor4.set(1.0)
         if self.stick.getRawButton(3)==True:
-            self.Motor1.set(-0.8)
-            self.Motor2.set(0.8)
+            self.Motor1.set(1.0)
+            self.Motor2.set(1.0)
+            self.Motor3.set(1.0)
+            self.Motor4.set(1.0)
         if self.stick.getRawButton(4)==True:
-            self.Motor1.set(0.8)
-            self.Motor2.set(-0.8)
+            self.Motor1.set(-1.0)
+            self.Motor2.set(-1.0)
+            self.Motor3.set(-1.0)
+            self.Motor4.set(-1.0)
         if self.stick.getRawButton(1)==False and self.stick.getRawButton(2) == False and self.stick.getRawButton(3)==False and self.stick.getRawButton(4) == False:
             self.Motor1.set(0)
             self.Motor2.set(0)
