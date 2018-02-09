@@ -46,7 +46,7 @@ class MyRobot(wpilib.TimedRobot):
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
-        self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
+        self.drive.arcadeDrive(-1*self.stick.getY(), self.stick.getX())
 
 
 if __name__ == "__main__":
