@@ -7,11 +7,11 @@
 #Program Function:(1) Start with the BasicFilter.py program in the Vision Apps repository from GitHub.
 #(2) Convert the program to work with Python 3 and OpenCV
 #(3) Use the program to take two similar photos, process them and produce an image that highlights the difference between the photos.
-import pygame
-import pygame.camera
-import pygame.image
+#import pygame
+#import pygame.camera
+#import pygame.image
 from PIL import Image, ImageDraw
-from pygame.locals import *
+#from pygame.locals import *
 
 
 import cv2
