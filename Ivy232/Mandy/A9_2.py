@@ -1,12 +1,12 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
+
 """
 Created on Tue Feb  6 12:42:19 2018
 
 @author: Mandy
-!notice: Here in "A9" I defined two functions which is called P1 and P3.
-         In "A9_2", I added one more function P2 (which is quite slow).
-
+!notice: In "A9" I defined two functions which is called P1 and P3.
+         Here in "A9_2", I added one more function P2 (which is quite slow).
 #Program Title: A9 (Primes, time, *plot)
 
 (1) Create two functions: prime1(n) and prime2(n) that take a number that represents the set of integers from which to find prime numbers.  For example, n=1000 specifies that the function will look for primes up to 1000.
@@ -25,6 +25,7 @@ n       time
 import time
 n = [10000,20000,30000,40000,50000]
 a1times = []
+a2times = []
 a3times = []
 
 def P1(n):
@@ -58,6 +59,21 @@ def P3(n):
             #t1 = time.time()
             #total3 = t1-t0
     #print(total3)
+
+def P2(n):
+    #t0 = time.time()
+    prime2 = [2]
+    for i in range (2,n):
+        isPrime = True
+        for  item in prime2:
+            if i % item == 0:
+                isPrime = False
+        if isPrime == True:
+            prime2.append(i)
+        #print(prime2)
+        #t1 = time.time()
+        #total2 = t1-t0
+        #print(total2)
 ############################
 # print diagrams
 print("First Algorithm")
@@ -69,7 +85,8 @@ for z in range(0, len(n)) :
     total = t1-t0
     a1times.append(total)
     print(n[z],"    ",total)
-print("               ")   
+print("               ")
+############################   
 print("Second Algorithm")
 print("n","         ","time")
 for z in range(0, len(n)) :
@@ -79,7 +96,19 @@ for z in range(0, len(n)) :
     total = t1-t0
     a3times.append(total)
     print(n[z],"    ",total)
-###########################
+print("               ")
+############################   
+print("Third Algorithm")
+print("n","         ","time")
+for z in range(0, len(n)) :
+    t0 = time.time()
+    P2(n[z])
+    t1 = time.time()
+    total = t1-t0
+    a2times.append(total)
+    print(n[z],"    ",total)
+############################
+
     
 #draw diagrams
 
@@ -90,4 +119,8 @@ pl.show()# show the plot on the screen
 
 #diagram2
 pl.plot(n, a3times)
+pl.show()
+
+#diagram3
+pl.plot(n, a2times)
 pl.show()
