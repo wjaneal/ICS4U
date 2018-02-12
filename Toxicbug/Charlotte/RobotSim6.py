@@ -11,13 +11,13 @@
 
 
 #Read - import required modules
-import tkinter
+import Tkinter
 import sys
 from math import *
 import math
-from tkinter import font
-from tkinter import messagebox
-from tkinter import *
+#from Tkinter import font
+#from Tkinter import messagebox
+from Tkinter import *
 import time
 
         

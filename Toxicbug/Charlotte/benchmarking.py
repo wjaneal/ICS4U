@@ -61,7 +61,7 @@ print("n"+"         "+"time")
 for i in range(0,len(timePrime2)):
     print(str(timePrime2[i][0])+"     "+str(timePrime2[i][1]))
 #This part uses python to graph the data.
-'''time1=[]
+time1=[]
 nValue=[]
 for i in timePrime1:
     nValue.append(i[0])
@@ -80,7 +80,7 @@ plt.plot(nValue, time2)
 plt.ylabel('time')
 plt.xlabel('nValue')
 plt.show()
-'''
+
 time1=[]
 nValue=[]
 #This loop appends the x and y values to the list to draw a graph for the first algorithm.
