@@ -18,6 +18,8 @@ taken by your phone.
 #Import sources required
 import numpy as np
 import cv2
+from matplotlib import pyplot as plt 
+
 #(a)
 
 # Create a black image
@@ -51,10 +53,10 @@ img2 = cv2.circle(img2,(255,256),159,(159,112,80),20)
 cv2.namedWindow('image2', cv2.WINDOW_NORMAL)
 #Display the image
 cv2.imshow('image2',img2)
-k = cv2.waitKey(0)
+'''k = cv2.waitKey(0)
 if k == 27:# wait for ESC key to exit
     cv2.destroyAllWindows()
-
+'''
 #(c)
 for i in range(0,11):#Blend them in 11 different photographs by setting a for loop
     dst = cv2.addWeighted(img1,1-i/10,img2,i/10,0)
@@ -62,4 +64,3 @@ for i in range(0,11):#Blend them in 11 different photographs by setting a for lo
     k = cv2.waitKey(0)
     if k == 27:# wait for ESC key to exit
         cv2.destroyAllWindows()
-

@@ -21,10 +21,10 @@ cv2.putText(img,'shutDown',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)#This l
 #This line is to show the image
 cv2.imshow('image',image)
 
-''''
+'''
 #This line is to save the image
 cv2.inwrite('black.png',img)
-''''
+'''
 
 img1 = cv2.imread('black.png')
 img2 = cv2.imread('glassess.png')
