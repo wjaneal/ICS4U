@@ -24,7 +24,7 @@ Coding convention:
 #Graphics modules
 import numpy as np
 import cv2
-import pygame
+#import pygame
 #Random and Datetime
 from random import *
 from datetime import *
@@ -166,7 +166,7 @@ def takePhotos2():
             break
 
         
-takePhotos2()
+#takePhotos2()
 
 #def getPixel(X, Y)
 	#return - RGB colour of Pixel

@@ -4,8 +4,10 @@
 Created on Tue Feb  6 12:42:19 2018
 
 @author: Mandy
+!notice: Here in "A9" I defined two functions which is called P1 and P3.
+         In "A9_2", I added one more function P2 (which is quite slow).
 
-#Program Title: A9 Primes
+#Program Title: A9 (Primes, time, *plot)
 
 (1) Create two functions: prime1(n) and prime2(n) that take a number that represents the set of integers from which to find prime numbers.  For example, n=1000 specifies that the function will look for primes up to 1000.
 (2) Find out how to measure elapsed time in Python
@@ -82,9 +84,10 @@ for z in range(0, len(n)) :
 #draw diagrams
 
 import pylab as pl
- 
-pl.plot(n, a1times)# use pylab to plot x and y
+#diagram1
+pl.plot(n, a1times)# use pylab to plot x and y: pl.plot（x，y）x and y is two lists
 pl.show()# show the plot on the screen
 
+#diagram2
 pl.plot(n, a3times)
 pl.show()

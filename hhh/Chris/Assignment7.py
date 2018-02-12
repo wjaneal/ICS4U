@@ -9,8 +9,8 @@ import cv2
 import numpy as np
 
 # Load an color image in grayscale
-img1 = cv2.imread('mario.jpg'，0)
-img2 = cv2.imread("path.jpg",1)
+img1 = cv2.imread('ActivePhotoRaw.png',0)
+img2 = cv2.imread("Foreground.png",1)
 
 # Draw a line
 cv2.line(img1,(0,0),(1000,800),(100,0,255),3)
@@ -28,7 +28,7 @@ cv2.putText(img1,'mario',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
 img2 =cv2.imread('path.jpg',1)#This is the second picture.
 dst = ['1','2','3','4','5','6','7','8','9','10']
 for i in range(0,10):
-    dst[i] = cv2.addWeighted(img1,i/10,img2,1-i/10,0)
+    dst[i] = cv2.addWeighted(img1,i/10.0,img2,1-i/10.0,0)
     cv2.imshow(str(dst[i]),dst[i])
 cv2.waitKey(0)#change image.
 cv2.destroyAllWindows()
