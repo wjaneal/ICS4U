@@ -14,7 +14,7 @@ Rectangles, dots, text, ellipses and lines of different colours.
 #(a)generate the file
 import numpy as np
 import cv2
-img = cv2.imread('1.jpg',0) #put the image in the ICS4U decitory
+img = cv2.imread('1e.jpg',0) #put the image in the ICS4U decitory
 #img = np.zeros((512,512,3), np.uint8) #change the size of the image
 print(img)
 #cv2.imshow('1.jpg',0)
@@ -27,20 +27,20 @@ cv2.circle(img,(1000,700),50,(0,200,0),-1) # draw some lines and ellipses and re
 font = cv2.FONT_HERSHEY_SIMPLEX#set the font
 cv2.putText(img,'Haking to the Gate',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)#put text to the image within the chosen font
 cv2.imwrite('1e.jpg',img)
-cv2.imshow('1.jpg',img)
+#cv2.imshow('1e.jpg',img)
 cv2.waitKey(0)
 k = cv2.waitKey(0)
 if k == 32:
     cv2.destroyAllWindows() 
 
-img2 = cv2.imread('2.jpg',0)#load in a new image
-img2 = np.zeros((512,512,3), np.uint8)
+img2 = cv2.imread('1e.jpg',0)#load in a new image
+#img2 = np.zeros((512,512,3), np.uint8)
 #(b)edit it to the  same size with a photograph taken by your phone.
 print(img2)
 cv2.imshow('2.jpg',0)
 for p in range(0,11):
     dst = cv2.addWeighted(img2,1-p/10,img,p/10,0)
-    cv2.imwrite('AFTERimage',dst)
+    cv2.imwrite('AFTERimage'+str(p)+'.jpg',dst)
     cv2.waitKey(0)
     i = cv2.waitKey(0)
     if i == 32:

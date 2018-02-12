@@ -10,7 +10,7 @@ Purpose:Studying
 
 import time
 import pylab as pl
-n=[1000,2000]
+n=[10000,20000,30000,40000,50000]
 p1time=[]
 p2time=[]
 
