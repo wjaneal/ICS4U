@@ -42,7 +42,7 @@ n	time
 '''
 import random
 import time
-leng = [10000,20000,30000,40000,50000]
+leng = [1000,2000,3000,4000,5000]
 num = []
 t = []
 ta = []
@@ -91,17 +91,17 @@ for m in range(0,len(t)-1):
     t1.append(b)
 print(t1)
 
-'''
+
 for i in range(0,len(leng)):
     for j in range(0,leng[i]):
         s.random(i)
-    ta.append(time.time)
+    ta.append(time.time())
     s.insertion_sort(num)
-ta.append(time.time)
-for m in range(0,len(t)-1):
-    b = t[m+1]-t[m]
-    t1.append(b)
-'''
+ta.append(time.time())
+for m in range(0,len(ta)-1):
+    b = ta[m+1]-ta[m]
+    t2.append(b)
+print(t2)
 
 
 
