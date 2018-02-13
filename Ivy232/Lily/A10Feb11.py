@@ -37,18 +37,17 @@ n	time
 (4) Have Python graph the results using pyplot / matplotlib
 '''
 
-import time
-import decimal
+import time #import module
 import random
+import matplotlib.pyplot as plt
 
-
-time1 = []
+time1 = [] #create empty lists for time spent
 time2 = []
 time3 = []
-class sorting_algorithm():
+class sorting_algorithm(): #put the algorithms into a class
         
-    def bubble_sort(self,list1): 
-        for i in range (0, len(list1)-1):
+    def bubble_sort(self,list1):  #define bubble sort algorithm
+        for i in range (0, len(list1)-1): #compare each two
             for j in range(0, len(list1)-1-i):
                 if list1[j] > list1[j+1]:
                     list1[j], list1[j+1] = list1[j+1],list1[j]
@@ -57,16 +56,16 @@ class sorting_algorithm():
     
         #time_spent.append(self.acurate_time)
         
-    def insertion_sort(self,list1):
-        for i in range (1, len(list1)):
+    def insertion_sort(self,list1):  #define insertion sort algorithm
+        for i in range (1, len(list1)): #put the first number out of the list into the correct position of the list
             j = i - 1
             while list1[j]>= list1[j+1] and j >= 0:
                 list1[j], list1[j+1] = list1[j+1],list1[j]
                 j -= 1
         return list1
     
-    def selection_sort(self,list1):
-        for i in range (0, len(list1)):
+    def selection_sort(self,list1):  #define selection sort algorithm
+        for i in range (0, len(list1)): #define a smallest one firstly and replace it with smaller number I may find later
             mi = list1[i]
             for j in range (i, len(list1)):
                 if list1[j] <= mi:
@@ -80,27 +79,27 @@ class sorting_algorithm():
         list1 = random.sample(range(5000), k = self.range1)
         return list1
 '''            
-s = sorting_algorithm()       
+s = sorting_algorithm() #use a simple name for the class
         
         #time_spent.append(self.acurate_time)
 #s = sorting_algorithm(list1)
 
-list1 = [1000,2000,3000,4000,5000]
+list1 = [1000,2000,3000,4000,5000] #Create a list consisting of designated number.
 
-for i in range (0, len(list1)):
-    lis = random.sample(range(5000), k = list1[i])
+for i in range (0, len(list1)): #call the function and record the time spent
+    lis = random.sample(range(list1[i]), k = list1[i])
     start_time = time.time()
     s.bubble_sort(lis)
     acurate_time1 = time.time() - start_time
     time1.append(acurate_time1)
 
-for i in range (0, len(list1)):
+for i in range (0, len(list1)): #call the function and record the time spent
     start_time = time.time()
     s.insertion_sort(lis)
     acurate_time2 = time.time() - start_time
     time2.append(acurate_time2)
     
-for i in range (0, len(list1)):    
+for i in range (0, len(list1)): #call the function and record the time spent
     start_time = time.time()
     s.bubble_sort(lis)
     acurate_time3 = time.time() - start_time
@@ -109,7 +108,7 @@ for i in range (0, len(list1)):
 
 
 
-print ("Bubble sort algorithm:")
+print ("Bubble sort algorithm:") #print the outcome
 for i in range (5):
     #haha = decimal.Decimal(time1[i])
     #haha = round(time1[i],2)
@@ -125,7 +124,21 @@ for i in range (5):
     #haha = round(time1[i],2)
     print(str(list1[i]), "      ", str(time3[i]))
 
-
+plt.scatter(list1,time1) #plot out the graph!! with scatter points!!
+plt.title('Relationship Between Times of Repetition and Time spent-Bubble Sort Algorithm ')
+plt.xlabel('Repetition')
+plt.ylabel('Time Spent')
+plt.show()
+plt.scatter(list1,time2) #can also use plt.plot() to chart a graph with points connected by lines
+plt.title('Relationship Between Times of Repetition and Time spent-Insertion Sort Algorithm ')
+plt.xlabel('Repetition')
+plt.ylabel('Time Spent')
+plt.show()
+plt.scatter(list1,time3)
+plt.title('Relationship Between Times of Repetition and Time spent-Selection Sort Algorithm ')
+plt.xlabel('Repetition')
+plt.ylabel('Time Spent')
+plt.show()
 
 
 
