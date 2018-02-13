@@ -42,7 +42,8 @@ n	time
 '''
 import random
 import time
-leng = [1000,2000,3000,4000,5000]
+#set lists to prepare
+leng = [100,200,300,400,500]
 num = []
 t = []
 ta = []
@@ -50,7 +51,9 @@ tb = []
 t1 = []
 t2 = []
 t3 = []
+#create a class
 class sorting():
+    #define function of bubble sorting
     def bubble_sort(self,seq):
         changed = True
         while changed:
@@ -60,6 +63,7 @@ class sorting():
                     seq[self.i], seq[self.i+1] = seq[self.i+1], seq[self.i]
                     changed = True
         return None
+    #define function of insertion sorting
     def insertion_sort(self,l):
         for self.i in range(1, len(l)):
             self.j = self.i-1 
@@ -68,40 +72,75 @@ class sorting():
                 l[self.j+1] = l[self.j]
                 self.j -= 1
             l[self.j+1] = self.key
+    #define function of selection sorting
     def selection_sort(self,lst):
         for self.i, self.e in enumerate(lst):
             self.mn = min(range(self.i,len(lst)), key=lst.__getitem__)
             lst[self.i], lst[self.mn] = lst[self.mn], self.e
         return lst
+    #define function of make a list of random numbers
     def random(self,u):
         self.a = int(random.random()*leng[u])
         num.append(self.a)
         return num
+#class
 s = sorting()
+#run the class and function, and input time each time in list t
 for i in range(0,len(leng)):
     for j in range(0,leng[i]):
         s.random(i)
     t.append(time.time())
     s.bubble_sort(num)
+#the time of endding
 t.append(time.time())
-#print(t)
-
+#the difference of time and put them into a list
 for m in range(0,len(t)-1):
     b = t[m+1]-t[m]
     t1.append(b)
-print(t1)
+#print the table of time and number
+print("Bubble sort algorithm:")
+print("n     time")
+for i in range(0,len(leng)):
+    print(leng[i],"    ",t1[i])
 
 
+#run the class and function, and input time each time in list t
 for i in range(0,len(leng)):
     for j in range(0,leng[i]):
         s.random(i)
     ta.append(time.time())
     s.insertion_sort(num)
+#the time of endding
 ta.append(time.time())
+#the difference of time and put them into a list
 for m in range(0,len(ta)-1):
     b = ta[m+1]-ta[m]
     t2.append(b)
-print(t2)
+#print the table of time and number
+print("Insertion sort algorithm:")
+print("n     time")
+for i in range(0,len(leng)):
+    print(leng[i],"    ", t2[i])
+
+
+
+#run the class and function, and input time each time in list t
+for i in range(0,len(leng)):
+    for j in range(0,leng[i]):
+        s.random(i)
+    tb.append(time.time())
+    s.selection_sort(num)
+#the time of endding
+tb.append(time.time())
+#the difference of time and put them into a list
+for m in range(0,len(tb)-1):
+    b = tb[m+1]-tb[m]
+    t3.append(b)
+#print the table of time and number
+print("Selection sort algorithm:")
+print("n     time")
+for i in range(0,len(leng)):
+    print(i + 1,"    ",t3[i])
 
 
 
