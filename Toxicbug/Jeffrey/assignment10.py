@@ -1,11 +1,10 @@
-'''
-Assignment 10 - Benchmarking Sorting Algorithms
+# -*- coding: utf-8 -*-
+"""
+Created on Mon Feb 12 13:35:50 2018
 
+@author: Jeffrey
 
-Coding convention: 
-(a) lower case file name
-(b) Name, Date, Title, Purpose in multiline comment at the beginning
-(c) mixedCase variable names
+Purpose:
 
 (1) Create a class with functions for three sorting algorithms - bubble sort, selection sort and insertion sort. 
 (2) Write a program that determines the amount of time taken to sort lists of random numbers of the following lenghs: n=[10000,20000,30000,40000,50000]
@@ -35,6 +34,7 @@ n	time
 50000	100.2
 
 (4) Have Python graph the results using pyplot / matplotlib
+"""
 
 
 
@@ -43,7 +43,6 @@ n	time
 
 
 
- 
 
 
 
@@ -63,7 +62,6 @@ n	time
 
 
 
-<<<<<<< HEAD
 
 
 
@@ -103,5 +101,11 @@ n	time
 
 
 
-=======
->>>>>>> 81e8aa76a02d1c71b464c2e0e4b35300b428e514
+
+
+
+
+
+
+
+

@@ -28,7 +28,6 @@ a1times = []
 a3times = []
 
 def P1(n):
-    #t0 = time.time()
     primes = [2]
     for i in range (3,n):
         for j in primes:
@@ -36,14 +35,9 @@ def P1(n):
                 break
             if j == primes[-1]:
                 primes.append(i)
-    #print(primes)
-    #t1 = time.time()
-    #total = t1-t0
-    #print(total)
-
+    
 
 def P3(n):
-    #t0 = time.time()
     number = [1] * (n+1)
     prime3 = []
     for i in range (2, len(number)):
@@ -55,19 +49,17 @@ def P3(n):
     for i in range (2, len(number)):
         if number[i] != 0:
             prime3.append(i)
-            #t1 = time.time()
-            #total3 = t1-t0
-    #print(total3)
+    
 ############################
 # print diagrams
 print("First Algorithm")
 print("n","         ","time")
 for z in range(0, len(n)) :
-    t0 = time.time()
+    t0 = time.time() # start timing
     P1(n[z])
-    t1 = time.time()
+    t1 = time.time() # end timing
     total = t1-t0
-    a1times.append(total)
+    a1times.append(total) # record the data in the list
     print(n[z],"    ",total)
 print("               ")   
 print("Second Algorithm")

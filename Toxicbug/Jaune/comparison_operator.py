@@ -29,11 +29,11 @@ elif x>=y:
     print (x, "is greater than and eaquel to", y)
     
 
-a = input ("enter your word:")
+a = input ("enter your word:") #This line is to ask the operator to input numbers
 xstring = str(a) #This is to make the word a string.
 if "a" in xstring:
     print ("a is in your word.")
-elif "b" in xtring:
+elif "b" in xstring:
     print ("b is in your word.")
 elif "c" in xstring:
     print ("c is in your word.")
@@ -42,8 +42,9 @@ elif "d" in xstring:
 elif "e" in xstring:
     print ("e is in your word.")
 
-
-for i in range(97,123):
+d=input("enter your word:")#This line is to ask the operator to input numbers
+string1 = str(d)#This is to make the word a string.
+for i in range(97,123): #The range in this line represents the alphabet.
     if chr(i) in string1:
         print(chr(i), " is in the string")
 for ii in range(65,91):

@@ -11,6 +11,7 @@ Write a program that does the following:
 
 Part1
 """
+print("Compare the two number")
 a = int(input("Please enter a number!"))
 b = int(input("Please enter another number!"))
 
@@ -27,7 +28,7 @@ if a != b:
         print(a,"is bigger than",b)
     elif a< b:
         print(a,"is smaller than",b)
-elif a ==2:
+elif a == b:
     print (a,"is equal to",b)
     
 """
@@ -41,7 +42,7 @@ if letter in word:
     print("The letter",letter,"is in the word!")
 else:
     print("The letter",letter,"is not in the word!")
-
+print("             ")
 
 """
 Part3
@@ -53,12 +54,12 @@ def checkLetter(letter,word):
     else:
         return("The letter",letter,"is not in the word!")
 
-
-for i in range (65,91):
-    letter = chr(i)
+for i in range (65,91): # 65-91 is Uppercase Letter
+    letter = chr(i) # num -> letter
     print (checkLetter(letter,word))
 
 
-for i in range (97,123):
+print("             ")
+for i in range (97,123): # 97-123 is Lowercase Letter
     letter = chr(i)
     print (checkLetter(letter,word))
