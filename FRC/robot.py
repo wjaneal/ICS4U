@@ -14,6 +14,7 @@ class MyRobot(wpilib.IterativeRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
+        self.Sol = wpilib.Solenoid(5,0)
         self.M0 = ctre.wpi_talonsrx.WPI_TalonSRX(4)
         self.M1 = ctre.wpi_talonsrx.WPI_TalonSRX(3)
         self.M0.setInverted(True)
@@ -47,20 +48,22 @@ class MyRobot(wpilib.IterativeRobot):
         """This function is called periodically during operator control."""
         self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         if self.stick.getRawButton(1) == True:
-            self.E1.set(0.4)
-            self.E2.set(-0.4)
+            self.E1.set(0.8)
+            self.E2.set(-0.8)
         elif self.stick.getRawButton(2) == True:
-            self.E1.set(-0.4)
-            self.E2.set(0.4)
+            self.E1.set(-0.8)
+            self.E2.set(0.8)
         else:
             self.E1.set(0)
             self.E2.set(0)
         if self.stick.getRawButton(3)==True:
-            self.S1.set(0.4)
-            self.S2.set(-0.4)
-        elif self.stick.getRawButton(4)==True:
             self.S1.set(-0.4)
+            self.S2.set(-0.4)
+            self.Sol.set(False)
+        elif self.stick.getRawButton(4)==True:
+            self.S1.set(0.4)
             self.S2.set(0.4)
+            self.Sol.set(True)
         else:
             self.S1.set(0)
             self.S2.set(0)
