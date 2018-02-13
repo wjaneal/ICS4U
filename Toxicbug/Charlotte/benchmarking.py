@@ -66,7 +66,7 @@ nValue=[]
 for i in timePrime1:
     nValue.append(i[0])
     time1.append(i[1])
-plt.plot(nValue, time1)
+plt.plot(nValue, time1)#This plots the graph for algorithm 1 based on n value and time.
 plt.title('Algorithm')
 plt.ylabel('time')
 plt.xlabel('nValue')
@@ -76,7 +76,7 @@ time2=[]
 for i in timePrime2:
     time2.append(i[1])
 plt.title('Algorithm2')
-plt.plot(nValue, time2)
+plt.plot(nValue, time2)#This plots the graph for algorithm 2 based on n value and time.
 plt.ylabel('time')
 plt.xlabel('nValue')
 plt.show()
