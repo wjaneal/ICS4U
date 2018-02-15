@@ -1,7 +1,10 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Feb 14 19:42:24 2018
-
+Name: Jaune
+Date: Feb 15
+Ttile: benchmarking
+Purpose: learn how to sort.
 @author: CTL
 """
 
