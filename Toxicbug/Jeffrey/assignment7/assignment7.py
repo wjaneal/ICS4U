@@ -12,38 +12,42 @@ Rectangles, dots, text, ellipses and lines of different colours.
 
 (c) Blend the two together in 11 jpg photographs ranging from 0-100%, 10-90%, ... all the way to 100-0%
 """
-
+# import modules to be used 
 import numpy as np
 import cv2
-
+# Read those two pictures from the folder
 img1 = cv2.imread('husky.jpeg')
 img2 = cv2.imread('boat.jpg')
 
 
-# Draw a diagonal blue line with thickness of 5 px
-cv2.line(img1,(0,0),(1000,800),(100,0,255),3)
-# Draw a rectangle
-cv2.rectangle(img1,(384,0),(510,128),(0,255,0),3)
-# Draw a Circle
-cv2.circle(img1,(447,600), 100, (0,0,255), -1)
-# Draw a ellipse
-cv2.ellipse(img1,(256,256),(100,50),200,0,255,255,-1)
-# Draw a dot
-cv2.circle(img1,(120,300), 4, (100,0,255), -1)
+
+cv2.line(img1,(0,0),(1000,800),(100,0,255),3)# Draw a diagonal blue line with thickness of 5 px
+
+cv2.rectangle(img1,(384,0),(510,128),(0,255,0),3)# Draw a rectangle
+
+cv2.circle(img1,(447,600), 100, (0,0,255), -1)# Draw a Circle
+
+cv2.ellipse(img1,(256,256),(100,50),200,0,255,255,-1)# Draw a ellipse
+
+cv2.circle(img1,(120,300), 4, (100,0,255), -1) # Draw a dot (short radius circle)
+
 font = cv2.FONT_HERSHEY_SIMPLEX
-cv2.putText(img1,'Husky',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA)
+cv2.putText(img1,'Husky',(10,500), font, 4,(255,255,255),2,cv2.LINE_AA) # put text values to the image
 
 
-cv2.imshow('husky.jpeg',img1)
+cv2.imshow('husky.jpeg',img1)# Show the image 
 
-cv2.imshow('boat.jpg',img2)
+cv2.imshow('boat.jpg',img2) #Show image
 
-
+# Read two images
 img1 = cv2.imread('husky.jpeg')
 img2 = cv2.imread('boat.jpg')
-dst = ['1','2','3','4','5','6','7','8','9','10']
+dst = ['1','2','3','4','5','6','7','8','9','10']# Make a list of numbers to be used later
+# Make a loop in order to have 10 different level of blending
 for i in range(10):
     dst[i] = cv2.addWeighted(img1,i/10,img2,1-i/10,0)
     cv2.imshow(str(dst[i]),dst[i])
 cv2.waitKey(0)
-cv2.destroyAllWindows()
+cv2.destroyAllWindows() # Destroy all the windows
+
+

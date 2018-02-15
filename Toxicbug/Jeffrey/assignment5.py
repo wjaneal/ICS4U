@@ -13,21 +13,22 @@ purpose:
 """
 # Create a dictionary with at least five key:value pairs to store the questions and answers.
 AnswerBox = {"What is 2 + 2? ": "4", "What is the capital of the United States? ": "Washington", "What is the earth's natural satellite? ": "moon", "What is 2*3? ": "6", "What is 9/3? ": " 3"}
-AnswerBoxK = list(AnswerBox.keys())
-AnswerBoxV = list(AnswerBox.values())
-UserAnswer = []
+AnswerBoxK = list(AnswerBox.keys()) # Using a list to get all the questions
+AnswerBoxV = list(AnswerBox.values()) # Using a list to get all the answers 
+UserAnswer = [] # Using a empty list to restore answers
 score = 0
-current_start = 0
+current_start = 0 # using a variable to keep in trace of rounds 
+# Loop through all the questions
 for i in AnswerBox.keys():
     UserAnswer.append(input(i))
-    if AnswerBoxV[current_start] == UserAnswer[current_start]:
+    if AnswerBoxV[current_start] == UserAnswer[current_start]: # Compare answers 
         score +=1
         print("You are correct")
     else:
         print("Wrong Answer")
     current_start += 1
 
-print("\nYour score is ", score)
+print("\nYour score is ", score) # printing results
 
 
 

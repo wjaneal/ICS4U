@@ -4,7 +4,7 @@
 Name: chenquancheng
 Date: Created on Thu Jan 25 13:04:25 2018
 Title: Image Processing
-Purpose: Use the program to take two similar photos, process them and produce an image that highlights the difference between the photos.
+Purpose: This program takes two similar photos, processes them and produces an image that highlights the difference between the photos.
 """
 
 #Photo Analysis Program - Isolates an object using a base picture and an active picture
@@ -23,6 +23,16 @@ from datetime import *
 
 #Subroutines:
 def ComparePixels(P1,P2,tolerance):
+    '''
+    Parameter: 
+        P1-the pixel in the first image
+        P2-the pixel in the second image
+        tolerance-the boundary which determines whether the pixels are similar or different
+    Return:
+        True or False
+        True-the pixel is similar
+        False-the pixel is different
+    '''
     t1 = abs(P1[0]-P2[0])
     t2 = abs(P1[1]-P2[1])
     t3 = abs(P1[2]-P2[2])
@@ -84,13 +94,15 @@ def SquareOverlay(ForegroundPhoto, BackgroundPhotoRaw, PositiveColour, NegativeC
     X_Squares = int(height/(2*Size+1))
     Y_Squares = int(width/(2*Size+1))
     #BackgroundPhoto = cv2.imread('Background.PNG')
-    '''TestSquareOverlay = np.zeros((height,width,3), np.uint8)
+    '''
+    TestSquareOverlay = np.zeros((height,width,3), np.uint8)
     cv2.imwrite('TestSquareOverlay.PNG',TestSquareOverlay)
     
     #ResultPhoto = ResultPhotoRaw.load()
     ResultPhotoRaw=cv2.imread('TestSquareOverlay.PNG')
     '''
     ResultPhotoRaw=cv2.imread('Foreground.PNG')#This reads the foreground photo.
+    #This part divides the photo into smaller parts and iterates through them.
     for x in range(0, X_Squares):
         for y in range(0, Y_Squares):
             X = (2*Size+1)*x+Size
@@ -111,7 +123,7 @@ def takePhotos():
     #This function takes photos with the computer's camera and saves them.
     cam = cv2.VideoCapture(0)
     cv2.namedWindow("Camera")
-    flag=0
+    flag=0 #This helps determine whether this photo is the BasePhoto or the ActivePhoto.
     while True:
         ret, frame = cam.read()
         cv2.imshow("test", frame)
@@ -123,12 +135,15 @@ def takePhotos():
             print("Escape hit, closing...")
             break
         elif k%256 == 32:
+            #This lets the camera take a photo when pressing SPACE.
             if flag == 0:
-                img_name = "BasePhotoRaw.PNG" #This lets the camera take a photo when pressing SPACE.
+                img_name = "BasePhotoRaw.PNG" 
+                #If this is the first photo taken, it is the BasePhoto.
                 cv2.imwrite(img_name, frame)#This saves the photo.
                 flag+=1
             if flag==1:
                 img_name = "ActivePhotoRaw.PNG"
+                #If this is the second photo taken, this is the ActivePhoto.
                 cv2.imwrite(img_name, frame)
     cam.release()
     cv2.destroyAllWindows()
