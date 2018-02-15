@@ -49,22 +49,32 @@ class Guess():
     for i in range(0,1000):
         n.append(random.random()) # print a list with 1000 terms between 0-1
     #print(n)
+    
     def Ran(n): 
         n.sort()
         lowest = 0
         highest = 1000
-        while highest - lowest != 2:
+        while True:
             num = random.randint(lowest,highest) # guess the index of the list
             if n[num] > 0.7: #zoom in the limit
-                highest = num
-                #print("h",num)
+                highest = num + 1
+                #print("index",num)
+                if highest - lowest == 1:
+                    print(n[highest])
+                    break
+                elif highest - lowest == 2:
+                    print(n[lowest+1])
+                    break
+                
             elif n[num] < 0.7: #zoom in the limit
                 lowest = num
-                #print("l",num)
-            if highest - lowest == 1:
-                #print(n[highest])
-                break
-        #print(n[highest])
+                if highest+1 - lowest == 1:
+                    print(n[highest])
+                    break
+                elif highest+1 - lowest == 2:
+                    print(n[lowest+1])
+                    break
+        
            
              
             
@@ -74,55 +84,55 @@ class Guess():
             if i > 0.7 and i <0.8:
                 a.append(i)
                 a.sort()
-        #print(a[0])
+        print(a[0])
 
     
     def Binary(n):
-        
-        mid = len(n)//2
-        LH = []
-        RH = []
-        
-        if n[mid] > 0.7:
-            LH = n[:mid+1]
-        
-            if len(LH) == 2:
-            
-                print ("Result",LH[1])
-                pass
-            else:
-                Binary(LH)  
-           
-        elif n[mid] < 0.7:
-            RH = n[mid:]
-        
-            if len(RH) == 2:
-            
-                print("Result",RH[1])
-                pass
-            else:
-                Binary(RH)
+        lowest = 0
+        highest = 1000
        
+        while True:
+            mid = (lowest + highest) // 2
+            if highest - lowest == 2:
+                if n[highest-1] > 0.7:
+                    print(n[highest-1])
+                else:
+                    print(n[highest])
+                break
+    
+            else:
+                if n[mid] > 0.7: #zoom in the limit
+                    highest = mid
+                    
+                elif n[mid] < 0.7: #zoom in the limit
+                    lowest = mid
 
     #Ran(n)
     #Linear(n)        
     #Binary(n)  
     
 ####test the time################  
-    
+    print("Random Search:")
     t0 = time.time()
     Ran(n)
     t1 = time.time()
     total = t1-t0
-    print("random:",total)
+    print("Time1:",total)
+    print("")
+    
+    print("Liner Search:")
     t0 = time.time()
     Linear(n)
     t1 = time.time()
     total = t1-t0
-    print("Liner:",total)
+    print("Time2:",total)
+    print("")
+    
+    print("Binary Search:")
     t0 = time.time()
     Binary(n)
     t1 = time.time()
     total = t1-t0
-    print("Binary:",total)
-    
+    print("Time3:",total)
+##################################
+#print("Unblock #63,66,72,75(Random),87(linear),97(Binary) to see the number you are looking for! ")    

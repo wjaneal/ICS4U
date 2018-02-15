@@ -22,7 +22,7 @@ def Binary(n):
         #print("1",LH)
         if len(LH) == 2:
             #print(LH)
-            ###Answer###print ("Result",LH[1])
+            print ("Result",LH[1])
             pass
         else:
             Binary(LH)  
@@ -33,7 +33,7 @@ def Binary(n):
         #print("4",RH)
         if len(RH) == 2:
             #print("RH",RH)
-            ###Answer###print("Result",RH[1])
+            print("Result",RH[1])
             pass
         else:
             Binary(RH)
