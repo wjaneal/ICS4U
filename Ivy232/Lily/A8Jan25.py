@@ -238,9 +238,9 @@ print (Y_SIZE)#Y_SIZE
 #def getPixel(X, Y)
 	#return - RGB colour of Pixel
 	#scan photo and compare
-ScanRadius = 2 #Square 'radius' to check adjacent pixels
-ToleranceBackground = 2 #Set to an arbitrary quantity for later calibration
-ToleranceForeground = 40
+ScanRadius = 1#2 #Square 'radius' to check adjacent pixels
+ToleranceBackground =30 #Set to an arbitrary quantity for later calibration
+ToleranceForeground =30 #40
 PositiveColour = [0,0,0] #Black
 NegativeColour = [255,255,255] #White
 

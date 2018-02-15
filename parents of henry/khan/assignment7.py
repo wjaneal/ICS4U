@@ -11,8 +11,8 @@ Variable names:Img1,Img2,Height,Width,Res,Mix
 """
 import cv2
 import numpy as np#This is to import the module
-Img1 = cv2.imread('1.jpg')#This is to read the image
-Img2 = cv2.imread('2.jpg')#This is to read another image
+Img1 = cv2.imread('BasePhotoRaw.PNG')#This is to read the image
+Img2 = cv2.imread('ResultPhoto.PNG')#This is to read another image
 '''
 Though actually that's a photograph in my phone instead of one taken by it(img2)
 I like the characters ...and want to use this picture

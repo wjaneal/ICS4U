@@ -64,6 +64,7 @@ cv2.imshow('dst9',dst9)
 cv2.imshow('dst10',dst10)
 
 cv2.waitKey(0)
+cv2.destroyAllWindows()
 
 cv2.imwrite('final.jpg',dst)
 cv2.imwrite('final1.jpg',dst1)
@@ -77,6 +78,6 @@ cv2.imwrite('final8.jpg',dst8)
 cv2.imwrite('final9.jpg',dst9)
 cv2.imwrite('final10.jpg',dst10)
 
-cv2.destroyAllWindows()
+#cv2.destroyAllWindows()
 
 
