@@ -43,13 +43,14 @@ Average ....
 import random
 import time
 
+# If you have a problem, please re-run the program!
 
 class Guess():
     
     def Ran(n): 
         n.sort()
         lowest = 0
-        highest = 1000
+        highest = 10000
         while True:
             num = random.randint(lowest,highest) # guess the index of the list
             if n[num] > 0.7: #zoom in the limit
@@ -76,20 +77,30 @@ class Guess():
             
     def Linear(n):
         a = []
-        for i in n:
-            if i > 0.7 and i <0.8:
+        for i in n: # compare the num one by one 
+            if i > 0.7 and i <0.8: # put the nums between 0.7 and 0.8 in a list
                 a.append(i)
-                a.sort()
+                a.sort() # pick out the smallest one by sorting
         ##print(a[0])
 
     
     def Binary(n):
         lowest = 0
-        highest = 1000
+        highest = 10000
        
         while True:
-            mid = (lowest + highest) // 2
-            if highest - lowest == 2:
+            mid = (lowest + highest - 1) // 2  # 2 keep zooming in the limit
+            if highest - lowest == 2: # 3 when finally you have three nums left 
+                if n[highest-1] > 0.7:
+                    ##print(n[highest-1])
+                    pass
+                    
+                else:
+                    ##print(n[highest])
+                    pass
+                    
+                break
+            elif highest - lowest == 1: # 3 when finally younhave two nums left
                 if n[highest-1] > 0.7:
                     ##print(n[highest-1])
                     pass
@@ -98,7 +109,7 @@ class Guess():
                     pass
                 break
     
-            else:
+            else: # 1 compare the num in the middle with 0.7
                 if n[mid] > 0.7: #zoom in the limit
                     highest = mid
                     
@@ -115,8 +126,8 @@ class Guess():
     sum = 0
     for t in range (1,6):
         n = []
-        for i in range(0,1000):
-            n.append(random.random()) # print a list with 1000 terms between 0-1
+        for i in range(0,10000):
+            n.append(random.random()) # print a list with 10000 terms between 0-1
         
         t0 = time.time()
         Ran(n)
@@ -135,8 +146,8 @@ class Guess():
     sum = 0
     for t in range (1,6):
         n = []
-        for i in range(0,1000):
-            n.append(random.random()) # print a list with 1000 terms between 0-1
+        for i in range(0,10000):
+            n.append(random.random()) # print a list with 10000 terms between 0-1
         
         t0 = time.time()
         Linear(n)
@@ -154,8 +165,8 @@ class Guess():
     sum = 0
     for t in range (1,6):
         n = []
-        for i in range(0,1000):
-            n.append(random.random()) # print a list with 1000 terms between 0-1
+        for i in range(0,10000):
+            n.append(random.random()) # print a list with 10000 terms between 0-1
         
         t0 = time.time()
         Binary(n)
