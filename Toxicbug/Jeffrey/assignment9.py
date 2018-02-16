@@ -92,12 +92,3 @@ plt.plot(t, prime2Times)  #plot a graph for results for second algorism
 plt.ylabel('Times take for Algorism 2')
 plt.xlabel('Numbers up to')
 plt.show() # show the results
-
-
-
-
-
-
-
-
-

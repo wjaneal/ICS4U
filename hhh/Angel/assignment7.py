@@ -16,7 +16,7 @@ import cv2
 
 
 img=cv2.imread('hmbb.jpg',1)#load image
-cv2.circle(img,(200,200),10,(255,255,0),-1)#draw a circle
+cv2.circle(img,(200,200),20,(255,255,0),3)#draw a circle
 cv2.line(img, (100,100), (300,300), (0,0,255),4)#draw a line
 cv2.rectangle(img, (230,120), (400,270), (0,255,0), 5)#draw a rectangle
 cv2.ellipse(img, (300, 200), (100, 50), 20, 30, 70, (255,0,0), 6)#draw a ellipse
