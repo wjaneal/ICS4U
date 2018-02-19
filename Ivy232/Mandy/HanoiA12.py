@@ -3,7 +3,11 @@
 """
 Created on Wed Feb 14 11:08:24 2018
 
-@author: xuwentong
+Assignment 12 - Recursive Algorithms - Towers of Hanoi
+
+(1) Create a class with functions for three recursive algorithms.  Include factorials, the Towers of Hanoi and any other recursive function.  Allow the user to choose any of the three functions and then interact with the function.  The program should provide adequate instructions and output to be useful.
+
+@author: Mandy
 """
 
 def Hanoi (n,p1,p2): # n: number of pieces that you want to move
