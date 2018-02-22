@@ -40,14 +40,14 @@ class MyRobot(wpilib.IterativeRobot):
 
         # Drive for two seconds
         if self.timer.get() < 2.0:
-            self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
+            self.drive.arcadeDrive(-0.25,0)  # Drive forwards at half speed
         if self.timer.get() >= 2.0 and self.timer.get() <= 4.0:
-            self.drive.arcadeDrive(0.5, -0.5)#Turn twice
+            self.drive.arcadeDrive(0.25, -0.25)#Turn twice
         if self.timer.get() > 4.0 and self.timer.get() <=6.0:
-            self.drive.arcadeDrive(0.5, -0.5)#Turn twice clockwise
+            self.drive.arcadeDrive(0.25, -0.25)#Turn twice clockwise
             self.S1.set(1)
         if self.timer.get() > 6 and self.timer.get()<=7:
-            self.drive.arcadeDrive(-0.5, 0)
+            self.drive.arcadeDrive(-0.25, 0)
             self.S1.set(-1)
         if self.timer.get() > 7:
             self.drive.arcadeDrive(0,0)#Stop Robot
