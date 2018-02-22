@@ -28,6 +28,9 @@ class MyRobot(wpilib.IterativeRobot):
  
         self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
+        
+        #Servo
+        self.SV1 = wpilib.Servo(9)
 
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
@@ -38,6 +41,7 @@ class MyRobot(wpilib.IterativeRobot):
         """This function is called periodically during autonomous."""
 
         # Drive for two seconds
+        '''
         if self.timer.get() < 3.0:
             self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
         if self.timer.get() >= 3 and self.timer.get() <= 6:
@@ -46,11 +50,38 @@ class MyRobot(wpilib.IterativeRobot):
             self.drive.arcadeDrive(-0.5,0)
         if self.timer.get() > 7:
             self.drive.arcadeDrive(0, 0)  # Stop robot
-
+        '''
+        if self.timer.get() < 1.0:
+            self.drive.arcadeDrive(-0.5,0)
+        if self.timer.get() >= 1 and self.timer.get() <= 4:
+            self.drive.arcadeDrive(-0.5,0.5) 
+            self.SV1.set(1.0)
+        if self.timer.get() > 4 and self.timer.get() < 5:
+            self.drive.arcadeDrive(-0.5,0) 
+        if self.timer.get() >= 5 and self.timer.get() <= 8:
+            self.drive.arcadeDrive(-0.5,0.5) 
+            self.SV1.set(-1.0)
+        if self.timer.get() > 8 and self.timer.get() < 9:
+            self.drive.arcadeDrive(-0.5,0) 
+        if self.timer.get() >= 9 and self.timer.get() <= 12:
+            self.drive.arcadeDrive(-0.5,0.5)
+            self.SV1.set(1.0)
+        if self.timer.get() > 12 and self.timer.get() < 13:
+            self.drive.arcadeDrive(-0.5,0)
+        if self.timer.get() >= 13 and self.timer.get() <= 16:   
+            self.drive.arcadeDrive(-0.5,0.5) 
+            self.SV1.set(-1.0)
+        if self.timer.get() > 16:
+            self.drive.arcadeDrive(0,0) 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
-
+        #Camera Point Front:
+        if self.stick.getPOV()==0:
+            self.SV1.set(1.0)
+        #Camera Point Back:
+        if self.stick.getPOV()==180:
+            self.SV1.set(-1.0)
 if __name__ == "__main__":
     wpilib.run(MyRobot)
