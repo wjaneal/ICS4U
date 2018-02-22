@@ -16,8 +16,8 @@ class MyRobot(wpilib.IterativeRobot):
         #Set up motors to drive robot
         self.M2 = wpilib.VictorSP(2)
         self.M3 = wpilib.VictorSP(3)
-        self.M2.setInverted(True)
-        self.M3.setInverted(True)
+        #self.M2.setInverted(True)
+        #self.M3.setInverted(True)
         self.left = wpilib.SpeedControllerGroup(self.M2,self.M3)
         
         self.M0 = wpilib.VictorSP(0)
@@ -38,10 +38,15 @@ class MyRobot(wpilib.IterativeRobot):
         """This function is called periodically during autonomous."""
 
         # Drive for two seconds
-        if self.timer.get() < 2.0:
-            self.drive.arcadeDrive(-0.5, 0)  # Drive forwards at half speed
-        else:
-            self.drive.arcadeDrive(0, 0)  # Stop robot
+        if self.timer.get() < 3.0:
+            self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
+        if self.timer.get() >=3 and self.timer.get() <=6:
+            self.drive.arcadeDrive(-0.5,-0.5)
+        if self.timer.get()>6 and self.timer.get() < 7:
+            self.drive.arcadeDrive(-0.5, 0)
+        if self.timer.get()>7:
+            self.drive.arcadeDrive(0,0)
+
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
