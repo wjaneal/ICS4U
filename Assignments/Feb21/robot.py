@@ -43,7 +43,7 @@ class MyRobot(wpilib.IterativeRobot):
         if self.timer.get() >= 3 and self.timer.get() <= 6:
             self.drive.arcadeDrive(-0.5,-0.5)
         if self.timer.get() > 6 and self.timer.get() < 7:
-            self.drive.arcadedrive(-0.5,0)
+            self.drive.arcadeDrive(-0.5,0)
         if self.timer.get() > 7:
             self.drive.arcadeDrive(0, 0)  # Stop robot
 
