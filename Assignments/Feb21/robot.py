@@ -6,8 +6,6 @@ import wpilib.drive
 from networktables import NetworkTables
 
 
-# As a client to connect to a robot
-
 class MyRobot(wpilib.IterativeRobot):
 
     def robotInit(self):
@@ -34,6 +32,9 @@ class MyRobot(wpilib.IterativeRobot):
         
         #Servo
         self.SV1 = wpilib.Servo(9)
+        
+        #Dashboard
+        NetworkTables.initialize(server='10.61.62.2')
 
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
@@ -86,10 +87,9 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera Point Back:
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
-        NetworkTables.initialize(server='10.61.62.2')
+        #Dashboard
         sd = NetworkTables.getTable('SmartDashboard')
+        sd.putNumber('speed', 0.5)
         
-        sd.putNumber('speed', 77)
-
 if __name__ == "__main__":
     wpilib.run(MyRobot)
