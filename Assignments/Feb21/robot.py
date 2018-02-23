@@ -3,7 +3,10 @@
 
 import wpilib
 import wpilib.drive
+from networktables import NetworkTables
 
+
+# As a client to connect to a robot
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -83,5 +86,10 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera Point Back:
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
+        NetworkTables.initialize(server='10.61.62.2')
+        sd = NetworkTables.getTable('SmartDashboard')
+        
+        sd.putNumber('speed', 77)
+
 if __name__ == "__main__":
     wpilib.run(MyRobot)

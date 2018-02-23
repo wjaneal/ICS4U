@@ -8,6 +8,9 @@ Created on Fri Feb 23 01:04:42 2018
 from PyQt5.QtWidgets import (QWidget, QProgressBar, 
     QPushButton, QApplication)
 from PyQt5.QtCore import QBasicTimer
+from networktables import NetworkTables 
+import logging
+logging.basicConfig(level=logging.DEBUG)
 import sys
 
 class Example(QWidget):
@@ -31,14 +34,17 @@ class Example(QWidget):
         
         
     def timerEvent(self, e):
-      
+        NetworkTables.initialize(server='10.61.62.2')
+        sd = NetworkTables.getTable("SmartDashboard")
+        content=sd.getNumber('speed')
+        print(content)
         if self.step >= 100:
             self.timer.stop()
-            self.btn.setText('Finished')
             return
             
-        self.step = self.step + 1
-        self.pbar.setValue(self.step)
+        #self.step = self.step + 1
+        
+        self.pbar.setValue(content)
         
 '''
     def doAction(self):
