@@ -6,8 +6,6 @@ import wpilib.drive
 from networktables import NetworkTables
 
 
-# As a client to connect to a robot
-
 class MyRobot(wpilib.IterativeRobot):
 
     def robotInit(self):
@@ -29,29 +27,20 @@ class MyRobot(wpilib.IterativeRobot):
 
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
  
-        self.stick = wpilib.Joystick(1)
+        self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
-        #Camera
-        wpilib.CameraServer.launch()
+        
         #Servo
         self.SV1 = wpilib.Servo(9)
+        
+        #Dashboard
+        NetworkTables.initialize(server='10.61.62.2')
 
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
-        self.cumulativeTime=0
-        self.totalTime=0
-        self.dataSet=[[-0.5,0,1,-0.5],[0.3,0.4,1,1.0],[-0.5,0,1,-1.0]]
-        for i in self.dataSet:
-            self.totalTime+=i[2]
-        self.intervals = 0
-        self.currentTime = 0
-        for i in range(0,len(self.dataSet)):
-            self.dataSet[i].append([self.currentTime,self.currentTime+self.dataSet[i][2]])
-            self.currentTime+=self.dataSet[i][2]
-
         self.timer.reset()
         self.timer.start()
-       
+
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
 
@@ -66,32 +55,28 @@ class MyRobot(wpilib.IterativeRobot):
         if self.timer.get() > 7:
             self.drive.arcadeDrive(0, 0)  # Stop robot
         '''
-        '''    
-        if self.timer.get() < 1:
+        if self.timer.get() < 1.0:
             self.drive.arcadeDrive(-0.5,0)
+        if self.timer.get() >= 1 and self.timer.get() <= 4:
+            self.drive.arcadeDrive(-0.5,0.5) 
             self.SV1.set(1.0)
-            # Drive forwards at half speed
-        if self.timer.get() >= 1 and self.timer.get() <= 2:
-            self.drive.arcadeDrive(-0.4,0.4)
+        if self.timer.get() > 4 and self.timer.get() < 5:
+            self.drive.arcadeDrive(-0.5,0) 
+        if self.timer.get() >= 5 and self.timer.get() <= 8:
+            self.drive.arcadeDrive(-0.5,0.5) 
             self.SV1.set(-1.0)
-        if self.timer.get() > 2 and self.timer.get() <= 3:
-            self.drive.arcadeDrive(-0.5,0)
+        if self.timer.get() > 8 and self.timer.get() < 9:
+            self.drive.arcadeDrive(-0.5,0) 
+        if self.timer.get() >= 9 and self.timer.get() <= 12:
+            self.drive.arcadeDrive(-0.5,0.5)
             self.SV1.set(1.0)
-        if self.timer.get() > 3:
-            self.drive.arcadeDrive(0, 0)  # Stop robot
-           '''     
-        #dataSet = [[1,0.25,1.5],[-1,-0.25,1],[0.5,-0.5,1.4]]
-        #speed, angle, time = data[0], data[1], data[2] 
-        #cumulativeTime += time
-        
-        for i in self.dataSet:
-            if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
-                self.drive.arcadeDrive(i[0],i[1])
-                self.SV1.set(i[3])
-            else:
-                self.drive.arcadeDrive(0,0)
-        
-        
+        if self.timer.get() > 12 and self.timer.get() < 13:
+            self.drive.arcadeDrive(-0.5,0)
+        if self.timer.get() >= 13 and self.timer.get() <= 16:   
+            self.drive.arcadeDrive(-0.5,0.5) 
+            self.SV1.set(-1.0)
+        if self.timer.get() > 16:
+            self.drive.arcadeDrive(0,0) 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
@@ -102,10 +87,9 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera Point Back:
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
-        NetworkTables.initialize(server='10.61.62.2')
+        #Dashboard
         sd = NetworkTables.getTable('SmartDashboard')
+        sd.putNumber('speed', 0.5)
         
-        sd.putNumber('speed', 77)
-
 if __name__ == "__main__":
     wpilib.run(MyRobot)
