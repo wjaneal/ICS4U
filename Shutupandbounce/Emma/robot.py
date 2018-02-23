@@ -12,7 +12,8 @@ class MyRobot(wpilib.IterativeRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
-
+        #Camera:
+        wpilib.CameraServer.launch()
         #Set up motors to drive robot
         self.M2 = wpilib.VictorSP(2)
         self.M3 = wpilib.VictorSP(3)
@@ -41,15 +42,15 @@ class MyRobot(wpilib.IterativeRobot):
         # Drive for two seconds
         if self.timer.get() < 2.0:
             self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
-        if self.timer.get() >= 2.0 and self.timer.get() <= 6.0:
-            self.drive.arcadeDrive(0, -2)#Turn twice
-        if self.timer.get() > 6.0 and self.timer.get() <=10.0:
-            self.drive.arcadeDrive(0, 2)#Turn twice clockwise
-            self.S1.set(0.5)
-        if self.timer.get() > 10.0 and self.timer.get()<=12.0:
+        if self.timer.get() >= 2.0 and self.timer.get() <= 4.0:
+            self.drive.arcadeDrive(0.25, -0.4)#Turn twice
+        if self.timer.get() > 4.0 and self.timer.get() <=6.0:
+            self.drive.arcadeDrive(0.25, -0.4)#Turn twice clockwise
+            self.S1.set(1)
+        if self.timer.get() > 6 and self.timer.get()<=7:
             self.drive.arcadeDrive(-0.5, 0)
-            self.S1.set(-0.5)
-        if self.timer.get() > 12.0:
+            self.S1.set(-1)
+        if self.timer.get() > 7:
             self.drive.arcadeDrive(0,0)#Stop Robot
 
     def teleopPeriodic(self):
