@@ -1,0 +1,20 @@
+Final Projects:
+
+FRC Robotics
+
+	Driving
+		Encoders
+	Vision Processing
+	State Machines
+	PID - Precision Movement of Motors
+	Dashboard - Network Tables 
+
+
+Atomic Microscope
+    Make a GUI for operation of the atomic microscope; buid on existing code done in ICS3U class
+
+Web Application
+    Make a web application and launch on Webserver; use Django/Python framework
+
+Other? 
+
