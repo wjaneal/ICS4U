@@ -101,7 +101,7 @@ class sorting:
         time3.append(total)
         print(n[t],"    ",total)
     plt.ylabel('Running Time For Algorithm ')
-    plt.xlabel('time')
+    plt.xlabel('Numbers')
     l.plot(n, time3)
     l.show()      # show the data
     
