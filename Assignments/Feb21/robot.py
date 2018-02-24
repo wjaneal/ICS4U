@@ -28,7 +28,7 @@ class MyRobot(wpilib.IterativeRobot):
 
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
  
-        self.stick = wpilib.Joystick(1)
+        self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
         #Camera
         wpilib.CameraServer.launch()
@@ -40,6 +40,8 @@ class MyRobot(wpilib.IterativeRobot):
         #Switches
         self.SW1 = wpilib.DigitalInput(0)
         self.SW2 = wpilib.DigitalInput(1)
+        #Elevator
+        self.E = wpilib.VictorSP(5)
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.cumulativeTime=0
@@ -93,24 +95,36 @@ class MyRobot(wpilib.IterativeRobot):
             self.grabCube()
         if self.stick.getRawButton(3) == True:
             self.deliverCube()
+        if self.stick.getRawButton(5) == True:
+            self.AdjustElevatorLeft()
+        if self.stick.getRawButton(6) == True:
+            self.AdjustElevatorRight()
+    
     def prepareGrabCube(self):
         if self.SW1.get()==False:
-            self.M2.set(-0.5)
-            self.M3.set(0.5)
+            self.E.set(-0.5)
+            
+    
     def grabCube(self):
         if self.SW1.get()==True:
-            if self.stick.getRawButton(5) == True:
-                self.SV2.set(0.25)
-            self.M2.set(0.5)
-            self.M3.set(-0.5)
+            self.SV2.set(0.25)
+            self.E.set(0.5)
+        
         elif self.SW1.get()==False and self.SW2.get()==True:
-            self.M2.set(0)
-            self.M3.set(0)
+            self.E.set(0)
+            
     def deliverCube(self):
-        self.M0.set(0.5)
-        self.M1.set(-0.5)
-        if self.stick.getRawButton(6) == True:
+        self.E.set(0.5)
+        if self.stick.getRawButton(5) == True:
             self.SV2.set(0.5)
+            self.E.set(0)
+            
+    def AdjustElevatorLeft(self):
+        self.E.set(0.25)
+        
+    def AdjustElevatorRight(self):
+        self.E.set(-0.25)
+        
             
         
         
