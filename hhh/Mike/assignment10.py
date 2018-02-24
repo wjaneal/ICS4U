@@ -2,7 +2,7 @@
 """
 Name: Xu, Yingjie (Mike)
 Date: 2018-02-11
-Program Title: assignment8 (basic filter)
+Program Title: assignment10 (sorting)
 Purpose: 
 (1) Create a class with functions for three sorting algorithms - bubble sort, selection sort and insertion sort. 
 (2) Write a program that determines the amount of time taken to sort lists of random numbers of the following lenghs: n=[10000,20000,30000,40000,50000]
