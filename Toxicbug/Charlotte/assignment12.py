@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 # -*- coding: utf-8 -*-
 """
-Name: chenquancheng
+Name: Charlotte Chen
 Date: Created on Fri Feb 16 11:06:07 2018
 Title: Recursive Algorithms
 Purpose: (1) Create a class with functions for three recursive algorithms.  
