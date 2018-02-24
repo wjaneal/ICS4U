@@ -40,12 +40,22 @@ class MyRobot(wpilib.IterativeRobot):
         # Drive for two seconds
         if self.timer.get() < 3.0:
             self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
+<<<<<<< HEAD:Assignments/FRC/robot.py
+        if self.timer.get() >=3 and self.timer.get() <=6:
+            self.drive.arcadeDrive(-0.5,-0.5)
+        if self.timer.get()>6 and self.timer.get() < 7:
+            self.drive.arcadeDrive(-0.5, 0)
+        if self.timer.get()>7:
+            self.drive.arcadeDrive(0,0)
+
+=======
         if self.timer.get() >= 3 and self.timer.get() <= 6:
             self.drive.arcadeDrive(-0.5,-0.5)
         if self.timer.get() > 6 and self.timer.get() < 7:
             self.drive.arcadedrive(-0.5,0)
         if self.timer.get() > 7:
             self.drive.arcadeDrive(0, 0)  # Stop robot
+>>>>>>> ffeac4cb18d99ae28b20a5a8ad033e831c84555c:Assignments/robot.py
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""

@@ -41,10 +41,9 @@ import time
 
 
 class sorting():
-    a1times = []
-    a2times = []
-    a3times = []
-    def bubbleSort(list):
+   
+
+    def bubbleSort(self):
         n = len(list)
         # Push the largest num to the end.
         for i in range (0,n-1): # (n-1) is the biggest num of times to sort.
@@ -53,85 +52,91 @@ class sorting():
                     list[j], list[j+1] = list[j+1], list[j]
         return(list) # from the small num to the large num.
         #del n
-    def selectionSort(alist):
-        for fillslot in range(len(alist)-1,0,-1):
+    
+    def selectionSort(self):
+        for fillslot in range(len(list)-1,0,-1):
             positionOfMax=0
             for location in range(1,fillslot+1):
-                if alist[location]>alist[positionOfMax]:
+                if list[location] > list[positionOfMax]:
                     positionOfMax = location
-            temp = alist[fillslot]
-            alist[fillslot] = alist[positionOfMax]
-            alist[positionOfMax] = temp
-        return(alist)
+            temp = list[fillslot]
+            list[fillslot] = list[positionOfMax]
+            list[positionOfMax] = temp
+        return(list)
         
-    def insertionSort(l):
-        for index in range(1,len(l)):
-            currentvalue = l[index]
+    def insertionSort(self):
+        for index in range(1,len(list)):
+            currentvalue = list[index]
             position = index
             
-            while position>0 and l[position-1]>currentvalue:
-                l[position]=l[position-1]
+            while position>0 and list[position-1]>currentvalue:
+                list[position]=list[position-1]
                 position = position-1
             
-            l[position]=currentvalue
-        return(l)
+            list[position]=currentvalue
+        return(list)
     
-    n=[1000,2000,3000,4000,5000]
-    ############################
-    # print diagrams
-    print("Bubble Sort Algorithm")
-    print("n","         ","time")
-    for z in range(0, len(n)):
-        for num in n:
-            list = random.sample(range(num), 10)
-            t0 = time.time()
-            bubbleSort(list)
-            t1 = time.time()
-            total = t1-t0
-        a1times.append(total)
-        print(n[z],"    ",total)
-    print("               ")
-    ############################
-
-    print("Selection Sort Algorithm")
-    print("n","         ","time")
-    for z in range(0, len(n)):
-        for num in n:
-            list = random.sample(range(num), 10)
-            t0 = time.time()
-            selectionSort(list)
-            t1 = time.time()
-            total = t1-t0
-        a2times.append(total)
-        print(n[z],"    ",total)
-    print("               ")
-    ############################ 
     
-    print("Insertion Sort algorithm")
-    print("n","         ","time")
-    for z in range(0, len(n)):
-        for num in n:
-            list = random.sample(range(num), 10)
-            t0 = time.time()
-            insertionSort(list)
-            t1 = time.time()
-            total = t1-t0
-        a3times.append(total)
-        print(n[z],"    ",total)
-    print("               ")
-############################
-    import pylab as pl
-    #draw diagrams
+    ############################
+    
+a = sorting()
 
 
-    #diagram1
-    pl.plot(n, a1times)# use pylab to plot x and y: pl.plot（x，y）x and y is two lists
-    pl.show()# show the plot on the screen
 
-    #diagram2
-    pl.plot(n, a2times)
-    pl.show()
 
-    #diagram3
-    pl.plot(n, a3times)
-    pl.show()
+a1times = []
+a2times = []
+a3times = []
+n=[1000,2000,3000,4000,5000]
+k = [100,200,300,400,500]
+for z in range(0, len(n)): # pick k (size) from n (range)
+    for num in n:
+        list = random.sample(range(num), k[z])
+        t0 = time.time()  
+        a.bubbleSort()  
+        t1 = time.time()
+        total = t1-t0  # timing the speed of each function
+    
+            
+        tA = time.time()
+        a.selectionSort()
+        tB = time.time()
+        totalC = tB-tA # timing the speed of each function
+   
+            
+        ti = time.time()
+        a.insertionSort()
+        tii = time.time()
+        totaliii = tii-ti # timing the speed of each function
+        
+    a1times.append(total) # record the time used in each test
+    a2times.append(totalC)
+    a3times.append(totaliii)
+# print forms
+print("Bubble Sort Algorithm")
+print("n","         ","time")
+for i in range (0,5):
+    print(n[i],"    ",a1times[i])
+print("               ")
+
+print("Selection Sort Algorithm")
+print("n","         ","time")
+for i in range (0,5):
+    print(n[i],"    ",a2times[i])
+print("               ")
+
+print("Insertion Sort algorithm")
+for i in range (0,5):
+    print(n[i],"    ",a3times[i])
+##########################
+import matplotlib.pyplot as plt
+#draw diagrams
+
+plt.plot(n,a1times,color='red') # Bubble sort algorithm
+plt.plot(n,a2times,color='blue') # Selection sort algorithm
+plt.plot(n,a3times,color='green') # Insertion sort algorithm
+plt.title('Benchmarking Sorting Algorithms') # title ofthe graph
+plt.ylabel('Time') # y label for the graph
+plt.xlabel('n Value') # x label for the graph
+plt.show()
+
