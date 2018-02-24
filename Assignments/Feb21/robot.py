@@ -33,11 +33,13 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera
         wpilib.CameraServer.launch()
         #Servo
-        self.SV1 = wpilib.Servo(9)
-        
+        self.SV1 = wpilib.Servo(9) #Camera
+        self.SV2 = wpilib.Servo(8)
         #Dashboard
         NetworkTables.initialize(server='10.61.62.2')
-
+        #Switches
+        self.SW1 = wpilib.DigitalInput(0)
+        self.SW2 = wpilib.DigitalInput(1)
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.cumulativeTime=0
@@ -81,8 +83,37 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
         #Dashboard
+        '''
         self.sd.putNumber('speed', 0.5)
         self.sd.putValue("Camera", "Forwards")
+        '''
+        if self.stick.getRawButton(1) == True:
+            self.prepareGrabCube()
+        if self.stick.getRawButton(2) == True:
+            self.grabCube()
+        if self.stick.getRawButton(3) == True:
+            self.deliverCube()
+    def prepareGrabCube(self):
+        if self.SW1.get()==False:
+            self.M2.set(-0.5)
+            self.M3.set(0.5)
+    def grabCube(self):
+        if self.SW1.get()==True:
+            if self.stick.getRawButton(5) == True:
+                self.SV2.set(0.25)
+            self.M2.set(0.5)
+            self.M3.set(-0.5)
+        elif self.SW1.get()==False and self.SW2.get()==True:
+            self.M2.set(0)
+            self.M3.set(0)
+    def deliverCube(self):
+        self.M0.set(0.5)
+        self.M1.set(-0.5)
+        if self.stick.getRawButton(6) == True:
+            self.SV2.set(0.5)
+            
+        
+        
 
 if __name__ == "__main__":
     wpilib.run(MyRobot)
