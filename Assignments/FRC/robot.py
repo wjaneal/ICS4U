@@ -16,7 +16,6 @@ class MyRobot(wpilib.IterativeRobot):
         #Set up motors to drive robot
         self.M2 = wpilib.VictorSP(2)
         self.M3 = wpilib.VictorSP(3)
-        self.S1 = wpilib.VictorSP(9)
         #self.M2.setInverted(True)
         #self.M3.setInverted(True)
         self.left = wpilib.SpeedControllerGroup(self.M2,self.M3)
@@ -39,23 +38,29 @@ class MyRobot(wpilib.IterativeRobot):
         """This function is called periodically during autonomous."""
 
         # Drive for two seconds
-        if self.timer.get() < 2.0:
+        if self.timer.get() < 3.0:
             self.drive.arcadeDrive(-0.5,0)  # Drive forwards at half speed
-        if self.timer.get() >= 2.0 and self.timer.get() <= 6.0:
-            self.drive.arcadeDrive(0, -2)#Turn twice
-        if self.timer.get() > 6.0 and self.timer.get() <=10.0:
-            self.drive.arcadeDrive(0, 2)#Turn twice clockwise
-            self.S1.set(0.5)
-        if self.timer.get() > 10.0 and self.timer.get()<=12.0:
+<<<<<<< HEAD:Assignments/FRC/robot.py
+        if self.timer.get() >=3 and self.timer.get() <=6:
+            self.drive.arcadeDrive(-0.5,-0.5)
+        if self.timer.get()>6 and self.timer.get() < 7:
             self.drive.arcadeDrive(-0.5, 0)
-            self.S1.set(-0.5)
-        if self.timer.get() > 12.0:
-            self.drive.arcadeDrive(0,0)#Stop Robot
+        if self.timer.get()>7:
+            self.drive.arcadeDrive(0,0)
+
+=======
+        if self.timer.get() >= 3 and self.timer.get() <= 6:
+            self.drive.arcadeDrive(-0.5,-0.5)
+        if self.timer.get() > 6 and self.timer.get() < 7:
+            self.drive.arcadedrive(-0.5,0)
+        if self.timer.get() > 7:
+            self.drive.arcadeDrive(0, 0)  # Stop robot
+>>>>>>> ffeac4cb18d99ae28b20a5a8ad033e831c84555c:Assignments/robot.py
 
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
+        #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
-
 
 if __name__ == "__main__":
     wpilib.run(MyRobot)
