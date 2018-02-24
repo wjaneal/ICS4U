@@ -137,8 +137,6 @@ class sorting():#This is to create the class
         for N in range (1000,5001,1000):
             sorting.selectionSort(N)
         Nlist=[1000,2000,3000,4000,5000]#This is to set the N list
-
-
         draw.plot(Nlist,sorting.t1,color='red') #This is to draw the lines
         draw.plot(Nlist,sorting.t2,color='green') 
         draw.plot(Nlist,sorting.t3,color='blue') 
@@ -146,13 +144,6 @@ class sorting():#This is to create the class
         draw.ylabel('t') #This is to name the axises
         draw.xlabel('n')
         draw.show()#This is to show the graph
-            
-        
-            
-            
-            
-                
-    
 sorting.Start()
 
 
