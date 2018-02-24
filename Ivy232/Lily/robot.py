@@ -12,10 +12,15 @@ Created on Tue Oct 17 16:31:49 2017
 """
 
 import wpilib
+#from networktables import NetworkTables
+#wpilib - contains many classes and functions 
+#for programming FRC robots.
+#wpilib.IterativeRobot - this is a base robot class.
+#MyRobot builds on the base class
+#We add functions to the base class below.
+class MyRobot(wpilib.IterativeRobot): #Builds on a base class
 
-class MyRobot(wpilib.IterativeRobot):
-
-    def robotInit(self):
+    def robotInit(self): #This is a function or method
         """
         This function is called upon program startup and
         should be used for any initialization code.
@@ -28,8 +33,12 @@ class MyRobot(wpilib.IterativeRobot):
         #self.Switch2 = wpilib.DigitalInput(1)
         #self.Servo1 = wpilib.Servo(6)
         #self.Servo2 = wpilib.Servo(7)
-        
-
+        # As a client to connect to a robot
+        #NetworkTables.initialize(server='10.61.62.103')
+        #sd = NetworkTables.getTable('SmartDashboard')
+        #sd.putNumber('someNumber', 1234)
+        #otherNumber = sd.getNumber('otherNumber')
+    
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.auto_loop_counter = 0
