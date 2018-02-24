@@ -13,6 +13,8 @@ class MyRobot(wpilib.IterativeRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
+        #Initialize Networktables
+        self.sd = NetworkTables.getTable('SmartDashboard')
 
         #Set up motors to drive robot
         self.M2 = wpilib.VictorSP(2)
@@ -32,7 +34,7 @@ class MyRobot(wpilib.IterativeRobot):
         
         #Servo
         self.SV1 = wpilib.Servo(9)
-        
+        self.SV2 = wpilib.Servo(8)        
         #Dashboard
         NetworkTables.initialize(server='10.61.62.2')
 
@@ -84,12 +86,19 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera Point Front:
         if self.stick.getPOV()==0:
             self.SV1.set(1.0)
+            self.sd.putValue('Camera','Forward')
         #Camera Point Back:
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
+            self.sd.putValue('Camera','Backward')
+    #Orient Servo 2
+        if self.stick.getPOV()==90:
+            self.SV2.set(0.5)
+        #Orient Servo 2
+        if self.stick.getPOV()==270:
+            self.SV2.set(-0.6)
         #Dashboard
-        sd = NetworkTables.getTable('SmartDashboard')
-        sd.putNumber('speed', 0.5)
+        self.sd.putNumber('speed', 0.5)
         
         
 if __name__ == "__main__":
