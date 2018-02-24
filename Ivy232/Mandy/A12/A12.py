@@ -50,11 +50,13 @@ class Recusive: # define a class with three functions.
             return 1
         else:
             return self.fib(n-1) + self.fib(n-2)
-    
-    
-    def interactions(self): # interact with the recursive algorithms
+        # 0 + 1 + （0+1）+ （1 +（0+1））+ （（0+1）+（1+（0+1））+ ...
+        # 0 + 1 +   1   +      2     +        3   +   ...
+        #fib(3) = fib(2) + fib(1) = [fib(1) + fib(0)]+ fib(1) = 1+0+1 = 2
+        
+    def interactions(self): # friendly interact with users
         self.endGame = False # this initializes self.endGame to False.
-        while(self.endGame == False): #This loop continues if self.endGame is False 
+        while(self.endGame == False): # this loop continues if self.endGame is False 
             print("Please choose a fuction to play with!") 
             print("Type f for Factorials")
             print("Type h for T Hanoi Instructions")
@@ -77,7 +79,7 @@ class Recusive: # define a class with three functions.
                 print()
             if choice=='F':
                 print(" Fibonacci Number! ")
-                print("Here you can find the n th Fibonacci Number. (0 is the  first Fibonacci Number)")
+                print("Here you can find the n th Fibonacci Number. (0 isn't the first Fibonacci Number)")
                 m = int(input("m:"))
                 print(self.fib(m))
                 

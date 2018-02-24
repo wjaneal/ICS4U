@@ -52,6 +52,7 @@ class sorting():
                     list[j], list[j+1] = list[j+1], list[j]
         return(list) # from the small num to the large num.
         #del n
+    
     def selectionSort(self):
         for fillslot in range(len(list)-1,0,-1):
             positionOfMax=0
@@ -77,7 +78,7 @@ class sorting():
     
     
     ############################
-    # print diagrams
+    
 a = sorting()
 
 
@@ -88,53 +89,54 @@ a2times = []
 a3times = []
 n=[1000,2000,3000,4000,5000]
 k = [100,200,300,400,500]
-for z in range(0, len(n)):
+for z in range(0, len(n)): # pick k (size) from n (range)
     for num in n:
         list = random.sample(range(num), k[z])
-        t0 = time.time()
-        a.bubbleSort()
+        t0 = time.time()  
+        a.bubbleSort()  
         t1 = time.time()
-        total = t1-t0
+        total = t1-t0  # timing the speed of each function
     
             
         tA = time.time()
         a.selectionSort()
         tB = time.time()
-        totalC = tB-tA
+        totalC = tB-tA # timing the speed of each function
    
             
         ti = time.time()
         a.insertionSort()
         tii = time.time()
-        totaliii = tii-ti
+        totaliii = tii-ti # timing the speed of each function
         
-    a1times.append(total)
+    a1times.append(total) # record the time used in each test
     a2times.append(totalC)
     a3times.append(totaliii)
-
+# print forms
 print("Bubble Sort Algorithm")
 print("n","         ","time")
 for i in range (0,5):
     print(n[i],"    ",a1times[i])
-
 print("               ")
+
 print("Selection Sort Algorithm")
 print("n","         ","time")
 for i in range (0,5):
     print(n[i],"    ",a2times[i])
 print("               ")
+
 print("Insertion Sort algorithm")
 for i in range (0,5):
     print(n[i],"    ",a3times[i])
 ##########################
 import matplotlib.pyplot as plt
-    #draw diagrams
+#draw diagrams
 
-plt.plot(n,a1times,color='red') #This generates the graph for the Bubble sort algorithm.
-plt.plot(n,a2times,color='blue') #This generates the graph for the  Selection sort algorithm.
-plt.plot(n,a3times,color='green') #This generates the graph for the Insertion sort algorithm.
-plt.title('Benchmarking Sorting Algorithms') #This creates a title for the graph.
-plt.ylabel('Time') #This creates the y label for the graph.
-plt.xlabel('n Value') #This creates the x label for the graph.
+plt.plot(n,a1times,color='red') # Bubble sort algorithm
+plt.plot(n,a2times,color='blue') # Selection sort algorithm
+plt.plot(n,a3times,color='green') # Insertion sort algorithm
+plt.title('Benchmarking Sorting Algorithms') # title ofthe graph
+plt.ylabel('Time') # y label for the graph
+plt.xlabel('n Value') # x label for the graph
 plt.show()
 
