@@ -43,8 +43,8 @@ class MyRobot(wpilib.IterativeRobot):
         #Dashboard
         NetworkTables.initialize(server='10.61.62.2')
         #Switches
-        self.SW1 = wpilib.DigitalInput(0)
-        self.SW2 = wpilib.DigitalInput(1)
+        self.SW0 = wpilib.DigitalInput(0)
+        self.SW1 = wpilib.DigitalInput(1)
         #Elevator
         self.E = wpilib.VictorSP(5)
     def autonomousInit(self):
@@ -80,6 +80,7 @@ class MyRobot(wpilib.IterativeRobot):
                 self.drive.arcadeDrive(0,0)
         
     def teleopPeriodic(self):
+        self.drive.setMaxOutput(0.5)
         self.sd.putValue("SW2", self.SW2.get())
         self.sd.putValue("SW1", self.SW1.get())
         """This function is called periodically during operator control."""
@@ -107,55 +108,69 @@ class MyRobot(wpilib.IterativeRobot):
         '''
         if self.stick.getRawButton(1) == True:
             self.prepareCubeFlag = 1
-        if self.prepareCubeFlag > 0:
-            self.prepareGrabCube()
+            if self.prepareCubeFlag > 0:
+                self.prepareGrabCube()
         if self.stick.getRawButton(2) == True:
+            self.grabCubeFlag = 1
+            if self.grabCubeFlag > 0:
+                self.grabCube()
             self.grabCube()
         if self.stick.getRawButton(3) == True:
-            self.deliverCube()
+            self.deliverCubeFlag = 1
+            if self.deliverCubeFlag > 0:   
+                self.deliverCube()
         if self.stick.getRawButton(5) == True:
-            self.AdjustElevatorLeft()
+            self.adjustLeftFlag = 1
+            if self.adjustLeftFlag > 0:
+                self.AdjustElevatorLeft()
         if self.stick.getRawButton(6) == True:
-            self.AdjustElevatorRight()
+            self.adjustRightFlag = 1
+            if self.adjustRightFlag > 0:
+                self.AdjustElevatorRight()
     
     def prepareGrabCube(self):
-        #(1)Check that the lower elevator switch is on - elevator at bottom
+    #(1)Check that the lower elevator switch is on - elevator at bottom
 	#(2)If not, move elevator to bottom (and arms to bottom)
-        if self.SW1.get()==True:
+        if self.SW0.get()==True:
             self.SV2.set(0.25)
             self.E.set(0.5)
         self.prepareCubeFlag +=1
-
-        if self.SW2.get()==False or self.prepareCubeFlag > 50:
+        if self.SW0.get()==False or self.prepareCubeFlag > 50:
+            self.SV2.set(-0.25)
             self.E.set(0)
-            self.SV2.set(0.75)
             self.prepareCubeFlag = 0
-            
-    
+
     def grabCube(self):
-        #(1)Grab cube
-	#(2) Move cube up until it hits the top (or part way up????)
-        if self.SW1.get()==True:
-            self.SV2.set(0.25)
-            self.E.set(0.5)
+    #(1)Grab cube
+    #(2) Move cube up until it hits the top (or part way up????)
+        self.SV2.set(-0.5)
+        if self.SW1.get() == True:
+            self.E.set(-0.5)
         if self.SW1.get() == False:
             self.E.set(0)
-        if self.SW2.get()==True:
-            self.E.set(0)
-            self.SV2.set(0.75)
+            self.grabCubeFlag = 0
        
-
     def deliverCube(self):
-        self.E.set(0.5)
-        if self.stick.getRawButton(5) == True:
+        if self.SW0.get() == True:
+            self.E.set(0.5)
+        if self.SW0.get() == False:
             self.SV2.set(0.5)
             self.E.set(0)
+            self.deliverCubeFlag = 0
             
     def AdjustElevatorLeft(self):
-        self.E.set(0.25)
+        if self.SW1.get() == True:
+            self.E.set(0.25)
+        if self.SW1.get() == False:
+            self.E.set(0)
+            self.adjustLeftFlag=0
         
     def AdjustElevatorRight(self):
-        self.E.set(-0.25)
+        if self.SW1.get() == True:
+            self.E.set(-0.25)
+        if self.SW1.get() == False:
+            self.E.set(0)
+            self.adjustRightFlag=0
         
             
         
