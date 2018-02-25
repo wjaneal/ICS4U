@@ -4,7 +4,7 @@
 import wpilib
 import wpilib.drive
 from networktables import NetworkTables
-import dashboard
+#import dashboard
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -13,14 +13,13 @@ class MyRobot(wpilib.IterativeRobot):
         This function is called upon program startup and
         should be used for any initialization code.
         """
-<<<<<<< HEAD:Assignments/Feb21/robot.pybkp
+
+        self.prepareCubeFlag = 0
+
         #Initialize Networktables
         self.sd = NetworkTables.getTable('SmartDashboard')
 
-=======
         
-        self.sd = NetworkTables.getTable('SmartDashboard')
->>>>>>> 7b93eae977a44e7b9590fdb32a79f3f13e7e08a7:Assignments/Feb21/robot.py
         #Set up motors to drive robot
         self.M2 = wpilib.VictorSP(2)
         self.M3 = wpilib.VictorSP(3)
@@ -39,13 +38,8 @@ class MyRobot(wpilib.IterativeRobot):
         #Camera
         wpilib.CameraServer.launch()
         #Servo
-<<<<<<< HEAD:Assignments/Feb21/robot.pybkp
         self.SV1 = wpilib.Servo(9)
         self.SV2 = wpilib.Servo(8)        
-=======
-        self.SV1 = wpilib.Servo(9) #Camera
-        self.SV2 = wpilib.Servo(8)
->>>>>>> 7b93eae977a44e7b9590fdb32a79f3f13e7e08a7:Assignments/Feb21/robot.py
         #Dashboard
         NetworkTables.initialize(server='10.61.62.2')
         #Switches
@@ -86,6 +80,8 @@ class MyRobot(wpilib.IterativeRobot):
                 self.drive.arcadeDrive(0,0)
         
     def teleopPeriodic(self):
+        self.sd.putValue("SW2", self.SW2.get())
+        self.sd.putValue("SW1", self.SW1.get())
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         self.drive.arcadeDrive(self.stick.getY(), self.stick.getX())
@@ -104,14 +100,14 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getPOV()==270:
             self.SV2.set(-0.6)
         #Dashboard
-<<<<<<< HEAD:Assignments/Feb21/robot.pybkp
         self.sd.putNumber('speed', 0.5)
-=======
         '''
         self.sd.putNumber('speed', 0.5)
         self.sd.putValue("Camera", "Forwards")
         '''
         if self.stick.getRawButton(1) == True:
+            self.prepareCubeFlag = 1
+        if self.prepareCubeFlag > 0:
             self.prepareGrabCube()
         if self.stick.getRawButton(2) == True:
             self.grabCube()
@@ -123,18 +119,32 @@ class MyRobot(wpilib.IterativeRobot):
             self.AdjustElevatorRight()
     
     def prepareGrabCube(self):
-        if self.SW1.get()==False:
-            self.E.set(-0.5)
-            
-    
-    def grabCube(self):
+        #(1)Check that the lower elevator switch is on - elevator at bottom
+	#(2)If not, move elevator to bottom (and arms to bottom)
         if self.SW1.get()==True:
             self.SV2.set(0.25)
             self.E.set(0.5)
-        
-        elif self.SW1.get()==False and self.SW2.get()==True:
+        self.prepareCubeFlag +=1
+
+        if self.SW2.get()==False or self.prepareCubeFlag > 50:
             self.E.set(0)
+            self.SV2.set(0.75)
+            self.prepareCubeFlag = 0
             
+    
+    def grabCube(self):
+        #(1)Grab cube
+	#(2) Move cube up until it hits the top (or part way up????)
+        if self.SW1.get()==True:
+            self.SV2.set(0.25)
+            self.E.set(0.5)
+        if self.SW1.get() == False:
+            self.E.set(0)
+        if self.SW2.get()==True:
+            self.E.set(0)
+            self.SV2.set(0.75)
+       
+
     def deliverCube(self):
         self.E.set(0.5)
         if self.stick.getRawButton(5) == True:
@@ -146,7 +156,6 @@ class MyRobot(wpilib.IterativeRobot):
         
     def AdjustElevatorRight(self):
         self.E.set(-0.25)
->>>>>>> 7b93eae977a44e7b9590fdb32a79f3f13e7e08a7:Assignments/Feb21/robot.py
         
             
         
