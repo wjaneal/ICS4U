@@ -38,7 +38,7 @@ for x in range (0,5): #This loop could repeat the program 5 times
 c    prime1 = [1]*(n[x]+1)
     for i in range(2,len(prime1)):
         j = i
-        while j < len(prime1):
+        while j < len(prime1
             if j>i:
                 prime1[j]=0
             j+=i

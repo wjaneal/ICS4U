@@ -12,6 +12,7 @@ Created on Tue Oct 17 16:31:49 2017
 """
 
 import wpilib
+import ctre
 #from networktables import NetworkTables
 #wpilib - contains many classes and functions 
 #for programming FRC robots.
@@ -27,8 +28,10 @@ class MyRobot(wpilib.IterativeRobot): #Builds on a base class
         """
         self.robot_drive = wpilib.RobotDrive(5,6)
         self.stick = wpilib.Joystick(0)
-        self.Motor1 = wpilib.VictorSP(0)
-        self.Motor2 = wpilib.VictorSP(1)
+        self.motor1 = ctre.WPI_TalonSRX(1) # Initialize the TalonSRX on device 1.
+        self.motor2 = ctre.WPI_TalonSRX(2)
+        self.motor3 = ctre.WPI_TalonSRX(3)
+        self.motor4 = ctre.WPI_TalonSRX(4)
         #self.Switch1 = wpilib.DigitalInput(0)
         #self.Switch2 = wpilib.DigitalInput(1)
         #self.Servo1 = wpilib.Servo(6)
