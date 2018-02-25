@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Name: Xu, Yingjie (Mike)
-Date: 2018-02-22
+Date: 2018-02-24
 Program Title: assignment12 (Recursive Algorithms)
 Purpose: 
 (1) Create a class with functions for three recursive algorithms.  

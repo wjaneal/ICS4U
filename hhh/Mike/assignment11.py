@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Name: Xu, Yingjie (Mike)
-Date: 2018-02-23
+Date: 2018-02-20
 Program Title: assignment11
 Purpose: 
 (1) Create a class with functions for three search algorithms - random, linear and binary. 
