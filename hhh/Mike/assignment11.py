@@ -88,7 +88,7 @@ class searching():#This is to set up a class
         for i in range (0,5):#This is to start a loop
             N=random.randint(0,1000000)#This is to get a N to guess
             Time=searching.Random_searching(N)#This is to operate the function
-            Random='Trial'+ str(i)+' '+str(Time)#This is to get the print content
+            Random=str(i+1)+' '+str(Time)#This is to get the print content
             print(Random)#This is to print
             avg=avg + Time#This is to get the value for average
         print('Average '+str(avg/5))#This is to get the value for average
@@ -97,7 +97,7 @@ class searching():#This is to set up a class
         for i in range (0,5):#This is to start a loop
             N=random.randint(0,1000000)#This is to get a N to guess
             Time=searching.Linear_searching(N)#This is to operate the function
-            Linear='Trial'+ str(i)+' '+str(Time)#This is to get the print content
+            Linear=str(i+1)+' '+str(Time)#This is to get the print content
             print(Linear)#This is to print
             avg=avg + Time#This is to get the value for average
         print('Average '+str(avg/5))#This is to get the value for average
@@ -106,7 +106,7 @@ class searching():#This is to set up a class
         for i in range (0,5):#This is to start a loop            
             N=random.randint(0,1000000)#This is to get a N to guess
             Time=searching.Binary_searching(N)#This is to operate the function
-            Binary='Trial'+ str(i)+' '+str(Time)#This is to get the print content
+            Binary=str(i+1)+' '+str(Time)#This is to get the print content
             print(Binary)#This is to print
             avg=avg + Time#This is to the value for average
         print('Average '+str(avg/5))#This is to get the value for average
