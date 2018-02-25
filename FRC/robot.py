@@ -50,10 +50,10 @@ class MyRobot(wpilib.IterativeRobot):
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
-        if self.stick.getRawButton(1) == True and self.switch1.get()==False:
+        if self.stick.getRawButton(1) == True and self.switch2.get()==False:
             self.E1.set(0.8)
             self.E2.set(-0.8)
-        elif self.stick.getRawButton(2) == True and self.switch2.get()==False:
+        elif self.stick.getRawButton(2) == True and self.switch1.get()==True:
             self.E1.set(-0.8)
             self.E2.set(0.8)
         else:
@@ -62,7 +62,7 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getRawButton(3)==True:
             self.S1.set(-0.4)
             self.S2.set(-0.4)
-            self.gearShiftLeft.set(False)
+            self.gearShiftLeft.set(False) 
             self.gearShiftRight.set(False)
         elif self.stick.getRawButton(4)==True:
             self.S1.set(0.4)

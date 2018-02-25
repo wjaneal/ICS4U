@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 """
 Created on Wed Feb 14 11:08:24 2018
-
+ 
 Assignment 12 - Recursive Algorithms - Towers of Hanoi
 
 (1) Create a class with functions for three recursive algorithms.  Include factorials, the Towers of Hanoi and any other recursive function.  Allow the user to choose any of the three functions and then interact with the function.  The program should provide adequate instructions and output to be useful.
@@ -10,6 +10,17 @@ Assignment 12 - Recursive Algorithms - Towers of Hanoi
 @author: Mandy
 """
 
+#Factorials
+def f(n):
+    if n > 1:
+        return n * f(n-1)
+    else:
+        return 1
+x = int(input("Factorial: n!, n = "))
+print(f(x))
+print()
+
+#Hanoi
 def Hanoi (n,p1,p2): # n: number of pieces that you want to move
     posts = [p1,p2] # p1: the current position;# p2: the target position
     
@@ -42,3 +53,50 @@ print(" ")
 
 print("please follow the instructions to move the circles!")
 print(Hanoi(n,currentPosition,targetPosition))
+import random
+n = []
+for i in range(0,1000):
+    n.append(random.random())
+    n.sort()
+print()
+
+#Recursive algorithms in Binary
+import random
+n = []
+for i in range(0,1000):
+    n.append(random.random())
+    n.sort()    
+def Binary(n):
+        
+    mid = len(n)//2
+    LH = []
+    RH = []
+        
+    if n[mid] > 0.7:
+        LH = n[:mid+1]
+        #print("LH",LH)
+        #print("1",LH)
+        if len(LH) == 2:
+            #print(LH)
+            print ("Result",LH[1])
+            pass
+        else:
+            Binary(LH)  
+            #print("3",LH)
+    elif n[mid] < 0.7:
+        RH = n[mid:]
+        #print(RH)
+        #print("4",RH)
+        if len(RH) == 2:
+            #print("RH",RH)
+            print("Result",RH[1])
+            pass
+        else:
+            Binary(RH)
+            #print("6",RH)
+    
+
+
+#print("n",n)
+Binary(n)
+
