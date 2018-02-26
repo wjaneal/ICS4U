@@ -63,7 +63,7 @@ class rec():
                 self.hanoi(how,now,end)
             if cho == "3":
                 num = int(input("Which number do you want to calculate the sum of it with numbers less than it?"))
-                print(self.fac(num))
+                print(self.sum(num))
             
         
 #run the class     
