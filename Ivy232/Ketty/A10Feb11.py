@@ -112,7 +112,7 @@ for i in range(0,len(leng)):
 plt.figure()
 
 plt.plot(leng,t1)  
-plt.xlabel('numeber')  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()
@@ -142,7 +142,7 @@ for i in range(0,len(leng)):
 plt.figure()
 
 plt.plot(leng,t2)  
-plt.xlabel('numeber')  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()
@@ -171,8 +171,8 @@ for i in range(0,len(leng)):
 #making a plot of prime1
 plt.figure()
 
-plt.plot(leng,t2)  
-plt.xlabel('numeber')  
+plt.plot(leng,t3)  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()
