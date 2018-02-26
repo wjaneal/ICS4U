@@ -50,8 +50,10 @@ class MyRobot(wpilib.IterativeRobot):
         self.deliverCubeFlag = 2
         self.adjustLeftFlag=2
         self.adjustRightFlag=2
-        self.driveFlag=2
-        
+        self.driveFlag=0
+        #Gyro
+        self.gyro = wpilib.ADXRS450_Gyro(0)
+        self.gyro.reset()
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         self.cumulativeTime=0
@@ -90,10 +92,9 @@ class MyRobot(wpilib.IterativeRobot):
         self.sd.putValue("SW0", self.SW0.get())
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
-        
+        '''
         if self.stick.getRawButton(7) == True:
             self.driveFlag=0
-            
             self.drive.setMaxOutput(0.5)
         if self.stick.getRawButton(8) == True:
             self.driveFlag=1
@@ -101,6 +102,7 @@ class MyRobot(wpilib.IterativeRobot):
             self.driveb.setMaxOutput(0.5)
         if self.driveFlag==1:
             self.driveb.arcadeDrive(self.stick.getRawAxis(5), self.stick.getRawAxis(4))
+        '''
         if self.driveFlag==0:
             self.drive.arcadeDrive(self.stick.getRawAxis(1), self.stick.getRawAxis(0))
         
@@ -120,6 +122,7 @@ class MyRobot(wpilib.IterativeRobot):
             self.SV2.set(-0.6)
         #Dashboard
         self.sd.putNumber('speed', 0.5)
+        self.sd.putNumber('Gyro',self.gyro.getAngle())
         '''
         self.sd.putNumber('speed', 0.5)
         self.sd.putValue("Camera", "Forwards")
@@ -145,7 +148,12 @@ class MyRobot(wpilib.IterativeRobot):
             self.adjustRightFlag = 1
         if self.adjustRightFlag > 0:
             self.AdjustElevatorRight()
-    
+        if self.gyro.getAngle() == 0:
+            self.E.set(0.5)
+            self.sd.putNumber('Gyro',0)
+        if self.gyro.getAngle() == 90:
+            self.E.set(0)
+            self.sd.putNumber('Gyro',90)
     def prepareGrabCube(self):
     #(1)Check that the lower elevator switch is on - elevator at bottom
 	#(2)If not, move elevator to bottom (and arms to bottom)
