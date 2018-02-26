@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
 """
-Spyder Editor
-
-This is a temporary script file.
-
 Name:Henry
 Date: 16/Feb/2018
 Program Title:  Recursive Algorithms
@@ -15,15 +11,19 @@ Purpose:
 (4)The program should provide adequate instructions and output to be useful.
 """
 class recursion: #This create a class for three recursive algorithms
+
+    def __init__(self):
+        self.count = 0
     def factorial(self,N): #This define a function for calculating fatorials
-        if N==0 or N==1: #The fatorial is 1
+        if N==0 or N==1: #The fatorial  of 0 and 1 is 1
             return 1
         else:
             return N*self.factorial(N-1)
-        
+        n
     def hanoi(self,n, source, helper, target):#This defines a function for playing the Towers of Hanoi game.
-        if n==1 : #If there is only one disk, its movement should be printed.
-            print(source,"->",target)
+        if n==1 :
+            self.count+=1
+            print(self.count, source,"->",target)
         else:
             #move tower of size n - 1 to helper:
             self.hanoi(n-1, source, target, helper)
@@ -43,28 +43,29 @@ class recursion: #This create a class for three recursive algorithms
             print("Input Factorial for Factorial")
             print("Input Hanoi for The Towers of Hanoi")
             print("Input Fibonacci for Fibonacci sequence")
-            #This prints some instructions to allow the user to choose a function.
-            Start = input() #This lets the user input the choice.
+
+            Start = input()
+
+            # For Factorial
             if Start=='Factorial':
-                print("Welcome to the Factorial Calculator!")
-                n = int(input("Which number would you like to calculate the factorial of?")) #This asks the user the number he/she wants to calculate the factorial of.
-                print("The factorial of "+str(n)+" is "+str(self.factorial(n))) #This prints the factorial of the number.
+                n = int(input("Which number would you like to calculate the factorial of?"))
+                print("The factorial of "+ str(n) +" is "+str(self.factorial(n))) # use the function of factorial
+
+            # For Towers of Hanoi
             if Start=='Hanoi':
-                print("Welcome to the Towers of Hanoi game!")
-                print("The objective of the puzzle is to move the entire stack to another rod.")
                 N=int(input("How many disks would you like to have?"))
-                rods=input("How would you like to call the three rods (first,second,third) in the game? (Please separate them with spaces)").split()
-                print("This shows how you should move your disks:")
-                self.hanoi(N,rods[0],rods[1],rods[2]) #This prints the steps of moving the disks.
+                rods=input("How would you like to call the three rods (first,second,third)?").split()
+                print("How to move the disks:")
+                self.hanoi(N,rods[0],rods[1],rods[2])
+
+            # For Fibonacci
             if Start=='Fibonacci':
-                print("Welcome to the Fibonacci sequence!")
-                print("The Fibonacci sequence is a series of numbers in which each number ( Fibonacci number ) is the sum of the two preceding numbers.")
-                n=int(input("How many terms in the Fibonacci sequence would you like to calculate?"))
-                print("These are the first "+str(n)+" terms of the Fibonacci sequence")
-                #This prints the Fibonacci sequence.
+                n=int(input("How many terms do you want to calculate in the Fibonacci sequence?"))
+                print("These are the "+str(n)+" terms of the Fibonacci sequence")
                 for i in range(1,n+1):
                     print(self.Fibonacci(i))
 
-                    
-r=recursion() 
-r.interactions() #Let's start
+
+if __name__ == "__main__":                 
+    r=recursion() 
+    r.interactions()
