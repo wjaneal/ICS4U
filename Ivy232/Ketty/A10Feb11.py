@@ -62,7 +62,7 @@ class sorting():
                 if seq[self.i] > seq[self.i+1]:
                     seq[self.i], seq[self.i+1] = seq[self.i+1], seq[self.i]
                     changed = True
-        return None
+        return seq
     #define function of insertion sorting
     def insertion_sort(self,l):
         for self.i in range(1, len(l)):
@@ -82,7 +82,7 @@ class sorting():
     def random(self,u):
         self.a = int(random.random()*leng[u])
         num.append(self.a)
-        return num
+        return u
 #class
 s = sorting()
 #run the class and function, and input time each time in list t
