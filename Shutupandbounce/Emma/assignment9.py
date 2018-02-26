@@ -75,10 +75,10 @@ def func2(self):# Solving using sieve of erastothenes
 def output():
     for i in range(0,len(a1time)):
         print("algorithm 1 result:\n", " n      time(sec)")
-        print(str(ran[i][0])+"  "+str(a2time[i][1]))
+        print(str(ran[i][0])+"  "+str(a1time[i][1]))
     for j in range(0,len(a2time)):
         print("algorithm 2 result:\n", " n      time(sec)")    
-        print(str(ran[i][0])+"  "+str(a2time[i[1]]))
+        print(str(ran[j][0])+"  "+str(a2time[j[1]]))
 
 for i in ran:
     func1(i)
