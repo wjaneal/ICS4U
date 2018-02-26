@@ -34,18 +34,20 @@ a2time=[]
 # This creates to 2 empty lists to record time
 for x in range (0,5): #This loop could repeat the program 5 times
     print(n[x])
-    start1 = time.time()#This could record the start time of the first program
-c    prime1 = [1]*(n[x]+1)
+for x in range (0,5):
+    print(n[x])
+    start1 = time.time()#This could record the start time of the program
+    prime1 = [1]*(n[x]+1)
     for i in range(2,len(prime1)):
         j = i
-        while j < len(prime1
+        while j < len(prime1):
             if j>i:
                 prime1[j]=0
             j+=i
     for i in range(2,len(prime1)):
         if prime1[i] != 0:
             print(i)
-    end1 = time.time() #This could record the end time of the first program
+    end1 = time.time()#This could record the end time for the first program
     elapsed1 = end1 - start1 #This could calculate the time for the first program
     a1time.append(elapsed1) #This could include the calculated time in the list1.
 

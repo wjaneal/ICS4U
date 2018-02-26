@@ -37,69 +37,56 @@ n	time
 import random
 import time
 import matplotlib.pyplot as draw
-class sort():#This is to create the class
 
+class sort():
+    
     #This is to define a new function for select sorting
-    def select(N):
-        List=[]#This is to reset the list
-        for i in range(0,N):#This is to start the loop
-            List.append(random.randint(0,i+1))#This is to fill the list
+    def select(self):
+        List=[]
+        for i in range(0,self):#This loop is used to create the list
+            List.append(random.randint(0,i+1))
             
-        start=time.clock()#This is to start the timer
-        for j in range(len(List)-1,0,-1):#This is to start the loop
-            maxValue=0#This is to reset the position
+        start=time.clock()#This is to record the start time
+        for j in range(len(List)-1,0,-1):#This is to start the loop to make a select sort
+            maxValue=0
             for l in range(1,j+1):#This is to start a loop
-                if List[l]>List[maxValue]:#This is to judge whether the current value is larger than the current max value
-                    maxValue = l #This is to push it as the max value
-
-        tmp = List[j]#This is to switch value
-        List[j] = List[maxValue]
-        List[maxValue] = tmp
-        
-        elapsed = (time.clock() - start)#This is to end the timer
-        time1=str(N)+' '+str(elapsed)#This is to find the print context
-        sort.t3.append(elapsed)#This is to fill the time list
-        print(time1)
+                if List[l]>List[maxValue]:#This is to make a judgement
+                    maxValue = l 
+            tmp = List[j]#This could swap values
+            List[j] = List[maxValue]
+            List[maxValue] = tmp
+        sort.t3.append(time.clock() - start)#This is to record the time of the project
 
     #This is to define a new function for insert sorting
-    def insert(N):
-        List=[]#This is to reset the list
-        for i in range(0,N):#This is to start a list
-            List.append(random.randint(0,i+1))#This is to fill the list
-        
-        start =time.clock()#This is to start the timer
-        for index in range(1,len(List)):#This is to start a loop
+    def insert(self):
+        List=[]
+        for i in range(0,self):#This loop is used to create the list
+            List.append(random.randint(0,i+1))
             
+        start=time.clock()#This is to record the start time
+        for index in range(1,len(List)):#This is to start a loop to make an insert sort           
             value = List[index]#This is to get the current value
-            p = index#This is to get the position number
-            
-            while p>0 and List[p-1]>value:#This is to judge whether the current value should be there
-                List[p]=List[p-1]#This is to move the value
-                p = p-1#This is to  change the number of the value
-                
-            List[p]=value#This is to get the right one into position
-        elapsed = (time.clock() - start)#This is to end the timer
-        time2=str(N)+' '+str(elapsed)#This is to get the print content
-        sort.t2.append(elapsed)#This is to fill the time list
-        print(time2)
+            p = index#This is to get the position number            
+            while p>0 and List[p-1]>value:#This is to make a judgement
+                List[p]=List[p-1]#This is to mchange the value
+                p = p-1              
+            List[p]=value#This is to move the right one into the position           
+        sort.t2.append(time.clock() - start)#This is to record the time of the project
 
     #This is to define a new function for bubble sorting        
-    def bubble(N):
-        List=[]#This is to make a new list
-        for i in range(0,N):#This is to start a loop
-            List.append(random.randint(0,i+1))#This is to fill the list
+    def bubble(self):
+        List=[]
+        for i in range(0,self):#This loop is used to create the list
+            List.append(random.randint(0,i+1))
         
-        start =time.clock()#This is to start the timer
-        for Num in range(len(List)-1,0,-1):#This is to start another loop
+        start=time.clock()#This is to record the start time
+        for Num in range(len(List)-1,0,-1):#This is to start a loop to make a bubble sort
             for i in range(Num):#This is to move one number 
-                if List[i]>List[i+1]:#This is to judge
-                    Temp = List[i]#This is to read the number on that position
-                    List[i] = List[i+1]#This is to switch position
-                    List[i+1] = Temp#This is to switch position
-                elapsed = (time.clock() - start)#This is to end the timer
-        time3=str(N)+' '+str(elapsed)#This is to create the name
-        sort.t1.append(elapsed)#This is to fill the time list
-        print(time3)#This is to use another algorithm
+                if List[i]>List[i+1]:#This is to make a judgement
+                    Temp = List[i]
+                    List[i] = List[i+1]#This is to switch them
+                    List[i+1] = Temp#
+        sort.t1.append(time.clock() - start)#This is to record the time of the project
         
     #This could print and start the whole program.
     def start_sorting():
@@ -107,28 +94,40 @@ class sort():#This is to create the class
         sort.t2=[]
         sort.t3=[]
         #This is to start the loops
-        print ('Select sort')
-        for N in range (1000,5001,1000):
-            sort.select(N)
+        for i in range (1000,5001,1000):
+            sort.select(i)
+            sort.bubble(i)
+            sort.insert(i)
+       
+    #This could print out all the data.
+    def print_out():
+        print('The time for select sort')
+        for i in range (5):
+            print(str((i+1)*1000)+' '+str(sort.t3[i]))
         print()
-        print ('Bubble sort')
-        for N in range (1000,5001,1000):
-            sort.bubble(N)
+        print('The time for insert sort')
+        for i in range (5):
+            print(str((i+1)*1000)+' '+str(sort.t2[i]))
         print()
-        print ('Insert sort')
-        for N in range (1000,5001,1000):
-            sort.insert(N)
-
+        print('The time for bubble sort')
+        for i in range (5):
+            print(str((i+1)*1000)+' '+str(sort.t1[i]))
+            
     # This could draw the graph.
     def draw_graph():
-        nlist=[1000,2000,3000,4000,5000]#This is to set the N list
-        draw.plot(nlist,sort.t1,color='red') #This is to draw the lines
-        draw.plot(nlist,sort.t2,color='green') 
-        draw.plot(nlist,sort.t3,color='blue') 
+        x=[1000,2000,3000,4000,5000]#This is to set the N list
+        draw.plot(x,sort.t1,color='red') #This is to draw the lines
+        draw.plot(x,sort.t2,color='green') 
+        draw.plot(x,sort.t3,color='blue') 
         draw.title('Relationship between t and n') #This is to define the title
         draw.ylabel('t') #This is to name the axises
         draw.xlabel('n') #This is to name the axises
         draw.show()#This is to show the graph
         
 sort.start_sorting()
+sort.print_out()
 sort.draw_graph()
+
+
+
+
