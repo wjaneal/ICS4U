@@ -47,8 +47,8 @@ class Example(QWidget):
             
         #self.step = self.step + 1
         
-        self.pbar1.setValue(content1)
-        self.pbar2.setValue(content2)
+        self.pbar1.setValue(content1*100)
+        self.pbar2.setValue(content2*100)
         
 '''
     def doAction(self):
