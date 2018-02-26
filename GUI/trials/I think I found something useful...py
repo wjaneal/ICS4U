@@ -11,7 +11,7 @@ from PyQt5.QtCore import QBasicTimer
 from networktables import NetworkTables 
 import logging
 logging.basicConfig(level=logging.DEBUG)
-import sys
+import sysdef __init__(self):
 
 class Example(QWidget):
     
@@ -22,7 +22,7 @@ class Example(QWidget):
         
         
     def initUI(self):      
-        #Progress Bar
+
         self.pbar = QProgressBar(self)
         self.pbar.setGeometry(30, 40, 200, 25)
         self.timer = QBasicTimer()
@@ -33,21 +33,18 @@ class Example(QWidget):
         self.show()
         
         
-        
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
         sd = NetworkTables.getTable("SmartDashboard")
-        content=sd.getNumber('speed',0)
+        content=sd.getNumber('speed')
         print(content)
-        '''
         if self.step >= 100:
             self.timer.stop()
             return
-        '''   
+            
         #self.step = self.step + 1
         
         self.pbar.setValue(content)
-        
         
 '''
     def doAction(self):

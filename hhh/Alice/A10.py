@@ -75,10 +75,12 @@ class SortingFuntion():
             eti=time.time()-st# count the time insertion sort takes
             etil.append(eti)
             st=time.time()
+            random.shuffle(list1)#reshuffle the list
             SortingFuntion.selectionSort(list1)
             ets=time.time()-st# count the time seletion sort takes
             etsl.append(ets)
             st=time.time()
+            random.shuffle(list1)#reshuffle the list
             SortingFuntion.bubbleSort(list1)
             etb=time.time()-st# count the time buuble sort takes
             etbl.append(etb)
@@ -93,12 +95,10 @@ plt.plot(n, etil, color='green')#represent insertion sort
 plt.plot(n, etsl, color='orange')#selection sort
 plt.plot(n, etbl, color='blue')#bubble sort
 #label them
-plt.annotate('bubble sort', xy=(50000,0.00001),color='blue')
-plt.annotate('insertion sort', xy=(50000,0.00003),color='green')
-plt.annotate('bubble sort', xy=(50000,0.00005),color='orange')
+plt.annotate('bubble sort', xy=(50000,0.00006),color='blue')
+plt.annotate('insertion sort', xy=(50000,0.00004),color='green')
+plt.annotate('selection sort', xy=(50000,0.0001),color='orange')
 plt.xlabel('under number n')
 plt.ylabel('time needed')
 plt.title('time taken by each sorting funtion')
 plt.show()  # show the graph          
-    
-       
