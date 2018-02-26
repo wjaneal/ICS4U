@@ -18,10 +18,11 @@ Option A - Make a more complete quiz program using a class structure
 from datetime import *
 #now = datetime.now()#this is the current time
 class quiz():  
-    Fname = input("Please input your first name here: \n")
-    Lname = input("Please input your last name here: \n") 
-    now = datetime.now()#this is the current time
-    print("This is the current time:"+str(now.year)+str(now.month)+str(now.day)+str(now.hour)+str(now.minute)+str(now.second),"\n")
+    def Property(self):
+        self.Fname = input("Please input your first name here: \n")
+        self.Lname = input("Please input your last name here: \n") 
+        now = datetime.now()#this is the current time
+        print("This is the current time:"+str(now.year)+str(now.month)+str(now.day)+str(now.hour)+str(now.minute)+str(now.second),"\n")
     #This function is known as a class instantiation function
     #It is also known as a constructor
     #constructor is to make a new instance of a class
@@ -43,7 +44,7 @@ class quiz():
             else:
                 print("Sorry!You are wrong.")
             self.score = str(self.score) #Adjust to fit the following steps
-        print("Hello!Dear "+Lname+ Fname+", your total quiz score is: "+self.score)
+        print("Hello!Dear "+self.Lname + self.Fname+", your total quiz score is: "+self.score)
     def Percent(self):
         self.score = len(self.score)#(1d) Keep track of the score and when all of the questions have been asked, tell print the final quiz score
         self.percentage=self.score/5*100 #This calculates the percentage
@@ -59,14 +60,15 @@ class quiz():
     def File(self):
         self.score = str(self.score)
         self.percentage = str(self.percentage)            
-        self.Name="Quiz"+self.DATE+Fname[0]+Lname[0] #This creates a new file and the file name.
+        self.Name="Quiz"+self.DATE+self.Fname[0]+self.Lname[0] #This creates a new file and the file name.
         f = open("{0}.txt".format(self.Name), 'w')
         f.write("Date:"+self.DATE)
-        f.write("Player:"+Fname[0]+Lname[0]+"\n")
+        f.write("Player:"+self.Fname[0]+self.Lname[0]+"\n")
         f.write("Score:{0}\n"+self.score)
         f.write("Percentage:{0}%\n"+self.percentage)#Writes the file
         f.close()#Save and close the file
 Q = quiz()#This is used to run the object
+Q.Property()
 Q.Quiz()
 Q.Percent()
 Q.Date()
