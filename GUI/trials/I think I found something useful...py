@@ -26,7 +26,7 @@ class Example(QWidget):
         self.pbar1 = QProgressBar(self)
         self.pbar1.setGeometry(30, 40, 200, 25)
         self.pbar2 = QProgressBar(self)
-        self.pbar2.setGeometry(80, 100, 200, 25)
+        self.pbar2.setGeometry(30, 100, 200, 25)
         self.timer = QBasicTimer()
         self.step = 0
         self.timer.start(100, self)
@@ -47,8 +47,8 @@ class Example(QWidget):
             
         #self.step = self.step + 1
         
-        self.pbar1.setValue(content1)
-        self.pbar2.setValue(content2)
+        self.pbar1.setValue(content1*100)
+        self.pbar2.setValue(content2*100)
         
 '''
     def doAction(self):
