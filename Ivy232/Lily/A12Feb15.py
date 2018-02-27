@@ -6,7 +6,7 @@ Coding convention:
 (a) lower case file name
 (b) Lily, 25 Feb.2018, Recursive Algorithms
 (c) mixedCase variable names
-
+Purpose:
 (1) Create a class with functions for three recursive algorithms.  
 (2)Include factorials, the Towers of Hanoi and any other recursive function.  
 (3)Allow the user to choose any of the three functions and then interact with the function.  
