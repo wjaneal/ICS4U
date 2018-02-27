@@ -146,7 +146,7 @@ print("average:", av1)
 #run the function for 5 times and calculate the difference of time.
 for i in range(5):
     a = time.time()
-    s.linear(n)
+    s.Binary(n)
     b = time.time()
     t2.append(b-a)
 #total time
@@ -157,7 +157,7 @@ for u in t2:
 #calculate the average time
 av2 = round(total2/5,2)
 #output the table
-print("Linear search algorithm:")
+print("Binary search algorithm:")
 print("trial#	time")
 for r in range(0,len(t2)):
     print(r + 1,"    ",t2[r])
