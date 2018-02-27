@@ -1,9 +1,5 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
-
-This is a temporary script file.
-
+'''
 Name:Henry
 Date: 13/Feb/2018
 Program Title: Linear, Random and Binary Searching - Benchmarking
@@ -41,57 +37,104 @@ trial#	time
 4	0.34
 5	0.12
 Average ....
-"""
-
-import random#This is to import modules
+'''
+#import mutiple module
+import random
 import time
-class searching():#This is to set up a class 
 
-    def randomSearching(self):#This is to define a function
-        Guess = 0#initilize the guessing
-        Max=1000000#This is to set the original range of guessing
-        Min=0
-        judge= False # This is to set the original judgement
-        start =time.clock()#This is to start the timer
-        while judge == False:#This is to start a loop
-            Guess = random.randint(Min,Max)#This is to get a random numbern
-            if Guess   == self:#This is to stop the loop
-                judge = True
-            if Guess > self:#This is to judge
-                Max = Guess#This is to change the range
-            if Guess < self:#This is to judge
-                Min = Guess#This is to change the range
-            
-        elapsed = (time.clock() - start)#This is to stop the timer
-        return elapsed#This is to return the value for the function
+
+class Search():  # This defines a class for three searching method
+
+    # This method won't work because of the Recursion Limitation of python.
+
+    '''
+    def randomSearch(self,Num):
+        if int(Num) == random.randint(0,1000000):
+            return Num
+        else:
+            return self.randomSearch(Num)
     
-    def linearSearching(self):#This is to define a functionn
-        start =time.clock()#This is to start a timer
-        for i in range (0,1000001):#This is to start a loop
-            if i != self:#This is to judge the number one by one
-                i+=1#This is to add one
+    '''
+
+    def randomSearch(self):  # This defines a function for random Searching
+        compareNum = random.randint(0, 1000000)
+        randomNumber = random.randint(0, 1000000)
+        startTime = time.clock()
+        while compareNum != randomNumber:
+            randomNumber = random.randint(0, 1000000)
+        return time.clock() - startTime
+
+    def linearSearch(self):  # This defines a function for linear Searching
+        startTime = time.clock()
+        for i in range(1, 1000001):
+            if i != self:
+                i += 1  # Search the next number
             else:
-                elapsed = (time.clock() - start)#This is to stop the timer
-                break#This is to end the loop
-        return elapsed#This is to return the time value
-    
-    def binarySearching(self):#This is to define a new function
-        start = time.clock()#This is to start the timer
-        Max=1000000#This is to set the original range
-        Min=0
-        judge=False#This is to set a original judgement
-        
-        while judge == False:#This is to start a loop
-            Guess = int((Max+Min)/2)#This is to get the number right between the max and the min
-            if Guess   == self:#This is to stop the loop
-                judge = True#This is to stop the judgement
-            if Guess > self:#This is to judge
-                Max = Guess#This is to change the range
-            if Guess < self:#This is to judge
-                Min = Guess#This is to change the range
+                stop = (time.clock() - startTime)  # It means the timer is stop
+                break  # It means that the loop has stopped
+        return stop  # It means to return the timer value
 
-        elapsed = (time.clock() - start)#This is to stop the timer
-        return elapsed#This is to return the time value
+    def binarySearch(self):
+        low = 0
+        height = 1000000
+        startTime = time.clock()
+        while low < height:
+            mid = int((low + height) / 2)
+            if mid < self:
+                low = mid
+
+            elif mid > self:
+                height = mid
+
+            else:
+                stop = (time.clock() - startTime)
+                return stop
+
+    def start(): # This defines a function for start
+        # For random searching algorithm:
+        print ('Random search algorithm:')
+        print ('Trial #    ' + 'Time ')
+        Average1 = 0
+        for i in range(1, 6):
+            Num = random.randint(0, 1000000)
+            Time1 = Search.randomSearch(Num)
+            Output =  str(i) + ' ' + str(Time1)
+            print(Output)
+            Average1 = Average1 + Time1
+        print('Average1: ' + str(Average1 / 5))
+        print(' ')
+
+        Average2 = 0
+        # For linear search algorithm:
+        print('Linear search algorithm:')
+        print('Trial #    ' + 'Time ')
+        for i in range(1, 6):
+            Num = random.randint(0, 1000000)
+            Time2 = Search.linearSearch(Num)
+            Output = str(i) + ' ' + str(Time2)
+            print(Output)
+            Average2 = Average2 + Time2
+        print('Average2: ' + str(Average2 / 5))
+        print(' ')
+
+        Average3 = 0
+        # For binary searching algorithm:
+        print('Binary search algorithm:')
+        print('Trial #    ' + 'Time ')
+        for i in range(1, 6):
+            Num = random.randint(0, 1000000)
+            Time3 = Search.binarySearch(Num)
+            Output = str(i) + ' ' + str(Time3)
+            print(Output)
+            Average3 = Average3 + Time3
+        print('Average3: ' + str(Average3 / 5))
+        print(' ')
+
+Search.start() # It means to start the function
+
+'''
+
+       
     def start():#This is to define a new function to put all the functions all together
         print ('Random Searching')#This is to divide the section
         Average=0#This is to set up a variable, initilize the average
@@ -124,11 +167,4 @@ class searching():#This is to set up a class
         print('Average '+str(Average/5))#This is to get the value for average
 
 searching.start()#This is to start the managing function
-
-
-        
-        
-        
-        
-        
-        
+'''

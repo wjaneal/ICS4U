@@ -4,14 +4,14 @@ Created on Fri Feb 23 01:04:42 2018
 
 @author: simet
 """
-
+import sys
 from PyQt5.QtWidgets import (QWidget, QProgressBar, 
     QPushButton, QApplication)
 from PyQt5.QtCore import QBasicTimer
 from networktables import NetworkTables 
 import logging
 logging.basicConfig(level=logging.DEBUG)
-import sysdef __init__(self):
+
 
 class Example(QWidget):
     
@@ -23,8 +23,10 @@ class Example(QWidget):
         
     def initUI(self):      
 
-        self.pbar = QProgressBar(self)
-        self.pbar.setGeometry(30, 40, 200, 25)
+        self.pbar1 = QProgressBar(self)
+        self.pbar1.setGeometry(30, 40, 200, 25)
+        self.pbar2 = QProgressBar(self)
+        self.pbar2.setGeometry(80, 100, 200, 25)
         self.timer = QBasicTimer()
         self.step = 0
         self.timer.start(100, self)
@@ -36,15 +38,17 @@ class Example(QWidget):
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
         sd = NetworkTables.getTable("SmartDashboard")
-        content=sd.getNumber('speed')
-        print(content)
+        content1=sd.getNumber('Left',0)
+        content2=sd.getNumber('Right',0)
+        print(content1,content2)
         if self.step >= 100:
             self.timer.stop()
             return
             
         #self.step = self.step + 1
         
-        self.pbar.setValue(content)
+        self.pbar1.setValue(content1)
+        self.pbar2.setValue(content2)
         
 '''
     def doAction(self):
