@@ -150,7 +150,7 @@ for i in range(5):
     b = time.time()
     t2.append(b-a)
 #total time
-    
+     
 total2 = 0
 for u in t2:
     total2 += u
