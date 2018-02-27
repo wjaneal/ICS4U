@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
+'''
+#Assignment 7 - OpenCV
 
-This is a temporary script file.
-"""
+Coding convention: 
+(a) lower case file name
+(b) Lily, 24 Jan.2018, photo blending
+(c) mixedCase variable names
+
+Task:
+(a) Generate a jpg file with the following:
+Rectangles, dots, text, ellipses and lines of different colours.
+
+(b) Take a second .jpg file and edit it to the  same size with a photograph taken by your phone.
+
+(c) Blend the two together in 11 jpg photographs ranging from 0-100%, 10-90%, ... all the way to 100-0%
+
+'''
 
 import numpy as np #import modules
 import cv2
