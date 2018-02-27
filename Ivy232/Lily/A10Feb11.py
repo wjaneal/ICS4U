@@ -141,9 +141,9 @@ plt.ylabel('Time Spent')
 plt.show()
 
 
-plt.plot(list1,time1,color='red') #This generates the graph for the Bubble sort algorithm.
-plt.plot(list1,time2,color='blue') #This generates the graph for the Insertion sort algorithm.
-plt.plot(list1,time3,color='green') #This generates the graph for the Selection sort algorithm.
+plt.plot(list1,time1,color='red') #This plots the graph for the Bubble sort algorithm.
+plt.plot(list1,time2,color='blue') #This plots the graph for the Selection sort algorithm.
+plt.plot(list1,time3,color='green') #This plots the graph for the Insertion sort algorithm.
 plt.title('Benchmarking Sorting Algorithms') #This creates a title for the graph.
 plt.ylabel('Time') #This creates the y label for the graph.
 plt.xlabel('n Value') #This creates the x label for the graph.
