@@ -122,8 +122,8 @@ class sortingAlgorithms():
 
 #Create lists of random numbers of the lengths in "n"
 r1 = []
-for i in range(0,100):
-    r1.append(int(random.random()*100))
+for i in range(0,10000):
+    r1.append(int(random.random()*10000))
 r2 = []
 for i in range(0,20000):
     r2.append(int(random.random()*20000))
