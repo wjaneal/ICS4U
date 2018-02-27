@@ -42,8 +42,8 @@ class MyRobot(wpilib.IterativeRobot):
         # Drive for two seconds
         if self.timer.get() < 3.0:
             self.drive.arcadeDrive(0.1,0.1)  # Drive forwards at half speed
-            Left = 0.1
-            Right = 0.1
+            Left1 = 0.1
+            Right1 = 0.1
             '''
         if self.timer.get() >=3 and self.timer.get() <=6:
             self.drive.arcadeDrive(-0.5,-0.5)
@@ -71,8 +71,8 @@ class MyRobot(wpilib.IterativeRobot):
         # Networktable
         '''
         sd = NetworkTables.getTable("SmartDashboard")
-        sd.putNumber('Left',Left)
-        sd.putNumber('Right',Right)
+        sd.putNumber('Left',Left1)
+        sd.putNumber('Right',Right1)
     def teleopPeriodic(self):
 
         
