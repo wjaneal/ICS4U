@@ -35,7 +35,7 @@ n	time
 #Import source required.
 import random
 from timeit import timeit
-import time
+from timeit import Timer
 import matplotlib
 import matplotlib.pyplot as plt
 #create 3 sets of time taken by calculating each value in r from 3 different sorting algorithms.
