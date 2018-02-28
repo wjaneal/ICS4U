@@ -38,13 +38,13 @@ class MyRobot(wpilib.IterativeRobot):
 
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-
+        Left1=0
+        Right1=0
         # Drive for two seconds
-        if self.timer.get() < 3.0:
-            self.drive.arcadeDrive(0.1,0.1)  # Drive forwards at half speed
-            Left1 = 0.1
-            Right1 = 0.1
-            '''
+        self.drive.arcadeDrive(0.1,0)  # Drive forwards at half speed
+        Left1 = 0.1
+        Right1 = 0.1
+        '''
         if self.timer.get() >=3 and self.timer.get() <=6:
             self.drive.arcadeDrive(-0.5,-0.5)
             Left = -0.5
