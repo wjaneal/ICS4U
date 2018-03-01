@@ -87,11 +87,14 @@ a = sorting()
 a1times = []
 a2times = []
 a3times = []
-n=[1000,2000,3000,4000,5000]
-k = [100,200,300,400,500]
+n=[10000,20000,30000,40000,50000]
+k = [1000,2000,3000,4000,5000]
 for z in range(0, len(n)): # pick k (size) from n (range)
     for num in n:
+        
+       
         list = random.sample(range(num), k[z])
+        
         t0 = time.time()  
         a.bubbleSort()  
         t1 = time.time()

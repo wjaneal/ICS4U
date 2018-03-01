@@ -31,7 +31,7 @@ class MyRobot(wpilib.IterativeRobot):
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         
         
-        self.stick = wpilib.Joystick(1)
+        self.stick = wpilib.Joystick(0)
         self.timer = wpilib.Timer()
         #Camera
         wpilib.CameraServer.launch()
@@ -77,6 +77,28 @@ class MyRobot(wpilib.IterativeRobot):
        
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
+<<<<<<< HEAD
+        Left1=0
+        Right1=0
+        # Drive for two seconds
+        self.drive.arcadeDrive(0.1,0)  # Drive forwards at half speed
+        Left1 = 0.1
+        Right1 = 0.1
+        '''
+        if self.timer.get() >=3 and self.timer.get() <=6:
+            self.drive.arcadeDrive(-0.5,-0.5)
+            Left = -0.5
+            Right = -0.5       
+        if self.timer.get()>6 and self.timer.get() < 7:
+            self.drive.arcadeDrive(-0.5, 0)
+            Left = -0.5
+            Right = 0        
+        if self.timer.get()>7:
+            self.drive.arcadeDrive(0,0)
+            Left = 0
+            Right = 0
+=======
+>>>>>>> ec0aaff67f940aea48f816739c5896c62dea705d
         
         for i in self.dataSet:
             if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
