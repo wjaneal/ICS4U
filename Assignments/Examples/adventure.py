@@ -107,15 +107,17 @@ class player:
         k = item.keys()
         for d in k:
             print(d)
-
-P = player("Ted")
-while P.victory == False and P.alive == True:
-    P.description()
-    P.showInventory()
-    P.showRoomInventory()
-    P.showDirections()
-    P.command()
-    P.checkVictory()
+#Run the game
+P = player("Ted") #Initialize the player with a name
+while P.victory == False and P.alive == True: #check for whether the player is alive and whether the player has won.
+    P.description() #Show a description
+    P.showInventory() #Show player inventory
+    P.showRoomInventory() #Show the items in the room
+    P.showDirections() #Show the available directions
+    P.command() #Allow player to enter commands
+    P.checkVictory() #Check for whether the player has won
+#End of game:
+#Set the final message depending on whether the player is alive:
 if P.alive == False:
     print("Better luck next life!")
 else:
