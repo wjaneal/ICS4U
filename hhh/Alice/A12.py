@@ -68,5 +68,5 @@ def initiation():
                 c=input("Continue? Y for yes, N for no: ")        
         else:
             return()
-#initiation()
-print(factorial(2))                
+initiation()
+#print(factorial(2))                

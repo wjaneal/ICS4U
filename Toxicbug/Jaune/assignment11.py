@@ -66,7 +66,7 @@ class guess():
         return(number[maxNumber])
 
     #This lien is to define the time function.
-    def timing():
+    def timing(self):
         for i in range(0,5): #This line is to calculate the time that the program needs to execute.
             t0= time.time() #This line is to measure the starting time.
             guess.RandomGuess(0.7) #This line is execute the program.
@@ -86,7 +86,7 @@ class guess():
             bt.append(t1-t0) #This line is to record the time in the empty list.
     
     #This line is to define the plot function.
-    def plot():
+    def plot(self):
         print("Random Guess Algorithm:") #This line is to print the title of the diagram.
         print("trials"," ","time") #This line is to print the title of the diagram.
         for i in range(0,5):

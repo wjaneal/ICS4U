@@ -21,7 +21,7 @@ import random
 import matplotlib
 import matplotlib.pyplot as plt
 #(1) Create a class with functions for three search algorithms - random, linear and binary. 
-#class search():
+class search():
 def linearSearch(list1,tv):#tv=target value
     '''
     This method takes a list and a target value as parameters,
@@ -71,8 +71,8 @@ for i in range(0,1000000):
     list1.append(int(random.random()*1000000))
 #print(list1)
 
-#r = search()
-'''
+r = search()
+
 r.linearSearch(list1,1)
 r.linearSearch(list1,2)
 r.linearSearch(list1,3)
@@ -99,7 +99,7 @@ r.randomSearch(list1,2)
 r.randomSearch(list1,3)
 r.randomSearch(list1,4)
 r.randomSearch(list1,5)
-'''
+
 
 linearSearch(list1,1)
 binarySearch(list1,1)
