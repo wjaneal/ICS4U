@@ -30,7 +30,7 @@ class MyRobot(wpilib.IterativeRobot):
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         
         
-        self.stick = wpilib.Joystick(0)
+        self.stick = wpilib.Joystick(1)
         self.timer = wpilib.Timer()
         #Camera
         wpilib.CameraServer.launch()

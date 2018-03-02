@@ -6,7 +6,7 @@ Coding convention:
 (a) lower case file name
 (b) Lily, 25 Feb.2018, Recursive Algorithms
 (c) mixedCase variable names
-
+Purpose:
 (1) Create a class with functions for three recursive algorithms.  
 (2)Include factorials, the Towers of Hanoi and any other recursive function.  
 (3)Allow the user to choose any of the three functions and then interact with the function.  
@@ -69,7 +69,7 @@ class Recur:
                 print("")
                 print("The towers should be moved like below:")
                 print("")
-                print("(attention: A, B and C below represents 3 Poles)")
+                print("(attention: A, B and C below represent pole of beginning, pole of auxiliary and pole of end respectively.)")
                 self.tower(number, "A", "B", "C") #This is to print out the way the towers are moved.
             if choi == "C": #This is to direct the player to certain type of game.
                 length = int(input("What length of the six sides do you want for the snowflake?(Please enter a number big enough)"))
@@ -81,7 +81,7 @@ class Recur:
             else: 
                 continue #This is to keep the game working when the player wants to continue
                 
-            
+print("Welcome to the Game Centre! Hope you have fun and enjoy yourself here!")           
 start = Recur() #This is to create a instance for the class.
 start.control() #This is to call the function in the class with the instance.
 

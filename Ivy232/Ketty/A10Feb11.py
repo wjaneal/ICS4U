@@ -45,7 +45,7 @@ import time
 import matplotlib.pyplot as plt
 
 #set lists to prepare
-leng = [100,200,300,400,500]
+leng = [1000,2000,3000,4000,5000]
 num = []
 t = []
 ta = []
@@ -112,7 +112,7 @@ for i in range(0,len(leng)):
 plt.figure()
 
 plt.plot(leng,t1)  
-plt.xlabel('numeber')  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()
@@ -142,7 +142,7 @@ for i in range(0,len(leng)):
 plt.figure()
 
 plt.plot(leng,t2)  
-plt.xlabel('numeber')  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()
@@ -167,12 +167,12 @@ for m in range(0,len(tb)-1):
 print("Selection sort algorithm:")
 print("n     time")
 for i in range(0,len(leng)):
-    print(i + 1,"    ",t3[i])
+    print(leng[i],"    ",t3[i])
 #making a plot of prime1
 plt.figure()
 
-plt.plot(leng,t2)  
-plt.xlabel('numeber')  
+plt.plot(leng,t3)  
+plt.xlabel('number')  
 plt.ylabel('time')  
 
 plt.show()

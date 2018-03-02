@@ -1,9 +1,21 @@
 # -*- coding: utf-8 -*-
-"""
-Spyder Editor
+'''
+#Assignment 7 - OpenCV
 
-This is a temporary script file.
-"""
+Coding convention: 
+(a) lower case file name
+(b) Lily, 24 Jan.2018, photo blending
+(c) mixedCase variable names
+
+Task:
+(a) Generate a jpg file with the following:
+Rectangles, dots, text, ellipses and lines of different colours.
+
+(b) Take a second .jpg file and edit it to the  same size with a photograph taken by your phone.
+
+(c) Blend the two together in 11 jpg photographs ranging from 0-100%, 10-90%, ... all the way to 100-0%
+
+'''
 
 import numpy as np #import modules
 import cv2
@@ -31,8 +43,8 @@ img1 = cv2.imread('hahahahage1.jpg') #imput the picture I originally have
 img2 = cv2.imread('self.jpg') #imput the picture I drew in the first part
 i = 0
 for i in range(0,11):
-    dst = cv2.addWeighted(img2,i/10,img1,(1-i/10),0)
-    cv2.imwrite('copy'+str(i)+'.jpg',dst)
+    dst = cv2.addWeighted(img2,i/10,img1,(1-i/10),0) #This is to use a loop to blend the two photo with different weights.
+    cv2.imwrite('copy'+str(i)+'.jpg',dst) #This is to put all the blended photos into a folder.
     #cv2.imshow('image'+str(i),dst) #print the images
     #cv2.waitKey(0)
     #cv2.destroyAllWindows()
