@@ -53,8 +53,18 @@ class MyRobot(wpilib.IterativeRobot):
         #Gyro
         self.gyro = wpilib.ADXRS450_Gyro(0)
         self.gyro.reset()
+        #All possible autonomous routines in a sendable chooser
+        self.chooser = wpilib.SendableChooser()
+        self.chooser.addDefault("None", '4')
+        self.chooser.addObject("left-LeftScale", '1')
+        self.chooser.addObject("Middle-LeftScale", '2')
+        self.chooser.addObject("Right-LeftScale", '3')
+        self.chooser.addObject("Left-RightScale", '5')
+        wpilib.SmartDashboard.putData('Choice', self.chooser)
+        
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
+        '''
         self.cumulativeTime=0
         self.totalTime=0
         self.dataSet=[[-0.5,0,1,-1.0],[0.3,0.4,1,1.0],[-0.5,0,1,-1.0]]
@@ -73,10 +83,13 @@ class MyRobot(wpilib.IterativeRobot):
                 
         self.timer.reset()
         self.timer.start()
-       
+        '''
+        self.timer.reset()
+        self.timer.start()
+        self.auto = self.chooser.getSelected()
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-        
+        '''
         for i in self.dataSet:
             if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
                 self.drive.arcadeDrive(i[0],i[1])
@@ -84,7 +97,9 @@ class MyRobot(wpilib.IterativeRobot):
                 self.sd.putValue("Camera",i[5])
             else:
                 self.drive.arcadeDrive(0,0)
-        
+        '''
+        if(self.auto == '1'):
+            pass
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
