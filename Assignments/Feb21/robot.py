@@ -4,7 +4,6 @@
 import wpilib
 import wpilib.drive
 from networktables import NetworkTables
-#import dashboard
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -87,9 +86,6 @@ class MyRobot(wpilib.IterativeRobot):
                 self.drive.arcadeDrive(0,0)
         
     def teleopPeriodic(self):
-        
-        self.sd.putValue("SW1", self.SW1.get())
-        self.sd.putValue("SW0", self.SW0.get())
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         '''
@@ -114,19 +110,13 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
             self.sd.putValue('Camera','Backward')
-    #Orient Servo 2
+        #Orient Servo 2
         if self.stick.getPOV()==90:
             self.SV2.set(0.5)
         #Orient Servo 2
         if self.stick.getPOV()==270:
             self.SV2.set(-0.6)
-        #Dashboard
-        self.sd.putNumber('speed', 0.5)
-        self.sd.putNumber('Gyro',self.gyro.getAngle())
-        '''
-        self.sd.putNumber('speed', 0.5)
-        self.sd.putValue("Camera", "Forwards")
-        '''
+        
         if self.stick.getRawButton(1) == True:
             self.prepareCubeFlag = 1
         if self.prepareCubeFlag > 0:
@@ -154,6 +144,14 @@ class MyRobot(wpilib.IterativeRobot):
         if self.gyro.getAngle() == 90:
             self.E.set(0)
             self.sd.putNumber('Gyro',90)
+            
+        #Dashboard
+        self.sd.putNumber('Speed', 0.5)
+        self.sd.putNumber('Gyro',self.gyro.getAngle())
+        self.sd.putValue("Camera", "Forwards")
+        self.sd.putValue("SW1", self.SW1.get())
+        self.sd.putValue("SW0", self.SW0.get())
+        
     def prepareGrabCube(self):
     #(1)Check that the lower elevator switch is on - elevator at bottom
 	#(2)If not, move elevator to bottom (and arms to bottom)
