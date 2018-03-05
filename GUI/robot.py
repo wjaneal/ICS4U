@@ -77,14 +77,8 @@ class MyRobot(wpilib.IterativeRobot):
        
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-<<<<<<< HEAD
-        Left1=0
-        Right1=0
         # Drive for two seconds
         self.drive.arcadeDrive(0.1,0)  # Drive forwards at half speed
-        Left1 = 0.1
-        Right1 = 0.1
-        '''
         if self.timer.get() >=3 and self.timer.get() <=6:
             self.drive.arcadeDrive(-0.5,-0.5)
             Left = -0.5
@@ -97,8 +91,6 @@ class MyRobot(wpilib.IterativeRobot):
             self.drive.arcadeDrive(0,0)
             Left = 0
             Right = 0
-=======
->>>>>>> ec0aaff67f940aea48f816739c5896c62dea705d
         
         for i in self.dataSet:
             if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
@@ -109,9 +101,13 @@ class MyRobot(wpilib.IterativeRobot):
                 self.drive.arcadeDrive(0,0)
         
     def teleopPeriodic(self):
-        
+
+        self.sd.putValue('Left',self.left.get())
+        self.sd.putValue('Right',self.right.get())
+
         self.sd.putValue("SW1", self.SW1.get())
         self.sd.putValue("SW0", self.SW0.get())
+        
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         '''

@@ -99,8 +99,10 @@ class MyRobot(wpilib.IterativeRobot):
             else:
                 self.drive.arcadeDrive(0,0)
         '''
+        auto = sd.getNumber("auto",0)
+        #test
         if(self.auto == '1'):
-            pass
+            self.drive.arcadeDrive(0.1,0.1)
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
