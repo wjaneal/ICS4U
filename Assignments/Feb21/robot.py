@@ -60,6 +60,7 @@ class MyRobot(wpilib.IterativeRobot):
         self.chooser.addObject("Middle-LeftScale", '2')
         self.chooser.addObject("Right-LeftScale", '3')
         self.chooser.addObject("Left-RightScale", '5')
+        
         wpilib.SmartDashboard.putData('Choice', self.chooser)
         
     def autonomousInit(self):
@@ -186,7 +187,7 @@ class MyRobot(wpilib.IterativeRobot):
         if self.SW1.get() == True:
             self.E.set(-0.5)
         if self.SW1.get() == False:
-            self.E.set(0)
+            self.E.set(0)                     
             self.grabCubeFlag = 0
        
     def deliverCube(self):

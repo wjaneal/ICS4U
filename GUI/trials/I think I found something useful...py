@@ -37,15 +37,11 @@ class Example(QWidget):
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
         sd = NetworkTables.getTable("SmartDashboard")
-<<<<<<< HEAD
         content1=sd.getNumber('speed',0)
         content2=sd.getNumber('sw0',0)
         print(content1,content2)
-=======
         content=sd.getNumber('Gyro',0)
-
         print(content)
->>>>>>> ec0aaff67f940aea48f816739c5896c62dea705d
         if self.step >= 100:
             self.timer.stop()
             return
