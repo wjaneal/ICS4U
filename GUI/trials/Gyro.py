@@ -71,6 +71,8 @@ class Example(QWidget):
         content4=str(sd.getNumber('Gyro',0))
         print(content4)
         self.btn4.setText(content4)
+        
+        self.sd.putNumber('auto',1)
 
 
 
