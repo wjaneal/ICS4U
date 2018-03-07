@@ -86,7 +86,9 @@ class MyRobot(wpilib.IterativeRobot):
         '''
         self.timer.reset()
         self.timer.start()
-        self.auto = self.chooser.getSelected()
+        #self.auto = self.chooser.getSelected()
+        self.auto = self.sd.getNumber("auto",0)
+        #self.auto = 1
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
         '''
@@ -98,10 +100,13 @@ class MyRobot(wpilib.IterativeRobot):
             else:
                 self.drive.arcadeDrive(0,0)
         '''
-        auto = sd.getNumber("auto",0)
+        #self.auto = self.sd.getNumber("auto",0)
         #test
-        if(self.auto == '1'):
-            self.drive.arcadeDrive(0.1,0.1)
+        #if(self.auto != 1):
+        if(self.auto == 1):
+            if self.timer.get() <= 5:           
+                self.drive.arcadeDrive(-0.6,0)
+                
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))

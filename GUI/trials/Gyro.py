@@ -72,7 +72,7 @@ class Example(QWidget):
         print(content4)
         self.btn4.setText(content4)
         
-        self.sd.putNumber('auto',1)
+        sd.putNumber('auto',1)
 
 
 
