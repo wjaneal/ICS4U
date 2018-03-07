@@ -10,7 +10,7 @@ Planning Technique - Agile - Planning and test together quickly throughout all t
 
 Group members:Charlotte, Emma and Khan
 
-Content:
+Content of code:
 ①Framework - construction of robot.py; Organization of names of variables
 ②GUI - interface of displaying the data we wre using
 ③Encoder - detection of distance and time
@@ -38,7 +38,7 @@ auto - different choices of autonomous session
 SW0 - Switch at the spot where the elevator should be stopped (lower)
 SW1 - Switch at the spot where the elevator should be stopped (higher)
 
-
+Mar.7 - We tested the code about Encoder and it worked.
 
 
 
