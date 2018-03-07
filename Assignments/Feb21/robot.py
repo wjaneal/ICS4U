@@ -54,14 +54,17 @@ class MyRobot(wpilib.IterativeRobot):
         self.gyro = wpilib.ADXRS450_Gyro(0)
         self.gyro.reset()
         #All possible autonomous routines in a sendable chooser
+        '''
         self.chooser = wpilib.SendableChooser()
         self.chooser.addDefault("None", '4')
         self.chooser.addObject("left-LeftScale", '1')
         self.chooser.addObject("Middle-LeftScale", '2')
         self.chooser.addObject("Right-LeftScale", '3')
         self.chooser.addObject("Left-RightScale", '5')
-        wpilib.SmartDashboard.putData('Choice', self.chooser)
-        
+        '''
+        #wpilib.SmartDashboard.putData('Choice', self.chooser)
+        #Encoder
+        self.encoder = wpilib.Encoder(4,5)
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         '''
@@ -86,7 +89,14 @@ class MyRobot(wpilib.IterativeRobot):
         '''
         self.timer.reset()
         self.timer.start()
-        self.auto = self.chooser.getSelected()
+<<<<<<< HEAD
+        #self.auto = self.chooser.getSelected()
+        self.auto = self.sd.getNumber("auto",0)
+        #self.auto = 1
+=======
+        self.encoder.setDistancePerPulse(0.5)
+        #self.auto = self.chooser.getSelected()
+>>>>>>> 9306c022510e8042a2c29ab5812c25dad9f8e24d
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
         '''
@@ -98,10 +108,29 @@ class MyRobot(wpilib.IterativeRobot):
             else:
                 self.drive.arcadeDrive(0,0)
         '''
+<<<<<<< HEAD
+        #self.auto = self.sd.getNumber("auto",0)
+        #test
+        #if(self.auto != 1):
+        if(self.auto == 1):
+            if self.timer.get() <= 5:           
+                self.drive.arcadeDrive(-0.6,0)
+                
+=======
+<<<<<<< HEAD
         auto = sd.getNumber("auto",0)
         #test
         if(self.auto == '1'):
             self.drive.arcadeDrive(0.1,0.1)
+=======
+        if self.encoder.getDistance() <= 3:
+            self.drive.arcadeDrive(-0.6,0)
+        else:
+            self.drive.arcadeDrive(0,0)
+            
+            
+>>>>>>> Charlotteee
+>>>>>>> 9306c022510e8042a2c29ab5812c25dad9f8e24d
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
@@ -188,7 +217,7 @@ class MyRobot(wpilib.IterativeRobot):
         if self.SW1.get() == True:
             self.E.set(-0.5)
         if self.SW1.get() == False:
-            self.E.set(0)
+            self.E.set(0)                     
             self.grabCubeFlag = 0
        
     def deliverCube(self):

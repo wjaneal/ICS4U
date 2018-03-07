@@ -26,8 +26,8 @@ def linearSearch(list1,tv):#tv=target value
     '''
     This method takes a list and a target value as parameters,
     which returns the index of the target value.
-        If the target value is not found, the method returns '-1'.
-        '''
+    If the target value is not found, the method returns '-1'.
+    '''
     #Inclusive:Exclusive
     for i in range(0,len(list1)):
         #print(list1[i])
