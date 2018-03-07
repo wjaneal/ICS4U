@@ -54,15 +54,17 @@ class MyRobot(wpilib.IterativeRobot):
         self.gyro = wpilib.ADXRS450_Gyro(0)
         self.gyro.reset()
         #All possible autonomous routines in a sendable chooser
+        '''
         self.chooser = wpilib.SendableChooser()
         self.chooser.addDefault("None", '4')
         self.chooser.addObject("left-LeftScale", '1')
         self.chooser.addObject("Middle-LeftScale", '2')
         self.chooser.addObject("Right-LeftScale", '3')
         self.chooser.addObject("Left-RightScale", '5')
-        
-        wpilib.SmartDashboard.putData('Choice', self.chooser)
-        
+        '''
+        #wpilib.SmartDashboard.putData('Choice', self.chooser)
+        #Encoder
+        self.encoder = wpilib.Encoder(4,5)
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
         '''
@@ -87,7 +89,8 @@ class MyRobot(wpilib.IterativeRobot):
         '''
         self.timer.reset()
         self.timer.start()
-        self.auto = self.chooser.getSelected()
+        self.encoder.setDistancePerPulse(0.5)
+        #self.auto = self.chooser.getSelected()
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
         '''
@@ -99,8 +102,12 @@ class MyRobot(wpilib.IterativeRobot):
             else:
                 self.drive.arcadeDrive(0,0)
         '''
-        if(self.auto == '1'):
-            pass
+        if self.encoder.getDistance() <= 3:
+            self.drive.arcadeDrive(-0.6,0)
+        else:
+            self.drive.arcadeDrive(0,0)
+            
+            
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
