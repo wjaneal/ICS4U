@@ -2,14 +2,20 @@
 """
 Created on Mon Mar  5 12:53:59 2018
 @author: fy
-Group members:Charlotte, Emma and Khan
-ICS4U ISP - FRC(First Robotic Competition) Project
 
-Planning Technique - Agile - Planning and test together quickly throughout all the sessions involved
+Name of group: First Triumvirate
+Group members: Charlotte, Emma and Khan
+Name of Project: ICS4U ISP - FRC(First Robotic Competition) Project
+Project Purpose: To make our robot thrive in the competitions!
+Details of Project (20-30 details that thoroughly describe the aims of the planned project):
+        √i.to make it able to grab cubes, to travel as we wish, and to climb up to the tower;
+（DOING）ii. to make the data visible;
+(TO DO) iii. to make robot take actions according to the color being recognised.
+
+Project Management Technique to be used:
+Agile - Planning and test together quickly throughout all the sessions involved
 (figure out the requirements→give them definitions→start planning→start designing→implement/test→release→repair if needed).
 P.S. This is an iterative flow;Phases can overlap or repeat as needed.
-
-Purpose: To make our robot thrive in the competitions(make it able to grab cubes, to travel as we wish, and climb up to the tower)!
 
 Content of code:
 √①Framework - construction of robot.py (a base file which allows our robot to do whatever we want);
@@ -18,9 +24,10 @@ Content of code:
 √③Encoder - detection of distance and time taken by the robot
 √④Motor - an device which supports the movement of the robot
 √⑤Gyro - determine the direction of the robot
-√⑥State Machine - a series of movement provided for saving time and safety(rules in matches) concerns
+(DOING)⑥State Machine - a series of movement provided for saving time and safety(rules in matches) concerns
 √⑦Pneumatic Systems - a controller of the arms for opening and closing(grabbing or releasing an cube)
 √⑧Switches - spots of stopping the elevator
+⑨Color Recognition System - making our robot 
 
 Variables:
 M0;M1 - Motors on the left side (control the wheels on the left side)
@@ -51,17 +58,7 @@ The days before Mar.7 - We started designing the GUI(determining which data we s
 Mar.7 - We coded and tested the code about Encoder as well as state machines and they worked;
         We made a list of all the variables.
 
-Mar.8 - 
-        
-
-
-
-
-
-
-
-
-
+Mar.8 - (To Be Continued)
 
 """
 
