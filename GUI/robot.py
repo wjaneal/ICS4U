@@ -4,7 +4,6 @@
 import wpilib
 import wpilib.drive
 from networktables import NetworkTables
-#import dashboard
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -31,7 +30,7 @@ class MyRobot(wpilib.IterativeRobot):
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         
         
-        self.stick = wpilib.Joystick(0)
+        self.stick = wpilib.Joystick(1)
         self.timer = wpilib.Timer()
         #Camera
         wpilib.CameraServer.launch()
@@ -54,8 +53,21 @@ class MyRobot(wpilib.IterativeRobot):
         #Gyro
         self.gyro = wpilib.ADXRS450_Gyro(0)
         self.gyro.reset()
+        #All possible autonomous routines in a sendable chooser
+        '''
+        self.chooser = wpilib.SendableChooser()
+        self.chooser.addDefault("None", '4')
+        self.chooser.addObject("left-LeftScale", '1')
+        self.chooser.addObject("Middle-LeftScale", '2')
+        self.chooser.addObject("Right-LeftScale", '3')
+        self.chooser.addObject("Left-RightScale", '5')
+        '''
+        #wpilib.SmartDashboard.putData('Choice', self.chooser)
+        #Encoder
+        self.encoder = wpilib.Encoder(4,5)
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
+        '''
         self.cumulativeTime=0
         self.totalTime=0
         self.dataSet=[[-0.5,0,1,-1.0],[0.3,0.4,1,1.0],[-0.5,0,1,-1.0]]
@@ -74,24 +86,14 @@ class MyRobot(wpilib.IterativeRobot):
                 
         self.timer.reset()
         self.timer.start()
-       
+        '''
+        self.timer.reset()
+        self.timer.start()
+        self.encoder.setDistancePerPulse(0.5)
+        #self.auto = self.chooser.getSelected()
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-        # Drive for two seconds
-        self.drive.arcadeDrive(0.1,0)  # Drive forwards at half speed
-        if self.timer.get() >=3 and self.timer.get() <=6:
-            self.drive.arcadeDrive(-0.5,-0.5)
-            Left = -0.5
-            Right = -0.5       
-        if self.timer.get()>6 and self.timer.get() < 7:
-            self.drive.arcadeDrive(-0.5, 0)
-            Left = -0.5
-            Right = 0        
-        if self.timer.get()>7:
-            self.drive.arcadeDrive(0,0)
-            Left = 0
-            Right = 0
-        
+        '''
         for i in self.dataSet:
             if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
                 self.drive.arcadeDrive(i[0],i[1])
@@ -99,15 +101,18 @@ class MyRobot(wpilib.IterativeRobot):
                 self.sd.putValue("Camera",i[5])
             else:
                 self.drive.arcadeDrive(0,0)
-        
+        '''
+        auto = sd.getNumber("auto",0)
+        #test
+        if(self.auto == 1):
+            self.drive.arcadeDrive(0.1,0.1)
+        if self.encoder.getDistance() <= 3:
+            self.drive.arcadeDrive(-0.6,0)
+        else:
+            self.drive.arcadeDrive(0,0)
+            
+            
     def teleopPeriodic(self):
-
-        self.sd.putValue('Left',self.left.get())
-        self.sd.putValue('Right',self.right.get())
-
-        self.sd.putValue("SW1", self.SW1.get())
-        self.sd.putValue("SW0", self.SW0.get())
-        
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
         '''
@@ -132,19 +137,13 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
             self.sd.putValue('Camera','Backward')
-    #Orient Servo 2
+        #Orient Servo 2
         if self.stick.getPOV()==90:
             self.SV2.set(0.5)
         #Orient Servo 2
         if self.stick.getPOV()==270:
             self.SV2.set(-0.6)
-        #Dashboard
-        self.sd.putNumber('speed', 0.5)
-        self.sd.putNumber('Gyro',self.gyro.getAngle())
-        '''
-        self.sd.putNumber('speed', 0.5)
-        self.sd.putValue("Camera", "Forwards")
-        '''
+        
         if self.stick.getRawButton(1) == True:
             self.prepareCubeFlag = 1
         if self.prepareCubeFlag > 0:
@@ -172,6 +171,14 @@ class MyRobot(wpilib.IterativeRobot):
         if self.gyro.getAngle() == 90:
             self.E.set(0)
             self.sd.putNumber('Gyro',90)
+            
+        #Dashboard
+        self.sd.putNumber('Speed', 0.5)
+        self.sd.putNumber('Gyro',self.gyro.getAngle())
+        self.sd.putValue("Camera", "Forwards")
+        self.sd.putValue("SW1", self.SW1.get())
+        self.sd.putValue("SW0", self.SW0.get())
+        
     def prepareGrabCube(self):
     #(1)Check that the lower elevator switch is on - elevator at bottom
 	#(2)If not, move elevator to bottom (and arms to bottom)
@@ -191,7 +198,7 @@ class MyRobot(wpilib.IterativeRobot):
         if self.SW1.get() == True:
             self.E.set(-0.5)
         if self.SW1.get() == False:
-            self.E.set(0)
+            self.E.set(0)                     
             self.grabCubeFlag = 0
        
     def deliverCube(self):

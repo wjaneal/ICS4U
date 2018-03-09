@@ -19,6 +19,7 @@ class Example(QWidget):
 
         self.btn1 = QPushButton(self)
         self.btn1.setGeometry(130, 40, 200, 25)
+        
         self.l1=QtWidgets.QLabel(self)
         self.l1.setGeometry(30,40,50,25)
         self.l1.setText('Left')
@@ -41,13 +42,31 @@ class Example(QWidget):
         self.l1.setGeometry(30,145,50,25)
         self.l1.setText('Gyro')
         
+        self.atbt1 = QPushButton(self)
+        self.atbt1.setGeometry(30,180,50,25)
+        self.atbt1.setText('1')
+        self.atbt1.clicked.connect(self.changeat1)
         
+        self.atbt1 = QPushButton(self)
+        self.atbt1.setGeometry(90,180,50,25)
+        self.atbt1.setText('2')
+        self.atbt1.clicked.connect(self.changeat2)
         
+        self.atbt1 = QPushButton(self)
+        self.atbt1.setGeometry(150,180,50,25)
+        self.atbt1.setText('3')
+        self.atbt1.clicked.connect(self.changeat3)
         
+        self.atbt1 = QPushButton(self)
+        self.atbt1.setGeometry(210,180,50,25)
+        self.atbt1.setText('4')
+        self.atbt1.clicked.connect(self.changeat4)
+
+                
         self.timer = QBasicTimer()
         self.step = 0
         self.timer.start(100, self)
-        self.setGeometry(300, 300, 400, 550)
+        self.setGeometry(300, 300, 600, 600)
         self.setWindowTitle('Input dialog')
         
         
@@ -72,7 +91,18 @@ class Example(QWidget):
         print(content4)
         self.btn4.setText(content4)
         
-        sd.putNumber('auto',1)
+    def changeat1(self):
+        print('clicked')
+        self.sd.putNumber('auto',1)
+    def changeat2(self):
+        print('clicked')
+        self.sd.putNumber('auto',2)
+    def changeat3(self):
+        print('clicked')
+        self.sd.putNumber('auto',3)
+    def changeat4(self):
+        print('clicked')
+        self.sd.putNumber('auto',4)
 
 
 

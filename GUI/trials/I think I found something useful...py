@@ -41,7 +41,6 @@ class Example(QWidget):
         content2=sd.getNumber('sw0',0)
         print(content1,content2)
         content=sd.getNumber('Gyro',0)
-
         print(content)
         if self.step >= 100:
             self.timer.stop()
