@@ -3,7 +3,7 @@ from django.http import HttpResponse
 #def Hi(request):
     #return HttpResponse("Hello, Django! I am Lamborghini.")
 
-def hello(request):
+def hello1(request):
     return HttpResponse("Hello world ! ")
 
 from django.shortcuts import render
