@@ -1,9 +1,11 @@
 
-#Room Design
-#Peter
-#2018.3.9
+#Final Project:Adventure Game
+#Purpose:set the intial setting for Room Names.
+#Group:Peris
+#Group Me,berPeter
+#March.9.2018
 #one part of intial parts
-
+'''
 class map:
     def _init_(self):
         self.roomNames = ["Dungeon","OldLibrary","Courtyard","Hallway","StarRoom",
