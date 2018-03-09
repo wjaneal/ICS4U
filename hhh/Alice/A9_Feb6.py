@@ -26,7 +26,10 @@ n	time
 import time
 import matplotlib.pyplot as plt
 n=[10000,20000,30000,40000,50000]
-
+k1=[]
+e1=[]
+k2=[]
+e2=[]
 def primeOne(m1):#the first function to find primes
     prime=[2]
     for i in range(3,m1):
@@ -50,29 +53,26 @@ def primeTwo(m2):#The second function to find primes.
             newprime.append(prime[i])
     return()       
 def countTime():#Measure the time that function primeOne() takes.
-    k1=[]
-    e1=[]
     print("First algorithm:")
     print("n    time")
     for i in range(0,len(n)):
         m1=n[i]
-        k1.append(m1)
         start_time1 = time.time()#start the time
         primeOne(m1)
         elapsed_time1 = time.time() - start_time1#end the timer
+        k1.append(m1)
         e1.append(elapsed_time1)
         print(m1,elapsed_time1)
         
-    k2=[]
-    e2=[]
+    
     print("Second algorithm:")
     print("n    time")
     for i in range(0,len(n)):
         m2=n[i]
-        k2.append(m2)
         start_time2 = time.time()
         primeTwo(m2)
         elapsed_time2 = time.time() - start_time2
+        k2.append(m2)
         e2.append(elapsed_time2)
         print(m2,elapsed_time2)
     plt.plot(k1, e1, color='green')
