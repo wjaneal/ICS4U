@@ -2,7 +2,7 @@
 #Final Project:Adventure Game
 #Purpose:set the intial setting for Room Names.
 #Group:Peris
-#Group Me,berPeter
+#Group Member:Peter
 #March.9.2018
 #one part of intial parts
 '''
