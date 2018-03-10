@@ -93,18 +93,17 @@ class MyRobot(wpilib.IterativeRobot):
         '''
         self.timer.reset()
         self.timer.start()
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         #self.auto = self.chooser.getSelected()
-        self.auto = self.sd.getNumber("auto",0)
+        self.auto = 6
+        self.autoState = 0
         #self.auto = 1
-=======
-        self.encoder.setDistancePerPulse(0.5)
-=======
+
         self.EC1.reset()
->>>>>>> Charlotteee
+        
+
         #self.auto = self.chooser.getSelected()
->>>>>>> 9306c022510e8042a2c29ab5812c25dad9f8e24d
+
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
         '''
@@ -116,33 +115,48 @@ class MyRobot(wpilib.IterativeRobot):
             else:
                 self.drive.arcadeDrive(0,0)
         '''
-<<<<<<< HEAD
-<<<<<<< HEAD
+
         #self.auto = self.sd.getNumber("auto",0)
         #test
         #if(self.auto != 1):
-        if(self.auto == 1):
-            if self.timer.get() <= 5:           
-                self.drive.arcadeDrive(-0.6,0)
-                
-=======
-<<<<<<< HEAD
-        auto = sd.getNumber("auto",0)
-        #test
-        if(self.auto == '1'):
-            self.drive.arcadeDrive(0.1,0.1)
-=======
-        if self.encoder.getDistance() <= 3:
-=======
-        if self.EC1.getDistance() <= 300:
->>>>>>> Charlotteee
-            self.drive.arcadeDrive(-0.6,0)
-        else:
-            self.drive.arcadeDrive(0,0)
+        if self.auto == 6:
+            if self.autoState == 0:
+                if self.gyro.getAngle() >= -41 and self.gyro.getAngle() <= 0:
+                    self.drive.arcadeDrive(0.5,-0.4)
+                else:
+                    self.autoState = 1
+                    self.EC1.reset()
+            if self.autoState == 1:
+                if self.EC1.getDistance() <= 282 and self.EC1.getDistance() >= 0:
+                    self.drive.arcadeDrive(0.6,0)
+                else:
+                    self.autoState = 2
+            if self.autoState == 2:
+                if self.gyro.getAngle() >= -41 and self.gyro.getAngle() <= 0:
+                    self.drive.arcadeDrive(0.5,0.4)
+                else:
+                    self.autoState = 3
+                    self.EC1.reset()
+            if self.autoState == 3:
+                if self.EC1.getDistance() <= 120 and self.EC1.getDistance() >= 0:
+                    self.drive.arcadeDrive(0,6,0)
+                else:
+                    self.autoState = 4
+            if self.autoState == 4:
+                if self.EC2.getDistance() <= 831 and self.EC2.getDistance() >= 0: #shoulder
+                    self.S1.set(-0.25)
+                    self.S2.set(-0.25)
+                else:
+                    self.autoState = 5
+            if self.autoState == 5:
+                if self.EC2.getDistance() >= 831 and self.EC2.getDistance() <= 887:
+                    self.goldenArrowhead.set(False)
+                    self.S1.set(-0.25)
+                    self.S2.set(-0.25)
+                else:
+                    self.autoState = 6
             
-            
->>>>>>> Charlotteee
->>>>>>> 9306c022510e8042a2c29ab5812c25dad9f8e24d
+
     def teleopPeriodic(self):
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
