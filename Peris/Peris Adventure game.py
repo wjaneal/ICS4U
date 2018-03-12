@@ -14,4 +14,4 @@
 class map:
     
     def _init_(self):      
-        self.inventory = [["rusty Crowbar"],["health potion"],["shovel"],["key"],["Keepsake ring"],["master sword"][]]
+        self.inventory = [["rusty Crowbar"],["health potion"],["shovel"],["key"],["Keepsake ring"],["master sword"],[]]
