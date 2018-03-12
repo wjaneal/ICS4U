@@ -15,7 +15,7 @@ class map:
                           "BloodZone","Hallway3","Hallway4","Balcony"]
         self.inventory = [["rusty Crowbar"],["health potion"],["shovel"],["key"],
                           ["Keepsake ring"],["master sword"],["monster"],["obstacle"],["boss"],
-                          []]
+                          ["locked door"],[]]
 
     def command(self):
         print("Please enter a command: (up to two words)")
@@ -27,7 +27,7 @@ class map:
             self.move(self.commandList[0]) #move if the command is a cardinal direction
 
         if self.commandList[0] in ["fight", "attack", "slice", "hack", "destroy"]: #check for valid attack situation:
-            if self.commandList[1] == "monster" and "monster" in self.map.inventory[self.location] and "master sword" in self.inventory:
+            if self.commandList[1] == "monster" and "monster" in self.map.inventory[self.location] and "rusty Crowbar" in self.inventory:
                 print("You have defeated the monster!")
                 self.map.inventory[self.location].remove("monster")
             else: #otherwise, the player will die:
@@ -61,4 +61,7 @@ class map:
                 print("You have defeated the boss!!")
                 self.map.inventory[self.location].remove("boss")
  
-
+        if self.commandList[0] in ["use"]:
+            if self.commandList[1] == "key" and "locked door" in self.map.inventory[self.location] and "key" in self.inventory:
+                print("You have opened the door to the 5th room!")
+                self.map.inventory[self.location].remove("locked door")
