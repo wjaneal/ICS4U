@@ -16,7 +16,75 @@ class Example(QWidget):
         
         
     def initUI(self):
-
+        self.motor1 = QProgressBar(self)
+        self.motor1.setGeometry(150,100,100,200)
+        self.motor1.setValue(0)
+        
+        self.motor2 = QProgressBar(self)
+        self.motor2.setGeometry(150,320,100,200)
+        self.motor2.setValue(0)
+        
+        self.motor3 = QProgressBar(self)
+        self.motor3.setGeometry(250,100,100,200)
+        self.motor3.setValue(0)
+        
+        self.motor4 = QProgressBar(self)
+        self.motor4.setGeometry(250,320,100,200)
+        self.motor4.setValue(0)
+        
+        self.elv1 = QPushButton(self)
+        self.elv1.setGeometry(500,100,50,50)
+        
+        self.elv2 = QPushButton(self)
+        self.elv2.setGeometry(600,100,50,50)
+        
+        self.Left = QPushButton(self)
+        self.Left.setGeometry(150,20,50,50)
+        self.Left.setText('L')
+        
+        self.Right = QPushButton(self)
+        self.Right.setGeometry(250,20,50,50)
+        self.Right.setText('R')
+        
+        self.dist = QPushButton(self)
+        self.dist.setGeometry(20,370,100,50)
+        self.dist.setText('Distance')
+        
+        self.time = QPushButton(self)
+        self.time.setGeometry(340,370,100,50)
+        self.time.setText('Time')
+        
+        self.dist1 = QPushButton(self)
+        self.dist1.setGeometry(140,370,100,50)
+        self.dist2 = QPushButton(self)
+        self.dist2.setGeometry(140,450,100,50)
+        self.time1 = QPushButton(self)
+        self.time1.setGeometry(4)
+        
+        
+        self.auto1 = QPushButton(self)
+        self.auto2 = QPushButton(self)
+        self.auto3 = QPushButton(self)
+        self.auto4 = QPushButton(self)
+        self.auto5 = QPushButton(self)
+        self.auto6 = QPushButton(self)
+        self.auto7 = QPushButton(self)
+        self.auto8 = QPushButton(self)
+        self.auto9 = QPushButton(self)
+        self.auto10 = QPushButton(self)
+        self.auto11 = QPushButton(self)
+        self.auto12 = QPushButton(self)
+        self.Tobe = QPushButton(self)
+        self.driNum = QPushButton(self)
+        
+        self.gyro = QtWidgets.QLabel(self)
+        self.arm = QtWidgets.QLabel(self)
+        self.auto = QtWidgets.QLabel(self)
+        self.Automata = QtWidgets.QLabel(self)
+        self.driFac= QtWidgets.QLabel(self)
+        
+        
+        '''
         self.btn1 = QPushButton(self)
         self.btn1.setGeometry(130, 40, 200, 25)
         
@@ -66,12 +134,16 @@ class Example(QWidget):
         self.timer = QBasicTimer()
         self.step = 0
         self.timer.start(100, self)
-        self.setGeometry(300, 300, 600, 600)
+        '''
+        self.setGeometry(100, 100, 1500, 900)
         self.setWindowTitle('Input dialog')
         
         
         self.show()
+        
+        
     def timerEvent(self, e):
+        '''
         NetworkTables.initialize(server='10.61.62.2')
         sd = NetworkTables.getTable("SmartDashboard")
         
@@ -103,7 +175,7 @@ class Example(QWidget):
     def changeat4(self):
         print('clicked')
         self.sd.putNumber('auto',4)
-
+'''
 
 
         
