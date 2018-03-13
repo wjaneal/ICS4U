@@ -21,7 +21,7 @@ class map:
                           ["Keepsake ring"],["master sword"],["monster"],["obstacle"],["boss"],
                           ["locked door"],[]]
 
-class plaer:
+class player:
     
     def command(self):
         print("Please enter a command: (up to two words)")
