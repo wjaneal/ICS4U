@@ -35,8 +35,8 @@ while P.victory == False and P.alive == True: #check for whether the player is a
 
 #Set the final message depending on whether the player is alive or die:
 if P.alive == False:
-    print("Bloody hand slowly close Baron's eyes.Everything is futile......")
+    print("A bloody hand slowly close Baron's eyes.Everything is futile......")
 else:
-    print("Baron pay his effort, and finally Beat the monster down!")
+    print("Baron pay his effort and finally Beat the monster down!")
         
         
