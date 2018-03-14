@@ -32,7 +32,7 @@ class map:
     def showstatus():
         #print the player's current status
         print("---------------------")
-        print("You are in the" + rooms[location]["names"])
+        print("You are in the "+self.map.roomNames[self.location])
         print("---------------------")
         
 #a dictionary linking a room to other positions
@@ -89,9 +89,7 @@ rooms = {
                    "east"  : 12} 
             }
             
-#an inventory, which is initally empty
-inventory = []
-                  
+
                   
                   
                   
