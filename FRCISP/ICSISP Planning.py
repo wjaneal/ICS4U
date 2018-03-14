@@ -18,15 +18,15 @@ Agile - Planning and test together quickly throughout all the sessions involved
 P.S. This is an iterative flow;Phases can overlap or repeat as needed.
 
 Content of code:
-√①Framework - construction of robot.py (a base file which allows our robot to do whatever we want);
+√①Framework - Construction of robot.py (a base file which allows our robot to do whatever we want);
                 Organization of names of variables (will be listed below)
 （DOING)②GUI - interface of displaying the data which we wre using in order to determine what the next action the robot needs to take
-√③Encoder - detection of distance and time taken by the robot
-√④Motor - an device which supports the movement of the robot
-√⑤Gyro - determine the direction of the robot
+√③Encoder - Detection of distance and time taken by the robot
+√④Motor - An device which supports the movement of the robot
+√⑤Gyro - Determine the direction of the robot
 √⑥State Machine - a series of movement provided for saving time and safety(rules in matches) concerns
 √⑦Pneumatic Systems - a controller of the arms for opening and closing(grabbing or releasing an cube)
-√⑧Switches - spots of stopping the elevator
+√⑧Switches - Spots of stopping the elevator
 √(WILL USE LEO'S SOFTWARE FOR THE MATCHES)⑨Color Recognition System - e.g. our robot will grab the cubes if the robot sees yellow
 
 Variables:
@@ -62,13 +62,15 @@ The days between Mar.8 and Mar.12 - Finished coding all the sample options in th
                                     Started coding reset function(only for testing);
 
 Mar.12 - Checked the codes and tested the buttons for periodic - they worked;
-         Started coding vedio processing;
+         Started coding vedio processing.
         
 Mar.13 - Started making a brand new GUI (formal version for competitions);
-         Kept calculating data for the code of autonomousperodic;
+         Kept calculating data for the code of Autonomousperodic;
          Stopped coding the reset function because we found out that we do not actually need it;
+         Made a code that allows our robot to rotate in place.
          
 Mar.14 - Testing Leo's video processing software;
+         Kept calculating data for the code of Autonomousperodic;
 
 """
 
