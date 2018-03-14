@@ -8,7 +8,11 @@ logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
 import cv2
+<<<<<<< HEAD
 from CSCore import CameraServer
+=======
+#from cscore import CameraServer
+>>>>>>> 9df6620dcdc6e403bdd4347bff2fbd914a334f8d
 class ShowVideo(QtCore.QObject):
  
     #initiating the built in camera
@@ -19,13 +23,14 @@ class ShowVideo(QtCore.QObject):
  
     def __init__(self, parent = None):
         super(ShowVideo, self).__init__(parent)
-        self.ip='10.61.62.3'
+        self.ip='10.61.62.20:8081'
     @QtCore.pyqtSlot()
     def startVideo(self):
-        cs = CameraServer.getInstance()
+        #cs = CameraServer.getInstance()
         run_video = True
         while run_video:
-            self.cap = cs.getVideo("Camera", 320, 240)
+            self.cap = cv2.VideoCapture("http://"+ str(self.ip)+":8081/?action=stream?dummy=param.mjpg")
+
             ret, image = self.cap.read()
  
             color_swapped_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
