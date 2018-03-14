@@ -118,7 +118,29 @@ class player:
                      "west"  : 5,
                      "east"  : 7,
                      "south" : 8} ,
-                                                 }
+                7 : { "names" : "WonderRoom",
+                     "west"  : 6} ,
+            
+                8 : { "names" : "Hallway2",
+                     "west"  : 9,
+                     "south" : 10} ,
+                 
+                9 : { "names" : "Ruins",
+                     "east"  : 8} ,
+                 
+                10 : { "names" : "BloodZone",
+                      "south" : 11} ,
+                  
+                11 : { "names" : "Hallway3",
+                      "south" : 12} ,
+                  
+                12 : { "names" : "Hallway4",
+                      "north" : 11,
+                      "west"  : 13} ,
+                  
+                13 : { "names" : "Balcony",
+                      "east"  : 12} 
+                }
 
 P = player("Baron")
 while P.victory == False and P.alive == True: #check for whether the player is alive and whether the player has won.
@@ -131,8 +153,8 @@ while P.victory == False and P.alive == True: #check for whether the player is a
 
 #Set the final message depending on whether the player is alive or die:
 if P.alive == False:
-    print("Bloody hand slowly close Baron's eyes.Everything is futile......")
+    print("A bloody hand slowly close Baron's eyes.Everything is futile......")
 else:
-    print("Baron pay his effort, and finally Beat the monster down!")
+    print("Baron pay his effort and finally beat the monster down!")
         
         
