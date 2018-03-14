@@ -30,22 +30,24 @@ Content of code:
 √(WILL USE LEO'S SOFTWARE FOR THE MATCHES)⑨Color Recognition System - e.g. our robot will grab the cubes if the robot sees yellow
 
 Variables:
-M0;M1 - Motors on the left side (control the wheels on the left side)
+M0;M1 - Motors on the left side (to control the wheels on the left side)
 left - MotorGroup for the left side(gather M0 & M1)
-M2;M3 - Motors on the right side (control the wheels on the right side)
+M2;M3 - Motors on the right side (to control the wheels on the right side)
 right - MotorGroup for the right side (gather M2 & M3)
-sd - NetworkTable (display the data of all variables)
-driveFactor - adjust controller responsiveness
-EC1;EC2 - detect distance of robot travelled (Encoders on the base)
-EC3;EC4 - (determine the time when the shoulders should be released)
-goldenArrowhead - center of Pneumatic system (make arms open or close)
-E1;E2 - Motors on the elevator (make the shoulders go up or down)
-S1;S2 - Motors on the shoulders (flip the shoulder up or down)
-SV1 - Servo on the Camera(make it turned)
-gyro - detect the direction of robot travelled
-auto - different choices of autonomous session
-SW0 - Switch at the spot where the elevator should be stopped (lower)
-SW1 - Switch at the spot where the elevator should be stopped (higher)
+sd - NetworkTable (communication between our robot and code to display the data being used)
+driveFactor - To adjust controller responsiveness
+EC1;EC2 - To detect distance of robot travelled (Encoders on the base)
+EC3 - To detect the distance of movement of the elevator
+EC4 - To detect the angle taken by the shoulder
+goldenArrowhead - The center of Pneumatic system (to make arms open or close)
+E1;E2 - Motors on the elevator (to make the shoulders go up or down)
+S1;S2 - Motors on the shoulders (to flip the shoulder up or down)
+SV1 - Servo on the Camera(to make the camera rotate)
+gyro - To detect the direction of robot travelled
+auto - An variable for setting different choices of autonomous session
+autoState - Details in steps of every choice in AutonomousPeriodic
+SW0 - The switch at the spot where the elevator should be stopped (lower)
+SW1 - The switch at the spot where the elevator should be stopped (higher)
 
 Timeline:
 The days before Mar.7 - We started designing the GUI(determining which data we should display);
@@ -69,8 +71,7 @@ Mar.13 - Started making a brand new GUI (formal version for competitions);
          Stopped coding the reset function because we found out that we do not actually need it;
          Made a code that allows our robot to rotate in place.
          
-Mar.14 - Testing Leo's video processing software;
-         Kept calculating data for the code of Autonomousperodic;
+Mar.14 - Kept calculating data for the code of Autonomousperodic.
 
 """
 
