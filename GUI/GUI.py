@@ -1,3 +1,4 @@
+#IUOYTMK
 import sys
 from PyQt5.QtWidgets import (QWidget, QProgressBar, 
     QPushButton, QApplication)
@@ -73,22 +74,22 @@ class Example(QWidget):
         self.show()
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
-        sd = NetworkTables.getTable("SmartDashboard")
+        self.sd = NetworkTables.getTable("SmartDashboard")
         
-        content1=str(sd.getNumber('left',0))
-        print(content1)
+        content1=str(self.sd.getNumber('left',0))
+        #print(content1)
         self.btn1.setText(content1)
         
-        content2=str(sd.getNumber('right',0))
-        print(content2)
+        content2=str(self.sd.getNumber('right',0))
+        #print(content2)
         self.btn2.setText(content2)
 
-        content3=str(sd.getNumber('camera',0))
-        print(content3)
+        content3=str(self.sd.getNumber('camera',0))
+        #print(content3)
         self.btn3.setText(content3)
 
-        content4=str(sd.getNumber('Gyro',0))
-        print(content4)
+        content4=str(self.sd.getNumber('Gyro',0))
+        #print(content4)
         self.btn4.setText(content4)
         
     def changeat1(self):

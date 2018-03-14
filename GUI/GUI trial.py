@@ -8,7 +8,7 @@ logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
 import cv2
-from cscore import CameraServer
+from CSCore import CameraServer
 class ShowVideo(QtCore.QObject):
  
     #initiating the built in camera

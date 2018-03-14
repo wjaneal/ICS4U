@@ -8,13 +8,13 @@ Group members: Charlotte, Emma and Khan
 Name of Project: ICS4U ISP - FRC(First Robotic Competition) Project
 Project Purpose: To make our robot thrive in the competitions!
 Details of Project (20-30 details that thoroughly describe the aims of the planned project):
-        √i.to make it able to grab cubes, to travel as we wish, and to climb up to the tower;
-（DOING）ii. to make the data visible;
-(TO DO) iii. to make robot take actions according to the color being recognised.
+        √i.to make it able to grab cubes, (DOING)to travel as we wish, and to climb up to the tower;
+       √ii. to make the data visible;
+(DOING) iii. to make robot take actions according to the color being recognised.
 
 Project Management Technique to be used:
 Agile - Planning and test together quickly throughout all the sessions involved
-(figure out the requirements→give them definitions→start planning→start designing→implement/test→release→repair if needed).
+(figure out the requirements of the match→give them definitions→start planning→start designing→implement/test→release→repair if needed).
 P.S. This is an iterative flow;Phases can overlap or repeat as needed.
 
 Content of code:
@@ -24,10 +24,10 @@ Content of code:
 √③Encoder - detection of distance and time taken by the robot
 √④Motor - an device which supports the movement of the robot
 √⑤Gyro - determine the direction of the robot
-(DOING)⑥State Machine - a series of movement provided for saving time and safety(rules in matches) concerns
+√⑥State Machine - a series of movement provided for saving time and safety(rules in matches) concerns
 √⑦Pneumatic Systems - a controller of the arms for opening and closing(grabbing or releasing an cube)
 √⑧Switches - spots of stopping the elevator
-⑨Color Recognition System - making our robot 
+√(WILL USE LEO'S SOFTWARE FOR THE MATCHES)⑨Color Recognition System - e.g. our robot will grab the cubes if the robot sees yellow
 
 Variables:
 M0;M1 - Motors on the left side (control the wheels on the left side)
@@ -52,13 +52,23 @@ The days before Mar.7 - We started designing the GUI(determining which data we s
                         We finished coding the Gyro;
                         We finished coding the motor;
                         We finished coding the Pneumatic system;
-                        We assigned variables of coding;
+                        We assigned all the variables of coding;
                         We finished coding the switches... etc.
                         
 Mar.7 - We coded and tested the code about Encoder as well as state machines and they worked;
         We made a list of all the variables.
 
-Mar.8 - (To Be Continued)
+The days between Mar.8 and Mar.12 - Finished coding all the sample options in the AutonomousPeriodic;
+                                    Started coding reset function(only for testing);
+
+Mar.12 - Checked the codes and tested the buttons for periodic - they worked;
+         Started coding vedio processing;
+        
+Mar.13 - Started making a brand new GUI (formal version for competitions);
+         Kept calculating data for the code of autonomousperodic;
+         Stopped coding the reset function because we found out that we do not actually need it;
+         
+Mar.14 - Testing Leo's video processing software;
 
 """
 
