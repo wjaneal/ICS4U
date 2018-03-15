@@ -6,14 +6,68 @@ from networktables import NetworkTables
 import logging
 logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
+from PyQt5.QtCore import pyqtSignal
+import cv2
+class ShowVideo(QtCore.QObject):
+ 
+    #initiating the built in camera
+    #camera_port = 0
+    #camera = cv2.VideoCapture(camera_port)
+    VideoSignal = QtCore.pyqtSignal(QtGui.QImage)
+    
+ 
+    def __init__(self, parent = None):
+        super(ShowVideo, self).__init__(parent)
+        self.ip='10.61.62.20:8081'
+    @QtCore.pyqtSlot()
+    def startVideo(self):
+        #cs = CameraServer.getInstance()
+        run_video = True
+        while run_video:
+            self.cap = cv2.VideoCapture("http://"+ str(self.ip)+":8081/?action=stream?dummy=param.mjpg")
 
-class Example(QWidget):
+            ret, image = self.cap.read()
+ 
+            color_swapped_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
+ 
+            height, width, _ = color_swapped_image.shape
+            
+            #width = camera.set(CAP_PROP_FRAME_WIDTH, 1600)
+			#height = camera.set(CAP_PROP_FRAME_HEIGHT, 1080)
+			#camera.set(CAP_PROP_FPS, 15)
+ 
+            qt_image = QtGui.QImage(color_swapped_image.data,
+                                    width,
+                                    height,
+                                    color_swapped_image.strides[0],
+                                    QtGui.QImage.Format_RGB888)
+ 
+            self.VideoSignal.emit(qt_image)
+class GUI(QWidget):
 
-    def __init__(self):
+    def __init__(self,parent = None):
         super().__init__()
-        
+        self.ip='10.61.62.3'
+
+        #self.timer_camera = QtCore.QTimer()
         self.initUI()
-        
+        self.cap = cv2.VideoCapture("http://"+ str(self.ip) +":8081/?action=stream?dummy=param.mjpg")
+        self.CAM_NUM = 0
+        super(GUI, self).__init__(parent)
+        self.image = QtGui.QImage()
+        self.setAttribute(QtCore.Qt.WA_OpaquePaintEvent)
+    def paintEvent(self, event):
+        painter = QtGui.QPainter(self)
+        painter.drawImage(0,0, self.image)
+        self.image = QtGui.QImage()
+    def setImage(self, image):
+        if image.isNull():
+            print("Viewer Dropped frame!")
+ 
+        self.image = image
+        if image.size() != self.size():
+            self.setFixedSize(image.size())
+        self.update()
         
     def initUI(self):
         self.motor1 = QProgressBar(self)
@@ -279,8 +333,32 @@ class Example(QWidget):
         print('clicked')
         self.sd.putNumber('auto',12)
         self.ToBe.setText('12')
-if __name__ == '__main__':
     
-    app = QApplication(sys.argv)
-    ex = Example()
+if __name__ == '__main__':
+    app = QtWidgets.QApplication(sys.argv)
+    thread = QtCore.QThread()
+    thread.start()
+    vid = ShowVideo()
+    vid.moveToThread(thread)
+    image_viewer = GUI()
+ 
+    vid.VideoSignal.connect(image_viewer.setImage)
+ 
+ 
+    push_button1 =QtWidgets.QPushButton('Start')
+    push_button1.clicked.connect(vid.startVideo)
+    vertical_layout = QtWidgets.QVBoxLayout()
+    
+ 
+    vertical_layout.addWidget(image_viewer)
+    vertical_layout.addWidget(push_button1)
+ 
+    layout_widget = QtWidgets.QWidget()
+    layout_widget.setLayout(vertical_layout)
+ 
+    main_window = QtWidgets.QMainWindow()
+    main_window.setCentralWidget(layout_widget)
+    main_window.show()
+    sys.exit(app.exec_())
+    ex = GUI()
     sys.exit(app.exec_())
