@@ -123,12 +123,6 @@ class GUI(QWidget):
         self.setWindowTitle('Input dialog')
         self.show()
         
-        self.M0= QProgressBar(self)
-        self.M0.setGeometry()
-        self.M1= QProgressBar(self)
-        self.M2= QProgressBar(self)
-        self.M3= QProgressBar(self)
-
         
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
