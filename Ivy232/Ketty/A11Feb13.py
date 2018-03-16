@@ -54,7 +54,7 @@ import time
 class search():
     
     #create numbers into a list
-    for i in range(0,100000):
+    for i in range(0,1000000):
         n.append(random.random())
         #make numbers in order
         n.sort()
