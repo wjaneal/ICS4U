@@ -1,0 +1,62 @@
+Flying Sausage Inc
+
+•	Name of the group: Flying Sausage Inc
+•	Group Members: Jeffrey, Tony, Mike, Mark, Henry
+•	Name of the project: Goldcoin
+•	Purpose of this project: To create a virtual currency with secure transaction procedures. Much like Bitcoins.
+•	Program management method: Traditional and Agile
+•	Detailed information: There will be 5000 Goldcoins in the market. Users can buy and sell them. There will be a part of the program restoring all the accounts of users. Each account contains a public user name and a private user name. And each account also has balance, which may be a result from the block chain. Another part is the transaction, which will include encryption and decryption. User will generate an address for every single transaction and users from all over the world will try to solve the block. Every block is restored in a blockchain to restore information for all users to see. Mining is the process of trying out the answer for the block.
+
+Part1: Web and user interface using Django
+People in charge: Henry and Mark
+Problem:  
+We need to create a web that has the following functions:
+1.	It can let users to register a new account. 
+2.	It can let users to log in and log out.
+3.	It can show a profile page of users which contain the basic information and their money.
+4.	It can send verification code to the user to verify their email. (Email is used to reset their password)
+5.	It allows trade between different users in this web.
+Program Rules and checklist:
+1.	When registering a new account, a new page is uploaded that require the information of this user (username, password, birthday, email address, age, gender, phone number)
+2.	If the username has already been existed in the database, then we will require users to change another username until it is not repeated.
+3.	Then it will upload a new page to require users to verify their email address. 
+4.	Our web will send a random number as a verification code. If the code users entered match the verification code, their email address are verified.
+5.	There is a log in button and log out button in the home page. If users click the login, then it will upload to a new page which require users to enter their username and password.
+6.	Also, there is a “Forget your password” button in the page. When user click this button, a new page will upload to require users to enter their username and email address. Then a verification email will be sent to this email address to let users to reset their password.
+7.	After logging in, users can click the “Profile” button to browse their personal information and review their balance.
+
+Part2: Transaction and Blockchain
+People in charge: Jeffrey and Mike
+1.	PublicKey and PrivateKey: 
+1.1.	Get the PublicKey of both buyer and seller from the Database.
+1.2.	Generate PrivateKey
+2.	Blockchain:
+2.1.	Buyer should verify whether the user has gold coins which would be transacted. (Check every previous transactions)
+3.	Encryption for transaction: (PrivateKey and PublicKey)
+3.1.	By using the source code from the internet (initial plan: base 64) to encrypt the detailed information of transaction.
+3.2.	Pass the encrypted information to the Database.
+3.3.	Merge the process to the web page.
+4.	Decryption for transaction:
+4.1.	By using the source code from the internet to decrypt the encrypted information of transaction from the Database. (This process should be connected with the process of encryption)
+4.2.	After the processes of both encryption and decryption proved, the whole transaction is completed.
+4.3.	Modify the account information and change it in the Database. (This the balance of the user’s account)
+4.4.	Record the whole process in the blockchain.
+5.	Generate Private Address:
+5.1.	Encrypt the information when the data is generated.
+6.	Recording transaction:
+6.1.	All the transaction should be recorded in the Database
+
+Part3: Account and Database
+Tony is in charge
+1.	Open username: (This is the user name which everyone could see.)
+1.1.	Get the information from the web part.
+2.	Private username: (This is the user name which is used for encryption and private usage.)
+2.1.	Generate a private username. (A kind of static encryption.)
+3.	Private password generation:
+3.1.	Get the password of the user from the web part.
+4.	Balance information:
+4.1.	By using a list to restore the balance information.
+
+Part4: Merge Part:
+1.	Merge all 3 parts together to make the final project run.
+
