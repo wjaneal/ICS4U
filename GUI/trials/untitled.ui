@@ -1,24 +1,8 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<ui version="4.0">
- <class>Dialog</class>
- <widget class="QDialog" name="Dialog">
-  <property name="geometry">
-   <rect>
-    <x>0</x>
-    <y>0</y>
-    <width>571</width>
-    <height>467</height>
-   </rect>
-  </property>
-  <property name="windowTitle">
-   <string>Dialog</string>
-  </property>
-  <layout class="QFormLayout" name="formLayout">
-   <item row="1" column="0">
-    <layout class="QVBoxLayout" name="verticalLayout"/>
-   </item>
-  </layout>
- </widget>
- <resources/>
- <connections/>
-</ui>
+# -*- coding: utf-8 -*-
+
+# Form implementation generated from reading ui file 'C:\Users\simet\Documents\GitHub\ICS4U\GUI\trials\untitled.py'
+#
+# Created by: PyQt5 UI code generator 5.6
+#
+# WARNING! All changes made in this file will be lost!
+

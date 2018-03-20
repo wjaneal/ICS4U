@@ -4,7 +4,6 @@
 import wpilib
 import wpilib.drive
 from networktables import NetworkTables
-#import dashboard
 
 class MyRobot(wpilib.IterativeRobot):
 
@@ -31,7 +30,7 @@ class MyRobot(wpilib.IterativeRobot):
         self.drive = wpilib.drive.DifferentialDrive(self.left, self.right)
         
         
-        self.stick = wpilib.Joystick(0)
+        self.stick = wpilib.Joystick(1)
         self.timer = wpilib.Timer()
         #Camera
         wpilib.CameraServer.launch()
@@ -45,15 +44,34 @@ class MyRobot(wpilib.IterativeRobot):
         self.SW1 = wpilib.DigitalInput(1)
         #Elevator
         self.E = wpilib.VictorSP(5)
-        self.prepareCubeFlag = 2
-        self.grabCubeFlag = 2
-        self.deliverCubeFlag = 2
-        self.adjustLeftFlag=2
-        self.adjustRightFlag=2
-        self.driveFlag=2
+        self.prepareCubeFlag = 0
+        self.grabCubeFlag = 0
+        self.deliverCubeFlag = 0
+        self.adjustLeftFlag=0
+        self.adjustRightFlag=0
+        self.driveFlag=0
+        #Gyro
+        self.gyro = wpilib.ADXRS450_Gyro(0)
+        self.gyro.reset()
+        #All possible autonomous routines in a sendable chooser
+        '''
+        self.chooser = wpilib.SendableChooser()
+        self.chooser.addDefault("None", '4')
+        self.chooser.addObject("left-LeftScale", '1')
+        self.chooser.addObject("Middle-LeftScale", '2')
+        self.chooser.addObject("Right-LeftScale", '3')
+        self.chooser.addObject("Left-RightScale", '5')
+        '''
+        #wpilib.SmartDashboard.putData('Choice', self.chooser)
+        #Encoders
+        self.EC1 = wpilib.Encoder(2,3)
+        self.EC2 = wpilib.Encoder(4,5)
+        self.EC1.reset()
+        self.EC2.reset()
         
     def autonomousInit(self):
         """This function is run once each time the robot enters autonomous mode."""
+        '''
         self.cumulativeTime=0
         self.totalTime=0
         self.dataSet=[[-0.5,0,1,-1.0],[0.3,0.4,1,1.0],[-0.5,0,1,-1.0]]
@@ -72,10 +90,23 @@ class MyRobot(wpilib.IterativeRobot):
                 
         self.timer.reset()
         self.timer.start()
-       
+        '''
+        self.timer.reset()
+        self.timer.start()
+
+        #self.auto = self.chooser.getSelected()
+        self.auto = 6
+        self.autoState = 0
+        #self.auto = 1
+
+        self.EC1.reset()
+        
+
+        #self.auto = self.chooser.getSelected()
+
     def autonomousPeriodic(self):
         """This function is called periodically during autonomous."""
-        
+        '''
         for i in self.dataSet:
             if i[4][0] < self.timer.get() and self.timer.get() <= i[4][1]:
                 self.drive.arcadeDrive(i[0],i[1])
@@ -83,17 +114,55 @@ class MyRobot(wpilib.IterativeRobot):
                 self.sd.putValue("Camera",i[5])
             else:
                 self.drive.arcadeDrive(0,0)
-        
+        '''
+
+        #self.auto = self.sd.getNumber("auto",0)
+        #test
+        #if(self.auto != 1):
+        if self.auto == 6:
+            if self.autoState == 0:
+                if self.gyro.getAngle() >= -41 and self.gyro.getAngle() <= 0:
+                    self.drive.arcadeDrive(0.5,-0.4)
+                else:
+                    self.autoState = 1
+                    self.EC1.reset()
+            if self.autoState == 1:
+                if self.EC1.getDistance() <= 282 and self.EC1.getDistance() >= 0:
+                    self.drive.arcadeDrive(0.6,0)
+                else:
+                    self.autoState = 2
+            if self.autoState == 2:
+                if self.gyro.getAngle() >= -41 and self.gyro.getAngle() <= 0:
+                    self.drive.arcadeDrive(0.5,0.4)
+                else:
+                    self.autoState = 3
+                    self.EC1.reset()
+            if self.autoState == 3:
+                if self.EC1.getDistance() <= 120 and self.EC1.getDistance() >= 0:
+                    self.drive.arcadeDrive(0,6,0)
+                else:
+                    self.autoState = 4
+            if self.autoState == 4:
+                if self.EC2.getDistance() <= 831 and self.EC2.getDistance() >= 0: #shoulder
+                    self.S1.set(-0.25)
+                    self.S2.set(-0.25)
+                else:
+                    self.autoState = 5
+            if self.autoState == 5:
+                if self.EC2.getDistance() >= 831 and self.EC2.getDistance() <= 887:
+                    self.goldenArrowhead.set(False)
+                    self.S1.set(-0.25)
+                    self.S2.set(-0.25)
+                else:
+                    self.autoState = 6
+            
+
     def teleopPeriodic(self):
-        
-        self.sd.putValue("SW1", self.SW1.get())
-        self.sd.putValue("SW0", self.SW0.get())
         """This function is called periodically during operator control."""
         #self.drive.arcadeDrive(-1*self.stick.getRawAxis(0), self.stick.getRawAxis(1))
-        
+        '''
         if self.stick.getRawButton(7) == True:
             self.driveFlag=0
-            
             self.drive.setMaxOutput(0.5)
         if self.stick.getRawButton(8) == True:
             self.driveFlag=1
@@ -101,6 +170,7 @@ class MyRobot(wpilib.IterativeRobot):
             self.driveb.setMaxOutput(0.5)
         if self.driveFlag==1:
             self.driveb.arcadeDrive(self.stick.getRawAxis(5), self.stick.getRawAxis(4))
+        '''
         if self.driveFlag==0:
             self.drive.arcadeDrive(self.stick.getRawAxis(1), self.stick.getRawAxis(0))
         
@@ -112,83 +182,72 @@ class MyRobot(wpilib.IterativeRobot):
         if self.stick.getPOV()==180:
             self.SV1.set(-1.0)
             self.sd.putValue('Camera','Backward')
-    #Orient Servo 2
+        #Orient Servo 2
         if self.stick.getPOV()==90:
             self.SV2.set(0.5)
         #Orient Servo 2
         if self.stick.getPOV()==270:
             self.SV2.set(-0.6)
-        #Dashboard
-        self.sd.putNumber('speed', 0.5)
-        '''
-        self.sd.putNumber('speed', 0.5)
-        self.sd.putValue("Camera", "Forwards")
-        '''
+        
         if self.stick.getRawButton(1) == True:
             self.prepareCubeFlag = 1
+            self.EC1.reset()
         if self.prepareCubeFlag > 0:
             self.prepareGrabCube()
         if self.stick.getRawButton(2) == True:
             self.grabCubeFlag = 1
+            self.EC1.reset()
         if self.grabCubeFlag > 0:
             self.grabCube()
-            self.grabCube()
+            self.EC2.reset()
         if self.stick.getRawButton(3) == True:
             self.deliverCubeFlag = 1
         if self.deliverCubeFlag > 0:   
             self.deliverCube()
         if self.stick.getRawButton(5) == True:
-            self.adjustLeftFlag = 1
-        if self.adjustLeftFlag > 0:
-            self.AdjustElevatorLeft()
+            self.E.set(-0.3)
         if self.stick.getRawButton(6) == True:
-            self.adjustRightFlag = 1
-        if self.adjustRightFlag > 0:
-            self.AdjustElevatorRight()
-    
+            self.E.set(0.3)
+            
+        #Dashboard
+        self.sd.putNumber('Speed', 0.5)
+        self.sd.putNumber('Gyro',self.gyro.getAngle())
+        self.sd.putValue("Camera", "Forwards")
+        self.sd.putValue("SW1", self.SW1.get())
+        self.sd.putValue("SW0", self.SW0.get())
+        self.sd.putValue("EC1",self.EC1.getDistance())
+        self.sd.putValue("EC2",self.EC2.getDistance())
+        
     def prepareGrabCube(self):
     #(1)Check that the lower elevator switch is on - elevator at bottom
 	#(2)If not, move elevator to bottom (and arms to bottom)
-        if self.SW0.get()==True:
-            self.SV2.set(0.25)
+        if self.EC1.getDistance() <= 1000:
             self.E.set(0.5)
-            self.prepareCubeFlag +=1
-        if self.SW0.get()==False or self.prepareCubeFlag > 50:
-            self.SV2.set(-0.25)
+        else:
             self.E.set(0)
             self.prepareCubeFlag = 0
 
     def grabCube(self):
     #(1)Grab cube
     #(2) Move cube up until it hits the top (or part way up????)
-        self.SV2.set(-0.5)
-        if self.SW1.get() == True:
-            self.E.set(-0.5)
-        if self.SW1.get() == False:
+        self.SV1.set(-0.5)
+        if self.EC1.getDistance() >= -1000 and self.EC1.getDistance() <= 0:
+            self.E.set(-0.5)                     
+        else:
             self.E.set(0)
             self.grabCubeFlag = 0
+            self.SV1.set(0.5)
+            
        
     def deliverCube(self):
-        if self.SW0.get() == True:
-            self.E.set(0.5)
-        if self.SW0.get() == False:
-            self.SV2.set(0.5)
+        if self.EC2.getDistance() <= 500:
+            self.E.set(0.25)
+        else:
             self.E.set(0)
+            self.SV1.set(0.5)
             self.deliverCubeFlag = 0
             
-    def AdjustElevatorLeft(self):
-        if self.SW1.get() == True:
-            self.E.set(0.25)
-        if self.SW1.get() == False:
-            self.E.set(0)
-            self.adjustLeftFlag=0
-        
-    def AdjustElevatorRight(self):
-        if self.SW1.get() == True:
-            self.E.set(-0.25)
-        if self.SW1.get() == False:
-            self.E.set(0)
-            self.adjustRightFlag=0
+    
         
             
         

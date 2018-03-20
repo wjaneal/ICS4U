@@ -42,8 +42,10 @@ n	time
 '''
 import random
 import time
+import matplotlib.pyplot as plt
+
 #set lists to prepare
-leng = [100,200,300,400,500]
+leng = [1000,2000,3000,4000,5000]
 num = []
 t = []
 ta = []
@@ -62,7 +64,7 @@ class sorting():
                 if seq[self.i] > seq[self.i+1]:
                     seq[self.i], seq[self.i+1] = seq[self.i+1], seq[self.i]
                     changed = True
-        return None
+        return seq
     #define function of insertion sorting
     def insertion_sort(self,l):
         for self.i in range(1, len(l)):
@@ -82,7 +84,9 @@ class sorting():
     def random(self,u):
         self.a = int(random.random()*leng[u])
         num.append(self.a)
-        return num
+        return u
+
+
 #class
 s = sorting()
 #run the class and function, and input time each time in list t
@@ -91,6 +95,7 @@ for i in range(0,len(leng)):
         s.random(i)
     t.append(time.time())
     s.bubble_sort(num)
+    num = []
 #the time of endding
 t.append(time.time())
 #the difference of time and put them into a list
@@ -103,6 +108,17 @@ print("n     time")
 for i in range(0,len(leng)):
     print(leng[i],"    ",t1[i])
 
+#making a plot of prime1
+plt.figure()
+
+plt.plot(leng,t1)  
+plt.xlabel('number')  
+plt.ylabel('time')  
+
+plt.show()
+
+
+
 
 #run the class and function, and input time each time in list t
 for i in range(0,len(leng)):
@@ -110,6 +126,7 @@ for i in range(0,len(leng)):
         s.random(i)
     ta.append(time.time())
     s.insertion_sort(num)
+    num = []
 #the time of endding
 ta.append(time.time())
 #the difference of time and put them into a list
@@ -121,6 +138,15 @@ print("Insertion sort algorithm:")
 print("n     time")
 for i in range(0,len(leng)):
     print(leng[i],"    ", t2[i])
+#making a plot of prime1
+plt.figure()
+
+plt.plot(leng,t2)  
+plt.xlabel('number')  
+plt.ylabel('time')  
+
+plt.show()
+
 
 
 
@@ -130,6 +156,7 @@ for i in range(0,len(leng)):
         s.random(i)
     tb.append(time.time())
     s.selection_sort(num)
+    num = []
 #the time of endding
 tb.append(time.time())
 #the difference of time and put them into a list
@@ -140,10 +167,15 @@ for m in range(0,len(tb)-1):
 print("Selection sort algorithm:")
 print("n     time")
 for i in range(0,len(leng)):
-    print(i + 1,"    ",t3[i])
+    print(leng[i],"    ",t3[i])
+#making a plot of prime1
+plt.figure()
 
+plt.plot(leng,t3)  
+plt.xlabel('number')  
+plt.ylabel('time')  
 
-
+plt.show()
 
 
 

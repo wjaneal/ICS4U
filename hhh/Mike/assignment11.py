@@ -35,84 +35,101 @@ trial#	time
 Average ....
 """
 
-import random#This is to import modules
+import random
 import time
-class searching():#This is to set up a class 
+class searching():
 
-    def Linear_searching(self):#This is to define a function
-        start =time.clock()#This is to start a timer
+    #This defines the linear searching
+    def Linear_searching(n):
+        start =time.time()#This is to record the start time
         for i in range (0,1000001):#This is to start a loop
-            if i != self:#This is to judge the number one by one
-                i+=1#This is to add one
+            if i != n:#This is to judge whether it is the correct number
+                i+=1
             else:
-                elapsed = (time.clock() - start)#This is to stop the timer
-                break#This is to end the loop
-        return elapsed#This is to return the time value
+                end = time.time()#This is to record the end time
+                break
+        return (end - start)#This return the time
 
-    def Binary_searching(self):#This is to define a new function
-        start = time.clock()#This is to start the timer
-        Max=1000000#This is to set the original range
-        Min=0
-        a=False#This is to set a original judgement
-        while a == False:#This is to start a loop
-            guess = int((Max+Min)/2)#This is to get the number right between the max and the min
-            if guess   == self:#This is to stop the loop
-                a = True#This is to stop the judgement
-            if guess > self:#This is to judge
-                Max = guess#This is to change the range
-            if guess < self:#This is to judge
-                Min = guess#This is to change the range
-        elapsed = (time.clock() - start)#This is to stop the timer
-        return elapsed#This is to return the time value
+    #This defines the binary searching
+    def Binary_searching(self):
+        start =time.clock()#This is to record the start time
+        maximum = 1000000
+        minimum = 0
+        check = False
+        while check == False:
+            guess = int((maximum+minimum)/2)
+            if guess == self:
+                check == True
+                break
+            if guess > self:
+                maximum = guess
+            if guess <self:
+                minimum = guess
+        return (time.clock() - start)#This return the time
+    
+    #This defines the random searching
+    def Random_searching(self):
+        compareNum = random.randint(0,1000000)
+        randomNumber = random.randint(0,1000000)
+        startTime = time.clock()
+        while compareNum != randomNumber:
+            randomNumber = random.randint(0,1000000)
+        return time.clock() - startTime
 
-    def Random_searching(self):#This is to define a function
-        guess = 0#This is to set a variable
-        Max=1000000#This is to set the original range of guessing
-        Min=0
-        a= False#This is to set up the variable for judgement
-        start =time.clock()#This is to start the timer
-        while a == False:#This is to start a loop
-            guess = random.randint(Min,Max)#This is to get a random number
-            if guess   == self:#This is to stop the loop
-                a = True
-            if guess > self:#This is to judge
-                Max = guess#This is to change the range
-            if guess < self:#This is to judge
-                Min = guess#This is to change the range
-        elapsed = (time.clock() - start)#This is to stop the timer
-        return elapsed#This is to return the value for the function
+    #This is to define a new function to put all the functions all together
+    def Print():
+        
+    #This is the calculation part
+        Linear = []
+        for i in range (0,5):#This could record the time for each trail in a list
+            n=random.randint(0,1000000)
+            Time=searching.Linear_searching(n)
+            Linear.append(Time)
+        sum1 = 0
+        avg1 = 0
+        for j in range (0,5):#This loop calculates the sum
+            sum1 = sum1 + Linear[j]
+        avg1 = sum1 / 5#This calculates the average
+        
+        Binary = []
+        for i in range (0,5):#This could record the time for each trail in a list
+            n=random.randint(0,1000000)
+            Time=searching.Binary_searching(n)
+            Binary.append(Time)
+        sum2 = 0
+        avg2 = 0
+        for j in range (0,5):#This loop calculates the sum
+            sum2 = sum2 + Binary[j]
+        avg2 = sum2 / 5#This calculates the average
 
-    def start():#This is to define a new function to put all the functions all together
-        print ('Random Searching!')
-        avg=0
-        for i in range (0,5):#This is to start a loop
-            N=random.randint(0,1000000)#This is to get a N to guess
-            Time=searching.Random_searching(N)#This is to operate the function
-            Random=str(i+1)+' '+str(Time)#This is to get the print content
-            print(Random)#This is to print
-            avg=avg + Time#This is to get the value for average
-        print('Average '+str(avg/5))#This is to get the value for average
-        print()#This is to change line
-        print ('Linear Searching')#This is to divide the section
-        for i in range (0,5):#This is to start a loop
-            N=random.randint(0,1000000)#This is to get a N to guess
-            Time=searching.Linear_searching(N)#This is to operate the function
-            Linear=str(i+1)+' '+str(Time)#This is to get the print content
-            print(Linear)#This is to print
-            avg=avg + Time#This is to get the value for average
-        print('Average '+str(avg/5))#This is to get the value for average
-        print()#This is to change line
-        print ('Binary Searching')#This is to divide the section 
-        for i in range (0,5):#This is to start a loop            
-            N=random.randint(0,1000000)#This is to get a N to guess
-            Time=searching.Binary_searching(N)#This is to operate the function
-            Binary=str(i+1)+' '+str(Time)#This is to get the print content
-            print(Binary)#This is to print
-            avg=avg + Time#This is to the value for average
-        print('Average '+str(avg/5))#This is to get the value for average
+        Random = []
+        for i in range (0,5):#This could record the time for each trail in a list
+            n=random.randint(0,1000000)
+            Time=searching.Random_searching(n)
+            Random.append(Time)
+        sum3 = 0
+        avg3 = 0
+        for j in range (0,5):#This loop calculates the sum
+            sum3 = sum3 + Random[j]
+        avg3 = sum3 / 5#This calculates the average
+        
+    #This is the print part
+        print('Time for linear search: ')#This prints the result for linear search
+        for k in range (0,5):
+            print(str(k+1)+' '+str(Linear[k]))
+        print('average '+str(avg1)+'\n')
+        
+        print('Time for Binary search: ')#This prints the result for binary search
+        for k in range (0,5):
+            print(str(k+1)+' '+str(Binary[k]))
+        print('average '+str(avg2)+'\n')        
 
-searching.start()#This is to start the managing function
-
+        print('Time for Random search: ')#This prints the result for random search
+        for k in range (0,5):
+            print(str(k+1)+' '+str(Random[k]))
+        print('average '+str(avg3))       
+    
+searching.Print()#This is to start the managing function
 
 
 

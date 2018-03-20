@@ -53,8 +53,7 @@ class sorting_algorithm(): #put the algorithms into a class
                     list1[j], list1[j+1] = list1[j+1],list1[j]
                     j = j+1
         return list1
-    
-        #time_spent.append(self.acurate_time)
+            #time_spent.append(self.acurate_time)
         
     def insertion_sort(self,list1):  #define insertion sort algorithm
         for i in range (1, len(list1)): #put the first number out of the list into the correct position of the list
@@ -66,13 +65,12 @@ class sorting_algorithm(): #put the algorithms into a class
     
     def selection_sort(self,list1):  #define selection sort algorithm
         for i in range (0, len(list1)): #define a smallest one firstly and replace it with smaller number I may find later
-            mi = list1[i]
-            for j in range (i, len(list1)):
-                if list1[j] <= mi:
-                    mi =list1[j]
-                    list1[j] = list1[i]
-                    list1[i] = mi
-                    j += 1
+            mi = i
+            for j in range (i+1, len(list1)):
+                if list1[j] <= list1[mi]:
+                    mi =j
+            if mi != i:
+                list1[i], list1[mi] = list1[mi], list1[i]
         return list1
 '''   
     def random(self,list1,range1):
@@ -94,14 +92,16 @@ for i in range (0, len(list1)): #call the function and record the time spent
     time1.append(acurate_time1)
 
 for i in range (0, len(list1)): #call the function and record the time spent
+    lis = random.sample(range(list1[i]), k = list1[i])
     start_time = time.time()
     s.insertion_sort(lis)
     acurate_time2 = time.time() - start_time
     time2.append(acurate_time2)
     
 for i in range (0, len(list1)): #call the function and record the time spent
+    lis = random.sample(range(list1[i]), k = list1[i])
     start_time = time.time()
-    s.bubble_sort(lis)
+    s.selection_sort(lis)
     acurate_time3 = time.time() - start_time
     time3.append(acurate_time3)
 
@@ -141,7 +141,13 @@ plt.ylabel('Time Spent')
 plt.show()
 
 
-
+plt.plot(list1,time1,color='red') #This plots the graph for the Bubble sort algorithm.
+plt.plot(list1,time2,color='blue') #This plots the graph for the Selection sort algorithm.
+plt.plot(list1,time3,color='green') #This plots the graph for the Insertion sort algorithm.
+plt.title('Benchmarking Sorting Algorithms') #This creates a title for the graph.
+plt.ylabel('Time') #This creates the y label for the graph.
+plt.xlabel('n Value') #This creates the x label for the graph.
+plt.show()
 
 #print ("Insertion sort algorithm:")
 #print ("Selection Sort algorithm:")
