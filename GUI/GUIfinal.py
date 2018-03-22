@@ -10,9 +10,7 @@ from PyQt5.QtCore import pyqtSignal
 import cv2
 class ShowVideo(QtCore.QObject):
  
-    #initiating the built in camera
-    #camera_port = 0
-    #camera = cv2.VideoCapture(camera_port)
+    
     VideoSignal = QtCore.pyqtSignal(QtGui.QImage)
     
  
@@ -126,32 +124,33 @@ class GUI(QWidget):
         
         self.auto1 = QPushButton(self)
         self.auto1.setGeometry(600,670,40,40)
-        self.auto1.setText('1')
+        self.auto1.setText('colour')
         self.auto1.clicked.connect(self.A1)        
         self.auto2 = QPushButton(self)
         self.auto2.setGeometry(640,670,40,40)
         self.auto2.clicked.connect(self.A2)
-        self.auto2.setText('2')
+        self.auto2.setText('1')
         self.auto3 = QPushButton(self)
         self.auto3.setGeometry(680,670,40,40)
-        self.auto3.setText('3')
+        self.auto3.setText('2')
         self.auto3.clicked.connect(self.A3)
         self.auto4 = QPushButton(self)
         self.auto4.setGeometry(720,670,40,40)
-        self.auto4.setText('4')
+        self.auto4.setText('start')
         self.auto4.clicked.connect(self.A4)
         self.auto5 = QPushButton(self)
         self.auto5.setGeometry(760,670,40,40)
-        self.auto5.setText('5')
+        self.auto5.setText('1')
         self.auto5.clicked.connect(self.A5)
         self.auto6 = QPushButton(self)
         self.auto6.setGeometry(800,670,40,40)
-        self.auto6.setText('6')
+        self.auto6.setText('2')
         self.auto6.clicked.connect(self.A6)
         self.auto7 = QPushButton(self)
         self.auto7.setGeometry(840,670,40,40)
-        self.auto7.setText('7')
+        self.auto7.setText('3')
         self.auto7.clicked.connect(self.A7)
+        '''
         self.auto8 = QPushButton(self)
         self.auto8.setGeometry(880,670,40,40)
         self.auto8.setText('8')
@@ -172,6 +171,7 @@ class GUI(QWidget):
         self.auto12.setGeometry(1040,670,40,40)
         self.auto12.setText('12')
         self.auto12.clicked.connect(self.A12)
+        '''
         self.ToBe = QPushButton(self)
         self.ToBe.setGeometry(800,750,100,50)
         self.ToBe.setText('not running')
@@ -285,34 +285,36 @@ class GUI(QWidget):
         self.time2.setText(str(T2))
         G1= self.sd.getNumber('gyro',0)
         self.Gyro.setText(str(G1))
-
+    
     def A1(self):
         print('clicked')
-        self.sd.putNumber('auto',1)
+        self.sd.putNumber('colour',0)
         self.ToBe.setText('1')
     def A2(self):
         print('clicked')
-        self.sd.putNumber('auto',2)
+        self.sd.putNumber('colour',1)
         self.ToBe.setText('2')
     def A3(self):
         print('clicked')
-        self.sd.putNumber('auto',3)
+        self.sd.putNumber('colour',2)
         self.ToBe.setText('3')
     def A4(self):
         print('clicked')
-        self.sd.putNumber('auto',4)
+        self.sd.putNumber('start',0)
         self.ToBe.setText('4')
     def A5(self):
         print('clicked')
-        self.sd.putNumber('auto',5)
+        self.sd.putNumber('start',1)
         self.ToBe.setText('5')
     def A6(self):
         print('clicked')
+        self.sd.putNumber('start',2)
         self.ToBe.setText('6')
     def A7(self):
         print('clicked')
-        self.sd.putNumber('auto',7)
+        self.sd.putNumber('start',3)
         self.ToBe.setText('7')
+    '''
     def A8(self):
         print('clicked')
         self.sd.putNumber('auto',8)
@@ -333,7 +335,7 @@ class GUI(QWidget):
         print('clicked')
         self.sd.putNumber('auto',12)
         self.ToBe.setText('12')
-    
+    '''
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     thread = QtCore.QThread()
