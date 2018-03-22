@@ -8,11 +8,7 @@ logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
 import cv2
-<<<<<<< HEAD
-from CSCore import CameraServer
-=======
 #from cscore import CameraServer
->>>>>>> 9df6620dcdc6e403bdd4347bff2fbd914a334f8d
 class ShowVideo(QtCore.QObject):
  
     #initiating the built in camera
@@ -127,12 +123,6 @@ class GUI(QWidget):
         self.setWindowTitle('Input dialog')
         self.show()
         
-        self.M0= QProgressBar(self)
-        self.M0.setGeometry()
-        self.M1= QProgressBar(self)
-        self.M2= QProgressBar(self)
-        self.M3= QProgressBar(self)
-
         
     def timerEvent(self, e):
         NetworkTables.initialize(server='10.61.62.2')
