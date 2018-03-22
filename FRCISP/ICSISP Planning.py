@@ -73,5 +73,29 @@ Mar.13 - Started making a brand new GUI (formal version for competitions);
          
 Mar.14 - Kept calculating data for the code of Autonomousperodic.
 
+Mar.15 - We finished the autonomous code and completed the robotcode;
+         the comments are also completed;
+         networktable part is ready for gui.
+         
+Mar.16 - Debuged the robot code (mainly by)with the help of Leo;
+         Adapted the autonomous code as a compromise;
+         Decided to use Java instead of Python in robot code in coming games;
+         Had a meeting and got a basic idea of robot.Java.
+         
+Mar.17 - Used the Java code in competition.
+
+Mar.18 - Learned some basic idea about Java as preparation.
+
+Mar.19 - Have Eclipse and Notepad++ installed on our computer;
+         Start the new robot.Java project;
+         
+Mar.20 - Got a basic plan for robot.java;
+         Learn to use Eclipse and Java by trial and error;
+         Understanded all the lines in the sample robot.java.
+         
+         
+         
+
+
 """
 
