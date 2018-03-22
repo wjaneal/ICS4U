@@ -15,7 +15,6 @@ from django.contrib import admin
 
 from .models import Question, Choice
 
-
 class QuestionAdmin(admin.ModelAdmin):
     fieldsets = [
         (None,               {'fields': ['question_text']}),
@@ -25,3 +24,7 @@ class QuestionAdmin(admin.ModelAdmin):
 admin.site.register(Question, QuestionAdmin)
 
 admin.site.register(Choice)
+
+class ChoiceInline(admin.TabularInline):
+    model = Choice
+    extra = 3
