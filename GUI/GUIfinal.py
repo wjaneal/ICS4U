@@ -8,66 +8,61 @@ logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import pyqtSignal
 import cv2
+#This is to import the modules
 class ShowVideo(QtCore.QObject):
  
     
-    VideoSignal = QtCore.pyqtSignal(QtGui.QImage)
+    VideoSignal = QtCore.pyqtSignal(QtGui.QImage)#This is to get the signal
     
  
     def __init__(self, parent = None):
         super(ShowVideo, self).__init__(parent)
-        self.ip='10.61.62.20:8081'
+        self.ip='10.61.62.20:8081'#This is to initialize the vedio player and get the ip
     @QtCore.pyqtSlot()
     def startVideo(self):
-        #cs = CameraServer.getInstance()
-        run_video = True
+        run_video = True#This is to start the the player
         while run_video:
             self.cap = cv2.VideoCapture("http://"+ str(self.ip)+":8081/?action=stream?dummy=param.mjpg")
-
+            #This is to get the image
             ret, image = self.cap.read()
- 
+            #This is to read the image
             color_swapped_image = cv2.cvtColor(image, cv2.COLOR_BGR2RGB)
- 
+            #This is to convert the image into signal
             height, width, _ = color_swapped_image.shape
-            
-            #width = camera.set(CAP_PROP_FRAME_WIDTH, 1600)
-			#height = camera.set(CAP_PROP_FRAME_HEIGHT, 1080)
-			#camera.set(CAP_PROP_FPS, 15)
- 
             qt_image = QtGui.QImage(color_swapped_image.data,
                                     width,
                                     height,
                                     color_swapped_image.strides[0],
                                     QtGui.QImage.Format_RGB888)
  
-            self.VideoSignal.emit(qt_image)
+            self.VideoSignal.emit(qt_image)#This is to send out the signal
 class GUI(QWidget):
 
     def __init__(self,parent = None):
         super().__init__()
         self.ip='10.61.62.3'
-
-        #self.timer_camera = QtCore.QTimer()
+        #This is to initialize the gui
         self.initUI()
-        self.cap = cv2.VideoCapture("http://"+ str(self.ip) +":8081/?action=stream?dummy=param.mjpg")
+        #self.cap = cv2.VideoCapture("http://"+ str(self.ip) +":8081/?action=stream?dummy=param.mjpg")
         self.CAM_NUM = 0
         super(GUI, self).__init__(parent)
-        self.image = QtGui.QImage()
+        self.image = QtGui.QImage()#This is to set up the image
         self.setAttribute(QtCore.Qt.WA_OpaquePaintEvent)
-    def paintEvent(self, event):
+    def paintEvent(self, event):#This is to show the image
         painter = QtGui.QPainter(self)
         painter.drawImage(0,0, self.image)
         self.image = QtGui.QImage()
     def setImage(self, image):
-        if image.isNull():
+        if image.isNull():#This is when there is no image
             print("Viewer Dropped frame!")
  
         self.image = image
         if image.size() != self.size():
-            self.setFixedSize(image.size())
+            self.setFixedSize(image.size())#This is to show the image
         self.update()
         
-    def initUI(self):
+    def initUI(self):#This is to set up some widgets
+        #This is to display the motors
         self.motor1 = QProgressBar(self)
         self.motor1.setGeometry(150,100,100,200)
         self.motor1.setValue(0)
@@ -83,7 +78,7 @@ class GUI(QWidget):
         self.motor4 = QProgressBar(self)
         self.motor4.setGeometry(250,320,100,200)
         self.motor4.setValue(0)
-        
+        #This is to display the elvator motors
         self.elv1 = QPushButton(self)
         self.elv1.setGeometry(500,100,50,50)
         self.Elv1=QtWidgets.QLabel(self)
@@ -93,7 +88,7 @@ class GUI(QWidget):
         
         self.elv2 = QPushButton(self)
         self.elv2.setGeometry(600,100,50,50)
-        
+        #This is to  mark the position
         self.Left = QPushButton(self)
         self.Left.setGeometry(150,20,50,50)
         self.Left.setText('L')
@@ -101,15 +96,15 @@ class GUI(QWidget):
         self.Right = QPushButton(self)
         self.Right.setGeometry(250,20,50,50)
         self.Right.setText('R')
-        
+        #This is to mark the distance
         self.dist = QPushButton(self)
         self.dist.setGeometry(20,670,100,50)
         self.dist.setText('Distance:')
-        
+        #This is to mark the time
         self.time = QPushButton(self)
         self.time.setGeometry(340,670,100,50)
         self.time.setText('Time:')
-        
+        #This is to display the distance and time
         self.dist1 = QPushButton(self)
         self.dist1.setGeometry(140,670,100,50)
         self.dist2 = QPushButton(self)
@@ -121,69 +116,59 @@ class GUI(QWidget):
         self.time2.setGeometry(460,750,100,50)
         
         
-        
+        #This is to set up the autonomous buttons
         self.auto1 = QPushButton(self)
         self.auto1.setGeometry(600,670,40,40)
-        self.auto1.setText('colour')
+        self.auto1.setText('1')
         self.auto1.clicked.connect(self.A1)        
         self.auto2 = QPushButton(self)
         self.auto2.setGeometry(640,670,40,40)
         self.auto2.clicked.connect(self.A2)
-        self.auto2.setText('1')
+        self.auto2.setText('2')
         self.auto3 = QPushButton(self)
         self.auto3.setGeometry(680,670,40,40)
-        self.auto3.setText('2')
+        self.auto3.setText('3')
         self.auto3.clicked.connect(self.A3)
         self.auto4 = QPushButton(self)
         self.auto4.setGeometry(720,670,40,40)
-        self.auto4.setText('start')
+        self.auto4.setText('4')
         self.auto4.clicked.connect(self.A4)
         self.auto5 = QPushButton(self)
         self.auto5.setGeometry(760,670,40,40)
-        self.auto5.setText('1')
+        self.auto5.setText('5')
         self.auto5.clicked.connect(self.A5)
         self.auto6 = QPushButton(self)
         self.auto6.setGeometry(800,670,40,40)
-        self.auto6.setText('2')
+        self.auto6.setText('6')
         self.auto6.clicked.connect(self.A6)
         self.auto7 = QPushButton(self)
-        self.auto7.setGeometry(840,670,40,40)
-        self.auto7.setText('3')
+        self.auto7.setGeometry(880,670,40,40)
+        self.auto7.setText('7')
         self.auto7.clicked.connect(self.A7)
-        '''
-        self.auto8 = QPushButton(self)
-        self.auto8.setGeometry(880,670,40,40)
+        self.auto8.setGeometry(920,670,40,40)
         self.auto8.setText('8')
         self.auto8.clicked.connect(self.A8)
-        self.auto9 = QPushButton(self)
-        self.auto9.setGeometry(920,670,40,40)
+        self.auto8.setGeometry(960,670,40,40)
         self.auto9.setText('9')
+        self.auto9.clicked.connect(self.A8)
+        self.auto9.setGeometry(1000,670,40,40)
         self.auto9.clicked.connect(self.A9)
-        self.auto10 = QPushButton(self)
-        self.auto10.setGeometry(960,670,40,40)
-        self.auto10.setText('10')
-        self.auto10.clicked.connect(self.A10)
-        self.auto11 = QPushButton(self)
-        self.auto11.setGeometry(1000,670,40,40)
-        self.auto11.setText('11')
-        self.auto11.clicked.connect(self.A11)
-        self.auto12 = QPushButton(self)
-        self.auto12.setGeometry(1040,670,40,40)
-        self.auto12.setText('12')
-        self.auto12.clicked.connect(self.A12)
-        '''
+        #This is to show the currently used autonomous code
         self.ToBe = QPushButton(self)
         self.ToBe.setGeometry(800,750,100,50)
         self.ToBe.setText('not running')
+        #This is to show the drive number
         self.driNum = QPushButton(self)
         self.driNum.setGeometry(800,250,50,50)
+        #This is to show the gyro
         self.Gyro=QPushButton(self)
         self.Gyro.setGeometry(900,320,50,50)
         self.Gyro.setText('0')
+        #This is to show the arm movement state index
         self.ArmState=QPushButton(self)
         self.ArmState.setGeometry(1000,390,200,50)
         self.ArmState.setText('not sure')
-        
+        #This is to label the variables
         self.gyro = QtWidgets.QLabel(self)
         self.gyro.setGeometry(900,250,100,50)
         self.gyro.setText('gyro:')
@@ -199,55 +184,7 @@ class GUI(QWidget):
         
         
         
-        
-        
-        '''
-        self.btn1 = QPushButton(self)
-        self.btn1.setGeometry(130, 40, 200, 25)
-        
-        self.l1=QtWidgets.QLabel(self)
-        self.l1.setGeometry(30,40,50,25)
-        self.l1.setText('Left')
-        
-        self.btn2 = QPushButton(self)
-        self.btn2.setGeometry(130, 75, 200, 25)
-        self.l1=QtWidgets.QLabel(self)
-        self.l1.setGeometry(30,75,50,25)
-        self.l1.setText('Right')
-        
-        self.btn3 = QPushButton(self)
-        self.btn3.setGeometry(130, 110, 200, 25)
-        self.l1=QtWidgets.QLabel(self)
-        self.l1.setGeometry(30,110,50,25)
-        self.l1.setText('Camera')
-        
-        self.btn4 = QPushButton(self)
-        self.btn4.setGeometry(130, 145, 200, 25)
-        self.l1=QtWidgets.QLabel(self)
-        self.l1.setGeometry(30,145,50,25)
-        self.l1.setText('Gyro')
-        
-        self.atbt1 = QPushButton(self)
-        self.atbt1.setGeometry(30,180,50,25)
-        self.atbt1.setText('1')
-        self.atbt1.clicked.connect(self.changeat1)
-        
-        self.atbt1 = QPushButton(self)
-        self.atbt1.setGeometry(90,180,50,25)
-        self.atbt1.setText('2')
-        self.atbt1.clicked.connect(self.changeat2)
-        
-        self.atbt1 = QPushButton(self)
-        self.atbt1.setGeometry(150,180,50,25)
-        self.atbt1.setText('3')
-        self.atbt1.clicked.connect(self.changeat3)
-        
-        self.atbt1 = QPushButton(self)
-        self.atbt1.setGeometry(210,180,50,25)
-        self.atbt1.setText('4')
-        self.atbt1.clicked.connect(self.changeat4)
-
-        '''        
+        #This is to start the timer event
         self.timer = QBasicTimer()
         self.step = 0
         self.timer.start(100, self)
@@ -260,7 +197,7 @@ class GUI(QWidget):
         
         
     def timerEvent(self, e):
-        
+        #This is to put the numbers into networkktable
         NetworkTables.initialize(server='10.61.62.2')
         self.sd = NetworkTables.getTable("SmartDashboard")
         M0 = self.sd.getNumber('M0',0)
@@ -285,36 +222,36 @@ class GUI(QWidget):
         self.time2.setText(str(T2))
         G1= self.sd.getNumber('gyro',0)
         self.Gyro.setText(str(G1))
-    
+    #This is to def the autonomous buttons' functions
     def A1(self):
         print('clicked')
-        self.sd.putNumber('colour',0)
+        self.sd.putNumber('auto',1)
         self.ToBe.setText('1')
     def A2(self):
         print('clicked')
-        self.sd.putNumber('colour',1)
+        self.sd.putNumber('auto',2)
         self.ToBe.setText('2')
     def A3(self):
         print('clicked')
-        self.sd.putNumber('colour',2)
+        self.sd.putNumber('auto',3)
         self.ToBe.setText('3')
     def A4(self):
         print('clicked')
-        self.sd.putNumber('start',0)
+        self.sd.putNumber('auto',4)
         self.ToBe.setText('4')
     def A5(self):
         print('clicked')
-        self.sd.putNumber('start',1)
+        self.sd.putNumber('auto',5)
         self.ToBe.setText('5')
     def A6(self):
         print('clicked')
-        self.sd.putNumber('start',2)
+        self.sd.putNumber('auto',6)
         self.ToBe.setText('6')
     def A7(self):
         print('clicked')
-        self.sd.putNumber('start',3)
+        self.sd.putNumber('auto',7)
         self.ToBe.setText('7')
-    '''
+    
     def A8(self):
         print('clicked')
         self.sd.putNumber('auto',8)
@@ -323,19 +260,8 @@ class GUI(QWidget):
         print('clicked')
         self.sd.putNumber('auto',9)
         self.ToBe.setText('9')
-    def A10(self):
-        print('clicked')
-        self.sd.putNumber('auto',10)
-        self.ToBe.setText('10')
-    def A11(self):
-        print('clicked')
-        self.sd.putNumber('auto',11)
-        self.ToBe.setText('11')
-    def A12(self):
-        print('clicked')
-        self.sd.putNumber('auto',12)
-        self.ToBe.setText('12')
-    '''
+
+    #This is to show the whole thing
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
     thread = QtCore.QThread()
@@ -346,7 +272,7 @@ if __name__ == '__main__':
  
     vid.VideoSignal.connect(image_viewer.setImage)
  
- 
+    #This is to set up the layout of the vedio player
     push_button1 =QtWidgets.QPushButton('Start')
     push_button1.clicked.connect(vid.startVideo)
     vertical_layout = QtWidgets.QVBoxLayout()
