@@ -1,5 +1,5 @@
 {% load staticfiles %}
- 
+
 <html>
     <head>
         <title>Blog from Ivy Hall</title>
@@ -18,9 +18,9 @@
                                 <div class="date">
                                     <p>published: {{ post.published_date }}</p>
                                 </div>
-                                <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
+                                <h1><a href="">{{ post.title }}</a></h1>
                                 <p>{{ post.text|linebreaksbr }}</p>
-                            </div> 
+                            </div>
                         {% endfor %}
                     {% endblock %}
                 </div>
@@ -28,7 +28,3 @@
         </div>
     </body>
 </html>
-
-
-
-
