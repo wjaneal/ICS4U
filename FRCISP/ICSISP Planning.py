@@ -105,11 +105,11 @@ Mar.20 - We got a basic plan for robot.java;
 
 Mar.21 - We developed a detailed plan about our command-based programming.
          We kept learning the basics of Java and the command-based programming.
-    
-         
-         
-         
 
+Mar.22 - We made small adjustments on the sample code and attempted to deploy it. ATTEMPTED.      
+         
+Mar.23 - We went to see a basketball game.       
 
+Mar.26 - We almost finished the code for subsystem and command. And a code using encoder for testing was also developed. 
 """
 
