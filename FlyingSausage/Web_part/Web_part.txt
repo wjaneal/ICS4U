@@ -1,0 +1,17 @@
+Part1: Web and user interface using Django
+People in charge: Henry and Mark
+Problem:  
+We need to create a web that has the following functions:
+1.	It can let users to register a new account. 
+2.	It can let users to log in and log out.
+3.	It can show a profile page of users which contain the basic information and their money.
+4.	It can send verification code to the user to verify their email. (Email is used to reset their password)
+5.	It allows trade between different users in this web.
+Program Rules and checklist:
+1.	When registering a new account, a new page is uploaded that require the information of this user (username, password, birthday, email address, age, gender, phone number)
+2.	If the username has already been existed in the database, then we will require users to change another username until it is not repeated.
+3.	Then it will upload a new page to require users to verify their email address. 
+4.	Our web will send a random number as a verification code. If the code users entered match the verification code, their email address are verified.
+5.	There is a log in button and log out button in the home page. If users click the login, then it will upload to a new page which require users to enter their username and password.
+6.	Also, there is a “Forget your password” button in the page. When user click this button, a new page will upload to require users to enter their username and email address. Then a verification email will be sent to this email address to let users to reset their password.
+7.	After logging in, users can click the “Profile” button to browse their personal information and review their balance.

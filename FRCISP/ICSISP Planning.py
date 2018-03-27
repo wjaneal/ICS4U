@@ -30,6 +30,13 @@ Content of code:
 √(WILL USE LEO'S SOFTWARE FOR THE MATCHES)⑨Color Recognition System - e.g. Our robot will grab the cubes if the robot sees yellow color.
 
 Variables:
+Java:
+LeftFront - motor at the front of the left side which controls the wheel at the base
+LeftBack - motor at the back of the right side which controls the wheel at the base
+RightFront - motor at the front of the right side which controls the wheel at the base
+RightBack - motor at the back of the right side which controls the wheel at the base
+
+Python:
 M0;M1 - Motors on the left side (to control the wheels on the left side)
 left - MotorGroup for the left side(gathers M0 & M1)
 M2;M3 - Motors on the right side (to control the wheels on the right side)
