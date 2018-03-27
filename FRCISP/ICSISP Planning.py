@@ -30,6 +30,13 @@ Content of code:
 √(WILL USE LEO'S SOFTWARE FOR THE MATCHES)⑨Color Recognition System - e.g. Our robot will grab the cubes if the robot sees yellow color.
 
 Variables:
+Java:
+LeftFront - motor at the front of the left side which controls the wheel at the base
+LeftBack - motor at the back of the right side which controls the wheel at the base
+RightFront - motor at the front of the right side which controls the wheel at the base
+RightBack - motor at the back of the right side which controls the wheel at the base
+
+Python:
 M0;M1 - Motors on the left side (to control the wheels on the left side)
 left - MotorGroup for the left side(gathers M0 & M1)
 M2;M3 - Motors on the right side (to control the wheels on the right side)
@@ -98,11 +105,11 @@ Mar.20 - We got a basic plan for robot.java;
 
 Mar.21 - We developed a detailed plan about our command-based programming.
          We kept learning the basics of Java and the command-based programming.
-    
-         
-         
-         
 
+Mar.22 - We made small adjustments on the sample code and attempted to deploy it. ATTEMPTED.      
+         
+Mar.23 - We went to see a basketball game.       
 
+Mar.26 - We almost finished the code for subsystem and command. And a code using encoder for testing was also developed. 
 """
 
