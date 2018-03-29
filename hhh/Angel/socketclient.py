@@ -1,9 +1,10 @@
+import socket
 class mysocket:
     '''demonstration class only
       - coded for clarity, not efficiency
     '''
-
     def __init__(self, sock=None):
+        self.MSGLEN = 200
         if sock is None:
             self.sock = socket.socket(
                 socket.AF_INET, socket.SOCK_STREAM)
@@ -15,7 +16,8 @@ class mysocket:
 
     def mysend(self, msg):
         totalsent = 0
-        while totalsent < MSGLEN:
+        self.MSGLEN = len(msg)
+        while totalsent < self.MSGLEN:
             sent = self.sock.send(msg[totalsent:])
             if sent == 0:
                 raise RuntimeError("socket connection broken")
@@ -24,8 +26,8 @@ class mysocket:
     def myreceive(self):
         chunks = []
         bytes_recd = 0
-        while bytes_recd < MSGLEN:
-            chunk = self.sock.recv(min(MSGLEN - bytes_recd, 2048))
+        while bytes_recd < self.MSGLEN:
+            chunk = self.sock.recv(min(self.MSGLEN - bytes_recd, 2048))
             if chunk == '':
                 raise RuntimeError("socket connection broken")
             chunks.append(chunk)
@@ -33,6 +35,6 @@ class mysocket:
         return ''.join(chunks)
 
 S = mysocket()
-S.connect("192.168.1.32", 25535)
-S.mysend("Hello!"
+S.connect("127.0.0.1", 25535)
+S.mysend(b"Hello!")
 print(S.myreceive())

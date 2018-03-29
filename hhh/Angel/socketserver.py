@@ -1,3 +1,5 @@
+
+
 import socket
 class mysocket:
     '''demonstration class only
@@ -5,6 +7,7 @@ class mysocket:
     '''
 
     def __init__(self, sock=None):
+        self.MSGLEN = 200
         if sock is None:
             self.sock = socket.socket(
                 socket.AF_INET, socket.SOCK_STREAM)
@@ -12,11 +15,12 @@ class mysocket:
             self.sock = sock
 
     def connect(self, host, port):
-        self.sock.connect((host, port))
+        self.sock.bind((host, port))
 
     def mysend(self, msg):
         totalsent = 0
-        while totalsent < MSGLEN:
+        self.MSGLEN = len(msg)
+        while totalsent < self.MSGLEN:
             sent = self.sock.send(msg[totalsent:])
             if sent == 0:
                 raise RuntimeError("socket connection broken")
@@ -25,8 +29,8 @@ class mysocket:
     def myreceive(self):
         chunks = []
         bytes_recd = 0
-        while bytes_recd < MSGLEN:
-            chunk = self.sock.recv(min(MSGLEN - bytes_recd, 2048))
+        while bytes_recd < self.MSGLEN:
+            chunk = self.sock.recv(min(self.MSGLEN - bytes_recd, 2048))
             if chunk == '':
                 raise RuntimeError("socket connection broken")
             chunks.append(chunk)
@@ -34,12 +38,17 @@ class mysocket:
         return ''.join(chunks)
 
 S = mysocket()
-S.connect("192.168.1.204", 25535)
+S.connect("127.0.0.1", 25535)
 
 
 while 1:
-    (clientsocket, address) = serversocket.accept()
-    Data = S.myreceive()
+    S.sock.listen(5)
+    #(clientsocket, address) = S.sock.accept()
+    Data = ""
+    try:
+    	Data = S.myreceive()
+    except:
+        print("Waiting....")
     if Data != "":
         print("Rececived data")
         S.mysend("Received "+Data)
