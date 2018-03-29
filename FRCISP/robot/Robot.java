@@ -134,7 +134,7 @@ public class Robot extends TimedRobot {
 		Scheduler.getInstance().run();
 		Robot.rdrive.driveArcade(Robot.m_oi.leftJoy.getY(), Robot.m_oi.leftJoy.getX());
 		m_oi.button1.whenPressed(new joystickDrive());
-		m_oi.button1.whenPressed(new prepareGetCube());
+		m_oi.button2.whenPressed(new prepareGetCube());
 		//m_oi.button2.whenPressed(new joystickDrive());
 		/*
 		if (Robot.m_oi.leftJoy.getX() == 0 && Robot.m_oi.leftJoy.getY() == 0) {
@@ -143,7 +143,7 @@ public class Robot extends TimedRobot {
 		else {
 			if (stepAccelerateTimer < 5) {
 				stepAccelerateTimer = stepAccelerateTimer + 1;
-				drive.driveArcade(Robot.m_oi.leftJoy.getMagnitude()*stepAccelerateTimer*0.2, 1);
+				drive.driveArcade(Robot.m_oi.leftJoy.getMagnitude()*stepAccelerateTimer*0.02, Robot.m_oi.leftJoy.getX());
 			}
 		}
 		*/

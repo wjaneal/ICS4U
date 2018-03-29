@@ -7,13 +7,14 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+/*
 public class deliverCube extends Command {
 
     public deliverCube() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	super("deliverCube");
-    	requires(Robot.rarms);
+    //	requires(Robot.rarms);
     }
 
     // Called just before this Command runs the first time
@@ -42,3 +43,4 @@ public class deliverCube extends Command {
     protected void interrupted() {
     }
 }
+*/

@@ -11,11 +11,11 @@ import edu.wpi.first.wpilibj.command.Subsystem;
  */
 public class Arms extends Subsystem {
 	//Initialize motors for the arm (competition robot)
-	private final VictorSP S1 = new VictorSP(2);
-	private final VictorSP S2 = new VictorSP(3);
+	//private final VictorSP S1 = new VictorSP(2);
+	//private final VictorSP S2 = new VictorSP(3);
 	
 	//Initialize goldenArrowHead
-	private final Solenoid gAH = new Solenoid(0);
+	//private final Solenoid gAH = new Solenoid(0);
     // Put methods for controlling this subsystem
     // here. Call these from Commands.
 
@@ -23,6 +23,7 @@ public class Arms extends Subsystem {
         // Set the default command for a subsystem here.
         //setDefaultCommand(new MySpecialCommand());
     }
+    /*
     public void flipUp() {
     	S1.set(0.6);
     	S2.set(0.6);
@@ -41,6 +42,7 @@ public class Arms extends Subsystem {
     public void Close(){
     gAH.set(true);
     }
+    */
     
     
 }

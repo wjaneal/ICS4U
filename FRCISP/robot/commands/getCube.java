@@ -7,14 +7,16 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
+/*
+
 public class getCube extends Command {
 
     public getCube() {
         // Use requires() here to declare subsystem dependencies
         // eg. requires(chassis);
     	super("getCube");
-    	requires(Robot.elevator);
-    	requires(Robot.rarms);
+    	//requires(Robot.elevator);
+    //	requires(Robot.rarms);
     }
 
     // Called just before this Command runs the first time
@@ -48,4 +50,6 @@ public class getCube extends Command {
     // subsystems is scheduled to run
     protected void interrupted() {
     }
+   
 }
+ */

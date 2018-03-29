@@ -24,17 +24,17 @@ public class joystickDrive extends Command {
     // Called just before this Command runs the first time
     protected void initialize() {
     	//Robot.rdrive.move();
-    	//Robot.rdrive.EC1.reset();
+    	Robot.rdrive.EC1.reset();
     //Robot.rdrive.gyro.calibrate();
-    	Robot.rdrive.gyro.setSensitivity(0.007);
-    	Robot.rdrive.gyro.reset();
+    //	Robot.rdrive.gyro.setSensitivity(0.007);
+    	//Robot.rdrive.gyro.reset();
     }
 
     // Called repeatedly when this Command is scheduled to run
     public void execute() {
     	//drive.driveArcade(1,1);
-    //	Robot.rdrive.EncoderDrive();
-    	Robot.rdrive.gyroDrive();
+    	Robot.rdrive.EncoderDrive();
+    //	Robot.rdrive.gyroDrive();
     }
 
     // Make this return true when this Command no longer needs to run execute()
