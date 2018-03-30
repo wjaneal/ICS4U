@@ -22,5 +22,13 @@ urlpatterns = [
     #function of create a new post
     url(r'^post/(?P<pk>\d+)/edit/$', views.post_edit, name='post_edit'),
     #function of editing the posts
+    url(r'^post/(?P<pk>\d+)/comment/$', views.add_comment_to_post, name='add_comment_to_post'),
+    #function of making comments
+    url(r'^post/(?P<pk>\d+)/remove/$', views.post_remove, name='post_remove'),
+    #function of deleting a post
+    url(r'^post/(?P<pk>\d+)/remove/succeed/$', views.post_remove_succeed, name='diy'),
 ]
 
+
+##########urlpatterns allow the connection between each pages####
+##########Think about how to exit a page##########
