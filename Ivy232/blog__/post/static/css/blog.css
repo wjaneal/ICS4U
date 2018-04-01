@@ -24,8 +24,9 @@ body {
     margin-left: 40px;
 }
 
+
 h1, h2, h3, h4 {
-    font-family: 'Fredericka the Great', cursive;
+    font-family: 'Pacifico', cursive;
 }
 
 .date {
@@ -54,4 +55,8 @@ h1, h2, h3, h4 {
 
 .post h1 a, .post h1 a:visited {
     color: #000000;
+}
+
+.comment {
+    margin: 20px 0px 20px 20px;
 }

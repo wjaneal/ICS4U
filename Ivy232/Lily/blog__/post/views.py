@@ -1,3 +1,4 @@
+from django.http import HttpResponse
 from django.shortcuts import render
 from .models import Post
 from django.utils import timezone
@@ -67,6 +68,11 @@ def post_remove(request, pk):
 
 def post_remove_succeed(request, pk):
     return render(request, 'post/diy.html', {})
+
+def face(request):
+    post = get_object_or_404(Post)
+    return render(request, 'post/face.html', {'post':post})
+
 '''
 def post_new(request):
     if request.method == "POST":

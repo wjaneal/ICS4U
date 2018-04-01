@@ -7,9 +7,11 @@ class Post(models.Model):
     text = models.TextField()
     created_date = models.DateTimeField(
             default=timezone.now)
+ 
     published_date = models.DateTimeField(
             blank=True, null=True)
 
+ 
     def publish(self):
         self.published_date = timezone.now()
         self.save()
@@ -35,5 +37,16 @@ class Comment(models.Model):#This is to create a new model for review section
 
     def __str__(self):
         return self.text#to show the recently created comment.
+
+class ProgrammingCategory(models.Model):
+    Catagory = models.CharField(max_length=200)
+    def __str__(self):
+        return self.Catagory
+
+
+
+
+
+
 # Don't forget to make migration right after modify the MODEL.
 # Create your models here.
