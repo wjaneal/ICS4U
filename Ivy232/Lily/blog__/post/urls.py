@@ -14,7 +14,10 @@ from django.conf.urls import url
 from . import views
 
 urlpatterns = [
-    url(r'^$', views.post_list, name='post_list'),
+    url(r'^$', views.main_page, name='main_page'),
+    url(r'^post_list/$', views.post_list, name='post_list'),
+    url(r'^post_list2/$', views.post_list2, name='post_list2'),
+    url(r'^post_list3/$', views.post_list3, name='post_list3'),
     #function of show overall posts
     url(r'^post/(?P<pk>\d+)/$', views.post_detail, name='post_detail'),
     #function of displaying one specific post
