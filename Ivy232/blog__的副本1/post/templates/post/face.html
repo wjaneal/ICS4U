@@ -1,9 +1,7 @@
-
-
 {% extends 'post/base.html' %}
- 
+
 {% load staticfiles %}
- 
+
 <html>
     <head>
         <title>Blog from Ivy Hall</title>
@@ -19,12 +17,7 @@
 
                     {% block content %}
                         {% for post in posts %}
-                            <div class="date">
-                                <p>published: {{ post.published_date }}</p>
-                            </div>
-                            <h1><a href="{% url 'post_detail' pk=post.pk %}">{{ post.title }}</a></h1>
-                            <a href="{% url 'post_detail' pk=post.pk %}">Comments: {{ post.comments.count }}</a>
-                            <a href="{% url 'post_detail' pk=post.pk %}">{{ post.catagory }}</a>
+                            <h1><a href="{% url 'face' pk=post.pk %}">{{ post.subject }}</a></h1>
                         {% endfor %}
                     {% endblock %}
                 </div>
@@ -32,7 +25,4 @@
         </div>
     </body>
 </html>
-
-
-
 
