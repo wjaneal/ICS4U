@@ -98,6 +98,15 @@ Mar.20 - We got a basic plan for robot.java;
 
 Mar.21 - We developed a detailed plan about our command-based programming.
          We kept learning the basics of Java and the command-based programming.
+Mar.22 -
+Mar.23 -
+         
+Mar.26 -
+Mar.27 -
+Mar.28 -        
+Mar.29 - 
+         
+Apr.3  - we modified our code and it successfully controled the devices(gyro etc...) as expected.
     
          
          
