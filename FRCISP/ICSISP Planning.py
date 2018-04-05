@@ -98,15 +98,16 @@ Mar.20 - We got a basic plan for robot.java;
 
 Mar.21 - We developed a detailed plan about our command-based programming.
          We kept learning the basics of Java and the command-based programming.
-Mar.22 -
-Mar.23 -
+Mar.22 - We built some code for basic driving
+Mar.23 - We fixed some problem about the basic drving code .
          
-Mar.26 -
-Mar.27 -
-Mar.28 -        
-Mar.29 - 
+Mar.26 - we tried several methods to make the robot move smoothly
+Mar.27 - We tried some statemachine code for the basic movement
+Mar.28 - we fixed some problem about the statemachin code for the basic movement
+Mar.29 - We built statemachine code for the arm and the elevator, waiting for testing
          
 Apr.3  - we modified our code and it successfully controled the devices(gyro etc...) as expected.
+Apr.4  - We tested the code for all the motors. The arm and elevator work as expected.
     
          
          
