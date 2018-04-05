@@ -62,28 +62,31 @@ class player:
 
         if self.commandList[0] in ["fight", "attack", "slice", "hack", "destroy","hit"]: #check for valid attack situation:
             if self.commandList[1] == "nightmare" and "nightmare" in self.map.inventory[self.location] and "rustycrowbar" in self.inventory:
-                print("You have defeated the nightmare!")
                 self.map.inventory[self.location].remove("nightmare")
-            else: #otherwise, the player will die:
-                print("Nightmare drag you into the darkness......")
+            elif "nightmare" in self.map.inventory[self.location]: #otherwise, the player will die:
+                print("A nightmare drags you into the darkness......")
                 self.alive = False
-        
-        
-        if self.commandList[0] in ["fight", "attack", "slice", "hack", "destroy","hit"]: #check for valid attack situation:
-            if self.commandList[1] == "goblin" and "goblin" in self.map.inventory[self.location] and "rustycrowbar" in self.inventory:
-                print("You have defeated the goblin!")
-                self.map.inventory[self.location].remove("goblin")
-            else: #otherwise, the player will die:
-                print("Goblin has eaten your brain...")
-                self.alive = False
-                
-        if self.commandList[0] in ["fight", "attack", "slice", "hack", "destroy"]: #check for valid attack situation:
-            if self.commandList[1] == "bloodyape" and "bloodyape" in self.map.inventory[self.location] and "master sword" in self.inventory and "keepsake ring" in self.inventory:
-                print("You have defeated the bloody ape!!")
-                self.map.inventory[self.location].remove("bloodyape")
             else:
+                print("You have defeated the nightmare!")
+                self.alive = True
+        
+            if self.commandList[1] == "goblin" and "goblin" in self.map.inventory[self.location] and "rustycrowbar" in self.inventory:
+                self.map.inventory[self.location].remove("goblin")
+            elif "goblin" in self.map.inventory[self.location]: #otherwise, the player will die:
+                print("A goblin has eaten your brain...")
+                self.alive = False
+            else:
+                print("You have defeated the goblin!")
+                self.alive = True
+
+            if self.commandList[1] == "bloodyape" and "bloodyape" in self.map.inventory[self.location] and "master sword" in self.inventory and "keepsake ring" in self.inventory:
+                self.map.inventory[self.location].remove("bloodyape")
+            elif "bloodyape" in self.map.inventory[self.location]:
                 print("Baron's whole body begin to bleed. After a few minutes, he fall into a pool of blood, and never wake up......")
                 self.alive = False
+            else:
+                print("You have defeated the bloody ape!!")
+                self.alive = True
                 
                 
         #Checking for valid commands to 'get' an item
