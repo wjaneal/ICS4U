@@ -8,13 +8,17 @@ Created on Thu Mar 22 13:41:58 2018
 class Basic:
 
     def convert_to_binary(self,originString):
-        self.binaryString = ' '.join(format(ord(x),'b')for x in originString)
+        self.binaryString = ''
+        for i in range (len(originString)):
+            x = str("{0:b}".format(ord(originString[i])))+' '
+            self.binaryString = self.binaryString + x
         return self.binaryString
     
     def binary_to_chaos(self):
         self.chaosString = ''
         self.listB = []
         self.listB = self.binaryString.split(' ')
+        self.listB.pop()
         
         for j in range (len(self.listB)):
             if len(self.listB[j]) == 5:
