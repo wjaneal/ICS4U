@@ -5,30 +5,30 @@ Created on Thu Mar 22 13:41:58 2018
 @author: Mike + Jeff
 """
 
-class Basic:
+class Basic: #This creates a class
 
-    def convert_to_binary(self,originString):
-        self.binaryString = ''
-        for i in range (len(originString)):
-            x = str("{0:b}".format(ord(originString[i])))+' '
-            self.binaryString = self.binaryString + x
-        return self.binaryString
+    def convert_to_binary(self,originString): #This defines convert the origin string to binary string
+        self.binaryString = '' #This creates a string
+        for i in range (len(originString)): #This loop convert each character in the string into the binary
+            x = str("{0:b}".format(ord(originString[i])))+' ' #This convert the character into the binary
+            self.binaryString = self.binaryString + x #This connects all the binary string together to a the long binary string
+        return self.binaryString #This returns the binary string
     
-    def binary_to_chaos(self):
-        self.chaosString = ''
-        self.listB = []
-        self.listB = self.binaryString.split(' ')
-        self.listB.pop()
+    def binary_to_chaos(self): #This defines convert the binary string to chaos string
+        self.chaosString = '' #This creates a string
+        self.listB = [] #This creates a list 
+        self.listB = self.binaryString.split(' ') #This split the binary string into a list
+        self.listB.pop() #This delete the unnecessary space at the end of the list
         
-        for j in range (len(self.listB)):
-            if len(self.listB[j]) == 5:
-                self.listB[j] = '000' + self.listB[j]
-            if len(self.listB[j]) == 6:
-                self.listB[j] = '00' + self.listB[j]
-            if len(self.listB[j]) == 7:
-                self.listB[j] = '0' + self.listB[j]
+        for j in range (len(self.listB)): #This loop converts all the binary data into 8 digits to make it easier for encryption
+            if len(self.listB[j]) == 5: #This if statement changes the binary with 5 digits to 8 digits
+                self.listB[j] = '000' + self.listB[j] #This adds three zeros before each binary string with 5 digits
+            if len(self.listB[j]) == 6: #This if statement changes the binary with 6 digits to 8 digits
+                self.listB[j] = '00' + self.listB[j] #This adds two zeros before each binary string with 6 digits
+            if len(self.listB[j]) == 7: #This if statement changes the binary with 7 digits to 8 digits
+                self.listB[j] = '0' + self.listB[j] #This adds one zero before each binary string with 7 digits
 
-        for i in range (len(self.listB)):
+        for i in range (len(self.listB)): 
             x = self.listB[i][:4]
             y = self.listB[i][4:]
             self.listB[i] = y + x
@@ -71,7 +71,9 @@ class Basic:
         return self.decodeString
     
 
-st = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()+-*/'
+st = '1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ~!@#$%^&*()+-*/' #This creates a string to encrypt and decrypt
+
+#This runs the program
 a = Basic()
 a.convert_to_binary(st)
 a.binary_to_chaos()
