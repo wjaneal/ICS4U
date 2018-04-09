@@ -1,0 +1,23 @@
+{% load staticfiles %}
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+
+<style type="text/css">
+p {padding: 80px;}
+
+</style>
+
+<h1 align="center"> {{ post.title }} </h1><br/>
+<hr/>
+<h2 align="center">{{ post.author|linebreaksbr }}</h2>
+<h3 align="center">published: {{ post.published_date }}</h3>
+<hr/>
+<body bgcolor="PowderBlue">
+
+<p style="font-size:28px">{{ post.text|linebreaksbr }}</p>
+
+<a href="/">return</a>
+
+</body>
+</html>
