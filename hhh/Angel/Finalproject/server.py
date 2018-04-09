@@ -5,9 +5,9 @@ import time
 serversocket = socket.socket(socket.AF_INET, socket.SOCK_STREAM) 
 
 # get local machine name
-host = "192.168.1.78"                           
+host = socket.gethostname()                           
 
-port = 25535                                           
+port = 9999                                           
 
 # bind to the port
 serversocket.bind((host, port))                                  

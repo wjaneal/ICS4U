@@ -11,15 +11,14 @@ class account():
     def create_account(self):
         self.username = input("Please create a username:")
         self.code = input("Please create your code:")
-        self.email = input("Please enter your email adress:")
+        self.email = input("Please enter your email address:")
         file = open('C:/Users/11256/Desktop/a/expandtion.txt','a')
-        file.write(self.username + " " + self.code + " " + self.email )
+        file.write(self.username+'\n'+self.code+'\n')
+        file.write(self.email)
         file.close()
         difference = open('C:/Users/11256/Desktop/a/difference.txt','a')
-        difference1 = "0"
-        difference.write(self.username + difference1)
-        difference.close()
-        print ("Sucess! Welcome", self.username)
+        difference.write(self.username + '0')
+        print ("Sucess!", self.username)
         H.showmenu()
         
     def login(self):
@@ -33,7 +32,7 @@ class account():
             self.passwd = input('Enter your code：')
 
             if self.passwd in user_list:
-                print("success",self.name)
+                print("Welcome",self.name)
                 #Set the logged in variable to true...
                 q = ("Do you want to log out or find more information?")
                 print(q)
@@ -73,7 +72,7 @@ class account():
                 H.login()
         else:
             print (" Username not found")
-            print("please tey again")
+            print("please try again")
             H.login()
 
         user_file.close()
