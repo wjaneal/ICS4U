@@ -42,7 +42,7 @@ class ProgrammingCategory(models.Model):
     Catagory = models.CharField(max_length=200)
     def __str__(self):
         return self.Catagory
-
+#To create a new model for catagory(not completed).
 
 
 
