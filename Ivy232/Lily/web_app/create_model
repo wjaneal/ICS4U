@@ -1,0 +1,6 @@
+1.Go to model.py to add one more model
+2.Make migrations. (Because we make changes to the model)
+3.Go to admin.py to add the new model into admin page.
+4.Don't forget to import the newly created model to the Admin!!
+
+#
