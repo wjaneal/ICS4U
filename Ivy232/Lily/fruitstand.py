@@ -5,19 +5,19 @@
 
 #Define fruit class:
 #Defines name, price and quantity for a type of fruit
-class fruit:
+class fruit():
     #This function is known as a class instantiation function
     #It is also known as a constructor
     #The job of a constructor is to make a new instance of a class
     def __init__(self,name, price, quantity): #Use self as a parameter
     	#Here are some class attributes or instance variables
-    	self.name = name #The self. indicates that the variable
+        self.name = name #The self. indicates that the variable
 	#belongs to the class
         self.price = price
         self.quantity = quantity
 #Define fruitstand class
 #Defines a list of instances of the fruit class
-class fruitstand:
+class fruitstand():
 
     def __init__(self, fruitList, fruitPrices, fruitQuantities):
     	#Set up an empty list of fruit
@@ -35,7 +35,7 @@ fQ = [45,65,76,56,45]
 F = fruitstand(fL, fP, fQ)
 #Populate the fruit stand with fruit using the data lists.
 for i in range(0,len(F.fruitAvailable)):
-	print(F.fruitAvailable[i].name+" "+str(F.fruitAvailable[i].price)+" "+str(F.fruitAvailable[i].quantity))
+    print(F.fruitAvailable[i].name+" "+str(F.fruitAvailable[i].price)+" "+str(F.fruitAvailable[i].quantity))
 
 #Declare a new instance of the class 'fruit'
 T = fruit("Tamarind", 14.44, 1000)
