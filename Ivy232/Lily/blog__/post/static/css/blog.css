@@ -21,6 +21,7 @@ body {
 }
 
 .content {
+    background: url("/static/css/images/background.png") no-repeat fixed;
     margin-left: 40px;
 }
 

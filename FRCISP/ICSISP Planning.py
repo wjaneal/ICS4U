@@ -8,9 +8,9 @@ Group members: Charlotte, Emma and Khan
 Name of Project: ICS4U ISP - FRC(FIRST Robotics Competition) Project
 Project Purpose: To make our robot thrive in the competitions!
 Details of Project (20-30 details that thoroughly describe the aims of the planned project):
-        √i.to make it able to grab cubes, (DOING) to travel as we wish, and to climb up to the tower;
+        √i.to make it able to grab cubes,  to travel as we wish, and to climb up to the tower;
        √ii. to display the data on the dashboard;
-(DOING) iii. to make the robot move according to alliance color in autonomous session
+      √iii. to make the robot move according to alliance color in autonomous session
 
 Project Management Technique to be used:
 Agile - For each part of our project, team members will plan and test together quickly.
@@ -81,7 +81,7 @@ Mar.15 - We finished the autonomous code and completed the robotcode;
 Mar.16 - We debugged the robot code with the help of Leo;
          We adapted the autonomous code as a compromise;
          We decided to use Java instead of Python for robot code in upcoming games;
-         We had a meeting and got a basic idea of robot.Java.
+         We had a meeting and got a basic idea of robot.Java;
          We developed a basic version of our robot code in Java.
          
 Mar.17 - We used the Java code in competitions.
@@ -92,12 +92,29 @@ Mar.19 - We Had Eclipse and Notepad++ installed on our computers;
          We Started the new robot.Java project;
          
 Mar.20 - We got a basic plan for robot.java;
-         We decided to use command-based programming for our robot code.(commands and subsystems)
+         We decided to use command-based programming for our robot code.(commands and subsystems);
          We learned to use Eclipse and Java by trial and error;
          We Understood all the lines in the sample robot.java.
 
-Mar.21 - We developed a detailed plan about our command-based programming.
-         We kept learning the basics of Java and the command-based programming.
+Mar.21 - We developed a detailed plan about our command-based programming;
+         We kept learning the basics of Java and the command-based programming;
+Mar.22 - We built some code for basic driving;
+Mar.23 - We fixed some problem about the basic drving code.
+         
+Mar.26 - We tried several methods to make the robot move smoothly;
+Mar.27 - We tried some statemachine code for the basic movement;
+Mar.28 - We fixed some problem about the statemachin code for the basic movement;
+Mar.29 - We built statemachine code for the arm and the elevator, waiting for testing.
+         
+Apr.3 - We modified our code and it successfully controled the devices(gyro etc...) as expected.
+Apr.4 - We tested the code for all the motors. The arm and elevator work as expected.
+
+Apr.6 - We rewrote the code options for the autonomous via Java;
+        We tested all the functions of the real robot in the practice field and they all worked.
+        
+A few days after Apr.6 - We kept adding comments for every files we have done.
+
+Apr.11 - We successfully made a little autonomous code(holding and delivering a cube to a table) for displaying to the CTV television.
     
          
          
