@@ -33,7 +33,7 @@ class sorting: #This creates a class for three sorting algorithms.
             minIndex=i #This sets the minimum of the list to the number with the index i.
             for j in range(i+1,len(self.list1)): #This loop iterates through the list, starting from the number with index (i+1).
                 if self.list1[j]<self.list1[minIndex]: #If the number is smalled than the minimum set before, its index is set to the index of minimum.
-                    minIndex=j
+                    minIndex=j 
             if minIndex!=i: #If the index of the minimum changes, the two numbers should be swapped.
                 self.list1[i],self.list1[minIndex] = self.list1[minIndex],self.list1[i] #This swaps the two numbers.
         self.timeS.append((self.n,time.time()-startTime)) #This appends the n value and the execution time to a list.
