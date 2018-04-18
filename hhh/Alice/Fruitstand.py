@@ -75,14 +75,13 @@ s.display()
 state="initiate"
 while state!="E":
     print("input C to buy fruit or to continue")
-    print("input E to end")
-    j1=False
-    while j1==False:
+    print("input E to end")#choose continue or end
+    fruit_wanted=""
+    while fruit_wanted!="apple" or "banana" or "watermelon"or "pear" or "grape":#loop until the fruit chosen is available
         fruit_wanted=input("fruit You want: ")
-        if fruit_wanted =="apple" or "banana" or "watermelon"or "pear" or "grape":
-            j1=True
+        
     fruitquantity_wanted=-1
-    while fruitquantity_wanted<=0:
+    while fruitquantity_wanted<=0:#loop until the quantity is a positive integer
         fruitquantity_wanted=int(input("quantity you want: "))
     s.update(fruit_wanted,fruitquantity_wanted)
     state=input("now input :")
