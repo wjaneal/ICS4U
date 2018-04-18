@@ -6,21 +6,21 @@ Created on Wed Apr 11 13:15:26 2018
 @author: xuwentong
 """
         
-class fruit():
+class fruit(): # all the fruit has name, quantity and price
 
     def __init__(self, fruitName, quantity, price):
         self.fruitName = fruitName
         self.quantity = quantity
         self.price = price
         
-    def getName(self):
+    def getName(self): # apple.getName()
         print ('%s' % (self.fruitName))
     def getQuantity(self):
         print ('%s: %s' % (self.fruitName,self.quantity))
     def getPrice(self):
         print ('%s: %s' % (self.fruitName,self.price))
 
-class fruitstand():
+class fruitstand(): # a list with different kinds of fruits
 
     def __init__(self, List):
         self.List = []
@@ -37,13 +37,13 @@ class fruitstand():
         self.F.append(fruit("avocado",510,2))
         self.F.append(fruit("strawberry",60,5))
         '''
-    def purchase(self,fruitName, shopperName, quantity):
+    def purchase(self,fruitName, shopperName, quantity): # buy the fruit
     
-        if shopperName.cash >= (fruitName.price*int(quantity)):
-            if quantity <= fruitName.quantity:
+        if shopperName.cash >= (fruitName.price*int(quantity)):# Money is enough?
+            if quantity <= fruitName.quantity: # Quantity in shop is enough?
                 for j in range (0,len(self.List)):
-                    if self.List[j].fruitName == fruitName.fruitName:
-                        
+                    if self.List[j].fruitName == fruitName.fruitName: # find the fruit in the fruitstand
+                        # take the fruit out of the fruitsrtand; into the inventory; and pay
                         F.List[j].quantity -= quantity
                         shopperName.I[j].quantity += quantity
                         shopperName.cash = shopperName.cash - fruitName.price * quantity
@@ -53,16 +53,16 @@ class fruitstand():
       
             
             
-            else:
+            else: # show the information that there isn't enough fruit in the fruitstand 
                 quantity = fruitName.quantity
                 return (fruitName.fruitName,str(quantity))
-        else:
+        else: # You don't have enough money -- you canonly buy this quantity
             quantity = str(shopperName.cash / fruit.price)
             return (fruitName.fruitName, str(quantity))
         #def buy(a,b,c,d):
            #fruit(apple)=fruit(apple)-a
         
-    def sell(self,fruitName, shopperName,quantity): # B5 sell the fruit
+    def sell(self,fruitName, shopperName,quantity): # B5 sell the fruit # same as purchase
         for j in range (0,len(shopperName.I)):
             if shopperName.I[j].fruitName == fruitName.fruitName:
                 F.List[j].quantity += quantity
@@ -75,7 +75,7 @@ class fruitstand():
     def get(self):
         return F.purchase.quantity
     '''
-class shopper():
+class shopper(): 
     def __init__(self,shopperName,cash):
         self.shopperName = shopperName
         self.cash = cash
@@ -90,14 +90,14 @@ class shopper():
         '''
         #self.FS.F[2].name
         #self.I=[("apple", 0,1),("banana",0,2),("grape",0,5),("avocado",0,2),("strawberry",0,5)]
-        self.I = []
+        self.I = [] # inventory
         self.I.append(fruit("apple", 0,1))
         self.I.append(fruit("banana",0,2))
         self.I.append(fruit("grape",0,5))
         self.I.append(fruit("avocado",0,2))
         self.I.append(fruit("strawberry",0,5))
         
-    def update(self,fruitName):
+    def update(self,fruitName): # show the information about buying
         print(self.shopperName,self.cash)
         print("")
         for j in range (0,5):
@@ -105,7 +105,7 @@ class shopper():
                 print ("Customer:",self.shopperName)
                 print ("Cash:",self.cash)
                 print ("Your Order:",self.I[j].quantity,self.I[j].fruitName)
-    def fruitindex(self,fruitName): # B1 return index
+    def fruitindex(self,fruitName): # B1 return index of the appointed fruit
         for j in range (0,len(F.List)):
             if F.List[j].fruitName == fruitName.fruitName:
                 return (j)
@@ -135,7 +135,7 @@ class shopper():
                 j += 1
         '''
                 
-    def display(self):
+    def display(self): # show all the infor.
         print(self.shopperName,self.cash)
         print("")
         
@@ -155,7 +155,7 @@ grape = fruit("grape",10,5)
 avocado = fruit("avocado",510,2)
 strawberry = fruit("strawberry",60,5)
 
-F=[]
+F=[] # fruitstand
 
 F.append(fruit("apple",10,1))
 F.append(fruit("banana",50,2))
@@ -186,18 +186,20 @@ while True: #mian loop
     S.update(y)
     print ("Would you like to continue?")
     ans = str(input ("Please type Yes/No." ))
-    if ans == "Yes":
+    if ans == "Yes" or ans == "yes":
         
         continue
     else:
         S.display()
-        print ("Thank You!")        
+        print ("Thank You!")
+        print ("")
         break
 
 # Part B
 # B1 in "shopper" class
 # B2
-print(S.I[(S.fruitindex(apple))].quantity)# print the num of apple S has
+print ("the num of apple S(shopper) has")
+print(S.I[(S.fruitindex(apple))].quantity)# print the num of apple S(shopper) has
 
 # B3 conditional statement
 if S.cash >= 5 * banana.price :
