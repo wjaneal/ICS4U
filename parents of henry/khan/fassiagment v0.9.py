@@ -19,7 +19,7 @@ class fruit():
     
 class fruitstand():
     def __init__(self):
-        self.yasuo,self.orin,self.xerathq=fruit("yasuo",50,1),fruit("orin",100,1),fruit("xerathq",25,9)
+        self.yasuo,self.orin,self.xerathq=fruit("yasuo",50,10),fruit("orin",100,10),fruit("xerathq",25,9)
         self.fruitlist=[self.yasuo,self.orin,self.xerathq]
     def purchase(self,shoppername,cash,fruitname,purquantity):
         
@@ -52,10 +52,13 @@ class shopper():
     def update(self,fruitname,fruitquantity):
         if fruitname==self.F.yasuo:
             self.yasuo.quantity=self.yasuo.maxquantity-fruitquantity
+            self.cash=self.cash-int(self.yasuo.quantity)*int(self.F.yasuo.price)
         if fruitname==self.F.orin:
             self.orin.quantity=self.orin.maxquantity-fruitquantity
+            self.cash=self.cash-int(self.orin.quantity)*int(self.F.orin.price)
         if fruitname==self.F.xerathq:
-            self.yasuo.quantity=self.xerathq.maxquantity-fruitquantity
+            self.xerathq.quantity=self.xerathq.maxquantity-fruitquantity
+            self.cash=self.cash-int(self.xerathq.quantity)*int(self.F.xerathq.price)
         self.I=[self.yasuo,self.orin,self.xerathq]
     def display(self):
         print(self.name,self.cash)
@@ -65,7 +68,7 @@ class shopper():
             print(self.F.fruitlist[i].name,self.F.fruitlist[i].quantity)
 kalierina=shopper("noone",200)
 #kalierina.F.purchase("noone",kalierina.cash,fruitstand.yasuo,1)
-k=kalierina.F.purchase("noone",kalierina.cash,kalierina.F.yasuo,1)
+k=kalierina.F.purchase("noone",kalierina.cash,kalierina.F.yasuo,2)
 kalierina.update(k[0],k[1])
 kalierina.display()
         
