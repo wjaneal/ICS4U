@@ -131,7 +131,9 @@ while shopping == True:
     else:
         print("Please input an appropriate statement.") #Check if the choice is available.
         continue
-    
+#The ending
+shopper1.display() #Display the shopper's information one last time.
+print("Thank you for shopping at the fruitstand!") #Thank the shopper for shopping at the fruitstand.
     
     
     
