@@ -27,7 +27,7 @@ class sorting:
     print("n","         ","time")
     for t in range(0, len(n)):
         for p in n:
-            list = random.sample(range(p), 10)
+            list = random.sample(range(p), 10000)
             start = time.time()
             bubble_sort(list)
             after = time.time()
@@ -58,7 +58,7 @@ class sorting:
     print("n","         ","time")
     for t in range(0, len(n)):
         for e in n:
-            list = random.sample(range(e), 10)
+            list = random.sample(range(e), 10000)
             start = time.time()
             selection_sort(list)
             after = time.time()
@@ -87,7 +87,7 @@ class sorting:
     print("n","         ","time")
     for t in range(0, len(n)):
         for r in n:
-            list = random.sample(range(r), 10)
+            list = random.sample(range(r), 10000)
             start = time.time()
             insertion_sort(list)
             after = time.time()
