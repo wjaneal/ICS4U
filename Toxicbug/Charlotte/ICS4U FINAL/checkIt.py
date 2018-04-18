@@ -14,8 +14,7 @@ def checkIt(x): #Define a function.
     if x > 2:
         x = (x-2)/3 #Use f(n) to get f(n-1)
         return checkIt(x) #Call this function again with f(n-1). Update x.
-
-print(checkIt(14348905))
+print(checkIt(80))
         
         
         
