@@ -1,10 +1,14 @@
-# -*- coding: utf-8 -*-
-"""
-Created on Mon Apr 16 13:08:03 2018
+'''
+Assignment Final - selling fruits
 
-@author: simet
-"""
 
+name:khan
+date:20180417
+program title:finalassignment 
+purpose:
+creat three classes to show how a shopper buy fruits from a fruitstand
+Variables: name,price,quantity,yasuo,orin,xerathq,kaz,lux,fruitlist,shoppername,cash,purquantity,returnlist,fruitname
+'''
 class fruit():#creat a class
     def __init__(self,fruitname,price,quantity):#get the three variables
         self.name = fruitname#make a class variable

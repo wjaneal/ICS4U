@@ -78,6 +78,7 @@ class sort():#This is to create the class
         Text=str(N)+' '+str(elapsed)#This is to get the print content
         sort.t2.append(elapsed)#This is to fill the time list
         print(Text)
+        
     def select(N):
         '''
         V 1.0 abandomed because too slow
@@ -114,9 +115,9 @@ class sort():#This is to create the class
                 if List[location]>List[positionOfMax]:#This is to judge whether the current value is larger than the current max value
                     positionOfMax = location#This is to push it as the max value
 
-        temp = List[fillslot]#This is to switch value
-        List[fillslot] = List[positionOfMax]
-        List[positionOfMax] = temp
+            temp = List[fillslot]#This is to switch value
+            List[fillslot] = List[positionOfMax]
+            List[positionOfMax] = temp
         
         elapsed = (time.clock() - start)#This is to end the timer
         Text=str(N)+' '+str(elapsed)#This is to find the print context
