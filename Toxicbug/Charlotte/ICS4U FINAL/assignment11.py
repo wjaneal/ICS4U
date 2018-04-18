@@ -73,18 +73,17 @@ class searching: #This creates a class for these three searching algorithms.
         #for x in range(0,5): #This creates five trials.
         #self.trial=x+1 #This gets the trial number.
         self.n=[]
-        self.n1 = [10,100,1000,10000,20000,100000,1000000]
+        self.n1 = [10,100,1000,10000,20000,100000]
         for x in range(0,len(self.n1)):
             self.n2 = self.n1[x]
             for i in range(0,self.n2): #This appends 1000000 numbers between 0 and 1 to the list.
-                self.n.append(random.random())
+                self.n.append(random.randint(0,1000000))
             self.n.sort() #This lets the numbers in the list go from smallest to largest.
             #a.randomSearch() #This uses random search algorithm to search for the number.
                 #a.linearSearch() #This uses linear search algorithm to search for the number.
             a.binarySearch() #This uses binary search algorithm to search for the number.
-        print("The number of items... Time(s)")
-        for i in range(0,len(self.timeB)):
-            print(self.n1[i],self.timeB[i])
+        for i in self.timeB:
+            print(i)
             
             
         '''
