@@ -1,12 +1,6 @@
-#Assignment 10 - Benchmarking Sorting Algorithms
-#Name:Peter Zeng
-#Date: February,13 2018
-#Program Title:Benchmarking Sorting Algorithms
-#Program Function:(1) Create a class with functions for three sorting algorithms
-# - bubble sort, selection sort and insertion sort. 
-#(2) Write a program that determines the amount of time taken to sort lists of 
-#random numbers of the following lenghs: n=[10000,20000,30000,40000,50000]
-#(3) Output of the program:
+
+#Part C:Algorithms - Sorting activity
+
 import time
 import matplotlib.pyplot as plt
 import random
