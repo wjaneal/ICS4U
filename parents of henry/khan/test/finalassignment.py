@@ -27,7 +27,7 @@ class fruitstand():#creat a class
         self.yasuo,self.orin,self.xerathq,self.kaz,self.lux=fruit("yasuo",50,10),fruit("orin",100,10),fruit("xerathq",25,9),fruit("kaz",25,10),fruit("lux",25,10)
         self.fruitlist=[self.yasuo,self.orin,self.xerathq,self.kaz,self.lux]#creat a fruitlist
     def purchase(self,shoppername,cash,fruitname,purquantity):#creat a purchase function
-        if cash>=int(purquantity)*float(fruitname.price):#determine the situation
+        if cash>=int(purquantity)*int(fruitname.price):#determine the situation
             if fruitname.quantity>=purquantity:#when there is enough money and fruit
                 fruitname.quantity-=purquantity
                 returnlist=[fruitname,purquantity]#creat returnlist
