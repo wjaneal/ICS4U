@@ -14,7 +14,6 @@ class recursivealgorithm():
         if n == 0:
             return 1 
         else:
-<<<<<<< HEAD
             return n * recursivealgorithm.factorial(n-1) #recure until n=0
     def moveTower(h,FP, TP, HP):#height,from pole,to pole,helpingpole
         if h >= 1:
@@ -72,8 +71,4 @@ class recursivealgorithm():
                 return()#exit
 recursivealgorithm.initiation()
                 
-=======
-            return()
-initiation()
-#print(factorial(2))                
->>>>>>> 8472a78b812ea6d188a698f39120c3f4c0a20492
+
