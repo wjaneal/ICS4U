@@ -62,6 +62,7 @@ class Search():  # This defines a class for three searching method
         startTime = time.clock()
         while compareNum != randomNumber:
             randomNumber = random.randint(0, 1000000)
+
         return time.clock() - startTime
 
     def linearSearch(self):  # This defines a function for linear Searching
@@ -88,6 +89,7 @@ class Search():  # This defines a class for three searching method
 
             else:
                 stop = (time.clock() - startTime)
+
                 return stop
 
     def start(): # This defines a function for start

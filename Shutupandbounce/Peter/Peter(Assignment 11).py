@@ -12,6 +12,7 @@ import time
 import matplotlib as plt
 
 class searching:
+    
     def random_search(ptr,n):    # set a function
         maximun = n
         minimun = 0   #set two boundaries
@@ -58,7 +59,7 @@ class searching:
     
     def Data(time, time1, time2):    # give a class structure to put all function in it for caculating
         print ("The Random Searching")
-        n = 1000000
+        n = [10,100,1000,1
         average = 0
         for i in range (0, 5):
             num = random.randint(0,1000000)
