@@ -40,8 +40,54 @@ class fruitstand():#creat a class
             purquantity=min(int(int(cash)/int(fruitname.price)),fruitname.quantity)#to determine what amount of fruit can be bought
             fruitname.quantity-=purquantity
             returnlist=[fruitname,purquantity]#returnlist
-            
+    
         return returnlist# return the returnlist
+    '''
+    def sell(self,shopper,cash,fruit,sellquan):
+        if fruit.name=="yasuo":
+            
+            if sellquan<=shopper.yasuo.quantity:
+                fruit.quantity+=sellquan
+            else:
+                sellquan=shopper.yasuo.quantity:
+                fruit.quantity+=sellquan
+            returnlist=[fruit,sellquantity]
+        if fruit.name=="orin":
+            
+            if sellquan<=shopper.orin.quantity:
+                fruit.quantity+=sellquan
+            else:
+                sellquan=shopper.orin.quantity:
+                fruit.quantity+=sellquan
+            returnlist=[fruit,sellquantity]
+        if fruit.name=="xerathq":
+            
+            if sellquan<=shopper.xerathq.quantity:
+                fruit.quantity+=sellquan
+            else:
+                sellquan=shopper.xerathq.quantity:
+                fruit.quantity+=sellquan
+            returnlist=[fruit,sellquantity]
+        if fruit.name=="kaz":
+            
+            if sellquan<=shopper.kaz.quantity:
+                fruit.quantity+=sellquan
+            else:
+                sellquan=shopper.kaz.quantity:
+                fruit.quantity+=sellquan
+            returnlist=[fruit,sellquantity]
+        if fruit.name=="lux":
+            
+            if sellquan<=shopper.lux.quantity:
+                fruit.quantity+=sellquan
+            else:
+                sellquan=shopper.lux.quantity:
+                fruit.quantity+=sellquan
+            returnlist=[fruit,sellquantity]
+        return returnlist
+    '''
+        
+            
     def display(self):#creat the display function
         print("fruit available:")
         for i in range (0,len(self.fruitlist)):#repeat the print
@@ -100,6 +146,7 @@ willing= True
 shoppername=input("what is your name")
 shoppercash=input("how much cash do you have")
 Shopper=shopper(shoppername,int(shoppercash))
+Shopper.display()
 while willing == True:
     Shopper.F.display()
     fruitN=input("which fruit do you want")
