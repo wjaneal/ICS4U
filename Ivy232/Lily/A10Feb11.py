@@ -56,11 +56,11 @@ class sorting_algorithm(): #put the algorithms into a class
             #time_spent.append(self.acurate_time)
         
     def insertion_sort(self,list1):  #define insertion sort algorithm
-        for i in range (1, len(list1)): #put the first number out of the list into the correct position of the list
-            j = i - 1
-            while list1[j]>= list1[j+1] and j >= 0:
-                list1[j], list1[j+1] = list1[j+1],list1[j]
-                j -= 1
+        for i in range (1, len(list1)): #This is to increase the range each time we complete a round of comparison, until the whole list is included in the comparison.
+            j = i - 1 #This is to let j start from the outmost number of each range.
+            while list1[j]>= list1[j+1] and j >= 0: #When the outmost number is bigger than the number we want to insert,
+                list1[j], list1[j+1] = list1[j+1],list1[j] #We exchange their positions
+                j -= 1 #This is to endow j with the number to the left, and the next left, and so on...
         return list1
     
     def selection_sort(self,list1):  #define selection sort algorithm

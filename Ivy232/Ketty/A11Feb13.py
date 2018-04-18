@@ -102,7 +102,7 @@ class search():
 #class
 s = search()
 
-
+'''
 #run the function for 5 times and calculate the difference of time.
 for i in range(5):
     a = time.time()
@@ -142,7 +142,7 @@ print("trial#	time")
 for r in range(0,len(t1)):
     print(r + 1,"    ",t1[r])
 print("average:", av1)
-
+'''
 #run the function for 5 times and calculate the difference of time.
 for i in range(5):
     a = time.time()
