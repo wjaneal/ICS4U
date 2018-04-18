@@ -19,7 +19,7 @@ class recursion: #This create a class for three recursive algorithms
             return 1
         else:
             return N*self.factorial(N-1)
-        n
+
     def hanoi(self,n, source, helper, target):#This defines a function for playing the Towers of Hanoi game.
         if n==1 :
             self.count+=1
