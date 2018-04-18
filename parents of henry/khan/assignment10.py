@@ -54,7 +54,7 @@ class sort():#This is to create the class
                     Temp = List[i]#This is to read the number on that position
                     List[i] = List[i+1]#This is to switch position
                     List[i+1] = Temp#This is to switch position
-                elapsed = (time.clock() - start)#This is to end the timer
+        elapsed = (time.clock() - start)#This is to end the timer
         Text=str(N)+' '+str(elapsed)#This is to create the name
         sort.t1.append(elapsed)#This is to fill the time list
         print(Text)#This is to use another algorithm
