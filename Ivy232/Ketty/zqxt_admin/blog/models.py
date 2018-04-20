@@ -23,3 +23,4 @@ class Person(models.Model):
     my_property.short_description = "Full name of the person"
 
     full_name = property(my_property)
+
