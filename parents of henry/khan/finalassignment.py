@@ -9,6 +9,7 @@ purpose:
 creat three classes to show how a shopper buy fruits from a fruitstand
 Variables: name,price,quantity,yasuo,orin,xerathq,kaz,lux,fruitlist,shoppername,cash,purquantity,returnlist,fruitname
 '''
+
 class fruit():#creat a class
     def __init__(self,fruitname,price,quantity):#get the three variables
         self.name = fruitname#make a class variable
@@ -44,7 +45,7 @@ class fruitstand():#creat a class
     def display(self):#creat the display function
         print("fruit available:")
         for i in range (0,len(self.fruitlist)):#repeat the print
-            print(self.fruitlist[i].name,self.fruitlist[i].quantity)#show the name and quantity of fruit available
+            print(self.fruitlist[i].name,"quantity:",self.fruitlist[i].quantity,"price",self.fruitlist[i].price)#show the name and quantity of fruit available
 
 
 class shopper():#creat a neew class
@@ -65,22 +66,22 @@ class shopper():#creat a neew class
         if fruitname==self.F.yasuo:#determine which fruit is bought
             
             self.yasuo.quantity+=purquantity#change the fruit amount in the inventory
-            self.cash=self.cash-int(self.yasuo.quantity)*int(self.F.yasuo.price)#change the cash due to the purchase
+            self.cash=self.cash-int(self.purquantity)*int(self.F.yasuo.price)#change the cash due to the purchase
         if fruitname==self.F.orin:
             self.orin.quantity+=purquantity
-            self.cash=self.cash-int(self.orin.quantity)*int(self.F.orin.price)
+            self.cash=self.cash-int(self.purquantity)*int(self.F.orin.price)
         if fruitname==self.F.xerathq:
             self.xerathq.quantity+=purquantity
-            self.cash=self.cash-int(self.xerathq.quantity)*int(self.F.xerathq.price)
+            self.cash=self.cash-int(self.purquantity)*int(self.F.xerathq.price)
         if fruitname==self.F.kaz:
             self.kaz.quantity+=purquantity
-            self.cash=self.cash-int(self.kaz.quantity)*int(self.F.kaz.price)        
+            self.cash=self.cash-int(self.purquantity)*int(self.F.kaz.price)        
         if fruitname==self.F.lux:
             self.lux.quantity+=purquantity
-            self.cash=self.cash-int(self.lux.quantity)*int(self.F.lux.price)        
+            self.cash=self.cash-int(self.purquantity)*int(self.F.lux.price)        
         self.I=[self.yasuo,self.orin,self.xerathq,self.kaz,self.lux]
     def display(self):#creat the display function
-        print(self.name,self.cash)#show the name of the shopper and his or her cash
+        print(self.name,"cash:",self.cash)#show the name of the shopper and his or her cash
         print("fruit in bag")
         for i in range (0,len(self.I)):#show the fruit names and quantities in the inventory
             print(self.I[i].name,self.I[i].quantity)
@@ -88,9 +89,49 @@ class shopper():#creat a neew class
         for i in range (0,len(self.I)):#show the fruit names and quantities in the fruitstand
             
             print(self.F.fruitlist[i].name,self.F.fruitlist[i].quantity)
-kalierina=shopper("noone",200)#creat a shopper
-k=kalierina.F.purchase("noone",kalierina.cash,kalierina.F.yasuo,5)#let the shopper buy 5 yasuo
+'''
+kalierina=shopper("kalierina",200)#creat a shopper
+k=kalierina.F.purchase("kalierina",kalierina.cash,kalierina.F.yasuo,2)#let the shopper buy 5 yasuo
 kalierina.update(k[0],k[1])#update the information
 kalierina.display()
 kalierina.F.display()
+'''
+willing= True
+shoppername=input("what is your name")
+shoppercash=input("how much cash do you have")
+Shopper=shopper(shoppername,int(shoppercash))
+while willing == True:
+    Shopper.F.display()
+    fruitN=input("which fruit do you want")
+    fruitQ=input("how many do you want")
+    if fruitN== "yasuo":
+        s=Shopper.F.purchase(shoppername,Shopper.cash,Shopper.F.yasuo,int(fruitQ))   
+        Shopper.update(s[0],s[1])
+    if fruitN== "orin":
+        s=Shopper.F.purchase(shoppername,Shopper.cash,Shopper.F.orin,int(fruitQ))   
+        Shopper.update(s[0],s[1])
+    if fruitN== "xerathq":
+        s=Shopper.F.purchase(shoppername,Shopper.cash,Shopper.F.xerathq,int(fruitQ))   
+        Shopper.update(s[0],s[1])
+    if fruitN== "kaz":
+        s=Shopper.F.purchase(shoppername,Shopper.cash,Shopper.F.kaz,int(fruitQ))   
+        Shopper.update(s[0],s[1])
+    if fruitN== "lux":
+        s=Shopper.F.purchase(shoppername,Shopper.cash,Shopper.F.lux,int(fruitQ))   
+        
+        Shopper.update(s[0],s[1])
+    Shopper.display()
+    w = input("continue buying,yes/no")
+    if w == "yes":
+        willing = True
+    else:
+        willing = False
+
+print("thank you for buying!")
+print("this is your current situation")
+Shopper.display()
+        
+        
     
+ 
+ 

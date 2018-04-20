@@ -73,7 +73,7 @@ b=[]
 list1=[]
 for i in range(0,1000):
     list1.append(int(random.random()*1000))
-print(bubbleSort(list1))
+print(mergeSort(list1))
 #print(selectionSort(list1))
 #print(insertionSort(list1))
 #print(mergeSort(list1))

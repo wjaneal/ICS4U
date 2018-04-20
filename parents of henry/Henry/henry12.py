@@ -19,7 +19,7 @@ class recursion: #This create a class for three recursive algorithms
             return 1
         else:
             return N*self.factorial(N-1)
-        n
+
     def hanoi(self,n, source, helper, target):#This defines a function for playing the Towers of Hanoi game.
         if n==1 :
             self.count+=1
@@ -29,7 +29,7 @@ class recursion: #This create a class for three recursive algorithms
             self.hanoi(n-1, source, target, helper)
             self.hanoi(1, source, helper, target)
             #move tower of size n - 1 from helper to target
-            self.hanoi(n-1,helper, source, target)
+            self.hanoi(n-1,helper/, source, target)
 
     def Fibonacci(self,n):#This defines a function for calculating the Fibonacci sequence.
         if n == 1 or n == 2: # The first and second item in the Fibonacci sequence are 1.
