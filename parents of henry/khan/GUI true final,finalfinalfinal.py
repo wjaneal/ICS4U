@@ -9,13 +9,14 @@ variables: VideoSignal,cap,run_video,self.ip,height,width, motor1,motor2,motor3,
 '''
 import sys
 from PyQt5.QtWidgets import (QWidget, QProgressBar, 
-    QPushButton, QApplication)
+    QPushButton, QApplication,QTextEdit,QFileDialog)
 from PyQt5.QtCore import QBasicTimer
 from networktables import NetworkTables 
 import logging
 logging.basicConfig(level=logging.DEBUG)
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import pyqtSignal
+from PyQt5.QtCore import pyqtSignal,Qt
+from PyQt5.QtGui import QPainter,QPen
 import cv2
 #This is to import the modules
 class ShowVideo(QtCore.QObject):
@@ -61,6 +62,12 @@ class GUI(QWidget):
         painter = QtGui.QPainter(self)
         painter.drawImage(0,0, self.image)
         self.image = QtGui.QImage()
+        '''
+        qp=QPainter()
+        qp.begin(self)
+        self.drawLines(qp)
+        qp.end()
+        '''
     def setImage(self, image):
         if image.isNull():#This is when there is no image
             print("Viewer Dropped frame!")
@@ -69,6 +76,13 @@ class GUI(QWidget):
         if image.size() != self.size():
             self.setFixedSize(image.size())#This is to show the image
         self.update()
+        '''
+    def drawLines(self,qp):
+        pen=QPen(Qt.black,2,Qt.SolidLine)
+        qp.setPen(pen)
+        qp.drawLine(200,400,1500,400)
+        print("i drawed but there is no lines")
+        '''
         
     def initUI(self):#This is to set up some widgets
         #This is to display the motors
@@ -158,11 +172,9 @@ class GUI(QWidget):
         self.auto8.setGeometry(880,670,40,40)
         self.auto8.setText('8')
         self.auto8.clicked.connect(self.A8)
-        self.auto8.setGeometry(920,670,40,40)
         self.auto9 = QPushButton(self)
+        self.auto9.setGeometry(920,670,40,40)
         self.auto9.setText('9')
-        self.auto9.clicked.connect(self.A8)
-        self.auto9.setGeometry(960,670,40,40)
         self.auto9.clicked.connect(self.A9)
         #This is to show the currently used autonomous code
         self.ToBe = QPushButton(self)
@@ -192,9 +204,12 @@ class GUI(QWidget):
         self.driFac= QtWidgets.QLabel(self)
         self.driFac.setGeometry(800,170,200,50)
         self.driFac.setText('driver factor:')
-        
-        
-        
+        #choose and show the intruction document
+        self.tx=QTextEdit(self)
+        self.tx.setGeometry(400,300,500,300)
+        self.stx=QPushButton('select document',self)
+        self.stx.setGeometry(450,250,100,50)
+        self.stx.clicked.connect(self.openfile)
         #This is to start the timer event
         self.timer = QBasicTimer()
         self.step = 0
@@ -205,7 +220,13 @@ class GUI(QWidget):
         
         
         self.show()
-        
+    def openfile(self):#open a text file
+        fname = QFileDialog.getOpenFileName(self,'open file','./')#get the file name
+        if fname[0]:
+            with open(fname[0],'r',encoding='gb18030',errors='ignore') as f:#detect whether it is a text file?not sure
+                self.tx.setText(f.read())
+        #this seems to be working but the text box just shows random charaters....?????????????????
+        #why????????????????????????????????????????????????????????????????????????????????
         
     def timerEvent(self, e):
         #This is to put the numbers into networkktable
@@ -278,6 +299,17 @@ class GUI(QWidget):
     #This is to show the whole thing
 if __name__ == '__main__':
     app = QtWidgets.QApplication(sys.argv)
+    
+    #this is to put an image of our robot in to the gui
+    
+    #however, the filename seems to be in wrong format
+    
+    #w=QtWidgets.QWidget()
+    #photo=QtWidgets.QLabel(w)
+    #png=QtGui.QPixelFormat('C:\Users\simet\Desktop\untitled.jpg')
+    #photo.setPixmap(png)
+    
+    #establish the vedio window
     thread = QtCore.QThread()
     thread.start()
     vid = ShowVideo()
@@ -302,5 +334,4 @@ if __name__ == '__main__':
     main_window.setCentralWidget(layout_widget)
     main_window.show()
     sys.exit(app.exec_())
-    ex = GUI()
-    sys.exit(app.exec_())
+   
