@@ -77,7 +77,7 @@ while state!="E":
     print("input C to buy fruit or to continue")
     print("input E to end")#choose continue or end
     fruit_wanted=""
-    while fruit_wanted!="apple" or "banana" or "watermelon"or "pear" or "grape":#loop until the fruit chosen is available
+    while fruit_wanted!="apple" or !="banana" or !="watermelon"or !="pear" or !="grape":#loop until the fruit chosen is available
         fruit_wanted=input("fruit You want: ")
         
     fruitquantity_wanted=-1
