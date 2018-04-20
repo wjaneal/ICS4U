@@ -77,7 +77,7 @@ class GUI(QWidget):
             self.setFixedSize(image.size())#This is to show the image
         self.update()
         '''
-    def drawLines(self,qp):
+    def drawLines(self,qp):# the lines are used to visialize the gyro value..by making the lines pointing to different directions
         pen=QPen(Qt.black,2,Qt.SolidLine)
         qp.setPen(pen)
         qp.drawLine(200,400,1500,400)
