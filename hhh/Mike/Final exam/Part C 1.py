@@ -5,6 +5,9 @@ Created on Wed Apr 18 12:39:49 2018
 @author: xuyingjie
 """
 
+import random
+import time
+
 class sort():
     
     #This is to define a new function for select sorting
