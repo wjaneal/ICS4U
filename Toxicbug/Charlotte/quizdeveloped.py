@@ -56,14 +56,14 @@ class Quiz:
         if len(self.day)==1:
             self.day="0"+self.day
         if len(self.hour)==1:
-            self.day="0"+self.day
+            self.hour="0"+self.hour
         if len(self.minute)==1:
             self.minute="0"+self.minute
         if len(self.second)==1:
             self.second="0"+self.second
         #This generates the format needed for the time in the file name.
         self.timeTotal=self.year+self.month+self.day+self.hour+self.minute+self.second 
-    
+
     def saveFile(self):
         #This saves the file.
         self.getDate()
