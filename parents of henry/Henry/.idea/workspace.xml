@@ -11,91 +11,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="henry4.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry4.py">
+      <file leaf-file-name="Fruit Stand.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/ICS Final/Fruit Stand.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-              <folding>
-                <element signature="e#429#447#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="henry6.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry6.py">
-          <provider selected="true" editor-type-id="text-editor" />
-        </entry>
-      </file>
-      <file leaf-file-name="henry9.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry9.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="627">
-              <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="henry10.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry10.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="323">
-              <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="henry11.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry11.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="19">
-              <caret line="88" selection-start-line="88" selection-end-line="88" />
-              <folding>
-                <element signature="e#658#671#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="henry12.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/henry12.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="589">
-              <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Fruit Stand.py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Fruit Stand.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="190">
-              <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PartC 1..py" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <caret selection-end-line="2" />
-              <folding>
-                <element signature="e#0#13#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Part C 1.d.py" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="304">
-              <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-              <folding>
-                <element signature="e#1#14#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="337">
+              <caret line="25" selection-start-line="25" selection-end-line="25" />
             </state>
           </provider>
         </entry>
@@ -109,6 +29,14 @@
       </list>
     </option>
   </component>
+  <component name="FindInProjectRecents">
+    <replaceStrings>
+      <replace />
+    </replaceStrings>
+    <dirStrings>
+      <dir>C:\Users\kashu\Documents\GitHub\ICS4U\parents of henry\Henry</dir>
+    </dirStrings>
+  </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
@@ -118,6 +46,8 @@
         <option value="$PROJECT_DIR$/henry12.py" />
         <option value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/part.py" />
         <option value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py" />
+        <option value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 3..py" />
+        <option value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/c.py" />
       </list>
     </option>
   </component>
@@ -131,6 +61,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -140,22 +71,18 @@
             </path>
             <path>
               <item name="Henry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PycharmProjects" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="Henry" type="b2602c69:ProjectViewProjectNode" />
-              <item name="PycharmProjects" type="462c0819:PsiDirectoryNode" />
+              <item name="Henry" type="462c0819:PsiDirectoryNode" />
               <item name="ICS Final" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../../PycharmProjects" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/ICS Final/Fruit Stand.py" />
+    <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -169,8 +96,26 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.Part C 1.d">
-    <configuration name="Part C 1.d" type="PythonConfigurationType" factoryName="Python" temporary="true">
+  <component name="RunManager" selected="Python.FruitStand">
+    <configuration name="FruitStand" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PycharmProjects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\kashu\Documents\PycharmProjects\ICS Final Assignment\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/ICS Final" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/ICS Final/Fruit Stand.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="true" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="FruitStand2" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -182,25 +127,43 @@
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final Assignment/FruitStand2.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
       <option name="MODULE_MODE" value="false" />
     </configuration>
-    <configuration name="henry10" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="Henry" />
+    <configuration name="Part C 3." type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PycharmProjects" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
       <envs>
         <env name="PYTHONUNBUFFERED" value="1" />
       </envs>
       <option name="SDK_HOME" value="C:\Users\kashu\Documents\PycharmProjects\ICS Final Assignment\venv\Scripts\python.exe" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final" />
       <option name="IS_MODULE_SDK" value="false" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/henry10.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 3..py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+    </configuration>
+    <configuration name="Test(Part C for a)" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="PycharmProjects" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="C:\Users\kashu\Documents\PycharmProjects\ICS Final Assignment\venv\Scripts\python.exe" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/../../Shutupandbounce/Peter/Final Test" />
+      <option name="IS_MODULE_SDK" value="false" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/../../Shutupandbounce/Peter/Final Test/Test(Part C for a).py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -226,14 +189,18 @@
     </configuration>
     <list>
       <item itemvalue="Python.henry11" />
-      <item itemvalue="Python.henry10" />
-      <item itemvalue="Python.Part C 1.d" />
+      <item itemvalue="Python.Part C 3." />
+      <item itemvalue="Python.Test(Part C for a)" />
+      <item itemvalue="Python.FruitStand" />
+      <item itemvalue="Python.FruitStand2" />
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.Part C 1.d" />
+        <item itemvalue="Python.FruitStand" />
+        <item itemvalue="Python.FruitStand2" />
         <item itemvalue="Python.henry11" />
-        <item itemvalue="Python.henry10" />
+        <item itemvalue="Python.Test(Part C for a)" />
+        <item itemvalue="Python.Part C 3." />
       </list>
     </recent_temporary>
   </component>
@@ -252,17 +219,18 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-7" y="-7" width="1721" height="935" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="1" visible="true" weight="0.09724663" />
+      <window_info content_ui="combo" id="Project" order="1" visible="true" weight="0.18980668" />
       <window_info anchor="bottom" id="TODO" order="10" />
-      <window_info anchor="bottom" id="Event Log" order="0" side_tool="true" />
+      <window_info active="true" anchor="bottom" id="Event Log" order="0" sideWeight="0.5002929" side_tool="true" visible="true" weight="0.30291972" />
+      <window_info anchor="bottom" id="Run" order="6" sideWeight="0.4997071" weight="0.24087591" />
       <window_info anchor="bottom" id="Version Control" order="1" show_stripe_button="false" />
       <window_info anchor="bottom" id="Python Console" order="2" />
-      <window_info anchor="bottom" id="Run" order="6" weight="0.22871046" />
       <window_info id="Structure" order="2" side_tool="true" weight="0.25" />
       <window_info anchor="bottom" id="Terminal" order="3" />
-      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="7" weight="0.4" />
+      <window_info id="Favorites" order="0" side_tool="true" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info anchor="right" id="Commander" order="0" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -281,13 +249,74 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/ICS Final/Fruit Stand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="475">
+          <caret line="25" lean-forward="true" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py" />
+    <entry file="file://$PROJECT_DIR$/henry11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1672">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/henry12.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Fruit Stand.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 3..py" />
+    <entry file="file://$PROJECT_DIR$/henry4.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/henry9.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="627">
+          <caret line="33" column="2" selection-start-line="33" selection-start-column="2" selection-end-line="33" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/henry10.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="722">
+          <caret line="38" column="13" selection-start-line="38" selection-start-column="13" selection-end-line="38" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/henry11.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1653">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/henry12.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="589">
+          <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Fruit Stand.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py" />
     <entry file="file://$PROJECT_DIR$/henry4.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="31" column="12" lean-forward="true" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding>
-            <element signature="e#429#447#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -309,9 +338,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1653">
           <caret line="88" lean-forward="true" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="e#658#671#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -321,9 +347,6 @@
           <caret line="64" column="38" lean-forward="true" selection-start-line="64" selection-start-column="38" selection-end-line="64" selection-end-column="38" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/henry6.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/henry1.py">
       <provider selected="true" editor-type-id="text-editor">
@@ -362,29 +385,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="570">
           <caret line="31" column="12" selection-start-line="31" selection-start-column="12" selection-end-line="31" selection-end-column="12" />
-          <folding>
-            <element signature="e#429#447#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/henry6.py">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/henry12.py">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="589">
           <caret line="31" column="34" selection-start-line="31" selection-start-column="34" selection-end-line="31" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/henry11.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="19">
-          <caret line="88" selection-start-line="88" selection-end-line="88" />
-          <folding>
-            <element signature="e#658#671#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -395,35 +402,53 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Fruit Stand.py">
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 3..py" />
+    <entry file="file://$PROJECT_DIR$/henry11.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="190">
-          <caret line="10" lean-forward="true" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="19">
+          <caret line="88" selection-start-line="88" selection-end-line="88" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/part.py">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py">
+    <entry file="file://$PROJECT_DIR$/../../Shutupandbounce/Peter/Final Test/FruitStand for Test(Incluede in all Part in Part A).py">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="2" />
-          <folding>
-            <element signature="e#0#13#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="95">
+          <caret line="29" column="8" selection-start-line="29" selection-start-column="8" selection-end-line="29" selection-end-column="8" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py">
+    <entry file="file://$PROJECT_DIR$/../../Shutupandbounce/Peter/FruitStand.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="55" column="37" lean-forward="true" selection-start-line="55" selection-start-column="37" selection-end-line="55" selection-end-column="37" />
-          <folding>
-            <element signature="e#1#14#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="114">
+          <caret line="27" column="45" selection-start-line="27" selection-start-column="45" selection-end-line="27" selection-end-column="45" />
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Part C 1.d.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/Fruit Stand.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/FruitStand2.py" />
+    <entry file="file://$PROJECT_DIR$/../../../../PycharmProjects/ICS Final/PartC 1..py" />
+    <entry file="file://$PROJECT_DIR$/ICS Final/Fruit Stand.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="337">
+          <caret line="25" selection-start-line="25" selection-end-line="25" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ScopeChooserConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
   </component>
 </project>
