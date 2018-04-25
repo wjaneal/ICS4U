@@ -1,11 +1,17 @@
-'''
+/*
 h1 a {
     color: #648A3B;
     font-family:'Alfa Slab One', cursive;
 }
-'''
+*/
+a {
+    color: #5D4037;
+}
 body {
-    background: url("/static/css/images/background.png") no-repeat fixed
+    background-image : url("/static/css/images/background.png");
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-size: cover;
     padding-left: 25px;
 }
 
@@ -22,8 +28,6 @@ body {
 }
 
 .content {
-background: url("/static/css/images/background.png") no-repeat fixed;
-
     margin-left: 40px;
 }
 
