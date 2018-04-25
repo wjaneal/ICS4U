@@ -1,0 +1,26 @@
+Part2: Transaction and Blockchain
+People in charge: Jeffrey and Mike
+
+PublicKey and PrivateKey: 
+Get the PublicKey of both buyer and seller from the Database.
+Generate PrivateKey
+
+Blockchain:
+Buyer should verify whether the user has gold coins which would be transacted. (Check every previous transactions)
+
+Encryption for transaction: (PrivateKey and PublicKey)
+By using the source code from the internet (initial plan: base 64) to encrypt the detailed information of transaction.
+Pass the encrypted information to the Database.
+Merge the process to the web page.
+
+Decryption for transaction:
+By using the source code from the internet to decrypt the encrypted information of transaction from the Database. (This process should be connected with the process of encryption)
+After the processes of both encryption and decryption proved, the whole transaction is completed.
+Modify the account information and change it in the Database. (This the balance of the user’s account)
+Record the whole process in the blockchain.
+
+Generate Private Address:
+Encrypt the information when the data is generated.
+
+Recording transaction:
+All the transaction should be recorded in the Database
