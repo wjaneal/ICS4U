@@ -1,4 +1,4 @@
-# -*- coding: utf-8 -*-
+                                    # -*- coding: utf-8 -*-
 """
 Created on Thu Mar 22 13:41:58 2018
 
@@ -7,6 +7,7 @@ Created on Thu Mar 22 13:41:58 2018
 
 class Basic: #This creates a class
 
+    #This is the part of encryption
     def convert_to_binary(self,originString): #This defines convert the origin string to binary string
         self.binaryString = '' #This creates a string
         for i in range (len(originString)): #This loop convert each character in the string into the binary
@@ -28,24 +29,25 @@ class Basic: #This creates a class
             if len(self.listB[j]) == 7: #This if statement changes the binary with 7 digits to 8 digits
                 self.listB[j] = '0' + self.listB[j] #This adds one zero before each binary string with 7 digits
 
-        for i in range (len(self.listB)): 
-            x = self.listB[i][:4]
-            y = self.listB[i][4:]
-            self.listB[i] = y + x
+        for i in range (len(self.listB)):#This is used to change the binary number of each character
+            x = self.listB[i][:4]#This selects first 4 characters
+            y = self.listB[i][4:]#This selects last 4 characters
+            self.listB[i] = y + x#This changes the order
             
-        for z in range (len(self.listB)):
+        for z in range (len(self.listB)):#This changes the new binary to the characters
             self.chaosString += chr(int(self.listB[z],2))
 
-        print(self.chaosString)
+        print(self.chaosString)#This prints the chaosString
         return self.chaosString
         
-    def chaos_to_binary(self):
-        self.listC = []
-        self.decodeString = ''
+    #This is the part of decryption
+    def chaos_to_binary(self):#This defines convert the binary string to chaos string
+        self.listC = []#This creates an empty list
+        self.decodeString = ''#This creates an empty string
         self.chaosString = ' '.join(format(ord(x),'b')for x in self.chaosString)
-        self.listC = self.chaosString.split(' ')
+        self.listC = self.chaosString.split(' ')#This splits the long string
 
-        for j in range (len(self.listC)):
+        for j in range (len(self.listC)): #This loop changes all the binary to 8 digits
             if len(self.listC[j]) == 1:
                 self.listC[j] = '0000000' + self.listC[j]
             if len(self.listC[j]) == 2:
@@ -61,10 +63,10 @@ class Basic: #This creates a class
             if len(self.listC[j]) == 7:
                 self.listC[j] = '0' + self.listC[j]
 
-        for i in range (len(self.listC)):
-            x = self.listC[i][:4]
-            y = self.listC[i][4:]
-            self.listC[i] = y + x
+        for i in range (len(self.listC)):#This is used to change back the binary number of each character
+            x = self.listC[i][:4]#This selects first 4 characters
+            y = self.listC[i][4:]#This selects last 4 characters
+            self.listC[i] = y + x#This changes the order
             self.decodeString += chr(int(self.listC[i],2))
 
         print(self.decodeString)
