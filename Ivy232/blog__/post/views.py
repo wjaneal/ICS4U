@@ -16,6 +16,7 @@ def post_detail(request,pk):
 #This is to get detail page or show the 404-not-found page.
     return render(request, 'post/post_detail.html', {'post':post})
 #This is to create a route directing to corresponding detail pages.
+
 def post_new(request):
     form = PostForm()
     return render(request, 'post/post_edit.html', {'form': form})
