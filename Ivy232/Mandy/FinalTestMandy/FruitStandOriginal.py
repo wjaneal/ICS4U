@@ -6,21 +6,21 @@ Created on Wed Apr 11 13:15:26 2018
 @author: xuwentong
 """
         
-class fruit:
+class fruit: # define fruit: all the fruits have fruit name, quantity and price.
 
     def __init__(self, fruitName, quantity, price):
         self.fruitName = fruitName
         self.quantity = quantity
         self.price = price
         
-    def getName(self):
+    def getName(self): # get name of the fruit(variable).
         print ('%s: %s, %s' % (self.name,self.quantity,self.price))
-    def getQuantity(self):
+    def getQuantity(self): # get the quantity of the fruit(variable).
         print ('%s: %s' % (self.name,self.quantity))
-    def getPrice(self):
+    def getPrice(self): # get the Price of the fruit(variable).
         print ('%s: %s' % (self.name,self.price))
 
-class fruitstand():
+class fruitstand(): # define a fruitstand：a list to hold the fruits.
 
     def __init__(self, list):
         self.F=[]
@@ -30,31 +30,30 @@ class fruitstand():
         self.F.append(fruit("avocado",510,2))
         self.F.append(fruit("strawberry",60,5))
 
-    def purchase(self,fruitName, shopperName, quantity):
+    def purchase(self,fruitName, shopperName, quantity): # buy function
     
-        if shopperName.cash >= (fruitName.price*int(quantity)):
-            if quantity <= fruitName.quantity:
+        if shopperName.cash >= (fruitName.price*int(quantity)): # judge whether shopper has enough money.
+            if quantity <= fruitName.quantity: # judge whether fruitstand stores enough fruit.
                 return(fruitName.name,str(quantity))
                 
             else:
-                quantity = fruitName.quantity
+                quantity = fruitName.quantity # if not, tell the shopper how many (max) this fruit he/she can buy.
                 return (fruitName.name,str(quantity))
         else:
             quantity = str(shopper.cash / fruit.price)
             return (fruitName.name, str(quantity))
-        #def buy(a,b,c,d):
-           #fruit(apple)=fruit(apple)-a
+       
         def get():
             return quantity
-class shopper():
+class shopper(): # define shoppers with name and cash
     def __init__(self,shopperName,cash,I):
         self.name = shopperName
         self.cash = cash
         # Check....self.FS = fruitstand()
         F = input("") 
-        self.FS = fruitstand(F)
+        self.FS = fruitstand(F) # import data of fruitstand/ Shoppers stand by the fruitstand.
         #self.FS.F[2].name
-        self.I=[]
+        self.I=[] # "Shopper cart"
         '''
         I.append(fruit("apple", 0,1))
         I.append(fruit("banana",0,2))
@@ -75,14 +74,16 @@ class shopper():
                 self.I[index].quantity += quantity
                 self.cash = self.cash - fruitName.price * quantity
         '''
-        for index in (0,len(self.I)):
-            if self.I[index].fruitName == self.F.fruitName:
-                self.FS.F[index].quantity -= fruitstand.get().quantity
-                self.I[index].quantity += quantity
-                self.cash = self.cash - fruitName.price * quantity
-    def display():
+        for index in (0,len(self.I)): # Update the infor. for what you buy
+            if self.I[index].fruitName == self.F.fruitName: # find out the fruit in the fruitstand
+                self.FS.F[index].quantity -= fruitstand.get().quantity # take out from the fruitstand
+                self.I[index].quantity += quantity # put into your cart
+                self.cash = self.cash - fruitName.price * quantity # pay the money
+    def display(): # Demonstrate the infor. for what you buy
         print(self.shoppeName, self.cash, I,F)
-    
+        
+###########information: database###############
+#there is a shopper S whose name is Simon. He has $100. He wants to buy the fruit.        
 S = shopper("simon",100,[])
 #S.update("apple")
 apple = fruit("apple", 45, 1)
